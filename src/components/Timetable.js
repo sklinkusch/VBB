@@ -6,7 +6,7 @@ export default class Timetable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStop: stops[0],
+      currentStop: stops[0].id,
       data: null
     };
     // this.getData();
@@ -20,13 +20,13 @@ export default class Timetable extends Component {
       .then(departures => this.saveData(departures))
       .catch(console.error);
   }
-  handleChange(e) {
-    this.setState({ currentStop: e.target.value });
-  }
+  handleChange = value => {
+    this.setState({ currentStop: value });
+  };
   render() {
     return (
       <div>
-        <select onChange={this.handleChange}>
+        <select onChange={event => this.handleChange(event.target.value)}>
           {stops.map(stop => (
             <option key={stop.id} value={stop.id}>
               {stop.name}
