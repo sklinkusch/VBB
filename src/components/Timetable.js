@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import createHafas from "vbb-hafas";
+import createCollectDeps from "hafas-collect-departures-at";
 import stops from "./stops";
 
 export default class Timetable extends Component {
@@ -9,19 +10,26 @@ export default class Timetable extends Component {
       currentStop: stops[0].id,
       data: null
     };
-    // this.getData();
+    this.getData();
   }
   getData() {
-    const stopid = this.state.currentStop.id;
-    //const stopname = this.state.currentStop.name;
+    const stopid = this.state.currentStop;
     const hafas = createHafas("my-awesome-program");
-    hafas
-      .departures(stopid, { duration: 60 })
-      .then(departures => this.saveData(departures))
-      .catch(console.error);
+    const collectDeps = createCollectDeps(hafas.departures);
+    const depsAt = collectDeps(stopid, Date.now());
+
+    const fetchDeps = async () => {
+      let iterations = 0;
+      for await (let deps of depsAt) {
+        if (++iterations > 2) break;
+        console.log(deps);
+      }
+    };
+    fetchDeps().catch(console.error);
   }
   handleChange = value => {
     this.setState({ currentStop: value });
+    this.getData();
   };
   render() {
     return (
@@ -38,6 +46,7 @@ export default class Timetable extends Component {
     );
   }
   saveData = data => {
+    console.log(data);
     this.setState({ data: data });
   };
 }
