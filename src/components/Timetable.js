@@ -10,7 +10,7 @@ export default class Timetable extends Component {
       currentStop: stops[0].id,
       data: null
     };
-    this.getData();
+    // this.getData();
   }
   getData() {
     const stopid = this.state.currentStop;
