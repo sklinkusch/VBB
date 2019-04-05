@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import createHafas from "vbb-hafas";
+import stops from "./stops";
 
 export default class Timetable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stops: [{ id: "900000160541", name: "Josef-Orlopp-Str./Vulkanstr." }],
-      currentStop: { id: "900000160541", name: "Josef-Orlopp-Str./Vulkanstr." },
+      currentStop: stops[0],
       data: null
     };
-    this.getData();
+    // this.getData();
   }
   getData() {
     const stopid = this.state.currentStop.id;
@@ -27,7 +27,7 @@ export default class Timetable extends Component {
     return (
       <div>
         <select onChange={this.handleChange}>
-          {this.state.stops.map(stop => (
+          {stops.map(stop => (
             <option key={stop.id} value={stop.id}>
               {stop.name}
             </option>
