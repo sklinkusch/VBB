@@ -13,7 +13,11 @@
   flex: 0 0 30px;
   text-align: right;
 }
-.mean {
+.mean,
+.barrier,
+.bike,
+.warning,
+.status {
   flex: 0 0 20px;
 }
 .line {

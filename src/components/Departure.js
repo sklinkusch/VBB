@@ -3,6 +3,8 @@ import Product from "./Product";
 import "../styles/Departure.css";
 import Barrier from "./Barrier";
 import Bike from "./Bike";
+import Warning from "./Warning";
+import Status from "./Status";
 
 export default class Departure extends Component {
   getDelay(delay, cancelled) {
@@ -76,6 +78,8 @@ export default class Departure extends Component {
         <div className="stophere">{stop}</div>
         <Barrier remarks={remarks} />
         <Bike remarks={remarks} />
+        <Warning remarks={remarks} />
+        <Status remarks={remarks} />
       </div>
     );
   }
