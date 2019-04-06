@@ -1,37 +1,29 @@
 import React, { Component } from "react";
-import createHafas from "vbb-hafas";
-import createCollectDeps from "hafas-collect-departures-at";
 import stops from "./stops";
+import Departure from "./Departure";
+const createHafas = require("vbb-hafas");
 
 export default class Timetable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStop: stops[0].id,
       data: null
     };
-    // this.getData();
+    this.getData(stops[0].id);
   }
-  getData() {
-    const stopid = this.state.currentStop;
+  getData(stopid) {
     const hafas = createHafas("my-awesome-program");
-    const collectDeps = createCollectDeps(hafas.departures);
-    const depsAt = collectDeps(stopid, Date.now());
 
-    const fetchDeps = async () => {
-      let iterations = 0;
-      for await (let deps of depsAt) {
-        if (++iterations > 2) break;
-        console.log(deps);
-      }
-    };
-    fetchDeps().catch(console.error);
+    hafas
+      .departures(stopid, { duration: 60 })
+      .then(departures => this.saveData(departures))
+      .catch(console.error);
   }
   handleChange = value => {
-    this.setState({ currentStop: value });
-    this.getData();
+    this.getData(value);
   };
   render() {
+    const data = this.sortData();
     return (
       <div>
         <select onChange={event => this.handleChange(event.target.value)}>
@@ -41,7 +33,16 @@ export default class Timetable extends Component {
             </option>
           ))}
         </select>
-        <div />
+        <div>
+          {data != null ? (
+            data.map(dep => {
+              const identifier = `${dep.stop.id}:${dep.tripId}`;
+              return <Departure dep={dep} key={identifier} />;
+            })
+          ) : (
+            <div>{data}</div>
+          )}
+        </div>
       </div>
     );
   }
@@ -49,4 +50,16 @@ export default class Timetable extends Component {
     console.log(data);
     this.setState({ data: data });
   };
+  sortData() {
+    if (this.state.data != null)
+      return this.state.data.sort((a, b) => {
+        if (a.stop.name.toLowerCase() < b.stop.name.toLowerCase()) {
+          return -1;
+        } else if (b.stop.name.toLowerCase() < a.stop.name.toLowerCase()) {
+          return +1;
+        } else {
+          return 0;
+        }
+      });
+  }
 }

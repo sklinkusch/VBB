@@ -1,0 +1,30 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+.plantime,
+.realtime {
+  flex: 0 0 40px;
+  text-align: center;
+}
+.delay {
+  flex: 0 0 30px;
+  text-align: right;
+}
+.mean {
+  flex: 0 0 20px;
+}
+.line {
+  flex: 0 0 80px;
+  text-align: left;
+}
+.direction {
+  flex: 0 0 300px;
+  text-align: left;
+}
+.stophere {
+  flex: 0 0 350px;
+  text-align: left;
+}
