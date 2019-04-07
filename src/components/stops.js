@@ -313,7 +313,23 @@ const stops = [
   { id: "900000260003", name: "S Zeuthen" },
   { id: "900000033101", name: "U Zitadelle" },
   { id: "900000023201", name: "S+U Zoologischer Garten" },
-  { id: "900000083101", name: "U Zwickauer Damm" }
+  { id: "900000083101", name: "U Zwickauer Damm" },
+  { id: "900000032402", name: "Alt-Pichelsdorf" },
+  { id: "900000024104", name: "Amtsgerichtsplatz" },
+  { id: "900000025301", name: "Flatowallee/Olympiastadion" },
+  { id: "900000032106", name: "Gatower Str./Heerstr." },
+  { id: "900000037203", name: "Hahneberg" },
+  { id: "900000026251", name: "Haus des Rundfunks" },
+  { id: "900000037207", name: "Heerstr./Magistratsweg" },
+  { id: "900000037211", name: "Heerstr./Nennhauser Damm" },
+  { id: "900000032102", name: "Heerstr./Wilhelmstr." },
+  { id: "900000004181", name: "Hertzallee" },
+  { id: "900000024108", name: "Kaiser-Friedrich-Str./Kantstr." },
+  { id: "900000024207", name: "Kantstr./Leibnizstr." },
+  { id: "900000026208", name: "Masurenallee/ZOB" },
+  { id: "900000037204", name: "Reimerweg" },
+  { id: "900000037202", name: "Sandstr." },
+  { id: "900000025101", name: "Scholzplatz" }
 ];
 
 export default stops;
