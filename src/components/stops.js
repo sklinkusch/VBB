@@ -317,6 +317,7 @@ const stops = [
   { id: "900000170006", name: "Ahrensfelde/Stadtgrenze" },
   { id: "900000170019", name: "Allee der Kosmonauten/Poelchaustr." },
   { id: "900000171008", name: "Allee der Kosmonauten/Rhinstr." },
+  { id: "900000161004", name: "Alt-Friedrichsfelde/Rhinstr." },
   { id: "900000170516", name: "Alt-Marzahn" },
   { id: "900000032402", name: "Alt-Pichelsdorf" },
   { id: "900000100038", name: "Am Kupfergraben" },
@@ -392,6 +393,7 @@ const stops = [
   { id: "900000100515", name: "Spandauer Str./Marienkirche" },
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000010251", name: "Virchow-Klinikum" },
+  { id: "900000181001", name: "Wilhelminenhofstr./Edisonstr." },
   { id: "900000151003", name: "Zingster Str." }
 ];
 
