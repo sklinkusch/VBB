@@ -323,6 +323,7 @@ const stops = [
   { id: "900000161004", name: "Alt-Friedrichsfelde/Rhinstr." },
   { id: "900000170516", name: "Alt-Marzahn" },
   { id: "900000032402", name: "Alt-Pichelsdorf" },
+  { id: "900000185001", name: "Alt-Schmöckwitz" },
   { id: "900000100038", name: "Am Kupfergraben" },
   { id: "900000024104", name: "Amtsgerichtsplatz" },
   { id: "900000141504", name: "Am Wasserturm" },
@@ -369,6 +370,7 @@ const stops = [
   { id: "900000131527", name: "Hermann-Hesse-Str./Waldstr." },
   { id: "900000004181", name: "Hertzallee" },
   { id: "900000160012", name: "Herzbergstr./Siegfriedstr." },
+  { id: "900000180016", name: "Hirtestr." },
   { id: "900000150011", name: "Hohenschönhauser Str./Weißenseer Weg" },
   { id: "900000134509", name: "Hugenottenplatz" },
   { id: "900000176512", name: "Hultschiner Damm/Seestr." },
@@ -418,10 +420,12 @@ const stops = [
   { id: "900000100515", name: "Spandauer Str./Marienkirche" },
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000010251", name: "Virchow-Klinikum" },
+  { id: "900000186002", name: "Wassersportallee" },
   { id: "900000180015", name: "Wendenschloß" },
   { id: "900000181001", name: "Wilhelminenhofstr./Edisonstr." },
   { id: "900000120518", name: "Wismarplatz" },
-  { id: "900000151003", name: "Zingster Str." }
+  { id: "900000151003", name: "Zingster Str." },
+  { id: "900000185501", name: "Zum Seeblick" }
 ];
 
 export default stops;
