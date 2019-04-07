@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import stops from "./stops";
 import Departure from "./Departure";
+import Tablehead from "./Tablehead";
 const createHafas = require("vbb-hafas");
 
 export default class Timetable extends Component {
@@ -25,7 +26,7 @@ export default class Timetable extends Component {
     this.getData(value);
   };
   handleSubmit = () => {
-    console.log(this.state.value);
+    // console.log(this.state.value);
     this.getData(this.state.value);
   };
   render() {
@@ -41,6 +42,7 @@ export default class Timetable extends Component {
         </select>
         <button onClick={() => this.handleSubmit()}>Refresh</button>
         <div>
+          <Tablehead />
           {data != null ? (
             data.map(dep => {
               const identifier = `${dep.stop.id}:${dep.tripId}.${dep.when}`;
@@ -54,7 +56,7 @@ export default class Timetable extends Component {
     );
   }
   saveData = data => {
-    console.log(data);
+    // console.log(data);
     this.setState({ data: data });
   };
   sortData() {
