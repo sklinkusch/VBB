@@ -7,7 +7,8 @@ export default class Timetable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null
+      data: null,
+      value: stops[0].id
     };
     this.getData(stops[0].id);
   }
@@ -20,7 +21,12 @@ export default class Timetable extends Component {
       .catch(console.error);
   }
   handleChange = value => {
+    this.setState({ value: value });
     this.getData(value);
+  };
+  handleSubmit = () => {
+    console.log(this.state.value);
+    this.getData(this.state.value);
   };
   render() {
     const data = this.sortData();
@@ -33,6 +39,7 @@ export default class Timetable extends Component {
             </option>
           ))}
         </select>
+        <button onClick={() => this.handleSubmit()}>Refresh</button>
         <div>
           {data != null ? (
             data.map(dep => {
