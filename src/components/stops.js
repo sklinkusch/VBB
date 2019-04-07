@@ -150,6 +150,7 @@ const stops = [
   { id: "900000079201", name: "U Leinestr." },
   { id: "900000009102", name: "U Leopoldplatz" },
   { id: "900000160004", name: "S+U Lichtenberg" },
+  { id: "900000160021", name: "S+U Lichtenberg/Gudrunstr." },
   { id: "900000074201", name: "S Lichtenrade" },
   { id: "900000064301", name: "S Lichterfelde Ost" },
   { id: "900000064201", name: "S Lichterfelde Süd" },
@@ -328,6 +329,8 @@ const stops = [
   { id: "900000140006", name: "Berliner Allee/Indira-Gandhi-Str." },
   { id: "900000140013", name: "Berliner Allee/Rennbahnstr." },
   { id: "900000120516", name: "Bersarinplatz" },
+  { id: "900000150518", name: "Betriebshof Indira-Gandhi-Str." },
+  { id: "900000160522", name: "Betriebshof Lichtenberg" },
   { id: "900000170010", name: "Betriebshof Marzahn" },
   { id: "900000171517", name: "Boschpoler Str." },
   { id: "900000120013", name: "Boxhagener Str./Holteistr." },
@@ -396,6 +399,7 @@ const stops = [
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000010251", name: "Virchow-Klinikum" },
   { id: "900000181001", name: "Wilhelminenhofstr./Edisonstr." },
+  { id: "900000120518", name: "Wismarplatz" },
   { id: "900000151003", name: "Zingster Str." }
 ];
 
