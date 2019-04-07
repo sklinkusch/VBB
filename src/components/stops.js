@@ -346,11 +346,15 @@ const stops = [
   { id: "900000171517", name: "Boschpoler Str." },
   { id: "900000120013", name: "Boxhagener Str./Holteistr." },
   { id: "900000180512", name: "Brandenburgplatz" },
+  { id: "900000037103", name: "Brunsbütteler Damm/Nennhauser Damm" },
+  { id: "900000037114", name: "Brunsbütteler Damm/Stadtgrenze" },
   { id: "900000140519", name: "Buschallee" },
   { id: "900000140007", name: "Buschallee/Hansastr." },
+  { id: "900000037109", name: "Döberitzer Weg" },
   { id: "900000066407", name: "Drakestr./Ringstr." },
   { id: "900000152007", name: "Falkenberg" },
   { id: "900000152006", name: "Falkenberger Chaussee/Prendener Str." },
+  { id: "900000037191", name: "Finkenkruger Weg" },
   { id: "900000025301", name: "Flatowallee/Olympiastadion" },
   { id: "900000181003", name: "Freizeit- und Erholungszentrum" },
   { id: "900000032106", name: "Gatower Str./Heerstr." },
@@ -374,6 +378,7 @@ const stops = [
   { id: "900000037207", name: "Heerstr./Magistratsweg" },
   { id: "900000037211", name: "Heerstr./Nennhauser Damm" },
   { id: "900000032102", name: "Heerstr./Wilhelmstr." },
+  { id: "900000037102", name: "Heidebergplan" },
   { id: "900000141001", name: "Heinersdorf" },
   { id: "900000141002", name: "Heinersdorf Kirche" },
   { id: "900000131527", name: "Hermann-Hesse-Str./Waldstr." },
@@ -401,6 +406,7 @@ const stops = [
   { id: "900000051251", name: "Löhleinstr." },
   { id: "900000011201", name: "Louise-Schroeder-Platz" },
   { id: "900000005105", name: "Lützowplatz" },
+  { id: "900000037101", name: "Magistratsweg/Brunsbütteler Damm" },
   { id: "900000074101", name: "Mariendorfer Damm/Buckower Chaussee" },
   { id: "900000083202", name: "Massantebrücke" },
   { id: "900000026208", name: "Masurenallee/ZOB" },
@@ -458,7 +464,8 @@ const stops = [
   { id: "900000096305", name: "Wilhelmsruher Damm/Treuenbrietzener Str." },
   { id: "900000120518", name: "Wismarplatz" },
   { id: "900000151003", name: "Zingster Str." },
-  { id: "900000185501", name: "Zum Seeblick" }
+  { id: "900000185501", name: "Zum Seeblick" },
+  { id: "900000210641", name: "Dallgow-Döberitz, Havelpark" }
 ];
 
 export default stops;
