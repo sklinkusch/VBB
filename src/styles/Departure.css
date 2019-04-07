@@ -13,6 +13,10 @@
   flex: 0 0 30px;
   text-align: right;
 }
+.platform {
+  flex: 0 0 30px;
+  text-align: center;
+}
 .mean,
 .barrier,
 .bike,

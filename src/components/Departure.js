@@ -67,6 +67,7 @@ export default class Departure extends Component {
     const direction = this.props.dep.direction;
     const stop = this.props.dep.stop.name;
     const remarks = this.props.dep.remarks;
+    const platform = this.props.dep.platform;
     return (
       <div className="row" key={this.props.dep.tripId}>
         <div className="plantime">{plantime}</div>
@@ -75,6 +76,7 @@ export default class Departure extends Component {
         <Product product={product} />
         <div className="line">{line}</div>
         <div className="direction">{direction}</div>
+        <div className="platform">{platform}</div>
         <div className="stophere">{stop}</div>
         <Barrier remarks={remarks} />
         <Bike remarks={remarks} />
