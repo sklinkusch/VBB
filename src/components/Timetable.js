@@ -36,7 +36,7 @@ export default class Timetable extends Component {
         <div>
           {data != null ? (
             data.map(dep => {
-              const identifier = `${dep.stop.id}:${dep.tripId}`;
+              const identifier = `${dep.stop.id}:${dep.tripId}.${dep.when}`;
               return <Departure dep={dep} key={identifier} />;
             })
           ) : (
@@ -58,7 +58,28 @@ export default class Timetable extends Component {
         } else if (b.stop.name.toLowerCase() < a.stop.name.toLowerCase()) {
           return +1;
         } else {
-          return 0;
+          const sortingArray = [
+            "express",
+            "regional",
+            "suburban",
+            "subway",
+            "tram",
+            "bus",
+            "ferry"
+          ];
+          if (
+            sortingArray.indexOf(a.line.product) <
+            sortingArray.indexOf(b.line.product)
+          ) {
+            return -1;
+          } else if (
+            sortingArray.indexOf(b.line.product) <
+            sortingArray.indexOf(a.line.product)
+          ) {
+            return +1;
+          } else {
+            return 0;
+          }
         }
       });
   }
