@@ -540,6 +540,7 @@ const stops = [
   { id: "900000002102", name: "Turmstr./Beusselstr." },
   { id: "900000132025", name: "Uhlandstr./Wilhelmsruher Damm" },
   { id: "900000066103", name: "Unter den Eichen/Drakestr." },
+  { id: "900000100513", name: "Unter den Linden/Friedrichstr." },
   { id: "900000016154", name: "Urbanstr./Baerwaldstr." },
   { id: "900000152502", name: "Vincent-van-Gogh-Str." },
   { id: "900000010251", name: "Virchow-Klinikum" },
