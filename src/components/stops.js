@@ -482,6 +482,7 @@ const stops = [
   { id: "900000073241", name: "Nahmitzer Damm/Marienfelder Allee" },
   { id: "900000083181", name: "Neuköllner Str./Zwickauer Damm" },
   { id: "900000131006", name: "Nordend" },
+  { id: "900000004151", name: "Nordische Botschaften/Adenauer-Stiftung" },
   { id: "900000175519", name: "Nossener Str." },
   { id: "900000023304", name: "Olivaer Platz" },
   { id: "900000086105", name: "Ollenhauerstr./Lindauer Allee" },
