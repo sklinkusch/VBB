@@ -476,6 +476,7 @@ const stops = [
   { id: "900000029202", name: "Moritzstr." },
   { id: "900000180014", name: "Müggelbergallee" },
   { id: "900000180005", name: "Müggelheimer Str./Wendenschloßstr." },
+  { id: "900000074207", name: "Nahariyastr." },
   { id: "900000073241", name: "Nahmitzer Damm/Marienfelder Allee" },
   { id: "900000083181", name: "Neuköllner Str./Zwickauer Damm" },
   { id: "900000131006", name: "Nordend" },
