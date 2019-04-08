@@ -374,6 +374,7 @@ const stops = [
   { id: "900000037191", name: "Finkenkruger Weg" },
   { id: "900000100526", name: "Fischerinsel" },
   { id: "900000025301", name: "Flatowallee/Olympiastadion" },
+  { id: "900000087171", name: "Flughafen Tegel (Airport)" },
   { id: "900000260024", name: "Flughafen Schönefeld Terminal (Airport)" },
   { id: "900000181003", name: "Freizeit- und Erholungszentrum" },
   { id: "900000073243", name: "Friedenfelser Str." },
