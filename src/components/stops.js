@@ -332,12 +332,14 @@ const stops = [
   { id: "900000024104", name: "Amtsgerichtsplatz" },
   { id: "900000141504", name: "Am Wasserturm" },
   { id: "900000056105", name: "An der Urania" },
+  { id: "900000049372", name: "Andréezeile" },
   { id: "900000140011", name: "Antonplatz" },
   { id: "900000066301", name: "Appenzeller Str." },
   { id: "900000060105", name: "Auguste-Viktoria-Klinikum Süd" },
   { id: "900000180008", name: "Bahnhofstr./Lindenstr." },
   { id: "900000180009", name: "Bahnhofstr./Seelenbinderstr." },
   { id: "900000170011", name: "Barnimplatz" },
+  { id: "900000049301", name: "Beeskowdamm" },
   { id: "900000069204", name: "Bergholzstr." },
   { id: "900000140006", name: "Berliner Allee/Indira-Gandhi-Str." },
   { id: "900000140013", name: "Berliner Allee/Rennbahnstr." },
@@ -431,6 +433,7 @@ const stops = [
   { id: "900000110021", name: "Kniprodestr./Danziger Str." },
   { id: "900000180012", name: "Köllnischer Platz" },
   { id: "900000026206", name: "Königin-Elisabeth-Str./Spandauer Damm" },
+  { id: "900000051204", name: "Königin-Luise-Str./Clayallee" },
   { id: "900000180022", name: "Krankenhaus Köpenick/Südseite" },
   { id: "900000170013", name: "Landsberger Allee/Blumberger Damm" },
   { id: "900000120016", name: "Landsberger Allee/Petersburger Str." },
@@ -525,7 +528,12 @@ const stops = [
   { id: "900000031102", name: "Ziegelhof" },
   { id: "900000151003", name: "Zingster Str." },
   { id: "900000185501", name: "Zum Seeblick" },
-  { id: "900000210641", name: "Dallgow-Döberitz, Havelpark" }
+  { id: "900000210641", name: "Dallgow-Döberitz, Havelpark" },
+  { id: "900000220077", name: "Teltow, Bürgertreff" },
+  { id: "900000220079", name: "Teltow, Rammrath-Brücke" },
+  { id: "900000220073", name: "Teltow, Ruhlsdorfer Platz" },
+  { id: "900000220070", name: "Teltow, Warthestr." },
+  { id: "900000220068", name: "Teltow, Zehlendorfer Str." }
 ];
 
 export default stops;
