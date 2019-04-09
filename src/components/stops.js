@@ -466,6 +466,7 @@ const stops = [
   { id: "900000171011", name: "Landsberger Allee/Rhinstr." },
   { id: "900000067201", name: "Lankwitz Kirche" },
   { id: "900000074205", name: "Lichtenrader Damm/Barnetstr." },
+  { id: "900000058105", name: "Lindenhof" },
   { id: "900000012104", name: "Lindenstr./Oranienstr." },
   { id: "900000082205", name: "Lipschitzallee/Fritz-Erler-Allee" },
   { id: "900000160017", name: "Loeperplatz" },
