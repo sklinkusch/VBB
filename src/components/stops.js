@@ -322,6 +322,7 @@ const stops = [
   { id: "900000081201", name: "Alt-Buckow" },
   { id: "900000181513", name: "Alte Försterei" },
   { id: "900000182005", name: "Altes Wasserwerk" },
+  { id: "900000161005", name: "Alt-Friedrichsfelde/Gensinger Str." },
   { id: "900000161004", name: "Alt-Friedrichsfelde/Rhinstr." },
   { id: "900000038104", name: "Alt-Gatow" },
   { id: "900000039102", name: "Alt-Kladow" },
@@ -548,6 +549,7 @@ const stops = [
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000063301", name: "Steglitzer Damm/Bismarckstr." },
   { id: "900000081202", name: "Stuthirtenweg" },
+  { id: "900000176527", name: "Summter Str." },
   { id: "900000048158", name: "Taubertstr." },
   { id: "900000070401", name: "Tauernallee/Säntisstr." },
   { id: "900000032301", name: "Teltower Str." },
@@ -584,7 +586,8 @@ const stops = [
   { id: "900000220079", name: "Teltow, Rammrath-Brücke" },
   { id: "900000220073", name: "Teltow, Ruhlsdorfer Platz" },
   { id: "900000220070", name: "Teltow, Warthestr." },
-  { id: "900000220068", name: "Teltow, Zehlendorfer Str." }
+  { id: "900000220068", name: "Teltow, Zehlendorfer Str." },
+  { id: "900000320023", name: "Waldesruh, Mahlsdorfer Allee" }
 ];
 
 export default stops;
