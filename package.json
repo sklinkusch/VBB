@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "http://sklinkusch.github.io/VBB/",
   "dependencies": {
+    "cors": "^2.8.5",
     "font-awesome": "^4.7.0",
     "gh-pages": "^2.0.1",
     "hafas-collect-departures-at": "^1.1.0",
