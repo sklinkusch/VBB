@@ -537,7 +537,6 @@ const stops = [
   { id: "900000048158", name: "Taubertstr." },
   { id: "900000070401", name: "Tauernallee/Säntisstr." },
   { id: "900000032301", name: "Teltower Str." },
-  { id: "900000096305", name: "Wilhelmsruher Damm/Treuenbrietzener Str." },
   { id: "900000002102", name: "Turmstr./Beusselstr." },
   { id: "900000132025", name: "Uhlandstr./Wilhelmsruher Damm" },
   { id: "900000066103", name: "Unter den Eichen/Drakestr." },
