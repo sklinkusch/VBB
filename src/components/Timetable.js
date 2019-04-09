@@ -3,6 +3,8 @@ import stops from "./stops";
 import Departure from "./Departure";
 import Tablehead from "./Tablehead";
 const createHafas = require("vbb-hafas");
+// const express = require("express");
+// const cors = require("cors");
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -15,6 +17,14 @@ export default class Timetable extends Component {
   }
   getData(stopid) {
     const hafas = createHafas("my-awesome-program");
+    // const app = express();
+    // app.use(cors());
+    // app.get("*", function(req, res, next) {
+    //   res.json({ msg: "This is CORS-enabled for all origins!" });
+    // });
+    // app.listen(80, function() {
+    //   console.log("CORS-enabled web server listening on port 80");
+    // });
 
     hafas
       .departures(stopid, { duration: 60 })
