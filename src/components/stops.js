@@ -355,6 +355,7 @@ const stops = [
   { id: "900000180514", name: "Betriebshof Köpenick" },
   { id: "900000160522", name: "Betriebshof Lichtenberg" },
   { id: "900000170010", name: "Betriebshof Marzahn" },
+  { id: "900000022106", name: "Bismarckstr./Kaiser-Friedrich-Str." },
   { id: "900000133011", name: "Blankenfelde Kirche" },
   { id: "900000134500", name: "Blankenfelder Str." },
   { id: "900000171517", name: "Boschpoler Str." },
