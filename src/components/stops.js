@@ -442,6 +442,7 @@ const stops = [
   { id: "900000037203", name: "Hahneberg" },
   { id: "900000150002", name: "Hansastr./Malchower Weg" },
   { id: "900000075102", name: "Harzer Str./Wildenbruchstr." },
+  { id: "900000034105", name: "Haselhorster Damm/Gartenfelder Str." },
   { id: "900000132010", name: "Hauptstr./Friedrich-Engels-Str." },
   { id: "900000150020", name: "Hauptstr./Rhinstr." },
   { id: "900000026251", name: "Haus des Rundfunks" },
