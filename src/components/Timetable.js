@@ -26,7 +26,6 @@ export default class Timetable extends Component {
     // app.listen(80, function() {
     //   console.log("CORS-enabled web server listening on port 80");
     // });
-
     hafas
       .departures(stopid, { duration: 60 })
       .then(departures => this.saveData(departures))
