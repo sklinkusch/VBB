@@ -414,6 +414,7 @@ const stops = [
   { id: "900000132011", name: "Fontanestr./Schillerstr." },
   { id: "900000260024", name: "Flughafen Schönefeld Terminal (Airport)" },
   { id: "900000181003", name: "Freizeit- und Erholungszentrum" },
+  { id: "900000027305", name: "Freudstr./Goldkäferweg" },
   { id: "900000073243", name: "Friedenfelser Str." },
   { id: "900000080102", name: "Fulhamer Allee" },
   { id: "900000029105", name: "Galenstr." },
