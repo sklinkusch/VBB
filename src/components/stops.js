@@ -333,6 +333,7 @@ const stops = [
   { id: "900000003107", name: "Alt-Moabit/Gotzkowskystr." },
   { id: "900000032402", name: "Alt-Pichelsdorf" },
   { id: "900000185001", name: "Alt-Schmöckwitz" },
+  { id: "900000110019", name: "Am Friedrichshain" },
   { id: "900000027301", name: "Am Kiesteich" },
   { id: "900000100038", name: "Am Kupfergraben" },
   { id: "900000096406", name: "Am Nordgraben/Oranienburger Str." },
