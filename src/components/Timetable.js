@@ -11,7 +11,8 @@ export default class Timetable extends Component {
     super(props);
     this.state = {
       data: null,
-      value: stops[0].id
+      value: stops[0].id,
+      stop: stops[0].name
     };
     this.getData(stops[0].id);
   }
@@ -31,8 +32,8 @@ export default class Timetable extends Component {
       .then(departures => this.saveData(departures))
       .catch(console.error);
   }
-  handleChange = value => {
-    this.setState({ value: value });
+  handleChange = (value, name) => {
+    this.setState({ value: value, stop: name });
     this.getData(value);
   };
   handleSubmit = () => {
@@ -43,7 +44,14 @@ export default class Timetable extends Component {
     const data = this.sortData();
     return (
       <div>
-        <select onChange={event => this.handleChange(event.target.value)}>
+        <select
+          onChange={event =>
+            this.handleChange(
+              event.target.value,
+              event.target.options[event.target.selectedIndex].text
+            )
+          }
+        >
           {stops.map(stop => (
             <option key={stop.id} value={stop.id}>
               {stop.name}
@@ -52,6 +60,7 @@ export default class Timetable extends Component {
         </select>
         <button onClick={() => this.handleSubmit()}>Refresh</button>
         <div>
+          <h2>{this.state.stop}</h2>
           <Tablehead />
           {data != null ? (
             data.map(dep => {

@@ -1,0 +1,22 @@
+.legend {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 2px solid black;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+.legendleft {
+  flex: 0 0 15%;
+}
+.legendright {
+  flex: 0 0 80%;
+  text-align: left;
+}
+.legendfull {
+  flex: 0 0 95%;
+  text-align: center;
+}
