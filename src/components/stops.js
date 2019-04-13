@@ -547,6 +547,7 @@ const stops = [
   { id: "900000027254", name: "Mertensstr." },
   { id: "900000026204", name: "Messedamm/ZOB" },
   { id: "900000110028", name: "Michelangelostr." },
+  { id: "900000140019", name: "Mirbachplatz" },
   { id: "900000160014", name: "Möllendorffstr./Storkower Str." },
   { id: "900000100040", name: "Mollstr./Otto-Braun-Str." },
   { id: "900000110022", name: "Mollstr./Prenzlauer Allee" },
