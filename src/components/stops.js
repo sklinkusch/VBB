@@ -698,6 +698,7 @@ const stops = [
   },
   { id: "900000230400", name: "Potsdam, Stern-Center/Nuthestr." },
   { id: "900000200029", name: "Schildow, Kirche" },
+  { id: "900000310511", name: "Schöneiche, Goethepark" },
   { id: "900000220077", name: "Teltow, Bürgertreff" },
   { id: "900000220079", name: "Teltow, Rammrath-Brücke" },
   { id: "900000220073", name: "Teltow, Ruhlsdorfer Platz" },
