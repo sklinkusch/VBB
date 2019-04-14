@@ -567,6 +567,7 @@ const stops = [
   { id: "900000100040", name: "Mollstr./Otto-Braun-Str." },
   { id: "900000110022", name: "Mollstr./Prenzlauer Allee" },
   { id: "900000029202", name: "Moritzstr." },
+  { id: "900000185003", name: "Moßkopfring" },
   { id: "900000180014", name: "Müggelbergallee" },
   { id: "900000180005", name: "Müggelheimer Str./Wendenschloßstr." },
   { id: "900000180018", name: "Müggelschlößchenweg" },
