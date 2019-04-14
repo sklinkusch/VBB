@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import stops from "./stops";
 import Departure from "./Departure";
 import Tablehead from "./Tablehead";
+import "../styles/Timetable.css";
 const createHafas = require("vbb-hafas");
 // const express = require("express");
 // const cors = require("cors");

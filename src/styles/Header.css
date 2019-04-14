@@ -1,0 +1,10 @@
+header {
+  background-color: darkblue;
+  width: 85%;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 15px;
+}
+header h1 {
+  color: white;
+}
