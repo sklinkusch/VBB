@@ -669,6 +669,7 @@ const stops = [
   { id: "900000094102", name: "Waidmannsluster Damm/Oraniendamm" },
   { id: "900000027306", name: "Waldkrankenhaus" },
   { id: "900000073281", name: "Waldsassener Str." },
+  { id: "900000196003", name: "Waltersdorfer Str." },
   { id: "900000194504", name: "Walther-Nernst-Str." },
   { id: "900000053291", name: "Wannseebrücke" },
   { id: "900000186002", name: "Wassersportallee" },
