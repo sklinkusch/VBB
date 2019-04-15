@@ -594,6 +594,7 @@ const stops = [
   { id: "900000021151", name: "Marchstr." },
   { id: "900000192508", name: "Marggraffbrücke" },
   { id: "900000074101", name: "Mariendorfer Damm/Buckower Chaussee" },
+  { id: "900000171528", name: "Märkische Allee/Alt-Friedrichsfelde" },
   { id: "900000096310", name: "Märkische Zeile" },
   { id: "900000170020", name: "Marzahner Promenade" },
   { id: "900000083202", name: "Massantebrücke" },
