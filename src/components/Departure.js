@@ -6,6 +6,7 @@ import Bike from "./Bike";
 import Warning from "./Warning";
 import Status from "./Status";
 import Warntext from "./Warntext";
+import Stattext from "./Stattext";
 
 export default class Departure extends Component {
   getDelay(delay, cancelled) {
@@ -86,6 +87,7 @@ export default class Departure extends Component {
           <Status remarks={remarks} />
         </div>
         <Warntext remarks={remarks} />
+        <Stattext remarks={remarks} />
       </React.Fragment>
     );
   }
