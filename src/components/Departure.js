@@ -5,6 +5,7 @@ import Barrier from "./Barrier";
 import Bike from "./Bike";
 import Warning from "./Warning";
 import Status from "./Status";
+import Warntext from "./Warntext";
 
 export default class Departure extends Component {
   getDelay(delay, cancelled) {
@@ -69,20 +70,23 @@ export default class Departure extends Component {
     const remarks = this.props.dep.remarks;
     const platform = this.props.dep.platform;
     return (
-      <div className="row" key={this.props.dep.tripId}>
-        <div className="plantime">{plantime}</div>
-        <div className="realtime">{realtime}</div>
-        <div className="delay">{delayMin}</div>
-        <Product product={product} />
-        <div className="line">{line}</div>
-        <div className="direction">{direction}</div>
-        <div className="platform">{platform}</div>
-        <div className="stophere">{stop}</div>
-        <Barrier remarks={remarks} />
-        <Bike remarks={remarks} />
-        <Warning remarks={remarks} />
-        <Status remarks={remarks} />
-      </div>
+      <React.Fragment>
+        <div className="row" key={this.props.dep.tripId}>
+          <div className="plantime">{plantime}</div>
+          <div className="realtime">{realtime}</div>
+          <div className="delay">{delayMin}</div>
+          <Product product={product} />
+          <div className="line">{line}</div>
+          <div className="direction">{direction}</div>
+          <div className="platform">{platform}</div>
+          <div className="stophere">{stop}</div>
+          <Barrier remarks={remarks} />
+          <Bike remarks={remarks} />
+          <Warning remarks={remarks} />
+          <Status remarks={remarks} />
+        </div>
+        <Warntext remarks={remarks} />
+      </React.Fragment>
     );
   }
 }
