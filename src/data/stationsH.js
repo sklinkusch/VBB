@@ -1,0 +1,31 @@
+const stationsH = [
+  { id: "900000100002", name: "S Hackescher Markt" },
+  { id: "900000018102", name: "U Halemweg" },
+  { id: "900000040101", name: "S Halensee" },
+  { id: "900000012103", name: "U Hallesches Tor" },
+  { id: "900000003101", name: "U Hansaplatz" },
+  { id: "900000034102", name: "U Haselhorst" },
+  { id: "900000003201", name: "S+U Hauptbahnhof" },
+  { id: "900000100012", name: "U Hausvogteiplatz" },
+  { id: "900000026105", name: "S Heerstr." },
+  { id: "900000320003", name: "S Hegermühle" },
+  { id: "900000045102", name: "S+U Heidelberger Platz" },
+  { id: "900000091203", name: "S Heiligensee" },
+  { id: "900000100008", name: "U Heinrich-Heine-Str." },
+  { id: "900000175007", name: "U Hellersdorf" },
+  { id: "900000200000", name: "S Hennigsdorf" },
+  { id: "900000078101", name: "U Hermannplatz" },
+  { id: "900000079221", name: "S+U Hermannstr." },
+  { id: "900000093201", name: "S Hermsdorf" },
+  { id: "900000182001", name: "S Hirschgarten" },
+  { id: "900000200009", name: "S Hohen Neuendorf" },
+  { id: "900000152001", name: "S Hohenschönhausen" },
+  { id: "900000044101", name: "S Hohenzollerndamm" },
+  { id: "900000043101", name: "U Hohenzollernplatz" },
+  { id: "900000088201", name: "U Holzhauser Str." },
+  { id: "900000175010", name: "U Hönow" },
+  { id: "900000320008", name: "S Hoppegarten" },
+  { id: "900000008101", name: "S Humboldthain" }
+];
+
+export default stationsH;
