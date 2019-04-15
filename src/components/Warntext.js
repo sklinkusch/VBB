@@ -18,11 +18,9 @@ export default class Warntext extends Component {
     if (warnings.length > 0) {
       return (
         <div className="warntext">
-          <p>
-            <span className="fas fa-exclamation-triangle" />
-          </p>
           {warnings.map((warning, index) => (
             <p key={index}>
+              <span className="fas fa-exclamation-triangle" />
               {this.formatTime(warning.validFrom)} -{" "}
               {this.formatTime(warning.validUntil)}:{" "}
               {this.replaceLinks(warning.summary)},{" "}
