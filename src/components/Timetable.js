@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import stops from "./stops";
+import stops from "../data/stops";
 import Departure from "./Departure";
 import Tablehead from "./Tablehead";
 import "../styles/Timetable.css";
