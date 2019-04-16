@@ -7,6 +7,7 @@ const stopsT = [
   { id: "900000096362", name: "Tiefenseer Str." },
   { id: "900000094181", name: "Titiseestr." },
   { id: "900000175539", name: "Tollensestr." },
+  { id: "900000057106", name: "Torgauer Str." },
   { id: "900000120002", name: "Tunnelstr." },
   { id: "900000002102", name: "Turmstr./Beusselstr." },
   { id: "900000002205", name: "Turmstr./Lübecker Str." },

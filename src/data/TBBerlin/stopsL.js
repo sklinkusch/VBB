@@ -5,6 +5,7 @@ const stopsL = [
   { id: "900000067201", name: "Lankwitz Kirche" },
   { id: "900000001204", name: "Lehrter Str./Invalidenstr." },
   { id: "900000067101", name: "Leonorenstr./Siemensstr." },
+  { id: "900000057154", name: "Leuthener Str." },
   { id: "900000074205", name: "Lichtenrader Damm/Barnetstr." },
   { id: "900000083351", name: "Lieselotte-Berger-Str." },
   { id: "900000058105", name: "Lindenhof" },
