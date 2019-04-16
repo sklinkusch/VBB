@@ -2,6 +2,7 @@ const stopsT = [
   { id: "900000048158", name: "Taubertstr." },
   { id: "900000070401", name: "Tauernallee/Säntisstr." },
   { id: "900000074253", name: "Taunusstr." },
+  { id: "900000096454", name: "Techowpromenade" },
   { id: "900000032301", name: "Teltower Str." },
   { id: "900000066254", name: "Thuner Platz" },
   { id: "900000096362", name: "Tiefenseer Str." },

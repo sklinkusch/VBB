@@ -3,6 +3,7 @@ const stopsH = [
   { id: "900000194012", name: "Haeckelstr." },
   { id: "900000048107", name: "Hagenplatz" },
   { id: "900000037203", name: "Hahneberg" },
+  { id: "900000092202", name: "Hainbuchenstr." },
   { id: "900000071171", name: "Halbauer Weg" },
   { id: "900000140009", name: "Hamburger Platz" },
   { id: "900000066404", name: "Händelplatz" },
@@ -28,6 +29,7 @@ const stopsH = [
   { id: "900000190503", name: "Herkomerstr." },
   { id: "900000131503", name: "Hermann-Hesse-Str." },
   { id: "900000131527", name: "Hermann-Hesse-Str./Waldstr." },
+  { id: "900000093203", name: "Hermsdorfer Str./Berliner Str." },
   { id: "900000048104", name: "Herthastr." },
   { id: "900000004181", name: "Hertzallee" },
   { id: "900000132509", name: "Hertzstr./Hauptstr." },
@@ -43,7 +45,8 @@ const stopsH = [
   { id: "900000176009", name: "Hönower Str./Riesaer Str." },
   { id: "900000039103", name: "Hottengrund" },
   { id: "900000134509", name: "Hugenottenplatz" },
-  { id: "900000176512", name: "Hultschiner Damm/Seestr." }
+  { id: "900000176512", name: "Hultschiner Damm/Seestr." },
+  { id: "900000096192", name: "Humboldt-Klinikum" }
 ];
 
 export default stopsH;

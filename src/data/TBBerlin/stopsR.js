@@ -5,6 +5,7 @@ const stopsR = [
   { id: "900000171009", name: "Rapsweg/Unfallkrankenhaus" },
   { id: "900000180024", name: "Rathaus Köpenick" },
   { id: "900000130501", name: "Rathaus Pankow" },
+  { id: "900000096453", name: "Rathauspromenade" },
   { id: "900000054106", name: "Rathaus Schöneberg" },
   { id: "900000003155", name: "Rathaus Tiergarten" },
   { id: "900000140018", name: "Rathaus Weißensee" },

@@ -14,6 +14,7 @@ const stopsG = [
   { id: "900000074208", name: "Goltzstr./Lichtenrader Damm" },
   { id: "900000027256", name: "Goltzstr./Rauchstr." },
   { id: "900000096103", name: "Gorkistr./Am Nordgraben" },
+  { id: "900000089401", name: "Gorkistr./Ziekowstr." },
   { id: "900000175536", name: "Gothaer Str./Eisenacher Str." },
   { id: "900000085103", name: "Gotthardstr./Holländerstr." },
   { id: "900000131528", name: "Grabbeallee/Pastor-Niemöller-Platz" },
