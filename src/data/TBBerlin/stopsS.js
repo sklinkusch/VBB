@@ -26,6 +26,7 @@ const stopsS = [
   { id: "900000190502", name: "Sowjetisches Ehrenmal" },
   { id: "900000100515", name: "Spandauer Str./Marienkirche" },
   { id: "900000052302", name: "Spanische Allee/Potsdamer Chaussee" },
+  { id: "900000100514", name: "Staatsoper" },
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000067251", name: "Stadtbad Lankwitz" },
   { id: "900000110032", name: "Stedingerweg" },

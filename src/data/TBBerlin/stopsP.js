@@ -7,6 +7,7 @@ const stopsP = [
   { id: "900000034103", name: "Paulsternstr./Gartenfelder Str." },
   { id: "900000083304", name: "Pfarrer-Heß-Weg" },
   { id: "900000053258", name: "Pfaueninselchaussee/Königstr." },
+  { id: "900000005206", name: "Philharmonie" },
   { id: "900000032401", name: "Pichelsdorfer Str./Weißenburger Str." },
   { id: "900000027402", name: "Pionierstr./Zeppelinstr." },
   { id: "900000120019", name: "Platz der Vereinten Nationen" },

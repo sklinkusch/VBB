@@ -36,6 +36,7 @@ const stopsB = [
   { id: "900000180512", name: "Brandenburgplatz" },
   { id: "900000038201", name: "Breitehornweg" },
   { id: "900000063291", name: "Breite Str." },
+  { id: "900000023252", name: "Breitscheidplatz" },
   { id: "900000080103", name: "Britzer Damm/Gradestr." },
   { id: "900000080406", name: "Britzer Damm/Mohriner Allee" },
   { id: "900000026102", name: "Brixplatz" },

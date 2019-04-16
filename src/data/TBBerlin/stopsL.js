@@ -16,6 +16,7 @@ const stopsL = [
   { id: "900000051251", name: "Löhleinstr." },
   { id: "900000011201", name: "Louise-Schroeder-Platz" },
   { id: "900000022172", name: "Luisenplatz/Schloss Charlottenburg" },
+  { id: "900000100537", name: "Lustgarten" },
   { id: "900000032105", name: "Lutoner Str." },
   { id: "900000005105", name: "Lützowplatz" },
   { id: "900000066202", name: "Luzerner Str." }
