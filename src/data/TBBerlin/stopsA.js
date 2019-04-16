@@ -18,6 +18,7 @@ const stopsA = [
   { id: "900000091101", name: "Alt-Heiligensee" },
   { id: "900000143509", name: "Alt-Karow" },
   { id: "900000039102", name: "Alt-Kladow" },
+  { id: "900000095101", name: "Alt-Lübars" },
   { id: "900000170516", name: "Alt-Marzahn" },
   { id: "900000003107", name: "Alt-Moabit/Gotzkowskystr." },
   { id: "900000003203", name: "Alt-Moabit/Rathenower Str." },

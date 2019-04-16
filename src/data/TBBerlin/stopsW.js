@@ -16,6 +16,7 @@ const stopsW = [
   { id: "900000180015", name: "Wendenschloß" },
   { id: "900000027259", name: "Werderstr." },
   { id: "900000053257", name: "Wernerstr." },
+  { id: "900000096364", name: "Wesendorfer Str." },
   { id: "900000073201", name: "Weskammstr." },
   { id: "900000027453", name: "Westerwaldstr." },
   { id: "900000045103", name: "Wiesbadener Str./Laubacher Str." },

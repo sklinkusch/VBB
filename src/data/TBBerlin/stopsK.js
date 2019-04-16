@@ -20,6 +20,7 @@ const stopsK = [
   { id: "900000026206", name: "Königin-Elisabeth-Str./Spandauer Damm" },
   { id: "900000051307", name: "Königin-Luise-Platz/Botanischer Garten" },
   { id: "900000051204", name: "Königin-Luise-Str./Clayallee" },
+  { id: "900000089201", name: "Konradshöher Str./Heiligenseestr." },
   { id: "900000191511", name: "Köpenicker Landstr./Dammweg" },
   { id: "900000170507", name: "Köthener Str." },
   { id: "900000180019", name: "Krankenhaus Köpenick/Besuchereingang" },
