@@ -5,6 +5,7 @@ const stopsW = [
   { id: "900000083303", name: "Waltersdorfer Chaussee/Ostburger Weg" },
   { id: "900000196003", name: "Waltersdorfer Str." },
   { id: "900000194504", name: "Walther-Nernst-Str." },
+  { id: "900000052101", name: "Wannseebadweg" },
   { id: "900000053291", name: "Wannseebrücke" },
   { id: "900000186002", name: "Wassersportallee" },
   { id: "900000027304", name: "Wasserwerk Spandau" },
@@ -14,6 +15,7 @@ const stopsW = [
   { id: "900000018103", name: "Weltlingerbrücke" },
   { id: "900000180015", name: "Wendenschloß" },
   { id: "900000027259", name: "Werderstr." },
+  { id: "900000053257", name: "Wernerstr." },
   { id: "900000073201", name: "Weskammstr." },
   { id: "900000027453", name: "Westerwaldstr." },
   { id: "900000045103", name: "Wiesbadener Str./Laubacher Str." },
@@ -28,7 +30,8 @@ const stopsW = [
   { id: "900000096402", name: "Wittenau Kirche" },
   { id: "900000002151", name: "Wittstocker Str." },
   { id: "900000029201", name: "Wröhmännerpark" },
-  { id: "900000074293", name: "Wünsdorfer Str./Blohmstr." }
+  { id: "900000074293", name: "Wünsdorfer Str./Blohmstr." },
+  { id: "900000026153", name: "Württembergallee" }
 ];
 
 export default stopsW;

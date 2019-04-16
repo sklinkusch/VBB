@@ -1,4 +1,5 @@
 const stopsR = [
+  { id: "900000025151", name: "Ragniter Allee" },
   { id: "900000183003", name: "Rahnsdorf/Waldschänke" },
   { id: "900000176525", name: "Rahnsdorfer Str." },
   { id: "900000171009", name: "Rapsweg/Unfallkrankenhaus" },
