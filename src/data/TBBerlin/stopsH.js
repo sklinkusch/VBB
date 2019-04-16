@@ -15,6 +15,7 @@ const stopsH = [
   { id: "900000054173", name: "Hauptstr./Martin-Luther-Str." },
   { id: "900000150020", name: "Hauptstr./Rhinstr." },
   { id: "900000026251", name: "Haus des Rundfunks" },
+  { id: "900000086152", name: "Hechelstr." },
   { id: "900000037207", name: "Heerstr./Magistratsweg" },
   { id: "900000037211", name: "Heerstr./Nennhauser Damm" },
   { id: "900000032102", name: "Heerstr./Wilhelmstr." },
