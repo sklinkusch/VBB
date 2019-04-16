@@ -23,6 +23,7 @@ const stopsK = [
   { id: "900000089201", name: "Konradshöher Str./Heiligenseestr." },
   { id: "900000191511", name: "Köpenicker Landstr./Dammweg" },
   { id: "900000170507", name: "Köthener Str." },
+  { id: "900000039107", name: "Krampnitzer Weg/Selbitzer Str." },
   { id: "900000180019", name: "Krankenhaus Köpenick/Besuchereingang" },
   { id: "900000180022", name: "Krankenhaus Köpenick/Südseite" }
 ];
