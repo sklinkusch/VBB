@@ -41,6 +41,7 @@ const stopsS = [
   { id: "900000110032", name: "Stedingerweg" },
   { id: "900000063301", name: "Steglitzer Damm/Bismarckstr." },
   { id: "900000063401", name: "Steglitzer Damm/Halskestr." },
+  { id: "900000023152", name: "Steinplatz" },
   { id: "900000053303", name: "Steinstücken" },
   { id: "900000002203", name: "Stendaler Str." },
   { id: "900000194007", name: "Sterndamm/Königsheideweg" },

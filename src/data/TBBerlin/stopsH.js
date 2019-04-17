@@ -28,6 +28,7 @@ const stopsH = [
   { id: "900000141002", name: "Heinersdorf Kirche" },
   { id: "900000171516", name: "Helene-Weigel-Platz" },
   { id: "900000175556", name: "Hellersdorfer Str./Gülzower Str." },
+  { id: "900000021181", name: "Helmholtzstr." },
   { id: "900000190503", name: "Herkomerstr." },
   { id: "900000131503", name: "Hermann-Hesse-Str." },
   { id: "900000131527", name: "Hermann-Hesse-Str./Waldstr." },
