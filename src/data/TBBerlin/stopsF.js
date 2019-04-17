@@ -5,6 +5,7 @@ const stopsF = [
   { id: "900000090101", name: "Falkenplatz" },
   { id: "900000027302", name: "Falkenseer Chaussee/Stadtrandstr." },
   { id: "900000027401", name: "Falkenseer Chaussee/Zeppelinstr." },
+  { id: "900000160526", name: "Fanningerstr." },
   { id: "900000068251", name: "Felixstr." },
   { id: "900000037191", name: "Finkenkruger Weg" },
   { id: "900000096308", name: "Finsterwalder Str./Dannenwalder Weg" },
