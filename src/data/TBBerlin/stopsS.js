@@ -1,6 +1,7 @@
 const stopsS = [
   { id: "900000064307", name: "Saaleckplatz" },
   { id: "900000035103", name: "Saatwinkler Damm/Rohrdamm" },
+  { id: "900000059101", name: "Sachsendamm/Gotenstr." },
   { id: "900000049302", name: "Sachtlebenstr." },
   { id: "900000037202", name: "Sandstr." },
   { id: "900000039155", name: "Schallweg" },
@@ -34,6 +35,7 @@ const stopsS = [
   { id: "900000100515", name: "Spandauer Str./Marienkirche" },
   { id: "900000052302", name: "Spanische Allee/Potsdamer Chaussee" },
   { id: "900000090103", name: "Spechtstr." },
+  { id: "900000059151", name: "Sportzentrum Schöneberg" },
   { id: "900000100514", name: "Staatsoper" },
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000034156", name: "Stadion Haselhorst" },
@@ -46,6 +48,7 @@ const stopsS = [
   { id: "900000002203", name: "Stendaler Str." },
   { id: "900000194007", name: "Sterndamm/Königsheideweg" },
   { id: "900000063351", name: "Stindestr." },
+  { id: "900000120024", name: "Stralauer Platz" },
   { id: "900000194003", name: "Stubenrauchstr./Springbornstr." },
   { id: "900000081202", name: "Stuthirtenweg" },
   { id: "900000176527", name: "Summter Str." }

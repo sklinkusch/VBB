@@ -10,6 +10,7 @@ const stopsN = [
   { id: "900000083353", name: "Neuhofer Str." },
   { id: "900000083181", name: "Neuköllner Str./Zwickauer Damm" },
   { id: "900000049101", name: "Neuruppiner Str." },
+  { id: "900000100539", name: "Nikolaiviertel" },
   { id: "900000131006", name: "Nordend" },
   { id: "900000132512", name: "Nordend-Arena" },
   { id: "900000004151", name: "Nordische Botschaften/Adenauer-Stiftung" },

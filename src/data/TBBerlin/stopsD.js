@@ -5,6 +5,7 @@ const stopsD = [
   { id: "900000150022", name: "Darßer Str./Ribnitzer Str." },
   { id: "900000034160", name: "Daumstr./Rhenaniastr." },
   { id: "900000096203", name: "Dietrichinger Weg" },
+  { id: "900000051281", name: "Dillenburger Str." },
   { id: "900000037109", name: "Döberitzer Weg" },
   { id: "900000054107", name: "Dominicusstr./Hauptstr." },
   { id: "900000058152", name: "Domnauer Str." },
