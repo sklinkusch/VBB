@@ -38,6 +38,7 @@ const stopsB = [
   { id: "900000029104", name: "Borkzeile" },
   { id: "900000171517", name: "Boschpoler Str." },
   { id: "900000120013", name: "Boxhagener Str./Holteistr." },
+  { id: "900000044151", name: "Brabanter Platz" },
   { id: "900000180512", name: "Brandenburgplatz" },
   { id: "900000038201", name: "Breitehornweg" },
   { id: "900000063291", name: "Breite Str." },

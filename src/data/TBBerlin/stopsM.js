@@ -18,6 +18,7 @@ const stopsM = [
   { id: "900000083202", name: "Massantebrücke" },
   { id: "900000026208", name: "Masurenallee/ZOB" },
   { id: "900000009251", name: "Maxstr." },
+  { id: "900000045156", name: "Mecklenburgische Str./Binger Str." },
   { id: "900000032104", name: "Melanchthonplatz" },
   { id: "900000027254", name: "Mertensstr." },
   { id: "900000026204", name: "Messedamm/ZOB" },
