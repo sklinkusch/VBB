@@ -9,6 +9,7 @@ const stopsW = [
   { id: "900000053291", name: "Wannseebrücke" },
   { id: "900000186002", name: "Wassersportallee" },
   { id: "900000027304", name: "Wasserwerk Spandau" },
+  { id: "900000120534", name: "Wedekindstr." },
   { id: "900000195013", name: "Wegedornstr." },
   { id: "900000079272", name: "Weisestr." },
   { id: "900000152003", name: "Welsestr." },

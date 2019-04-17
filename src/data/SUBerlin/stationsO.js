@@ -10,6 +10,7 @@ const stationsO = [
   { id: "900000051301", name: "U Oskar-Helene-Heim" },
   { id: "900000009202", name: "U Osloer Str." },
   { id: "900000120005", name: "S Ostbahnhof" },
+  { id: "900000120010", name: "S Ostbahnhof/Erich-Steinfurth-Str." },
   { id: "900000120003", name: "S Ostkreuz" },
   { id: "900000086101", name: "U Otisstr." }
 ];

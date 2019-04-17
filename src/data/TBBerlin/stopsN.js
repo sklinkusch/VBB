@@ -3,6 +3,7 @@ const stopsN = [
   { id: "900000073305", name: "Nahmitzer Damm" },
   { id: "900000073241", name: "Nahmitzer Damm/Marienfelder Allee" },
   { id: "900000083352", name: "Narkauer Weg" },
+  { id: "900000120519", name: "Neue Bahnhofstr." },
   { id: "900000028152", name: "Neue Bergstr." },
   { id: "900000063201", name: "Neue Filandastr." },
   { id: "900000176538", name: "Neuenhagener Str." },

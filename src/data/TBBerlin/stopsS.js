@@ -22,6 +22,7 @@ const stopsS = [
   { id: "900000037154", name: "Seegefelder Weg/Klosterbuschweg" },
   { id: "900000009105", name: "Seestr./Amrumer Str." },
   { id: "900000002255", name: "Seydlitzstr." },
+  { id: "900000160521", name: "Siegfriedstr./Josef-Orlopp-Str." },
   { id: "900000063402", name: "Siemensstr./Halskestr." },
   { id: "900000195501", name: "Siriusstr." },
   { id: "900000074272", name: "Skarbinastr." },
