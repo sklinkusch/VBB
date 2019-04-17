@@ -32,6 +32,7 @@ const stopsA = [
   { id: "900000100038", name: "Am Kupfergraben" },
   { id: "900000096406", name: "Am Nordgraben/Oranienburger Str." },
   { id: "900000032101", name: "Am Omnibushof" },
+  { id: "900000027253", name: "Amorbacher Weg" },
   { id: "900000161517", name: "Am Tierpark/Alfred-Kowalke-Str." },
   { id: "900000024104", name: "Amtsgerichtsplatz" },
   { id: "900000044102", name: "Am Volkspark" },

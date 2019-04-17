@@ -15,6 +15,7 @@ const stopsH = [
   { id: "900000054173", name: "Hauptstr./Martin-Luther-Str." },
   { id: "900000150020", name: "Hauptstr./Rhinstr." },
   { id: "900000026251", name: "Haus des Rundfunks" },
+  { id: "900000027204", name: "Havelschanze" },
   { id: "900000086152", name: "Hechelstr." },
   { id: "900000037207", name: "Heerstr./Magistratsweg" },
   { id: "900000037211", name: "Heerstr./Nennhauser Damm" },
@@ -46,6 +47,7 @@ const stopsH = [
   { id: "900000176009", name: "Hönower Str./Riesaer Str." },
   { id: "900000039103", name: "Hottengrund" },
   { id: "900000134509", name: "Hugenottenplatz" },
+  { id: "900000027261", name: "Hugo-Cassirer-Str." },
   { id: "900000176512", name: "Hultschiner Damm/Seestr." },
   { id: "900000096192", name: "Humboldt-Klinikum" }
 ];

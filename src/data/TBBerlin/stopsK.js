@@ -9,6 +9,7 @@ const stopsK = [
   { id: "900000062252", name: "Kieler Str." },
   { id: "900000080491", name: "Kielingerstr." },
   { id: "900000074292", name: "Kirchhainer Damm/Horstwalder Str." },
+  { id: "900000028151", name: "Kirchhofstr." },
   { id: "900000180508", name: "Kleinschewskystr." },
   { id: "900000190504", name: "Klingerstr." },
   { id: "900000016203", name: "Klinikum Am Urban" },

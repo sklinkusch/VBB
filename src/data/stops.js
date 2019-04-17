@@ -6,6 +6,12 @@ const stops = [
   ...SUBerlin,
   ...TBBerlin,
   { id: "900000210641", name: "Dallgow-Döberitz, Havelpark" },
+  { id: "900000203369", name: "Hennigsdorf, Edisonstr." },
+  { id: "900000203368", name: "Hennigsdorf, Humboldtstr." },
+  { id: "900000203872", name: "Hennigsdorf, Kleiststr." },
+  { id: "900000203376", name: "Hennigsdorf, Poststr." },
+  { id: "900000203378", name: "Hennigsdorf, Stauffenbergstr." },
+  { id: "900000203873", name: "Hennigsdorf, Voltastr." },
   { id: "900000230032", name: "Potsdam, Johannes-Kepler-Platz" },
   {
     id: "900000230011",
