@@ -1,4 +1,5 @@
 const stopsD = [
+  { id: "900000029152", name: "Dallgower Str." },
   { id: "900000077102", name: "Dammweg/Sonnenallee" },
   { id: "900000140020", name: "Darßer Str./Piesporter Str." },
   { id: "900000150022", name: "Darßer Str./Ribnitzer Str." },
