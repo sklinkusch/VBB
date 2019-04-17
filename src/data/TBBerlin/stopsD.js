@@ -7,6 +7,7 @@ const stopsD = [
   { id: "900000096203", name: "Dietrichinger Weg" },
   { id: "900000037109", name: "Döberitzer Weg" },
   { id: "900000054107", name: "Dominicusstr./Hauptstr." },
+  { id: "900000058152", name: "Domnauer Str." },
   { id: "900000092203", name: "Donnersmarckplatz" },
   { id: "900000066407", name: "Drakestr./Ringstr." },
   { id: "900000020153", name: "DRK-Kliniken Westend" },

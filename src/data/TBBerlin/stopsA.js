@@ -4,6 +4,8 @@ const stopsA = [
   { id: "900000170515", name: "Adersleber Weg" },
   { id: "900000170006", name: "Ahrensfelde/Stadtgrenze" },
   { id: "900000054151", name: "Albertstr." },
+  { id: "900000058151", name: "Alboinstr./Arnulfstr." },
+  { id: "900000068204", name: "Albrechtstr./Manteuffelstr." },
   { id: "900000170019", name: "Allee der Kosmonauten/Poelchaustr." },
   { id: "900000171008", name: "Allee der Kosmonauten/Rhinstr." },
   { id: "900000142502", name: "Alt-Blankenburg" },

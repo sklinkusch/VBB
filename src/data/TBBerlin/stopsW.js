@@ -29,6 +29,7 @@ const stopsW = [
   { id: "900000050281", name: "Winfriedstr." },
   { id: "900000064271", name: "Wismarer Str." },
   { id: "900000120518", name: "Wismarplatz" },
+  { id: "900000068343", name: "Wittekindstr." },
   { id: "900000096402", name: "Wittenau Kirche" },
   { id: "900000002151", name: "Wittstocker Str." },
   { id: "900000029201", name: "Wröhmännerpark" },
