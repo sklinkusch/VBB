@@ -5,6 +5,7 @@ const stopsG = [
   { id: "900000171519", name: "Garzauer Str." },
   { id: "900000032106", name: "Gatower Str./Heerstr." },
   { id: "900000150504", name: "Gehrenseestr." },
+  { id: "900000140514", name: "Gehringstr." },
   { id: "900000032451", name: "Genfenbergstr." },
   { id: "900000074154", name: "Gerlinger Str." },
   { id: "900000070201", name: "Gersdorfstr./Kaiserstr." },

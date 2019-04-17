@@ -3,6 +3,7 @@ const stopsA = [
   { id: "900000014103", name: "Adalbertstr./Oranienstr." },
   { id: "900000170515", name: "Adersleber Weg" },
   { id: "900000170006", name: "Ahrensfelde/Stadtgrenze" },
+  { id: "900000140005", name: "Albertinenstr." },
   { id: "900000054151", name: "Albertstr." },
   { id: "900000058151", name: "Alboinstr./Arnulfstr." },
   { id: "900000068204", name: "Albrechtstr./Manteuffelstr." },
