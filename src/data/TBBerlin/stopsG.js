@@ -1,4 +1,5 @@
 const stopsG = [
+  { id: "900000130516", name: "Gaillardstr." },
   { id: "900000029105", name: "Galenstr." },
   { id: "900000096356", name: "Gandenitzer Weg" },
   { id: "900000171519", name: "Garzauer Str." },
@@ -18,6 +19,7 @@ const stopsG = [
   { id: "900000068151", name: "Gontermannstr." },
   { id: "900000096103", name: "Gorkistr./Am Nordgraben" },
   { id: "900000089401", name: "Gorkistr./Ziekowstr." },
+  { id: "900000130515", name: "Görschstr." },
   { id: "900000175536", name: "Gothaer Str./Eisenacher Str." },
   { id: "900000160523", name: "Gotlindestr." },
   { id: "900000085103", name: "Gotthardstr./Holländerstr." },
@@ -30,6 +32,7 @@ const stopsG = [
   { id: "900000074105", name: "Grimmstr." },
   { id: "900000072181", name: "Großbeerenstr./Daimlerstr." },
   { id: "900000004101", name: "Großer Stern" },
+  { id: "900000131002", name: "Grumbkowstr." },
   { id: "900000120014", name: "Grünberger Str./Warschauer Str." },
   { id: "900000054192", name: "Grunewaldstr." },
   { id: "900000140017", name: "Gustav-Adolf-Str./Langhansstr." },

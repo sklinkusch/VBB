@@ -9,6 +9,7 @@ const stopsN = [
   { id: "900000176538", name: "Neuenhagener Str." },
   { id: "900000083353", name: "Neuhofer Str." },
   { id: "900000083181", name: "Neuköllner Str./Zwickauer Damm" },
+  { id: "900000130505", name: "Neumannstr./Kissingenstr." },
   { id: "900000049101", name: "Neuruppiner Str." },
   { id: "900000100539", name: "Nikolaiviertel" },
   { id: "900000131006", name: "Nordend" },

@@ -8,6 +8,7 @@ const stopsO = [
   { id: "900000096401", name: "Oranienburger Str./Alt-Wittenau" },
   { id: "900000096202", name: "Oranienburger Str./Hermsdorfer Str." },
   { id: "900000009204", name: "Osloer Str./Prinzenallee" },
+  { id: "900000131008", name: "Ossietzkyplatz" },
   { id: "900000064101", name: "Ostpreußendamm/Königsberger Str." },
   { id: "900000064206", name: "Ostpreußendamm/Osdorfer Str." },
   { id: "900000023104", name: "Otto-Suhr-Allee/Leibnizstr." }
