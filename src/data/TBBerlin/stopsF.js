@@ -23,6 +23,7 @@ const stopsF = [
   { id: "900000160016", name: "Freiaplatz" },
   { id: "900000180006", name: "Freiheit" },
   { id: "900000181003", name: "Freizeit- und Erholungszentrum" },
+  { id: "900000027362", name: "Freudstr." },
   { id: "900000027305", name: "Freudstr./Goldkäferweg" },
   { id: "900000073243", name: "Friedenfelser Str." },
   { id: "900000070304", name: "Friedenstr./Großbeerenstr." },

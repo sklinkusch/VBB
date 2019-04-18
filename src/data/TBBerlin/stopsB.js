@@ -8,6 +8,7 @@ const stopsB = [
   { id: "900000194513", name: "Baumschulenstr./Königsheideweg" },
   { id: "900000191003", name: "Baumschulenstr./Köpenicker Landstr." },
   { id: "900000190006", name: "Beermannstr." },
+  { id: "900000027364", name: "Beerwinkel" },
   { id: "900000049301", name: "Beeskowdamm" },
   { id: "900000049103", name: "Behring-Krankenhaus" },
   { id: "900000180532", name: "Bellevuepark" },

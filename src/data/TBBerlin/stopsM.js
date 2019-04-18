@@ -46,6 +46,7 @@ const stopsM = [
   { id: "900000184003", name: "Müggelheim/Dorf" },
   { id: "900000180005", name: "Müggelheimer Str./Wendenschloßstr." },
   { id: "900000180018", name: "Müggelschlößchenweg" },
+  { id: "900000027454", name: "Mülheimer Str." },
   { id: "900000175544", name: "Myslowitzer Str./Klinikum" }
 ];
 
