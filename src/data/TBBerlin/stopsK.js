@@ -25,6 +25,7 @@ const stopsK = [
   { id: "900000110026", name: "Kniprodestr./Storkower Str." },
   { id: "900000180012", name: "Köllnischer Platz" },
   { id: "900000082255", name: "Kölner Damm" },
+  { id: "900000085205", name: "Kolpingplatz" },
   { id: "900000026206", name: "Königin-Elisabeth-Str./Spandauer Damm" },
   { id: "900000051307", name: "Königin-Luise-Platz/Botanischer Garten" },
   { id: "900000051204", name: "Königin-Luise-Str./Clayallee" },

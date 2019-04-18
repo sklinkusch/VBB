@@ -15,6 +15,7 @@ const stopsL = [
   { id: "900000057154", name: "Leuthener Str." },
   { id: "900000074205", name: "Lichtenrader Damm/Barnetstr." },
   { id: "900000083351", name: "Lieselotte-Berger-Str." },
+  { id: "900000085281", name: "Lindauer Allee/Residenzstr." },
   { id: "900000131513", name: "Lindenberger Str." },
   { id: "900000152511", name: "Lindenberger Str./Birkholzer Weg" },
   { id: "900000135505", name: "Lindenberger Weg" },
