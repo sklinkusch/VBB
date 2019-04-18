@@ -1,4 +1,5 @@
 const stopsT = [
+  { id: "900000015151", name: "Taborstr." },
   { id: "900000048158", name: "Taubertstr." },
   { id: "900000070401", name: "Tauernallee/Säntisstr." },
   { id: "900000074253", name: "Taunusstr." },

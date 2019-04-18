@@ -4,6 +4,7 @@ const stopsB = [
   { id: "900000161513", name: "Balatonstr." },
   { id: "900000170011", name: "Barnimplatz" },
   { id: "900000191513", name: "Baumschulenstr./Fähre" },
+  { id: "900000194513", name: "Baumschulenstr./Königsheideweg" },
   { id: "900000191003", name: "Baumschulenstr./Köpenicker Landstr." },
   { id: "900000190006", name: "Beermannstr." },
   { id: "900000049301", name: "Beeskowdamm" },

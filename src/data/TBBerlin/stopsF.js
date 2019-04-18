@@ -1,4 +1,5 @@
 const stopsF = [
+  { id: "900000014155", name: "Falckensteinstr." },
   { id: "900000152007", name: "Falkenberg" },
   { id: "900000152006", name: "Falkenberger Chaussee/Prendener Str." },
   { id: "900000140012", name: "Falkenberger Str./Berliner Allee" },
@@ -16,6 +17,7 @@ const stopsF = [
   { id: "900000260024", name: "Flughafen Schönefeld Terminal (Airport)" },
   { id: "900000021152", name: "Franklinstr." },
   { id: "900000120015", name: "Franz-Mehring-Platz" },
+  { id: "900000191502", name: "Frauenlobstr." },
   { id: "900000160016", name: "Freiaplatz" },
   { id: "900000180006", name: "Freiheit" },
   { id: "900000181003", name: "Freizeit- und Erholungszentrum" },

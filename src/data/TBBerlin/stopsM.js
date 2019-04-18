@@ -24,6 +24,7 @@ const stopsM = [
   { id: "900000027254", name: "Mertensstr." },
   { id: "900000026204", name: "Messedamm/ZOB" },
   { id: "900000031151", name: "Metzer Platz" },
+  { id: "900000100521", name: "Michaelkirchstr." },
   { id: "900000110028", name: "Michelangelostr." },
   { id: "900000085259", name: "Mickestr." },
   { id: "900000140019", name: "Mirbachplatz" },
