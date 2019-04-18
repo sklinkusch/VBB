@@ -37,6 +37,7 @@ const stopsA = [
   { id: "900000063253", name: "Amfortasweg" },
   { id: "900000110019", name: "Am Friedrichshain" },
   { id: "900000067401", name: "Am Gemeindepark" },
+  { id: "900000038252", name: "Am Graben" },
   { id: "900000070353", name: "Am Heidefriedhof" },
   { id: "900000027301", name: "Am Kiesteich" },
   { id: "900000053202", name: "Am Kleinen Wannsee" },

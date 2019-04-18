@@ -1,4 +1,5 @@
 const stopsH = [
+  { id: "900000038202", name: "Habichtswald" },
   { id: "900000130005", name: "Hadlichstr." },
   { id: "900000194012", name: "Haeckelstr." },
   { id: "900000048107", name: "Hagenplatz" },
@@ -33,6 +34,7 @@ const stopsH = [
   { id: "900000064354", name: "Heinersdorfer Str./Hildburghauser Str." },
   { id: "900000141002", name: "Heinersdorf Kirche" },
   { id: "900000171516", name: "Helene-Weigel-Platz" },
+  { id: "900000038251", name: "Helleberge" },
   { id: "900000175556", name: "Hellersdorfer Str./Gülzower Str." },
   { id: "900000021181", name: "Helmholtzstr." },
   { id: "900000190503", name: "Herkomerstr." },
