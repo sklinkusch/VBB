@@ -16,6 +16,7 @@ const stopsR = [
   { id: "900000027206", name: "Rauchstr." },
   { id: "900000074214", name: "Rehagener Str." },
   { id: "900000058109", name: "Reichartstr." },
+  { id: "900000026152", name: "Reichsstr./Kastanienallee" },
   { id: "900000037204", name: "Reimerweg" },
   { id: "900000140008", name: "Rennbahnstr./Gustav-Adolf-Str." },
   { id: "900000074254", name: "Rennsteig" },
