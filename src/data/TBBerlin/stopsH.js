@@ -24,6 +24,7 @@ const stopsH = [
   { id: "900000037207", name: "Heerstr./Magistratsweg" },
   { id: "900000037211", name: "Heerstr./Nennhauser Damm" },
   { id: "900000032102", name: "Heerstr./Wilhelmstr." },
+  { id: "900000063292", name: "Heesestr." },
   { id: "900000037102", name: "Heidebergplan" },
   { id: "900000091103", name: "Heiligenseestr./Hennigsdorfer Str." },
   { id: "900000089302", name: "Heiligenseestr./Ruppiner Chaussee" },
