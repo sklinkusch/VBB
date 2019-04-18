@@ -26,6 +26,7 @@ const stopsS = [
   { id: "900000049254", name: "Schweizerhofpark" },
   { id: "900000037154", name: "Seegefelder Weg/Klosterbuschweg" },
   { id: "900000152501", name: "Seehausener Str." },
+  { id: "900000040152", name: "Seesener Str." },
   { id: "900000009105", name: "Seestr./Amrumer Str." },
   { id: "900000180011", name: "Semliner Str." },
   { id: "900000161006", name: "Sewanstr./Dolgenseestr." },

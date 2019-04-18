@@ -7,6 +7,7 @@ const stopsW = [
   { id: "900000083303", name: "Waltersdorfer Chaussee/Ostburger Weg" },
   { id: "900000196003", name: "Waltersdorfer Str." },
   { id: "900000194504", name: "Walther-Nernst-Str." },
+  { id: "900000048102", name: "Wangenheimstr." },
   { id: "900000052101", name: "Wannseebadweg" },
   { id: "900000053291", name: "Wannseebrücke" },
   { id: "900000186002", name: "Wassersportallee" },

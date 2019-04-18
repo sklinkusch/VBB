@@ -6,6 +6,7 @@ const stopsE = [
   { id: "900000160537", name: "Einbecker Str./Rosenfelder Str." },
   { id: "900000014154", name: "Eisenbahnstr." },
   { id: "900000028101", name: "Eiswerderstr." },
+  { id: "900000048154", name: "Elgersburger Str." },
   { id: "900000170513", name: "Elisabethstr./Oberfeldstr." },
   { id: "900000190505", name: "Elsenstr./Kiefholzstr." },
   { id: "900000046203", name: "Elsterplatz" },

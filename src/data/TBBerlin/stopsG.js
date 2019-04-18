@@ -32,6 +32,7 @@ const stopsG = [
   { id: "900000039157", name: "Gredinger Str." },
   { id: "900000110020", name: "Greifswalder Str./Danziger Str." },
   { id: "900000110016", name: "Greifswalder Str./Ostseestr." },
+  { id: "900000040153", name: "Grieser Platz" },
   { id: "900000074105", name: "Grimmstr." },
   { id: "900000072181", name: "Großbeerenstr./Daimlerstr." },
   { id: "900000004101", name: "Großer Stern" },
