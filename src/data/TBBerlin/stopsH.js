@@ -45,6 +45,7 @@ const stopsH = [
   { id: "900000160012", name: "Herzbergstr./Siegfriedstr." },
   { id: "900000132504", name: "Hielscherstr." },
   { id: "900000083305", name: "Hiltrud-Dudek-Weg" },
+  { id: "900000066405", name: "Hindenburger Damm/Klingsorstr." },
   { id: "900000180016", name: "Hirtestr." },
   { id: "900000041281", name: "Hochmeisterplatz" },
   { id: "900000150011", name: "Hohenschönhauser Str./Weißenseer Weg" },

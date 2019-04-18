@@ -15,6 +15,7 @@ const stopsK = [
   { id: "900000045158", name: "Kirchstr." },
   { id: "900000180508", name: "Kleinschewskystr." },
   { id: "900000190504", name: "Klingerstr." },
+  { id: "900000066409", name: "Klingsorplatz/Klinikum" },
   { id: "900000135513", name: "Klinikum Buch/Südeingang" },
   { id: "900000016203", name: "Klinikum Am Urban" },
   { id: "900000082101", name: "Klinikum Neukölln" },

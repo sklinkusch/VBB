@@ -6,6 +6,7 @@ const stopsT = [
   { id: "900000096454", name: "Techowpromenade" },
   { id: "900000090102", name: "Tegelort" },
   { id: "900000032301", name: "Teltower Str." },
+  { id: "900000067171", name: "Teltowkanalstr." },
   { id: "900000066254", name: "Thuner Platz" },
   { id: "900000096362", name: "Tiefenseer Str." },
   { id: "900000094181", name: "Titiseestr." },
