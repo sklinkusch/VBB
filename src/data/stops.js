@@ -33,7 +33,9 @@ const stops = [
   { id: "900000220121", name: "Teltow, Striewitzweg" },
   { id: "900000220070", name: "Teltow, Warthestr." },
   { id: "900000220068", name: "Teltow, Zehlendorfer Str." },
-  { id: "900000320023", name: "Waldesruh, Mahlsdorfer Allee" }
+  { id: "900000320023", name: "Waldesruh, Mahlsdorfer Allee" },
+  { id: "900000260512", name: "Waltersdorf (bei Berlin), Am Rondell" },
+  { id: "900000260023", name: "Waltersdorf (bei Berlin), Berliner Str." }
 ];
 
 export default stops;
