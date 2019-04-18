@@ -1,6 +1,7 @@
 const stopsW = [
   { id: "900000094102", name: "Waidmannsluster Damm/Oraniendamm" },
   { id: "900000027306", name: "Waldkrankenhaus" },
+  { id: "900000162513", name: "Waldowallee" },
   { id: "900000073281", name: "Waldsassener Str." },
   { id: "900000196002", name: "Waldstr./Stadtgrenze" },
   { id: "900000083303", name: "Waltersdorfer Chaussee/Ostburger Weg" },

@@ -13,6 +13,7 @@ const stopsT = [
   { id: "900000072105", name: "Titlisweg" },
   { id: "900000175539", name: "Tollensestr." },
   { id: "900000057106", name: "Torgauer Str." },
+  { id: "900000162004", name: "Treskowallee/HTW" },
   { id: "900000131505", name: "Tschaikowskistr." },
   { id: "900000120002", name: "Tunnelstr." },
   { id: "900000002102", name: "Turmstr./Beusselstr." },
