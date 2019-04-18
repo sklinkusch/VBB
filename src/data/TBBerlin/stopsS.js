@@ -51,6 +51,7 @@ const stopsS = [
   { id: "900000100514", name: "Staatsoper" },
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000034156", name: "Stadion Haselhorst" },
+  { id: "900000067152", name: "Stadion Lichterfelde" },
   { id: "900000067251", name: "Stadtbad Lankwitz" },
   { id: "900000083301", name: "Stadtgrenze Rudow" },
   { id: "900000073203", name: "Stadtrandsiedlung" },

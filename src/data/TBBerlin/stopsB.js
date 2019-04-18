@@ -40,6 +40,7 @@ const stopsB = [
   { id: "900000068103", name: "Boelckestr./Hoeppnerstr." },
   { id: "900000195003", name: "Bohnsdorfer Weg" },
   { id: "900000089403", name: "Bollestr." },
+  { id: "900000064103", name: "Boothstr." },
   { id: "900000029104", name: "Borkzeile" },
   { id: "900000171517", name: "Boschpoler Str." },
   { id: "900000120013", name: "Boxhagener Str./Holteistr." },
