@@ -33,6 +33,7 @@ const stopsM = [
   { id: "900000100521", name: "Michaelkirchstr." },
   { id: "900000110028", name: "Michelangelostr." },
   { id: "900000085259", name: "Mickestr." },
+  { id: "900000097152", name: "Miraustr." },
   { id: "900000140019", name: "Mirbachplatz" },
   { id: "900000025152", name: "Mohrunger Allee" },
   { id: "900000160014", name: "Möllendorffstr./Storkower Str." },
