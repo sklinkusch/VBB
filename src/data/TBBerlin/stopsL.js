@@ -13,6 +13,8 @@ const stopsL = [
   { id: "900000083351", name: "Lieselotte-Berger-Str." },
   { id: "900000131513", name: "Lindenberger Str." },
   { id: "900000152511", name: "Lindenberger Str./Birkholzer Weg" },
+  { id: "900000135505", name: "Lindenberger Weg" },
+  { id: "900000135011", name: "Lindenberger Weg/Stadtgrenze" },
   { id: "900000058105", name: "Lindenhof" },
   { id: "900000012104", name: "Lindenstr./Oranienstr." },
   { id: "900000082205", name: "Lipschitzallee/Fritz-Erler-Allee" },

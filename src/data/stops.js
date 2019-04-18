@@ -12,6 +12,7 @@ const stops = [
   { id: "900000203376", name: "Hennigsdorf, Poststr." },
   { id: "900000203378", name: "Hennigsdorf, Stauffenbergstr." },
   { id: "900000203873", name: "Hennigsdorf, Voltastr." },
+  { id: "900000350155", name: "Lindenberg (BAR), Bernauer Str." },
   { id: "900000230032", name: "Potsdam, Johannes-Kepler-Platz" },
   {
     id: "900000230011",
@@ -22,6 +23,9 @@ const stops = [
   { id: "900000260510", name: "Schönefeld, Waltersdorfer Chaussee" },
   { id: "900000260516", name: "Schönefeld, Wehrmathen" },
   { id: "900000310511", name: "Schöneiche, Goethepark" },
+  { id: "900000350166", name: "Schwanebeck (BAR), Dorf" },
+  { id: "900000350909", name: "Schwanebeck (BAR), Neue Kärntner Str." },
+  { id: "900000350694", name: "Schwanebeck (BAR), Schule" },
   { id: "900000220077", name: "Teltow, Bürgertreff" },
   { id: "900000220072", name: "Teltow, Jahnstr." },
   { id: "900000220079", name: "Teltow, Rammrath-Brücke" },

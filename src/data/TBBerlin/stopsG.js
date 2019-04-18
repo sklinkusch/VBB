@@ -24,6 +24,7 @@ const stopsG = [
   { id: "900000175536", name: "Gothaer Str./Eisenacher Str." },
   { id: "900000160523", name: "Gotlindestr." },
   { id: "900000085103", name: "Gotthardstr./Holländerstr." },
+  { id: "900000150522", name: "Gounodstr." },
   { id: "900000131528", name: "Grabbeallee/Pastor-Niemöller-Platz" },
   { id: "900000080101", name: "Gradestr./Tempelhofer Weg" },
   { id: "900000060103", name: "Grazer Platz/Beckerstr." },
