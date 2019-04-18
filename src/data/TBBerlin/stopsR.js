@@ -9,6 +9,7 @@ const stopsR = [
   { id: "900000046251", name: "Rathaus Schmargendorf" },
   { id: "900000054106", name: "Rathaus Schöneberg" },
   { id: "900000003155", name: "Rathaus Tiergarten" },
+  { id: "900000053204", name: "Rathaus Wannsee" },
   { id: "900000140018", name: "Rathaus Weißensee" },
   { id: "900000049258", name: "Rathaus Zehlendorf" },
   { id: "900000048103", name: "Rathenauplatz" },

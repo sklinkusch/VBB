@@ -13,6 +13,7 @@ const stops = [
   { id: "900000203378", name: "Hennigsdorf, Stauffenbergstr." },
   { id: "900000203873", name: "Hennigsdorf, Voltastr." },
   { id: "900000350155", name: "Lindenberg (BAR), Bernauer Str." },
+  { id: "900000230025", name: "Potsdam, Glienicker Brücke" },
   { id: "900000230032", name: "Potsdam, Johannes-Kepler-Platz" },
   {
     id: "900000230011",
