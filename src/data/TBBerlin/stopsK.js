@@ -14,6 +14,7 @@ const stopsK = [
   { id: "900000074294", name: "Kirchhainer Damm/Stadtgrenze" },
   { id: "900000028151", name: "Kirchhofstr." },
   { id: "900000045158", name: "Kirchstr." },
+  { id: "900000022103", name: "Klausenerplatz" },
   { id: "900000180508", name: "Kleinschewskystr." },
   { id: "900000190504", name: "Klingerstr." },
   { id: "900000066409", name: "Klingsorplatz/Klinikum" },

@@ -11,6 +11,7 @@ const stopsS = [
   { id: "900000131001", name: "Schillerstr." },
   { id: "900000005103", name: "Schillstr." },
   { id: "900000022171", name: "Schloss Charlottenburg" },
+  { id: "900000020272", name: "Schlosspark-Klinik" },
   { id: "900000066152", name: "Schlossparktheater" },
   { id: "900000180007", name: "Schloßplatz Köpenick" },
   { id: "900000025101", name: "Scholzplatz" },
