@@ -1,4 +1,5 @@
 const stopsO = [
+  { id: "900000064303", name: "Oberhofer Platz" },
   { id: "900000068205", name: "Oberlandstr./Germaniastr." },
   { id: "900000184001", name: "Odernheimer Str." },
   { id: "900000093253", name: "Olafstr." },
