@@ -18,6 +18,7 @@ const stopsP = [
   { id: "900000083264", name: "Pirnaer Str." },
   { id: "900000175553", name: "Planitzstr." },
   { id: "900000120019", name: "Platz der Vereinten Nationen" },
+  { id: "900000135504", name: "Pölnitzweg" },
   { id: "900000005205", name: "Potsdamer Brücke" },
   { id: "900000050302", name: "Potsdamer Chaussee/Lindenthaler Allee" },
   { id: "900000110017", name: "Prenzlauer Allee/Danziger Str." },
