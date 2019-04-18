@@ -18,6 +18,7 @@ const stopsS = [
   { id: "900000094154", name: "Schonacher Str." },
   { id: "900000110007", name: "Schönhauser Allee/Bornholmer Str." },
   { id: "900000096459", name: "Schule am Park" },
+  { id: "900000077156", name: "Schulenburgpark" },
   { id: "900000089251", name: "Schulzendorfer Weg" },
   { id: "900000050255", name: "Schützallee" },
   { id: "900000039156", name: "Schwabinger Weg" },
