@@ -31,6 +31,7 @@ const stopsA = [
   { id: "900000184002", name: "Alt-Müggelheim" },
   { id: "900000032402", name: "Alt-Pichelsdorf" },
   { id: "900000185001", name: "Alt-Schmöckwitz" },
+  { id: "900000120501", name: "Alt-Stralau" },
   { id: "900000190501", name: "Alt-Treptow" },
   { id: "900000064306", name: "Amalienstr." },
   { id: "900000049303", name: "Am Birkenknick" },

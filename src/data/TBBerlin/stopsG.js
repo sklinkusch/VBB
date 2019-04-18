@@ -11,6 +11,7 @@ const stopsG = [
   { id: "900000070201", name: "Gersdorfstr./Kaiserstr." },
   { id: "900000082259", name: "Gesundheitszentrum" },
   { id: "900000140014", name: "Giersstr." },
+  { id: "900000120520", name: "Glasbläserallee" },
   { id: "900000180524", name: "Glienicker Str." },
   { id: "900000054153", name: "Goebenstr." },
   { id: "900000020281", name: "Goerdelersteg" },
