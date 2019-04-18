@@ -13,6 +13,7 @@ const stopsF = [
   { id: "900000037191", name: "Finkenkruger Weg" },
   { id: "900000096308", name: "Finsterwalder Str./Dannenwalder Weg" },
   { id: "900000100526", name: "Fischerinsel" },
+  { id: "900000170500", name: "Flämingstr." },
   { id: "900000025301", name: "Flatowallee/Olympiastadion" },
   { id: "900000087171", name: "Flughafen Tegel (Airport)" },
   { id: "900000132011", name: "Fontanestr./Schillerstr." },
