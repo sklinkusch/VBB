@@ -43,6 +43,7 @@ const stopsS = [
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000034156", name: "Stadion Haselhorst" },
   { id: "900000067251", name: "Stadtbad Lankwitz" },
+  { id: "900000083301", name: "Stadtgrenze Rudow" },
   { id: "900000110032", name: "Stedingerweg" },
   { id: "900000063301", name: "Steglitzer Damm/Bismarckstr." },
   { id: "900000063401", name: "Steglitzer Damm/Halskestr." },

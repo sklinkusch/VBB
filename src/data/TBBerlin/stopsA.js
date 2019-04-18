@@ -18,6 +18,7 @@ const stopsA = [
   { id: "900000161004", name: "Alt-Friedrichsfelde/Rhinstr." },
   { id: "900000038104", name: "Alt-Gatow" },
   { id: "900000195006", name: "Altglienicke Kirche" },
+  { id: "900000195508", name: "Altglienicker Brücke" },
   { id: "900000091101", name: "Alt-Heiligensee" },
   { id: "900000143509", name: "Alt-Karow" },
   { id: "900000039102", name: "Alt-Kladow" },
