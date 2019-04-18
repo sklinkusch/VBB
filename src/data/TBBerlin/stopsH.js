@@ -3,6 +3,7 @@ const stopsH = [
   { id: "900000194012", name: "Haeckelstr." },
   { id: "900000048107", name: "Hagenplatz" },
   { id: "900000037203", name: "Hahneberg" },
+  { id: "900000053206", name: "Hahn-Meitner-Platz" },
   { id: "900000092202", name: "Hainbuchenstr." },
   { id: "900000071171", name: "Halbauer Weg" },
   { id: "900000072103", name: "Halker Zeile" },

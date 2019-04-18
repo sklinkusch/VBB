@@ -7,6 +7,7 @@ const stopsC = [
   { id: "900000064273", name: "Celsiusstr. Süd" },
   { id: "900000066410", name: "Charité - Campus Benjamin Franklin" },
   { id: "900000100542", name: "Charité - Campus Mitte" },
+  { id: "900000053259", name: "Charlottenstr./Chausseestr." },
   { id: "900000175008", name: "Chemnitzer Str./Jägerstr." },
   { id: "900000051310", name: "Clayallee 229" },
   { id: "900000069101", name: "Columbiadamm/Friesenstr." },
