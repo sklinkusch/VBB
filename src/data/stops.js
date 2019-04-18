@@ -10,6 +10,8 @@ const stops = [
   { id: "900000210115", name: "Falkensee, Am Gutspark" },
   { id: "900000210125", name: "Falkensee, Falkenhagener Anger" },
   { id: "900000210117", name: "Falkensee, Siedlereck" },
+  { id: "900000310015", name: "Gosen, Eiche" },
+  { id: "900000310025", name: "Gosen, Müggelpark" },
   { id: "900000203369", name: "Hennigsdorf, Edisonstr." },
   { id: "900000203368", name: "Hennigsdorf, Humboldtstr." },
   { id: "900000203872", name: "Hennigsdorf, Kleiststr." },
