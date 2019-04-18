@@ -14,6 +14,7 @@ const stopsP = [
   { id: "900000005206", name: "Philharmonie" },
   { id: "900000032401", name: "Pichelsdorfer Str./Weißenburger Str." },
   { id: "900000027402", name: "Pionierstr./Zeppelinstr." },
+  { id: "900000083264", name: "Pirnaer Str." },
   { id: "900000175553", name: "Planitzstr." },
   { id: "900000120019", name: "Platz der Vereinten Nationen" },
   { id: "900000005205", name: "Potsdamer Brücke" },

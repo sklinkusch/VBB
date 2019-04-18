@@ -3,6 +3,7 @@ const stopsK = [
   { id: "900000024108", name: "Kaiser-Friedrich-Str./Kantstr." },
   { id: "900000054109", name: "Kaiser-Wilhelm-Platz" },
   { id: "900000024207", name: "Kantstr./Leibnizstr." },
+  { id: "900000083302", name: "Kapaunenstr." },
   { id: "900000194016", name: "Karl-Ziegler-Str." },
   { id: "900000039162", name: "Kaserne Hottengrund" },
   { id: "900000191004", name: "Kiefholzstr./Baumschulenstr." },

@@ -37,6 +37,7 @@ const stopsR = [
   { id: "900000045157", name: "Rudolf-Mosse-Platz" },
   { id: "900000037201", name: "Rudolf-Wissell-Siedlung" },
   { id: "900000194015", name: "Rudower Chaussee/Wegedornstr." },
+  { id: "900000083265", name: "Rudower Fließ" },
   { id: "900000082152", name: "Rudower Str./Grüner Weg" },
   { id: "900000161003", name: "Rummelsburger Str." }
 ];
