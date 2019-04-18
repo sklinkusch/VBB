@@ -1,6 +1,7 @@
 const stopsB = [
   { id: "900000180008", name: "Bahnhofstr./Lindenstr." },
   { id: "900000180009", name: "Bahnhofstr./Seelenbinderstr." },
+  { id: "900000066408", name: "Bäkestr." },
   { id: "900000161513", name: "Balatonstr." },
   { id: "900000170011", name: "Barnimplatz" },
   { id: "900000191513", name: "Baumschulenstr./Fähre" },
@@ -46,6 +47,7 @@ const stopsB = [
   { id: "900000038201", name: "Breitehornweg" },
   { id: "900000063291", name: "Breite Str." },
   { id: "900000023252", name: "Breitscheidplatz" },
+  { id: "900000066354", name: "Bremer Str." },
   { id: "900000080103", name: "Britzer Damm/Gradestr." },
   { id: "900000080406", name: "Britzer Damm/Mohriner Allee" },
   { id: "900000026102", name: "Brixplatz" },

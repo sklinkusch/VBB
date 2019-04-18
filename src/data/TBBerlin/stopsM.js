@@ -1,4 +1,5 @@
 const stopsM = [
+  { id: "900000049253", name: "Machnower Str." },
   { id: "900000049251", name: "Machnower Str./Berlepschstr." },
   { id: "900000089601", name: "Mäckeritzwiesen" },
   { id: "900000037101", name: "Magistratsweg/Brunsbütteler Damm" },

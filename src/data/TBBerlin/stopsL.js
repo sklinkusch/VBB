@@ -1,4 +1,5 @@
 const stopsL = [
+  { id: "900000049354", name: "Laehrstr." },
   { id: "900000170013", name: "Landsberger Allee/Blumberger Damm" },
   { id: "900000120016", name: "Landsberger Allee/Petersburger Str." },
   { id: "900000171011", name: "Landsberger Allee/Rhinstr." },
@@ -6,6 +7,8 @@ const stopsL = [
   { id: "900000039105", name: "Lanzendorfer Weg" },
   { id: "900000045153", name: "Laubenheimer Str." },
   { id: "900000001204", name: "Lehrter Str./Invalidenstr." },
+  { id: "900000050254", name: "Leichhardtstr." },
+  { id: "900000049305", name: "Leo-Baeck-Str." },
   { id: "900000067101", name: "Leonorenstr./Siemensstr." },
   { id: "900000003257", name: "Lesser-Ury-Weg" },
   { id: "900000057154", name: "Leuthener Str." },
