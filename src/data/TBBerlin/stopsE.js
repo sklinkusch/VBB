@@ -1,5 +1,6 @@
 const stopsE = [
   { id: "900000120544", name: "East Side Gallery" },
+  { id: "900000079251", name: "Eduard-Müller-Platz" },
   { id: "900000086103", name: "Eichborndamm/Antonienstr." },
   { id: "900000083354", name: "Eichenauer Weg" },
   { id: "900000190004", name: "Eichenstr./Puschkinallee" },

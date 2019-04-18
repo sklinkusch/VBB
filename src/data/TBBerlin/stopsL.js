@@ -1,5 +1,6 @@
 const stopsL = [
   { id: "900000049354", name: "Laehrstr." },
+  { id: "900000078271", name: "Lahnstr./U Neukölln" },
   { id: "900000170013", name: "Landsberger Allee/Blumberger Damm" },
   { id: "900000120016", name: "Landsberger Allee/Petersburger Str." },
   { id: "900000171011", name: "Landsberger Allee/Rhinstr." },
