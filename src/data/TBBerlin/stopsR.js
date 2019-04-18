@@ -20,6 +20,7 @@ const stopsR = [
   { id: "900000074254", name: "Rennsteig" },
   { id: "900000190507", name: "Rethelstr." },
   { id: "900000120021", name: "Revaler Str." },
+  { id: "900000150008", name: "Rhinstr./Gärtnerstr." },
   { id: "900000175013", name: "Riesaer Str." },
   { id: "900000175014", name: "Riesaer Str./Louis-Lewin-Str." },
   { id: "900000085260", name: "Ritterlandweg" },

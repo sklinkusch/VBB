@@ -20,6 +20,7 @@ const stopsM = [
   { id: "900000096310", name: "Märkische Zeile" },
   { id: "900000160535", name: "Marktstr." },
   { id: "900000170020", name: "Marzahner Promenade" },
+  { id: "900000150013", name: "Marzahner Str." },
   { id: "900000083202", name: "Massantebrücke" },
   { id: "900000026208", name: "Masurenallee/ZOB" },
   { id: "900000009251", name: "Maxstr." },

@@ -9,6 +9,7 @@ const stopsZ = [
   { id: "900000151003", name: "Zingster Str." },
   { id: "900000045104", name: "Zoppoter Str." },
   { id: "900000016103", name: "Zossener Brücke" },
+  { id: "900000152500", name: "Zu den Krugwiesen" },
   { id: "900000185501", name: "Zum Seeblick" }
 ];
 

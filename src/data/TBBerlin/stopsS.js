@@ -24,6 +24,7 @@ const stopsS = [
   { id: "900000161515", name: "Schwarzmeerstr." },
   { id: "900000049254", name: "Schweizerhofpark" },
   { id: "900000037154", name: "Seegefelder Weg/Klosterbuschweg" },
+  { id: "900000152501", name: "Seehausener Str." },
   { id: "900000009105", name: "Seestr./Amrumer Str." },
   { id: "900000180011", name: "Semliner Str." },
   { id: "900000002255", name: "Seydlitzstr." },
