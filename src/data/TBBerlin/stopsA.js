@@ -60,6 +60,7 @@ const stopsA = [
   { id: "900000140011", name: "Antonplatz" },
   { id: "900000066301", name: "Appenzeller Str." },
   { id: "900000133014", name: "Arkenberge" },
+  { id: "900000083103", name: "Arnikaweg" },
   { id: "900000134513", name: "Arnouxstr." },
   { id: "900000085101", name: "Aroser Allee/Gotthardstr." },
   { id: "900000083205", name: "Ascherslebener Weg" },
