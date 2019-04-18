@@ -24,6 +24,7 @@ const stopsR = [
   { id: "900000175014", name: "Riesaer Str./Louis-Lewin-Str." },
   { id: "900000085260", name: "Ritterlandweg" },
   { id: "900000009254", name: "Ritterlandweg/Soldiner Str." },
+  { id: "900000070303", name: "Rixdorfer Str./Britzer Str." },
   { id: "900000069258", name: "Rixdorfer Str./Ullsteinstr." },
   { id: "900000100036", name: "Robert-Koch-Platz" },
   { id: "900000058106", name: "Röblingstr./Arnulfstr." },

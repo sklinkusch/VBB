@@ -33,6 +33,7 @@ const stopsA = [
   { id: "900000185001", name: "Alt-Schmöckwitz" },
   { id: "900000190501", name: "Alt-Treptow" },
   { id: "900000110019", name: "Am Friedrichshain" },
+  { id: "900000070353", name: "Am Heidefriedhof" },
   { id: "900000027301", name: "Am Kiesteich" },
   { id: "900000053202", name: "Am Kleinen Wannsee" },
   { id: "900000100038", name: "Am Kupfergraben" },

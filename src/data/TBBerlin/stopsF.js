@@ -29,6 +29,7 @@ const stopsF = [
   { id: "900000023354", name: "Friedrich-Hollaender-Platz" },
   { id: "900000180531", name: "Friedrichshagener Str./Kabelwerk" },
   { id: "900000068353", name: "Friedrich-Wilhelm-Str." },
+  { id: "900000072152", name: "Fritz-Werner-Str." },
   { id: "900000131502", name: "Frühlingstr." },
   { id: "900000080102", name: "Fulhamer Allee" }
 ];
