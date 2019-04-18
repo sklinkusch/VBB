@@ -5,6 +5,7 @@ const stopsS = [
   { id: "900000049302", name: "Sachtlebenstr." },
   { id: "900000037202", name: "Sandstr." },
   { id: "900000006153", name: "St.-Elisabeth-Kirchhof" },
+  { id: "900000196510", name: "Sausenberger Str." },
   { id: "900000039155", name: "Schallweg" },
   { id: "900000050203", name: "Scharfestr." },
   { id: "900000120540", name: "Scharnweberstr./Weichselstr." },
