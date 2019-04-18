@@ -49,6 +49,7 @@ const stopsA = [
   { id: "900000161517", name: "Am Tierpark/Alfred-Kowalke-Str." },
   { id: "900000024104", name: "Amtsgerichtsplatz" },
   { id: "900000044102", name: "Am Volkspark" },
+  { id: "900000051203", name: "Am Waldfriedhof" },
   { id: "900000141504", name: "Am Wasserturm" },
   { id: "900000089391", name: "An der Mühle" },
   { id: "900000056105", name: "An der Urania" },
