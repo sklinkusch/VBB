@@ -8,6 +8,8 @@ const stopsF = [
   { id: "900000027401", name: "Falkenseer Chaussee/Zeppelinstr." },
   { id: "900000160526", name: "Fanningerstr." },
   { id: "900000068251", name: "Felixstr." },
+  { id: "900000175501", name: "Feuersteiner Str." },
+  { id: "900000180507", name: "Filehner Str." },
   { id: "900000037191", name: "Finkenkruger Weg" },
   { id: "900000096308", name: "Finsterwalder Str./Dannenwalder Weg" },
   { id: "900000100526", name: "Fischerinsel" },
@@ -25,6 +27,7 @@ const stopsF = [
   { id: "900000073243", name: "Friedenfelser Str." },
   { id: "900000070304", name: "Friedenstr./Großbeerenstr." },
   { id: "900000023354", name: "Friedrich-Hollaender-Platz" },
+  { id: "900000180531", name: "Friedrichshagener Str./Kabelwerk" },
   { id: "900000068353", name: "Friedrich-Wilhelm-Str." },
   { id: "900000131502", name: "Frühlingstr." },
   { id: "900000080102", name: "Fulhamer Allee" }

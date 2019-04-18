@@ -9,6 +9,7 @@ const stopsB = [
   { id: "900000190006", name: "Beermannstr." },
   { id: "900000049301", name: "Beeskowdamm" },
   { id: "900000049103", name: "Behring-Krankenhaus" },
+  { id: "900000180532", name: "Bellevuepark" },
   { id: "900000069204", name: "Bergholzstr." },
   { id: "900000017151", name: "Bergmannstr." },
   { id: "900000046301", name: "Berkaer Str./Breite Str." },

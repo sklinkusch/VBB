@@ -7,6 +7,7 @@ const stopsN = [
   { id: "900000028152", name: "Neue Bergstr." },
   { id: "900000063201", name: "Neue Filandastr." },
   { id: "900000176538", name: "Neuenhagener Str." },
+  { id: "900000180544", name: "Neuer Weg" },
   { id: "900000083353", name: "Neuhofer Str." },
   { id: "900000083181", name: "Neuköllner Str./Zwickauer Damm" },
   { id: "900000130505", name: "Neumannstr./Kissingenstr." },
