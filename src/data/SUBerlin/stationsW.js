@@ -8,6 +8,7 @@ const stationsW = [
   { id: "900000120025", name: "U Weberwiese" },
   { id: "900000009104", name: "S+U Wedding" },
   { id: "900000100051", name: "U Weinmeisterstr." },
+  { id: "900000100080", name: "U Weinmeisterstr./Gipsstr." },
   { id: "900000026207", name: "S Westend" },
   { id: "900000001201", name: "S+U Westhafen" },
   { id: "900000024102", name: "S Westkreuz" },

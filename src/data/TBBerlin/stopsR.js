@@ -4,6 +4,7 @@ const stopsR = [
   { id: "900000176525", name: "Rahnsdorfer Str." },
   { id: "900000171009", name: "Rapsweg/Unfallkrankenhaus" },
   { id: "900000180024", name: "Rathaus Köpenick" },
+  { id: "900000160544", name: "Rathaus Lichtenberg" },
   { id: "900000130501", name: "Rathaus Pankow" },
   { id: "900000096453", name: "Rathauspromenade" },
   { id: "900000046251", name: "Rathaus Schmargendorf" },
@@ -24,6 +25,7 @@ const stopsR = [
   { id: "900000120021", name: "Revaler Str." },
   { id: "900000162505", name: "Rheinsteinstr." },
   { id: "900000150008", name: "Rhinstr./Gärtnerstr." },
+  { id: "900000150005", name: "Rhinstr./Plauener Str." },
   { id: "900000175013", name: "Riesaer Str." },
   { id: "900000175014", name: "Riesaer Str./Louis-Lewin-Str." },
   { id: "900000085260", name: "Ritterlandweg" },
@@ -41,12 +43,14 @@ const stopsR = [
   { id: "900000048108", name: "Roseneck/Hohenzollerndamm" },
   { id: "900000046354", name: "Roseneck/Teplitzer Str." },
   { id: "900000132014", name: "Rosenthal Nord" },
+  { id: "900000152508", name: "Rüdickenstr." },
   { id: "900000045157", name: "Rudolf-Mosse-Platz" },
   { id: "900000037201", name: "Rudolf-Wissell-Siedlung" },
   { id: "900000194015", name: "Rudower Chaussee/Wegedornstr." },
   { id: "900000083265", name: "Rudower Fließ" },
   { id: "900000082152", name: "Rudower Str./Grüner Weg" },
-  { id: "900000161003", name: "Rummelsburger Str." }
+  { id: "900000161003", name: "Rummelsburger Str." },
+  { id: "900000181002", name: "Rummelsburger Str./Edisonstr." }
 ];
 
 export default stopsR;

@@ -15,11 +15,13 @@ const stopsK = [
   { id: "900000028151", name: "Kirchhofstr." },
   { id: "900000045158", name: "Kirchstr." },
   { id: "900000022103", name: "Klausenerplatz" },
+  { id: "900000171540", name: "Kleingartenanlage Bielefeldt" },
   { id: "900000180508", name: "Kleinschewskystr." },
   { id: "900000190504", name: "Klingerstr." },
   { id: "900000066409", name: "Klingsorplatz/Klinikum" },
   { id: "900000135513", name: "Klinikum Buch/Südeingang" },
   { id: "900000016203", name: "Klinikum Am Urban" },
+  { id: "900000120513", name: "Klinikum im Friedrichshain" },
   { id: "900000082101", name: "Klinikum Neukölln" },
   { id: "900000110021", name: "Kniprodestr./Danziger Str." },
   { id: "900000110026", name: "Kniprodestr./Storkower Str." },
@@ -44,7 +46,8 @@ const stopsK = [
   { id: "900000180022", name: "Krankenhaus Köpenick/Südseite" },
   { id: "900000064361", name: "Kranoldplatz" },
   { id: "900000079204", name: "Kranoldstr." },
-  { id: "900000183516", name: "Kruggasse" }
+  { id: "900000183516", name: "Kruggasse" },
+  { id: "900000131510", name: "Kuckhoffstr." }
 ];
 
 export default stopsK;

@@ -1,6 +1,7 @@
 const stopsO = [
   { id: "900000064303", name: "Oberhofer Platz" },
   { id: "900000068205", name: "Oberlandstr./Germaniastr." },
+  { id: "900000110030", name: "Oderbruchstr." },
   { id: "900000184001", name: "Odernheimer Str." },
   { id: "900000093253", name: "Olafstr." },
   { id: "900000023304", name: "Olivaer Platz" },
@@ -11,6 +12,7 @@ const stopsO = [
   { id: "900000151502", name: "Ortnitstr." },
   { id: "900000195524", name: "Ortolfstr./Venusstr." },
   { id: "900000009204", name: "Osloer Str./Prinzenallee" },
+  { id: "900000011252", name: "Osram-Höfe" },
   { id: "900000131008", name: "Ossietzkyplatz" },
   { id: "900000083391", name: "Ostburger Weg/Lettberger Str." },
   { id: "900000064101", name: "Ostpreußendamm/Königsberger Str." },

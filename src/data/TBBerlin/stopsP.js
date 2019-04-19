@@ -3,6 +3,7 @@ const stopsP = [
   { id: "900000085207", name: "Pankower Allee/Reginhardstr." },
   { id: "900000130013", name: "Pankow Kirche" },
   { id: "900000085206", name: "Papierstr." },
+  { id: "900000100504", name: "Pappelplatz" },
   { id: "900000039106", name: "Parnemannweg" },
   { id: "900000140002", name: "Pasedagplatz" },
   { id: "900000134503", name: "Pasewalker Str./Blankenburger Weg" },

@@ -13,7 +13,9 @@ const stopsE = [
   { id: "900000046203", name: "Elsterplatz" },
   { id: "900000085208", name: "Emmentaler Str./Reginhardstr." },
   { id: "900000066353", name: "Engadiner Weg" },
-  { id: "900000075101", name: "Erkstr." }
+  { id: "900000110509", name: "Erich-Weinert-Str." },
+  { id: "900000075101", name: "Erkstr." },
+  { id: "900000160520", name: "Ev. Krankenhaus KEH" }
 ];
 
 export default stopsE;

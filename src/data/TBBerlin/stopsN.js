@@ -16,6 +16,7 @@ const stopsN = [
   { id: "900000130505", name: "Neumannstr./Kissingenstr." },
   { id: "900000049101", name: "Neuruppiner Str." },
   { id: "900000194011", name: "Nieberstr." },
+  { id: "900000170506", name: "Niemegker Str." },
   { id: "900000100539", name: "Nikolaiviertel" },
   { id: "900000077108", name: "Nobelstr./Bergiusstr." },
   { id: "900000131006", name: "Nordend" },
