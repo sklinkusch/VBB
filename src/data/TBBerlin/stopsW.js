@@ -30,6 +30,7 @@ const stopsW = [
   { id: "900000053205", name: "Wilhelmplatz" },
   { id: "900000096307", name: "Wilhelmsruher Damm" },
   { id: "900000096305", name: "Wilhelmsruher Damm/Treuenbrietzener Str." },
+  { id: "900000181006", name: "Wilhelmstrand" },
   { id: "900000071104", name: "Wilhelm-von-Siemens-Str." },
   { id: "900000002202", name: "Wilsnacker Str." },
   { id: "900000135517", name: "Wiltbergstr." },

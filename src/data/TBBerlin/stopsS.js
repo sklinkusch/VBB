@@ -49,6 +49,7 @@ const stopsS = [
   { id: "900000052302", name: "Spanische Allee/Potsdamer Chaussee" },
   { id: "900000090103", name: "Spechtstr." },
   { id: "900000059151", name: "Sportzentrum Schöneberg" },
+  { id: "900000184509", name: "Spreewiesen" },
   { id: "900000100514", name: "Staatsoper" },
   { id: "900000140517", name: "Stadion Buschallee/Hansastr." },
   { id: "900000034156", name: "Stadion Haselhorst" },

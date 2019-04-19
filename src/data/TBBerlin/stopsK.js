@@ -37,12 +37,14 @@ const stopsK = [
   { id: "900000071101", name: "Körtingstr." },
   { id: "900000170507", name: "Köthener Str." },
   { id: "900000066454", name: "Krahmerstr./Stockweg" },
+  { id: "900000184506", name: "Krampenburg" },
   { id: "900000039107", name: "Krampnitzer Weg/Selbitzer Str." },
   { id: "900000196513", name: "Krankenhaus Hedwigshöhe" },
   { id: "900000180019", name: "Krankenhaus Köpenick/Besuchereingang" },
   { id: "900000180022", name: "Krankenhaus Köpenick/Südseite" },
   { id: "900000064361", name: "Kranoldplatz" },
-  { id: "900000079204", name: "Kranoldstr." }
+  { id: "900000079204", name: "Kranoldstr." },
+  { id: "900000183516", name: "Kruggasse" }
 ];
 
 export default stopsK;
