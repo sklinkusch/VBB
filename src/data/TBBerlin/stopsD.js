@@ -15,6 +15,7 @@ const stopsD = [
   { id: "900000037109", name: "Döberitzer Weg" },
   { id: "900000054107", name: "Dominicusstr./Hauptstr." },
   { id: "900000058152", name: "Domnauer Str." },
+  { id: "900000176502", name: "Donizettistr./Lemkestr." },
   { id: "900000092203", name: "Donnersmarckplatz" },
   { id: "900000091161", name: "Dorfaue" },
   { id: "900000152005", name: "Dorfstr./Lindenberger Str." },
