@@ -17,6 +17,7 @@ const stopsP = [
   { id: "900000053258", name: "Pfaueninselchaussee/Königstr." },
   { id: "900000005206", name: "Philharmonie" },
   { id: "900000032401", name: "Pichelsdorfer Str./Weißenburger Str." },
+  { id: "900000194522", name: "Pietschkerstr." },
   { id: "900000027402", name: "Pionierstr./Zeppelinstr." },
   { id: "900000083264", name: "Pirnaer Str." },
   { id: "900000175553", name: "Planitzstr." },

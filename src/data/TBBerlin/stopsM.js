@@ -20,6 +20,7 @@ const stopsM = [
   { id: "900000171528", name: "Märkische Allee/Alt-Friedrichsfelde" },
   { id: "900000096310", name: "Märkische Zeile" },
   { id: "900000162007", name: "Marksburgstr." },
+  { id: "900000182505", name: "Marktplatz Friedrichshagen" },
   { id: "900000160535", name: "Marktstr." },
   { id: "900000170020", name: "Marzahner Promenade" },
   { id: "900000150013", name: "Marzahner Str." },
@@ -59,6 +60,7 @@ const stopsM = [
   { id: "900000180005", name: "Müggelheimer Str./Wendenschloßstr." },
   { id: "900000180541", name: "Müggelhort" },
   { id: "900000180018", name: "Müggelschlößchenweg" },
+  { id: "900000182004", name: "Müggelseedamm/Bölschestr." },
   { id: "900000183515", name: "Müggelwerderweg" },
   { id: "900000027454", name: "Mülheimer Str." },
   { id: "900000175544", name: "Myslowitzer Str./Klinikum" }
