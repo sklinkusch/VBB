@@ -51,6 +51,7 @@ const stopsS = [
   { id: "900000100515", name: "Spandauer Str./Marienkirche" },
   { id: "900000052302", name: "Spanische Allee/Potsdamer Chaussee" },
   { id: "900000090103", name: "Spechtstr." },
+  { id: "900000181507", name: "Spindlersfelder Str." },
   { id: "900000150519", name: "Sportforum" },
   { id: "900000059151", name: "Sportzentrum Schöneberg" },
   { id: "900000184509", name: "Spreewiesen" },

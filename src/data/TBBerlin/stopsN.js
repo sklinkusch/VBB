@@ -18,6 +18,7 @@ const stopsN = [
   { id: "900000194011", name: "Nieberstr." },
   { id: "900000170506", name: "Niemegker Str." },
   { id: "900000100539", name: "Nikolaiviertel" },
+  { id: "900000181506", name: "Nixenstr." },
   { id: "900000077108", name: "Nobelstr./Bergiusstr." },
   { id: "900000131006", name: "Nordend" },
   { id: "900000132512", name: "Nordend-Arena" },
