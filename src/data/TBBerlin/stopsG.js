@@ -47,6 +47,7 @@ const stopsG = [
   { id: "900000054192", name: "Grunewaldstr." },
   { id: "900000007160", name: "Grüntaler Str." },
   { id: "900000175532", name: "Gülzower Str." },
+  { id: "900000160525", name: "Guntherstr." },
   { id: "900000140017", name: "Gustav-Adolf-Str./Langhansstr." },
   { id: "900000057153", name: "Gustav-Müller-Platz" },
   { id: "900000175500", name: "Gutenbergstr." },
