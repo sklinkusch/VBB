@@ -52,7 +52,8 @@ const stopsW = [
   { id: "900000029201", name: "Wröhmännerpark" },
   { id: "900000170531", name: "Wuhletalstr." },
   { id: "900000074293", name: "Wünsdorfer Str./Blohmstr." },
-  { id: "900000026153", name: "Württembergallee" }
+  { id: "900000026153", name: "Württembergallee" },
+  { id: "900000082257", name: "Wutzkyallee/Fritz-Erler-Allee" }
 ];
 
 export default stopsW;

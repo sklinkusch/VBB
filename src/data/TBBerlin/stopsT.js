@@ -9,6 +9,8 @@ const stopsT = [
   { id: "900000067171", name: "Teltowkanalstr." },
   { id: "900000066254", name: "Thuner Platz" },
   { id: "900000096362", name: "Tiefenseer Str." },
+  { id: "900000073206", name: "Tirschenreuther Ring" },
+  { id: "900000080602", name: "Tischlerzeile" },
   { id: "900000094181", name: "Titiseestr." },
   { id: "900000072105", name: "Titlisweg" },
   { id: "900000175539", name: "Tollensestr." },
