@@ -32,6 +32,7 @@ const stopsB = [
   { id: "900000170010", name: "Betriebshof Marzahn" },
   { id: "900000063202", name: "Birkbuschstr./Klingsorstr." },
   { id: "900000152004", name: "Birkholzer Weg/Str. 4" },
+  { id: "900000048152", name: "Bismarckplatz" },
   { id: "900000063104", name: "Bismarckstr./Bergstr." },
   { id: "900000022106", name: "Bismarckstr./Kaiser-Friedrich-Str." },
   { id: "900000110010", name: "Björnsonstr." },

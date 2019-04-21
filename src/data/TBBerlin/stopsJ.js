@@ -9,6 +9,7 @@ const stopsJ = [
   { id: "900000082105", name: "Johannisthaler Chaussee/Fritz-Erler-Allee" },
   { id: "900000082291", name: "Johannisthaler Chaussee/Rudower Str." },
   { id: "900000194506", name: "Johannisthal Kirche" },
+  { id: "900000048157", name: "Joseph-Joachim-Platz" },
   { id: "900000160508", name: "Judith-Auer-Str." },
   { id: "900000087152", name: "Julius-Leber-Kaserne" },
   { id: "900000064352", name: "Jungfernstieg" }
