@@ -15,6 +15,7 @@ const stopsM = [
   { id: "900000066455", name: "Manteuffelstr." },
   { id: "900000014104", name: "Manteuffelstr./Köpenicker Str." },
   { id: "900000021151", name: "Marchstr." },
+  { id: "900000077154", name: "Mareschstr." },
   { id: "900000192508", name: "Marggraffbrücke" },
   { id: "900000074101", name: "Mariendorfer Damm/Buckower Chaussee" },
   { id: "900000064351", name: "Marienstr." },

@@ -7,6 +7,7 @@ const stopsZ = [
   { id: "900000029102", name: "Zeppelinstr./Seegefelder Str." },
   { id: "900000096355", name: "Zerpenschleuser Ring" },
   { id: "900000031102", name: "Ziegelhof" },
+  { id: "900000077153", name: "Ziegrastr." },
   { id: "900000151003", name: "Zingster Str." },
   { id: "900000151004", name: "Zingster Str./Ribnitzer Str." },
   { id: "900000100042", name: "Zionskirchplatz" },

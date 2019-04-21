@@ -50,6 +50,7 @@ const stopsH = [
   { id: "900000093203", name: "Hermsdorfer Str./Berliner Str." },
   { id: "900000048104", name: "Herthastr." },
   { id: "900000004181", name: "Hertzallee" },
+  { id: "900000076101", name: "Hertzbergplatz" },
   { id: "900000132509", name: "Hertzstr./Hauptstr." },
   { id: "900000064104", name: "Herwarthstr." },
   { id: "900000160518", name: "Herzbergstr./Industriegebiet" },

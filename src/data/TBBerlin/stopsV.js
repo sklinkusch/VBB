@@ -1,4 +1,5 @@
 const stopsV = [
+  { id: "900000005208", name: "Varian-Fry-Str./Potsdamer Platz" },
   { id: "900000093204", name: "Veltheimstr." },
   { id: "900000093206", name: "Veltheimstr./Schildower Str." },
   { id: "900000195502", name: "Venusstr." },
