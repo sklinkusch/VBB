@@ -37,6 +37,7 @@ const stopsP = [
   { id: "900000110013", name: "Prenzlauer Allee/Ostseestr." },
   { id: "900000141507", name: "Prenzlauer Promenade/Am Steinberg" },
   { id: "900000151006", name: "Prerower Platz" },
+  { id: "900000066351", name: "Prettauer Pfad" },
   { id: "900000006102", name: "Prinzenallee/Soldiner Str." },
   { id: "900000064151", name: "Promenadenstr." },
   { id: "900000180536", name: "Puchanstr." }
