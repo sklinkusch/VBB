@@ -5,6 +5,7 @@ const stopsM = [
   { id: "900000037101", name: "Magistratsweg/Brunsbütteler Damm" },
   { id: "900000194501", name: "Magnusstr." },
   { id: "900000180010", name: "Mahlsdorfer Str./Gehsener Str." },
+  { id: "900000180017", name: "Mahlsdorf-Süd" },
   { id: "900000151007", name: "Malchow/Dorfstr." },
   { id: "900000151510", name: "Malchower Aue" },
   { id: "900000067204", name: "Malteserstr./Kamenzer Damm" },

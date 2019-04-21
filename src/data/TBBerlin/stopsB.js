@@ -58,6 +58,7 @@ const stopsB = [
   { id: "900000080406", name: "Britzer Damm/Mohriner Allee" },
   { id: "900000026102", name: "Brixplatz" },
   { id: "900000170524", name: "Brodowiner Ring" },
+  { id: "900000176536", name: "Bruchsaler Str." },
   { id: "900000192506", name: "Brückenstr." },
   { id: "900000100041", name: "Brunnenstr./Invalidenstr." },
   { id: "900000037103", name: "Brunsbütteler Damm/Nennhauser Damm" },
@@ -75,7 +76,8 @@ const stopsB = [
   { id: "900000120511", name: "Büschingstr." },
   { id: "900000080405", name: "Buschkrug" },
   { id: "900000080403", name: "Buschkrugallee/Parchimer Allee" },
-  { id: "900000050381", name: "Busseallee" }
+  { id: "900000050381", name: "Busseallee" },
+  { id: "900000176535", name: "Bütower Str." }
 ];
 
 export default stopsB;
