@@ -11,6 +11,7 @@ const stopsK = [
   { id: "900000087153", name: "Kaserne Nordtor" },
   { id: "900000087103", name: "Kaserne Südtor" },
   { id: "900000057155", name: "Katzbachstr." },
+  { id: "900000019253", name: "Keplerstr." },
   { id: "900000191004", name: "Kiefholzstr./Baumschulenstr." },
   { id: "900000062252", name: "Kieler Str." },
   { id: "900000080491", name: "Kielingerstr." },

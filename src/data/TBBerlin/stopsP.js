@@ -25,6 +25,7 @@ const stopsP = [
   { id: "900000135504", name: "Pölnitzweg" },
   { id: "900000005205", name: "Potsdamer Brücke" },
   { id: "900000050302", name: "Potsdamer Chaussee/Lindenthaler Allee" },
+  { id: "900000130523", name: "Pradelstr." },
   { id: "900000110017", name: "Prenzlauer Allee/Danziger Str." },
   { id: "900000110013", name: "Prenzlauer Allee/Ostseestr." },
   { id: "900000141507", name: "Prenzlauer Promenade/Am Steinberg" },
