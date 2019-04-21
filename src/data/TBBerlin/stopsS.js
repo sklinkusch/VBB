@@ -18,6 +18,7 @@ const stopsS = [
   { id: "900000180007", name: "Schloßplatz Köpenick" },
   { id: "900000025101", name: "Scholzplatz" },
   { id: "900000094154", name: "Schonacher Str." },
+  { id: "900000058104", name: "Schöneberger Str." },
   { id: "900000110008", name: "Schönfließer Str." },
   { id: "900000110007", name: "Schönhauser Allee/Bornholmer Str." },
   { id: "900000170021", name: "Schorfheidestr." },
