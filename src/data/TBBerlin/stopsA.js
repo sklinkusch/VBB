@@ -73,6 +73,7 @@ const stopsA = [
   { id: "900000134513", name: "Arnouxstr." },
   { id: "900000085101", name: "Aroser Allee/Gotthardstr." },
   { id: "900000083205", name: "Ascherslebener Weg" },
+  { id: "900000029155", name: "Askanierring" },
   { id: "900000068341", name: "Attilaplatz" },
   { id: "900000134012", name: "Aubertstr." },
   { id: "900000086106", name: "Auguste-Viktoria-Allee/Humboldtstr." },

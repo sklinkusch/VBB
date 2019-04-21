@@ -10,6 +10,7 @@ const stopsP = [
   { id: "900000140002", name: "Pasedagplatz" },
   { id: "900000134503", name: "Pasewalker Str./Blankenburger Weg" },
   { id: "900000131005", name: "Pastor-Niemöller-Platz" },
+  { id: "900000027351", name: "Paul-Gerhardt-Ring" },
   { id: "900000067255", name: "Paul-Schneider-Str." },
   { id: "900000034103", name: "Paulsternstr./Gartenfelder Str." },
   { id: "900000083304", name: "Pfarrer-Heß-Weg" },

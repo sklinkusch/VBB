@@ -39,6 +39,7 @@ const stopsB = [
   { id: "900000131518", name: "Blankenburger Str./Grumbkowstr." },
   { id: "900000133011", name: "Blankenfelde Kirche" },
   { id: "900000134500", name: "Blankenfelder Str." },
+  { id: "900000037208", name: "Blasewitzer Ring" },
   { id: "900000023351", name: "Bleibtreustr." },
   { id: "900000012152", name: "Blücherstr." },
   { id: "900000170015", name: "Blumberger Damm/Elisabethstr." },

@@ -53,6 +53,7 @@ const stopsK = [
   { id: "900000064361", name: "Kranoldplatz" },
   { id: "900000079204", name: "Kranoldstr." },
   { id: "900000183516", name: "Kruggasse" },
+  { id: "900000031104", name: "Krumme Gärten" },
   { id: "900000131510", name: "Kuckhoffstr." }
 ];
 
