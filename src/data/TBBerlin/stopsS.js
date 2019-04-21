@@ -24,6 +24,7 @@ const stopsS = [
   { id: "900000096301", name: "Schorfheidestr./Eichhorster Weg" },
   { id: "900000096459", name: "Schule am Park" },
   { id: "900000077156", name: "Schulenburgpark" },
+  { id: "900000027252", name: "Schülerbergstr." },
   { id: "900000089251", name: "Schulzendorfer Weg" },
   { id: "900000050255", name: "Schützallee" },
   { id: "900000039156", name: "Schwabinger Weg" },

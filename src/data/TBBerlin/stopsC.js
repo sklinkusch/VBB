@@ -3,6 +3,7 @@ const stopsC = [
   { id: "900000135018", name: "Campus Buch" },
   { id: "900000063203", name: "Carmerplatz" },
   { id: "900000066201", name: "Carstennstr./Ringstr." },
+  { id: "900000027207", name: "Cautiusstr." },
   { id: "900000171010", name: "Cecilienstr./Blumberger Damm" },
   { id: "900000171520", name: "Cecilienstr./Wuhle" },
   { id: "900000064273", name: "Celsiusstr. Süd" },

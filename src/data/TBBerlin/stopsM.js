@@ -1,4 +1,5 @@
 const stopsM = [
+  { id: "900000020105", name: "Machandelweg" },
   { id: "900000049253", name: "Machnower Str." },
   { id: "900000049251", name: "Machnower Str./Berlepschstr." },
   { id: "900000089601", name: "Mäckeritzwiesen" },
@@ -51,6 +52,7 @@ const stopsM = [
   { id: "900000110503", name: "Milastr." },
   { id: "900000097152", name: "Miraustr." },
   { id: "900000140019", name: "Mirbachplatz" },
+  { id: "900000027251", name: "Mögeldorfer Weg" },
   { id: "900000025152", name: "Mohrunger Allee" },
   { id: "900000160014", name: "Möllendorffstr./Storkower Str." },
   { id: "900000081256", name: "Mollnerweg" },
