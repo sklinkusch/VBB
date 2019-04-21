@@ -30,6 +30,7 @@ const stopsK = [
   { id: "900000120513", name: "Klinikum im Friedrichshain" },
   { id: "900000082101", name: "Klinikum Neukölln" },
   { id: "900000027202", name: "Klinkeplatz" },
+  { id: "900000063103", name: "Knausplatz" },
   { id: "900000110021", name: "Kniprodestr./Danziger Str." },
   { id: "900000110026", name: "Kniprodestr./Storkower Str." },
   { id: "900000180012", name: "Köllnischer Platz" },
