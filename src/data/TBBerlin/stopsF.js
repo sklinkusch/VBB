@@ -14,6 +14,7 @@ const stopsF = [
   { id: "900000037191", name: "Finkenkruger Weg" },
   { id: "900000096308", name: "Finsterwalder Str./Dannenwalder Weg" },
   { id: "900000181502", name: "Firlstr." },
+  { id: "900000050391", name: "Fischerhüttenstr." },
   { id: "900000100526", name: "Fischerinsel" },
   { id: "900000170500", name: "Flämingstr." },
   { id: "900000029156", name: "Flankenschanze" },

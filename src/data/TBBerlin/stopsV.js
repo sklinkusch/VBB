@@ -6,7 +6,8 @@ const stopsV = [
   { id: "900000152502", name: "Vincent-van-Gogh-Str." },
   { id: "900000063254", name: "Vionvillestr." },
   { id: "900000010251", name: "Virchow-Klinikum" },
-  { id: "900000086153", name: "Von-der-Gablentz-Str." }
+  { id: "900000086153", name: "Von-der-Gablentz-Str." },
+  { id: "900000051309", name: "Von-Laue-Str." }
 ];
 
 export default stopsV;

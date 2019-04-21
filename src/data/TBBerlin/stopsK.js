@@ -20,6 +20,7 @@ const stopsK = [
   { id: "900000028151", name: "Kirchhofstr." },
   { id: "900000045158", name: "Kirchstr." },
   { id: "900000022103", name: "Klausenerplatz" },
+  { id: "900000050253", name: "Kleinaustr." },
   { id: "900000171540", name: "Kleingartenanlage Bielefeldt" },
   { id: "900000180508", name: "Kleinschewskystr." },
   { id: "900000190504", name: "Klingerstr." },
@@ -56,7 +57,8 @@ const stopsK = [
   { id: "900000030101", name: "Krematorium Ruhleben" },
   { id: "900000183516", name: "Kruggasse" },
   { id: "900000031104", name: "Krumme Gärten" },
-  { id: "900000131510", name: "Kuckhoffstr." }
+  { id: "900000131510", name: "Kuckhoffstr." },
+  { id: "900000005255", name: "Kulturforum" }
 ];
 
 export default stopsK;
