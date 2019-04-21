@@ -21,6 +21,7 @@ const stopsM = [
   { id: "900000120521", name: "Markgrafendamm" },
   { id: "900000171528", name: "Märkische Allee/Alt-Friedrichsfelde" },
   { id: "900000096310", name: "Märkische Zeile" },
+  { id: "900000096303", name: "Märkisches Zentrum" },
   { id: "900000162007", name: "Marksburgstr." },
   { id: "900000193505", name: "Marktplatz Adlershof" },
   { id: "900000182505", name: "Marktplatz Friedrichshagen" },
