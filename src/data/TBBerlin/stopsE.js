@@ -17,6 +17,7 @@ const stopsE = [
   { id: "900000176534", name: "Erich-Baron-Weg" },
   { id: "900000110509", name: "Erich-Weinert-Str." },
   { id: "900000075101", name: "Erkstr." },
+  { id: "900000023204", name: "Europa-Center" },
   { id: "900000160520", name: "Ev. Krankenhaus KEH" }
 ];
 

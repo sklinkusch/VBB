@@ -8,6 +8,7 @@ const stopsK = [
   { id: "900000194016", name: "Karl-Ziegler-Str." },
   { id: "900000066402", name: "Karwendelstr." },
   { id: "900000039162", name: "Kaserne Hottengrund" },
+  { id: "900000057155", name: "Katzbachstr." },
   { id: "900000191004", name: "Kiefholzstr./Baumschulenstr." },
   { id: "900000062252", name: "Kieler Str." },
   { id: "900000080491", name: "Kielingerstr." },

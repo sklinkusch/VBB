@@ -11,6 +11,7 @@ const stopsM = [
   { id: "900000067204", name: "Malteserstr./Kamenzer Damm" },
   { id: "900000180533", name: "Mandrellaplatz" },
   { id: "900000041154", name: "Mansfelder Str./Barstr." },
+  { id: "900000057171", name: "Mansteinstr." },
   { id: "900000066455", name: "Manteuffelstr." },
   { id: "900000014104", name: "Manteuffelstr./Köpenicker Str." },
   { id: "900000021151", name: "Marchstr." },
