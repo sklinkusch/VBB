@@ -8,3 +8,9 @@ header {
 header h1 {
   color: white;
 }
+header p {
+  color: white;
+}
+.rightpara {
+  text-align: right;
+}
