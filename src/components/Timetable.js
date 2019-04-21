@@ -10,12 +10,12 @@ const createHafas = require("vbb-hafas");
 export default class Timetable extends Component {
   constructor(props) {
     super(props);
+    this.duration = 60;
     this.state = {
       data: null,
       value: stops[0].id,
       stop: stops[0].name
     };
-    this.getData(stops[0].id);
   }
   getData(stopid) {
     const hafas = createHafas("my-awesome-program");
@@ -28,7 +28,7 @@ export default class Timetable extends Component {
     //   console.log("CORS-enabled web server listening on port 80");
     // });
     hafas
-      .departures(stopid, { duration: 60 })
+      .departures(stopid, { duration: this.duration })
       .then(departures => this.saveData(departures))
       .catch(console.error);
   }
@@ -40,8 +40,14 @@ export default class Timetable extends Component {
     // console.log(this.state.value);
     this.getData(this.state.value);
   };
+  componentDidMount() {
+    this.getData(this.state.value);
+  }
   render() {
     const data = this.sortData();
+    const text = `In the next ${
+      this.duration
+    } minutes, no departures are planned for the station or stop you have chosen.`;
     return (
       <div>
         <select
@@ -62,13 +68,13 @@ export default class Timetable extends Component {
         <div>
           <h2>{this.state.stop}</h2>
           <Tablehead />
-          {data != null ? (
+          {data !== undefined && data !== null && data.length > 0 ? (
             data.map(dep => {
               const identifier = `${dep.stop.id}:${dep.tripId}.${dep.when}`;
               return <Departure dep={dep} key={identifier} />;
             })
           ) : (
-            <div>{data}</div>
+            <div>{text}</div>
           )}
         </div>
       </div>
