@@ -10,6 +10,7 @@ const stopsZ = [
   { id: "900000077153", name: "Ziegrastr." },
   { id: "900000151003", name: "Zingster Str." },
   { id: "900000151004", name: "Zingster Str./Ribnitzer Str." },
+  { id: "900000132514", name: "Zionsfriedhof" },
   { id: "900000100042", name: "Zionskirchplatz" },
   { id: "900000045104", name: "Zoppoter Str." },
   { id: "900000016103", name: "Zossener Brücke" },

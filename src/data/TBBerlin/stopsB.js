@@ -37,6 +37,7 @@ const stopsB = [
   { id: "900000048152", name: "Bismarckplatz" },
   { id: "900000063104", name: "Bismarckstr./Bergstr." },
   { id: "900000022106", name: "Bismarckstr./Kaiser-Friedrich-Str." },
+  { id: "900000024208", name: "Bismarckstr./Leibnizstr." },
   { id: "900000170534", name: "Bitterfelder Str./Wolfener Str." },
   { id: "900000110010", name: "Björnsonstr." },
   { id: "900000131518", name: "Blankenburger Str./Grumbkowstr." },

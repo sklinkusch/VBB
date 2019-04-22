@@ -10,6 +10,7 @@ const stopsA = [
   { id: "900000054151", name: "Albertstr." },
   { id: "900000058151", name: "Alboinstr./Arnulfstr." },
   { id: "900000068204", name: "Albrechtstr./Manteuffelstr." },
+  { id: "900000078151", name: "Alfred-Scholz-Platz" },
   { id: "900000170019", name: "Allee der Kosmonauten/Poelchaustr." },
   { id: "900000171008", name: "Allee der Kosmonauten/Rhinstr." },
   { id: "900000142502", name: "Alt-Blankenburg" },
@@ -19,6 +20,7 @@ const stopsA = [
   { id: "900000175512", name: "Alte Hellersdorfer Str./Zossener Str." },
   { id: "900000150509", name: "Altenhofer Str." },
   { id: "900000182005", name: "Altes Wasserwerk" },
+  { id: "900000161519", name: "Alt-Friedrichsfelde 60" },
   { id: "900000161005", name: "Alt-Friedrichsfelde/Gensinger Str." },
   { id: "900000161004", name: "Alt-Friedrichsfelde/Rhinstr." },
   { id: "900000038104", name: "Alt-Gatow" },
@@ -79,7 +81,8 @@ const stopsA = [
   { id: "900000068341", name: "Attilaplatz" },
   { id: "900000134012", name: "Aubertstr." },
   { id: "900000086106", name: "Auguste-Viktoria-Allee/Humboldtstr." },
-  { id: "900000060105", name: "Auguste-Viktoria-Klinikum Süd" }
+  { id: "900000060105", name: "Auguste-Viktoria-Klinikum Süd" },
+  { id: "900000175518", name: "Aurorafalterweg" }
 ];
 
 export default stopsA;

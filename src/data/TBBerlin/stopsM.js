@@ -61,6 +61,7 @@ const stopsM = [
   { id: "900000100512", name: "Monbijouplatz" },
   { id: "900000084155", name: "Montanstr./Lengeder Str." },
   { id: "900000029202", name: "Moritzstr." },
+  { id: "900000078152", name: "Morusstr." },
   { id: "900000185003", name: "Moßkopfring" },
   { id: "900000067103", name: "Mozartstr." },
   { id: "900000180014", name: "Müggelbergallee" },

@@ -23,6 +23,7 @@ const stopsF = [
   { id: "900000029156", name: "Flankenschanze" },
   { id: "900000025301", name: "Flatowallee/Olympiastadion" },
   { id: "900000087171", name: "Flughafen Tegel (Airport)" },
+  { id: "900000079152", name: "Fontanestr./Flughafenstr." },
   { id: "900000132011", name: "Fontanestr./Schillerstr." },
   { id: "900000260024", name: "Flughafen Schönefeld Terminal (Airport)" },
   { id: "900000021152", name: "Franklinstr." },

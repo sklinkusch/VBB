@@ -23,6 +23,7 @@ const stopsK = [
   { id: "900000022103", name: "Klausenerplatz" },
   { id: "900000050253", name: "Kleinaustr." },
   { id: "900000171540", name: "Kleingartenanlage Bielefeldt" },
+  { id: "900000132513", name: "Kleingartenanlage Daheim" },
   { id: "900000180508", name: "Kleinschewskystr." },
   { id: "900000190504", name: "Klingerstr." },
   { id: "900000066409", name: "Klingsorplatz/Klinikum" },
