@@ -41,6 +41,7 @@ const stopsR = [
   { id: "900000084102", name: "Roedernallee/Flottenstr." },
   { id: "900000160010", name: "Roederplatz" },
   { id: "900000140016", name: "Roelckestr." },
+  { id: "900000141508", name: "Romain-Rolland-Str./Str. 16" },
   { id: "900000176533", name: "Roseggerstr." },
   { id: "900000048109", name: "Roseneck" },
   { id: "900000048108", name: "Roseneck/Hohenzollerndamm" },

@@ -3,6 +3,7 @@ const stopsK = [
   { id: "900000024108", name: "Kaiser-Friedrich-Str./Kantstr." },
   { id: "900000054109", name: "Kaiser-Wilhelm-Platz" },
   { id: "900000067205", name: "Kaiser-Wilhelm-Str./Seydlitzstr." },
+  { id: "900000089552", name: "Kamener Weg" },
   { id: "900000024207", name: "Kantstr./Leibnizstr." },
   { id: "900000083302", name: "Kapaunenstr." },
   { id: "900000194016", name: "Karl-Ziegler-Str." },
@@ -30,6 +31,7 @@ const stopsK = [
   { id: "900000120513", name: "Klinikum im Friedrichshain" },
   { id: "900000082101", name: "Klinikum Neukölln" },
   { id: "900000027202", name: "Klinkeplatz" },
+  { id: "900000037106", name: "Klosterbuschweg" },
   { id: "900000063103", name: "Knausplatz" },
   { id: "900000110021", name: "Kniprodestr./Danziger Str." },
   { id: "900000110026", name: "Kniprodestr./Storkower Str." },
@@ -50,6 +52,7 @@ const stopsK = [
   { id: "900000066454", name: "Krahmerstr./Stockweg" },
   { id: "900000184506", name: "Krampenburg" },
   { id: "900000039107", name: "Krampnitzer Weg/Selbitzer Str." },
+  { id: "900000039109", name: "Krankenhaus Havelhöhe" },
   { id: "900000196513", name: "Krankenhaus Hedwigshöhe" },
   { id: "900000180019", name: "Krankenhaus Köpenick/Besuchereingang" },
   { id: "900000180022", name: "Krankenhaus Köpenick/Südseite" },
@@ -59,7 +62,8 @@ const stopsK = [
   { id: "900000183516", name: "Kruggasse" },
   { id: "900000031104", name: "Krumme Gärten" },
   { id: "900000131510", name: "Kuckhoffstr." },
-  { id: "900000005255", name: "Kulturforum" }
+  { id: "900000005255", name: "Kulturforum" },
+  { id: "900000039159", name: "Kurpromenade" }
 ];
 
 export default stopsK;

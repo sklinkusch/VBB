@@ -1,5 +1,6 @@
 const stopsW = [
   { id: "900000094102", name: "Waidmannsluster Damm/Oraniendamm" },
+  { id: "900000039108", name: "Waldallee" },
   { id: "900000027306", name: "Waldkrankenhaus" },
   { id: "900000162513", name: "Waldowallee" },
   { id: "900000073281", name: "Waldsassener Str." },

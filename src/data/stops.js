@@ -48,6 +48,7 @@ const stops = [
   { id: "900000350909", name: "Schwanebeck (BAR), Neue Kärntner Str." },
   { id: "900000350694", name: "Schwanebeck (BAR), Schule" },
   { id: "900000220077", name: "Teltow, Bürgertreff" },
+  { id: "900000220071", name: "Teltow, Havelstr." },
   { id: "900000220072", name: "Teltow, Jahnstr." },
   { id: "900000220079", name: "Teltow, Rammrath-Brücke" },
   { id: "900000220073", name: "Teltow, Ruhlsdorfer Platz" },
