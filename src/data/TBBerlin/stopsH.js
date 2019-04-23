@@ -85,6 +85,7 @@ const stopsH = [
   { id: "900000027261", name: "Hugo-Cassirer-Str." },
   { id: "900000082250", name: "Hugo-Heimann-Str." },
   { id: "900000176512", name: "Hultschiner Damm/Seestr." },
+  { id: "900000110500", name: "Humannplatz" },
   { id: "900000096192", name: "Humboldt-Klinikum" },
   { id: "900000070305", name: "Hundsteinweg" },
   { id: "900000110511", name: "Husemannstr." }

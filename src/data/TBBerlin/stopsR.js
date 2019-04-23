@@ -16,6 +16,7 @@ const stopsR = [
   { id: "900000048103", name: "Rathenauplatz" },
   { id: "900000181503", name: "Rathenaustr./HTW" },
   { id: "900000027206", name: "Rauchstr." },
+  { id: "900000110502", name: "Raumerstr." },
   { id: "900000074214", name: "Rehagener Str." },
   { id: "900000058109", name: "Reichartstr." },
   { id: "900000026152", name: "Reichsstr./Kastanienallee" },

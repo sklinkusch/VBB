@@ -81,6 +81,7 @@ const stopsS = [
   { id: "900000073203", name: "Stadtrandsiedlung" },
   { id: "900000110015", name: "Stahlheimer Str./Wisbyer Str." },
   { id: "900000064359", name: "Stanzer Zeile" },
+  { id: "900000110501", name: "Stargarder Str." },
   { id: "900000110032", name: "Stedingerweg" },
   { id: "900000063301", name: "Steglitzer Damm/Bismarckstr." },
   { id: "900000063401", name: "Steglitzer Damm/Halskestr." },
