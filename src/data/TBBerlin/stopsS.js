@@ -93,6 +93,7 @@ const stopsS = [
   { id: "900000194007", name: "Sterndamm/Königsheideweg" },
   { id: "900000063351", name: "Stindestr." },
   { id: "900000120024", name: "Stralauer Platz" },
+  { id: "900000120515", name: "Straßmannstr." },
   { id: "900000194003", name: "Stubenrauchstr./Springbornstr." },
   { id: "900000081202", name: "Stuthirtenweg" },
   { id: "900000140518", name: "Sulzfelder Str." },

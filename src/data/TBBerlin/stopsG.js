@@ -8,6 +8,7 @@ const stopsG = [
   { id: "900000032106", name: "Gatower Str./Heerstr." },
   { id: "900000032201", name: "Gatower Str./Weinmeisterhornweg" },
   { id: "900000032256", name: "Gatow Kirche" },
+  { id: "900000007150", name: "Gedenkstätte Berliner Mauer" },
   { id: "900000150504", name: "Gehrenseestr." },
   { id: "900000140514", name: "Gehringstr." },
   { id: "900000180511", name: "Gelnitzstr." },
