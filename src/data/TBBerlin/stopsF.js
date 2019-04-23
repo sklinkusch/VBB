@@ -37,6 +37,7 @@ const stopsF = [
   { id: "900000027305", name: "Freudstr./Goldkäferweg" },
   { id: "900000073243", name: "Friedenfelser Str." },
   { id: "900000070304", name: "Friedenstr./Großbeerenstr." },
+  { id: "900000131508", name: "Friedrich-Engels-Str./Eichenstr." },
   { id: "900000023354", name: "Friedrich-Hollaender-Platz" },
   { id: "900000120502", name: "Friedrich-Junge-Str." },
   { id: "900000180531", name: "Friedrichshagener Str./Kabelwerk" },

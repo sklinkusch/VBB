@@ -1,6 +1,7 @@
 const stopsW = [
   { id: "900000094102", name: "Waidmannsluster Damm/Oraniendamm" },
   { id: "900000039108", name: "Waldallee" },
+  { id: "900000131519", name: "Waldemarstr." },
   { id: "900000027306", name: "Waldkrankenhaus" },
   { id: "900000162513", name: "Waldowallee" },
   { id: "900000073281", name: "Waldsassener Str." },
@@ -29,6 +30,7 @@ const stopsW = [
   { id: "900000027453", name: "Westerwaldstr." },
   { id: "900000194511", name: "Westweg" },
   { id: "900000045103", name: "Wiesbadener Str./Laubacher Str." },
+  { id: "900000132500", name: "Wiesenwinkel" },
   { id: "900000075151", name: "Wildenbruchplatz" },
   { id: "900000181001", name: "Wilhelminenhofstr./Edisonstr." },
   { id: "900000053205", name: "Wilhelmplatz" },
