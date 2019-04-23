@@ -18,6 +18,7 @@ const stopsM = [
   { id: "900000021151", name: "Marchstr." },
   { id: "900000077154", name: "Mareschstr." },
   { id: "900000192508", name: "Marggraffbrücke" },
+  { id: "900000110508", name: "Marienburger Str." },
   { id: "900000074101", name: "Mariendorfer Damm/Buckower Chaussee" },
   { id: "900000064351", name: "Marienstr." },
   { id: "900000120521", name: "Markgrafendamm" },

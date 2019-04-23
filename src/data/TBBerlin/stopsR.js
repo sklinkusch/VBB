@@ -48,6 +48,7 @@ const stopsR = [
   { id: "900000046354", name: "Roseneck/Teplitzer Str." },
   { id: "900000134501", name: "Rosenthaler Str." },
   { id: "900000132014", name: "Rosenthal Nord" },
+  { id: "900000141503", name: "Rothenbachstr." },
   { id: "900000152508", name: "Rüdickenstr." },
   { id: "900000045157", name: "Rudolf-Mosse-Platz" },
   { id: "900000037201", name: "Rudolf-Wissell-Siedlung" },
