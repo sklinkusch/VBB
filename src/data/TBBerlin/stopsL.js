@@ -22,6 +22,7 @@ const stopsL = [
   { id: "900000067101", name: "Leonorenstr./Siemensstr." },
   { id: "900000003257", name: "Lesser-Ury-Weg" },
   { id: "900000057154", name: "Leuthener Str." },
+  { id: "900000120527", name: "Libauer Str." },
   { id: "900000074256", name: "Lichtenrader Damm 254" },
   { id: "900000074205", name: "Lichtenrader Damm/Barnetstr." },
   { id: "900000073251", name: "Lichterfelder Ring/Waldsassener Str." },

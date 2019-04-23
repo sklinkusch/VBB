@@ -54,6 +54,7 @@ const stopsS = [
   { id: "900000160521", name: "Siegfriedstr./Josef-Orlopp-Str." },
   { id: "900000063402", name: "Siemensstr./Halskestr." },
   { id: "900000150511", name: "Simon-Bolivar-Str." },
+  { id: "900000120528", name: "Simplonstr." },
   { id: "900000195501", name: "Siriusstr." },
   { id: "900000074272", name: "Skarbinastr." },
   { id: "900000070103", name: "Skutaristr." },

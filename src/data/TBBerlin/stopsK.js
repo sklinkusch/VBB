@@ -49,6 +49,7 @@ const stopsK = [
   { id: "900000191511", name: "Köpenicker Landstr./Dammweg" },
   { id: "900000100523", name: "Köpenicker Str./Adalbertstr." },
   { id: "900000195004", name: "Köpenicker Str./Schule" },
+  { id: "900000120526", name: "Kopernikusstr." },
   { id: "900000071101", name: "Körtingstr." },
   { id: "900000170507", name: "Köthener Str." },
   { id: "900000066454", name: "Krahmerstr./Stockweg" },
