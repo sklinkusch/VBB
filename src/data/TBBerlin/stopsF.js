@@ -31,6 +31,7 @@ const stopsF = [
   { id: "900000120015", name: "Franz-Mehring-Platz" },
   { id: "900000191502", name: "Frauenlobstr." },
   { id: "900000160016", name: "Freiaplatz" },
+  { id: "900000150513", name: "Freienwalder Str." },
   { id: "900000180006", name: "Freiheit" },
   { id: "900000170519", name: "Freizeitforum Marzahn" },
   { id: "900000181003", name: "Freizeit- und Erholungszentrum" },
