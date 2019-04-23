@@ -9,6 +9,7 @@ const stopsF = [
   { id: "900000029103", name: "Falkenseer Platz" },
   { id: "900000160526", name: "Fanningerstr." },
   { id: "900000064257", name: "Feldstr." },
+  { id: "900000150501", name: "Feldtmannstr." },
   { id: "900000068251", name: "Felixstr." },
   { id: "900000175501", name: "Feuersteiner Str." },
   { id: "900000180507", name: "Filehner Str." },

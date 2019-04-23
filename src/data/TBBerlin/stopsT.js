@@ -11,6 +11,7 @@ const stopsT = [
   { id: "900000039161", name: "Temmeweg" },
   { id: "900000096409", name: "Tessenowstr." },
   { id: "900000066104", name: "Thielallee/Dahlemer Weg" },
+  { id: "900000110515", name: "Thomas-Mann-Str." },
   { id: "900000066254", name: "Thuner Platz" },
   { id: "900000096362", name: "Tiefenseer Str." },
   { id: "900000141502", name: "Tino-Schwierzina-Str." },
