@@ -3,9 +3,6 @@ import stops from "../data/stops";
 import Departure from "./Departure";
 import Tablehead from "./Tablehead";
 import "../styles/Timetable.css";
-const createHafas = require("vbb-hafas");
-// const express = require("express");
-// const cors = require("cors");
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -18,19 +15,14 @@ export default class Timetable extends Component {
     };
   }
   getData(stopid) {
-    const hafas = createHafas("my-awesome-program");
-    // const app = express();
-    // app.use(cors());
-    // app.get("*", function(req, res, next) {
-    //   res.json({ msg: "This is CORS-enabled for all origins!" });
-    // });
-    // app.listen(80, function() {
-    //   console.log("CORS-enabled web server listening on port 80");
-    // });
-    hafas
-      .departures(stopid, { duration: this.duration })
-      .then(departures => this.saveData(departures))
+    fetch(`https://sklinkusch-vbbmicro.now.sh/?${this.state.value}`)
+      .then(response => response.json())
+      .then(data => this.saveData(data))
       .catch(console.error);
+    // hafas
+    //   .departures(stopid, { duration: this.duration })
+    //   .then(departures => this.saveData(departures))
+    //   .catch(console.error);
   }
   handleChange = (value, name) => {
     this.setState({ value: value, stop: name });
