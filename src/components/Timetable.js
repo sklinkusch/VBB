@@ -3,6 +3,7 @@ import stops from "../data/stops";
 import Departure from "./Departure";
 import Tablehead from "./Tablehead";
 import "../styles/Timetable.css";
+import Error from "./Error";
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -11,18 +12,33 @@ export default class Timetable extends Component {
     this.state = {
       data: null,
       value: stops[0].id,
-      stop: stops[0].name
+      stop: stops[0].name,
+      selection: stops
     };
   }
+  filterStops = event => {
+    const stopDefault = { id: this.state.value, name: this.state.stop };
+    let furtherStops;
+    if (event.target.value !== "") {
+      furtherStops = stops.filter(
+        stop =>
+          stop.name.toLowerCase().includes(event.target.value.toLowerCase()) &&
+          stop.name !== this.state.stop
+      );
+    } else {
+      furtherStops = stops.filter(stop => stop.name !== this.state.stop);
+    }
+    const selectedStops = [stopDefault, ...furtherStops];
+    this.setState({ selection: selectedStops });
+  };
   getData(stopid) {
-    fetch(`https://sklinkusch-vbbmicro.now.sh/?${this.state.value}`)
+    fetch(`https://sklinkusch-vbbmicro.now.sh/?${stopid}`)
       .then(response => response.json())
-      .then(data => this.saveData(data))
-      .catch(console.error);
-    // hafas
-    //   .departures(stopid, { duration: this.duration })
-    //   .then(departures => this.saveData(departures))
-    //   .catch(console.error);
+      .then(data => {
+        this.setState({ error: null });
+        return this.saveData(data);
+      })
+      .catch(error => this.setState({ error: error }));
   }
   handleChange = (value, name) => {
     this.setState({ value: value, stop: name });
@@ -42,6 +58,12 @@ export default class Timetable extends Component {
     } minutes, no departures are planned for the station or stop you have chosen.`;
     return (
       <div>
+        <input
+          type="text"
+          onChange={event => this.filterStops(event)}
+          id="stopinput"
+          placeholder="Insert stop, then choose from list"
+        />
         <select
           onChange={event =>
             this.handleChange(
@@ -50,7 +72,7 @@ export default class Timetable extends Component {
             )
           }
         >
-          {stops.map(stop => (
+          {this.state.selection.map(stop => (
             <option key={stop.id} value={stop.id}>
               {stop.name}
             </option>
@@ -59,6 +81,7 @@ export default class Timetable extends Component {
         <button onClick={() => this.handleSubmit()}>Refresh</button>
         <div>
           <h2>{this.state.stop}</h2>
+          <Error props={this.state.error} />
           <Tablehead />
           {data !== undefined && data !== null && data.length > 0 ? (
             data.map(dep => {
@@ -75,9 +98,15 @@ export default class Timetable extends Component {
   saveData = data => {
     // console.log(data);
     this.setState({ data: data });
+    this.setState({ selection: stops });
+    document.getElementById("stopinput").value = "";
   };
   sortData() {
-    if (this.state.data != null)
+    if (
+      this.state.data !== null &&
+      this.state.data !== undefined &&
+      this.state.data.length > 0
+    )
       return this.state.data.sort((a, b) => {
         if (a.stop.name.toLowerCase() < b.stop.name.toLowerCase()) {
           return -1;
