@@ -62,7 +62,9 @@ export default class Departure extends Component {
       plantime = realtime;
       realtime = "";
     } else {
-      plantime = this.getTime(this.props.dep.formerScheduledWhen);
+      plantime =
+        this.getTime(this.props.dep.formerScheduledWhen) ||
+        this.getTime(this.props.dep.scheduledWhen);
     }
     const product = this.props.dep.line.product;
     const line = this.props.dep.line.name;

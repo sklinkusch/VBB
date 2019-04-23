@@ -96,7 +96,7 @@ export default class Timetable extends Component {
     );
   }
   saveData = data => {
-    // console.log(data);
+    console.log(data);
     this.setState({ data: data });
     this.setState({ selection: stops });
     document.getElementById("stopinput").value = "";
