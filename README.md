@@ -25,7 +25,9 @@ It features
 ## Acknowledgments
 
 - data: [Verkehrsverbund Berlin-Brandenburg (VBB)](http://www.vbb.de)
-- data-management: [hafas-client package of Jannis Redmann](https://github.com/derhuerst/hafas-client)
+- data-management: [hafas-client](https://github.com/derhuerst/hafas-client)
+- icons: [vbb-logos](https://github.com/derhuerst/vbb-logos)
+- station data: [vbb-stations](https://github.com/derhuerst/vbb-stations)
 - background image: [Unsplash](https://unsplash.com)
 - Proxy: [Zeit.co](https://zeit.co/)
 - Support to set up the proxy: [Leandro Frigerio](https://github.com/leandroDCI)
