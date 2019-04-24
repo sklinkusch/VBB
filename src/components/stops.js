@@ -3,7 +3,10 @@ const stopsUnsorted = Object.keys(stopObject).map(key => {
   return { id: stopObject[key].id, name: stopObject[key].name };
 });
 const stopsFilter = stopsUnsorted.filter(
-  stop => stop.name.includes("(Berlin)") || stop.name.startsWith("Berlin,")
+  stop =>
+    stop.name.includes("(Berlin)") ||
+    stop.name.startsWith("Berlin,") ||
+    stop.name.includes("Berlin Hauptbahnhof")
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
