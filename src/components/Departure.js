@@ -78,7 +78,7 @@ export default class Departure extends Component {
           <div className="plantime">{plantime}</div>
           <div className="realtime">{realtime}</div>
           <div className="delay">{delayMin}</div>
-          <Product product={product} />
+          <Product product={product} line={line} />
           <div className="line">{line}</div>
           <div className="direction">{direction}</div>
           <div className="platform">{platform}</div>
