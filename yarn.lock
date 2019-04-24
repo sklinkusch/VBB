@@ -9694,6 +9694,13 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
+vbb-stations@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/vbb-stations/-/vbb-stations-6.10.0.tgz#f5ef01ae79c35847c29c0a28dca1cad44aaccb7b"
+  integrity sha512-6Hbq9n9iaaCVC0QU7/IDuuQ0MnHOcslvhei/4wWdHawaQxQkWhUMujIGUuV3fRSPIwdp0pdsOeoEepgnbJyX5Q==
+  dependencies:
+    lodash.get "^4.4.2"
+
 vendors@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.2.tgz#7fcb5eef9f5623b156bcea89ec37d63676f21801"

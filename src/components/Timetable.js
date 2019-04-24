@@ -1,9 +1,24 @@
 import React, { Component } from "react";
-import stops from "../data/stops";
 import Departure from "./Departure";
 import Tablehead from "./Tablehead";
 import "../styles/Timetable.css";
 import Error from "./Error";
+const stopObject = require("vbb-stations/full.json");
+const stopsUnsorted = Object.keys(stopObject).map(key => {
+  return { id: stopObject[key].id, name: stopObject[key].name };
+});
+const stopsFilter = stopsUnsorted.filter(
+  stop => stop.name.includes("(Berlin)") || stop.name.startsWith("Berlin,")
+);
+const stops = stopsFilter.sort((a, b) => {
+  if (a.name.toLowerCase() < b.name.toLowerCase()) {
+    return -1;
+  } else if (b.name.toLowerCase() < a.name.toLowerCase()) {
+    return +1;
+  } else {
+    return 0;
+  }
+});
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -11,8 +26,8 @@ export default class Timetable extends Component {
     this.duration = 60;
     this.state = {
       data: null,
-      value: stops[0].id,
-      stop: stops[0].name,
+      value: "900000160541",
+      stop: "Josef-Orlopp-Str./Vulkanstr.",
       selection: stops
     };
   }
