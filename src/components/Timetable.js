@@ -3,22 +3,7 @@ import Departure from "./Departure";
 import Tablehead from "./Tablehead";
 import "../styles/Timetable.css";
 import Error from "./Error";
-const stopObject = require("vbb-stations/full.json");
-const stopsUnsorted = Object.keys(stopObject).map(key => {
-  return { id: stopObject[key].id, name: stopObject[key].name };
-});
-const stopsFilter = stopsUnsorted.filter(
-  stop => stop.name.includes("(Berlin)") || stop.name.startsWith("Berlin,")
-);
-const stops = stopsFilter.sort((a, b) => {
-  if (a.name.toLowerCase() < b.name.toLowerCase()) {
-    return -1;
-  } else if (b.name.toLowerCase() < a.name.toLowerCase()) {
-    return +1;
-  } else {
-    return 0;
-  }
-});
+import stops from "./stops";
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -31,13 +16,13 @@ export default class Timetable extends Component {
       selection: stops
     };
   }
-  filterStops = event => {
+  filterStops = value => {
     const stopDefault = { id: this.state.value, name: this.state.stop };
     let furtherStops;
-    if (event.target.value !== "") {
+    if (value !== "") {
       furtherStops = stops.filter(
         stop =>
-          stop.name.toLowerCase().includes(event.target.value.toLowerCase()) &&
+          stop.name.toLowerCase().includes(value.toLowerCase()) &&
           stop.name !== this.state.stop
       );
     } else {
@@ -65,6 +50,7 @@ export default class Timetable extends Component {
   };
   componentDidMount() {
     this.getData(this.state.value);
+    this.filterStops("");
   }
   render() {
     const data = this.sortData();
@@ -75,7 +61,7 @@ export default class Timetable extends Component {
       <div>
         <input
           type="text"
-          onChange={event => this.filterStops(event)}
+          onChange={event => this.filterStops(event.target.value)}
           id="stopinput"
           placeholder="Insert stop, then choose from list"
         />
