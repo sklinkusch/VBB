@@ -27,7 +27,14 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.startsWith("Nudow,") ||
     stop.name === "Philippsthal" ||
     stop.name.startsWith("Saarmund,") ||
-    stop.name.startsWith("Tremsdorf,")
+    stop.name.startsWith("Tremsdorf,") ||
+    // Michendorf
+    stop.name.startsWith("Fresdorf,") ||
+    stop.name.startsWith("Langerwisch,") ||
+    stop.name.startsWith("Langerwisch-Süd,") ||
+    stop.name.startsWith("Michendorf,") ||
+    stop.name.startsWith("Wildenbruch,") ||
+    stop.name.startsWith("Wilhelmshorst,")
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
