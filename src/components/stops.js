@@ -39,7 +39,14 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.startsWith("Kähnsdorf,") ||
     stop.name.startsWith("Neuseddin,") ||
     stop.name.startsWith("Seddin (PM),") ||
-    stop.name === "Seddin, Jägerhof"
+    stop.name === "Seddin, Jägerhof" ||
+    // Schwielowsee
+    stop.name.startsWith("Caputh-Geltow,") ||
+    stop.name.startsWith("Caputh,") ||
+    stop.name.startsWith("Ferch-Lienewitz,") ||
+    stop.name.startsWith("Ferch,") ||
+    stop.name.startsWith("Geltow,") ||
+    stop.name.startsWith("Wildpark-West,")
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
