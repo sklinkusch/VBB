@@ -8,6 +8,7 @@ import tram from "../images/tram.svg";
 import metrobus from "../images/metro-bus.svg";
 import expressbus from "../images/express-bus.svg";
 import bus from "../images/bus.svg";
+import specialbus from "../images/special-bus.svg";
 import ferry from "../images/ferry.svg";
 import "../styles/Product.css";
 
@@ -65,6 +66,13 @@ export default class Product extends Component {
           return (
             <div className="mean">
               <img src={expressbus} alt="express-bus" />
+            </div>
+          );
+        }
+        if (line === "A05") {
+          return (
+            <div className="mean">
+              <img src={specialbus} alt="special-bus" />
             </div>
           );
         }
