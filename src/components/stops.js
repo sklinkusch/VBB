@@ -46,7 +46,21 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.startsWith("Ferch-Lienewitz,") ||
     stop.name.startsWith("Ferch,") ||
     stop.name.startsWith("Geltow,") ||
-    stop.name.startsWith("Wildpark-West,")
+    stop.name.startsWith("Wildpark-West,") ||
+    // Werder (Havel)
+    stop.name.startsWith("Werder (Havel),") ||
+    stop.name.startsWith("Bliesendorf,") ||
+    stop.name.startsWith("Derwitz,") ||
+    stop.name.startsWith("Glindow,") ||
+    stop.name.startsWith("Kemnitz (PM),") ||
+    stop.name.startsWith("Petzow,") ||
+    stop.name.startsWith("Phöben,") ||
+    stop.name.startsWith("Plötzin,") ||
+    stop.name.startsWith("Neu Plötzin,") ||
+    stop.name.startsWith("Plessow,") ||
+    stop.name.startsWith("Töplitz,") ||
+    stop.name.startsWith("Leest,") ||
+    stop.name.startsWith("Neu Töplitz,")
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
