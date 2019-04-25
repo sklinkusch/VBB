@@ -15,7 +15,9 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.startsWith("Güterfelde,") ||
     stop.name.startsWith("Schenkenhorst,") ||
     stop.name.startsWith("Sputendorf,") ||
-    stop.name.startsWith("Stahnsdorf,")
+    stop.name.startsWith("Stahnsdorf,") ||
+    // Kleinmachnow
+    stop.name.startsWith("Kleinmachnow,")
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
