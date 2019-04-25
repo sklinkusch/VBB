@@ -10,7 +10,12 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.includes("Berlin Hauptbahnhof") ||
     // Potsdam
     stop.name.startsWith("Potsdam,") ||
-    stop.name.includes("Potsdam Hauptbahnhof")
+    stop.name.includes("Potsdam Hauptbahnhof") ||
+    // Stahnsdorf
+    stop.name.startsWith("Güterfelde,") ||
+    stop.name.startsWith("Schenkenhorst,") ||
+    stop.name.startsWith("Sputendorf,") ||
+    stop.name.startsWith("Stahnsdorf,")
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
