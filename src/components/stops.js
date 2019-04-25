@@ -34,7 +34,12 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.startsWith("Langerwisch-Süd,") ||
     stop.name.startsWith("Michendorf,") ||
     stop.name.startsWith("Wildenbruch,") ||
-    stop.name.startsWith("Wilhelmshorst,")
+    stop.name.startsWith("Wilhelmshorst,") ||
+    // Seddiner See
+    stop.name.startsWith("Kähnsdorf,") ||
+    stop.name.startsWith("Neuseddin,") ||
+    stop.name.startsWith("Seddin (PM),") ||
+    stop.name === "Seddin, Jägerhof"
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
