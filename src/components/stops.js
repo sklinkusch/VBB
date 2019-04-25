@@ -20,7 +20,14 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.startsWith("Kleinmachnow,") ||
     // Teltow
     stop.name.startsWith("Teltow,") ||
-    stop.name.includes("Teltow Stadt")
+    stop.name.includes("Teltow Stadt") ||
+    // Nuthetal
+    stop.name.startsWith("Bergholz-Rehbrücke,") ||
+    stop.name.startsWith("Fahlhorst,") ||
+    stop.name.startsWith("Nudow,") ||
+    stop.name === "Philippsthal" ||
+    stop.name.startsWith("Saarmund,") ||
+    stop.name.startsWith("Tremsdorf,")
 );
 const stopsRename = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
