@@ -3,7 +3,7 @@ import Departure from "./Departure";
 import Tablehead from "./Tablehead";
 import "../styles/Timetable.css";
 import Error from "./Error";
-import stops from "./stops";
+import stops from "../data/stops";
 
 export default class Timetable extends Component {
   constructor(props) {

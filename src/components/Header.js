@@ -1,5 +1,5 @@
 import React from "react";
-import stops from "./stops";
+import stops from "../data/stops";
 import "../styles/Header.css";
 
 const Header = () => {
