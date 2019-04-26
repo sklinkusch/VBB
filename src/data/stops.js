@@ -1,6 +1,6 @@
 import stopsB from "./B";
-import { stationsP, stopsP } from "./P";
-import { stationsPM, stopsPM } from "./PM";
+import { stations as stationsP, stops as stopsP } from "./P";
+import { stations as stationsPM, stops as stopsPM } from "./PM";
 
 const stopsBerlinUnsorted = [...stopsB, ...stationsP, ...stationsPM];
 const stopsBerlin = sortItems(stopsBerlinUnsorted);

@@ -6,7 +6,7 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name.startsWith("Berlin,") ||
     stop.name.includes("Berlin Hauptbahnhof")
 );
-const stopsB = stopsFilter.map(stop => {
+const stops = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
     return { id: stop.id, name: stop.name.substr(8) };
   } else if (stop.name.endsWith("(Berlin)")) {
@@ -14,4 +14,4 @@ const stopsB = stopsFilter.map(stop => {
   }
   return { id: stop.id, name: stop.name };
 });
-export default stopsB;
+export default stops;

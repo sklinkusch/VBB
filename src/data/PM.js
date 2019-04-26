@@ -1,9 +1,9 @@
 import stopsUnsorted from "./unsorted";
 
-const stationsPM = stopsUnsorted.filter(stop =>
+const stations = stopsUnsorted.filter(stop =>
   stop.name.includes("S Teltow Stadt")
 );
-const stopsPM = stopsUnsorted.filter(
+const stops = stopsUnsorted.filter(
   stop =>
     // Stahnsdorf
     stop.name.startsWith("Güterfelde,") ||
@@ -56,4 +56,4 @@ const stopsPM = stopsUnsorted.filter(
     stop.name.startsWith("Leest,") ||
     stop.name.startsWith("Neu Töplitz,")
 );
-export { stationsPM, stopsPM };
+export { stations, stops };
