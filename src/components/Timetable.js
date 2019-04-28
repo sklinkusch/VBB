@@ -33,12 +33,22 @@ export default class Timetable extends Component {
   };
   getData(stopid) {
     fetch(`https://sklinkusch-vbbmicro.now.sh/?${stopid}`)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          let err = new Error(`HTTP status code: ${response.status}`);
+          throw err;
+        }
+        return response.json();
+      })
       .then(data => {
         this.setState({ error: null });
         return this.saveData(data);
       })
-      .catch(error => this.setState({ error: error }));
+      .catch(error => {
+        this.setState({ error: error });
+        this.setState({ data: null });
+        document.getElementById("stopinput").value = "";
+      });
   }
   handleChange = (value, name) => {
     this.setState({ value: value, stop: name });
@@ -82,7 +92,7 @@ export default class Timetable extends Component {
         <button onClick={() => this.handleSubmit()}>Refresh</button>
         <div>
           <h2>{this.state.stop}</h2>
-          <Error props={this.state.error} />
+          {this.state.error && <Error />}
           <Tablehead />
           {data !== undefined && data !== null && data.length > 0 ? (
             data.map(dep => {

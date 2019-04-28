@@ -2,9 +2,7 @@ import React from "react";
 import "../styles/Error.css";
 
 export default function Error(props) {
-  if (props.error !== null) {
-    return <p className="error">{props.error}</p>;
-  } else {
-    return <p className="error" />;
-  }
+  return (
+    <p className="error">Your request could not be handled by the server.</p>
+  );
 }
