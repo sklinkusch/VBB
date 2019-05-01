@@ -9,6 +9,7 @@ const stations = stopsUnsorted.filter(
 );
 const stops = stopsUnsorted.filter(
   stop =>
+    // Berlin C
     stop.name.startsWith("Ahrensfelde,") ||
     stop.name.startsWith("Albertshof (BAR)") ||
     stop.name.startsWith("Basdorf (BAR)") ||
@@ -44,6 +45,68 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Werneuchen,") ||
     stop.name === "Willmersdorf (BAR)" ||
     stop.name.startsWith("Willmersdorf,") ||
-    stop.name.startsWith("Zepernick,")
+    stop.name.startsWith("Zepernick,") ||
+    // Weitere
+    stop.name.startsWith("Althüttendorf,") ||
+    stop.name.startsWith("Altenhof,") ||
+    stop.name.startsWith("Biesenthal,") ||
+    stop.name.startsWith("Britz,") ||
+    stop.name.startsWith("Brodowin,") ||
+    stop.name.startsWith("Chorin,") ||
+    stop.name.startsWith("Eberswalde,") ||
+    stop.name.startsWith("Eichhorst,") ||
+    stop.name.startsWith("Finow,") ||
+    stop.name.startsWith("Finowfurt,") ||
+    stop.name.startsWith("Friedrichswalde,") ||
+    stop.name.startsWith("Glambeck (BAR)") ||
+    stop.name.startsWith("Golzow (BAR)") ||
+    stop.name.startsWith("Groß Schönebeck,") ||
+    stop.name.startsWith("Groß-Ziethen (BAR)") ||
+    stop.name.startsWith("Grüntal,") ||
+    stop.name.startsWith("Hirschfelde,") ||
+    stop.name.startsWith("Hohenfinow,") ||
+    stop.name.startsWith("Joachimsthal,") ||
+    stop.name.startsWith("Klandorf,") ||
+    stop.name.startsWith("Klein Ziethen (BAR)") ||
+    stop.name === "Klobbicke" ||
+    stop.name.startsWith("Klosterfelde,") ||
+    stop.name.startsWith("Lanke,") ||
+    stop.name.startsWith("Lichterfelde (BAR)") ||
+    stop.name.startsWith("Liepe (BAR)") ||
+    stop.name.startsWith("Lottschesee,") ||
+    stop.name.startsWith("Lüdersdorf (bei Oderberg)") ||
+    stop.name.startsWith("Luisenfelde,") ||
+    stop.name.startsWith("Lunow,") ||
+    stop.name.startsWith("Marienwerder,") ||
+    stop.name.startsWith("Melchow,") ||
+    stop.name === "Neudorf (bei Prenden)" ||
+    stop.name.startsWith("Neuehütte,") ||
+    stop.name === "Neugrimnitz" ||
+    stop.name.startsWith("Niederfinow,") ||
+    stop.name.startsWith("Oderberg,") ||
+    stop.name.startsWith("Neuendorf (bei Oderberg)") ||
+    stop.name === "Parlow" ||
+    stop.name === "Parstein" ||
+    stop.name.startsWith("Prenden,") ||
+    stop.name.startsWith("Ruhlsdorf (BAR)") ||
+    stop.name.startsWith("Ruhlsdorf-Zerpenschleuse") ||
+    stop.name.startsWith("Sandkrug,") ||
+    stop.name.startsWith("Schönfeld (BAR)") ||
+    stop.name.startsWith("Schönholz (BAR)") ||
+    stop.name.startsWith("Senftenhütte") ||
+    stop.name.startsWith("Serwest,") ||
+    stop.name.startsWith("Sommerfelde,") ||
+    stop.name === "Sophienstädt" ||
+    stop.name.startsWith("Spechthausen,") ||
+    stop.name.startsWith("Struwenberg,") ||
+    stop.name.startsWith("Tempelfelde,") ||
+    stop.name.startsWith("Tiefensee,") ||
+    stop.name === "Tornow (BAR)" ||
+    stop.name.startsWith("Trampe (BAR)") ||
+    stop.name === "Tuchen" ||
+    stop.name.startsWith("Ützdorf,") ||
+    stop.name.startsWith("Werbellin,") ||
+    stop.name.startsWith("Werftpfuhl,") ||
+    stop.name.startsWith("Zerpenschleuse,")
 );
 export { stations, stops };
