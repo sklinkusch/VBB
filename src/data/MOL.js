@@ -12,6 +12,7 @@ const stations = stopsUnsorted.filter(
 );
 const stops = stopsUnsorted.filter(
   stop =>
+    // Berlin C
     stop.name.startsWith("Altlandsberg,") ||
     stop.name.startsWith("Bruchmühle,") ||
     stop.name.startsWith("Buchholz (MOL),") ||
@@ -33,7 +34,120 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Waldesruh") ||
     stop.name.startsWith("Wegendorf,") ||
     stop.name.startsWith("Wesendahl") ||
-    stop.name.startsWith("Wilkendorf")
+    stop.name.startsWith("Wilkendorf") ||
+    // Sonstige
+    stop.name === "Ackermannshof" ||
+    stop.name === "Alt Mahlisch" ||
+    stop.name === "Alt Rosenthal" ||
+    stop.name.startsWith("Alt Rosenthal,") ||
+    stop.name === "Alt Tucheband" ||
+    stop.name.startsWith("Alt Zeschdorf,") ||
+    stop.name.startsWith("Altbarnim,") ||
+    stop.name.startsWith("Altfriedland,") ||
+    stop.name.startsWith("Altgaul,") ||
+    stop.name.startsWith("Altglietzen,") ||
+    stop.name === "Altlewin" ||
+    stop.name.startsWith("Altmädewitz,") ||
+    stop.name.startsWith("Altranft,") ||
+    stop.name.startsWith("Altreetz,") ||
+    stop.name === "Alttrebbin" ||
+    stop.name.startsWith("Beauregard,") ||
+    stop.name === "Altwustrow" ||
+    stop.name.startsWith("Bad Freienwalde,") ||
+    stop.name === "Bärwinkel" ||
+    stop.name === "Batzlow" ||
+    stop.name === "Beerbaum" ||
+    stop.name.startsWith("Beiersdorf (MOL)") ||
+    stop.name.startsWith("Bergschäferei,") ||
+    stop.name.startsWith("Biesdorf (MOL)") ||
+    stop.name.startsWith("Bleyen,") ||
+    stop.name === "Bliesdorf" ||
+    stop.name.startsWith("Bollerdorf,") ||
+    stop.name.startsWith("Bralitz,") ||
+    stop.name === "Brunow" ||
+    stop.name.startsWith("Buckow (Märkische Schweiz)") ||
+    stop.name.startsWith("Buschdorf,") ||
+    stop.name.startsWith("Carzig,") ||
+    stop.name === "Cöthen" ||
+    stop.name === "Croustillier" ||
+    stop.name === "Dahmsdorf (MOL)" ||
+    stop.name === "Dannenberg" ||
+    stop.name.startsWith("Diedersdorf (MOL)") ||
+    stop.name.startsWith("Döbberin,") ||
+    stop.name.startsWith("Dolgelin,") ||
+    stop.name.startsWith("Eggersdorf (Müncheberg)") ||
+    stop.name.startsWith("Eichwerder,") ||
+    stop.name.startsWith("Ernsthof,") ||
+    stop.name.startsWith("Falkenberg (MOL)") ||
+    stop.name.startsWith("Falkenhagen (MOL)") ||
+    stop.name === "Ferdinandshof (MOL)" ||
+    stop.name.startsWith("Frankenfelde (MOL)") ||
+    stop.name.startsWith("Freudenberg,") ||
+    stop.name.startsWith("Friedersdorf (MOL)") ||
+    stop.name === "Friedrichsaue (MOL)" ||
+    stop.name.startsWith("Gabow,") ||
+    stop.name.startsWith("Garzau,") ||
+    stop.name.startsWith("Garzin,") ||
+    stop.name.startsWith("Genschmar,") ||
+    stop.name === "Georgenthal" ||
+    stop.name.startsWith("Georgenthal,") ||
+    stop.name === "Gersdorf (MOL)" ||
+    stop.name.startsWith("Gieshof,") ||
+    stop.name === "Gladowshöhe" ||
+    stop.name.startsWith("Golzow (MOL)") ||
+    stop.name.startsWith("Gorgast,") ||
+    stop.name === "Görlsdorf (MOL)" ||
+    stop.name === "Gottesgabe" ||
+    stop.name.startsWith("Groß Neuendorf,") ||
+    stop.name.startsWith("Grunow (MOL)") ||
+    stop.name.startsWith("Gusow,") ||
+    stop.name.startsWith("Güstebieser Loose,") ||
+    stop.name === "Hackenow" ||
+    stop.name.startsWith("Hackenow,") ||
+    stop.name.startsWith("Harnekop,") ||
+    stop.name.startsWith("Haselberg,") ||
+    stop.name.startsWith("Hasenholz,") ||
+    stop.name === "Hathenow" ||
+    stop.name.startsWith("Heckelberg,") ||
+    stop.name.startsWith("Heinrichsdorf (MOL)") ||
+    stop.name === "Hermersdorf" ||
+    stop.name.startsWith("Herrensee,") ||
+    stop.name === "Herzershof" ||
+    stop.name.startsWith("Herzhorn,") ||
+    stop.name.startsWith("Hohensaaten,") ||
+    stop.name === "Hohenstein" ||
+    stop.name.startsWith("Hohenwutzen,") ||
+    stop.name.startsWith("Hoppegarten (bei Müncheberg)") ||
+    stop.name === "Ihlow (MOL)" ||
+    stop.name.startsWith("Jahnsfelde,") ||
+    stop.name === "Karlsbiese" ||
+    stop.name.startsWith("Karlsdorf (MOL)") ||
+    stop.name === "Karlshof (bei Neulewin)" ||
+    stop.name === "Katharinenhof" ||
+    stop.name === "Kerstenbruch" ||
+    stop.name.startsWith("Kerstenbruch,") ||
+    stop.name.startsWith("Kiehnwerder,") ||
+    stop.name.startsWith("Kienitz,") ||
+    stop.name.startsWith("Klein Neuendorf,") ||
+    stop.name === "Klosterdorf" ||
+    stop.name === "Kruge" ||
+    stop.name === "Krummenpfahl" ||
+    stop.name.startsWith("Kunersdorf (MOL)") ||
+    stop.name.startsWith("Küstrin-Kietz,") ||
+    stop.name.startsWith("Lebus,") ||
+    stop.name.startsWith("Letschin,") ||
+    stop.name.startsWith("Leuenberg,") ||
+    stop.name.startsWith("Libbenichen,") ||
+    stop.name.startsWith("Lichtenow,") ||
+    stop.name.startsWith("Lietzen,") ||
+    stop.name.startsWith("Lüdersdorf,") ||
+    stop.name === "Lüdersdorf (bei Wriezen)" ||
+    stop.name === "Mallnow" ||
+    stop.name.startsWith("Manschnow,") ||
+    stop.name === "Marxdorf" ||
+    stop.name === "Metzdorf" ||
+    stop.name.startsWith("Müncheberg,") ||
+    stop.name === "Münchehofe (bei Müncheberg)"
 );
 
 export { stations, stops };
