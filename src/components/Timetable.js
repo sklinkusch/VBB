@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import Departure from "./Departure";
-import Tablehead from "./Tablehead";
 import "../styles/Timetable.css";
-import Error from "./Error";
 import stops from "../data/stops";
+import Input from "./Input";
+import Select from "./Select";
+import Button from "./Button";
+import TableData from "./TableData";
 
 export default class Timetable extends Component {
   constructor(props) {
     super(props);
     this.duration = 60;
+    this.inputField = React.createRef();
     this.state = {
       data: null,
       value: "900000160541",
@@ -47,7 +49,7 @@ export default class Timetable extends Component {
       .catch(error => {
         this.setState({ error: error });
         this.setState({ data: null });
-        document.getElementById("stopinput").value = "";
+        this.inputField.current.value = "";
       });
   }
   handleChange = (value, name) => {
@@ -62,55 +64,11 @@ export default class Timetable extends Component {
     this.getData(this.state.value);
     this.filterStops("");
   }
-  render() {
-    const data = this.sortData();
-    const text = `In the next ${
-      this.duration
-    } minutes, no departures are planned for the station or stop you have chosen.`;
-    return (
-      <div>
-        <input
-          type="text"
-          onChange={event => this.filterStops(event.target.value)}
-          id="stopinput"
-          placeholder="Insert stop, then choose from list"
-        />
-        <select
-          onChange={event =>
-            this.handleChange(
-              event.target.value,
-              event.target.options[event.target.selectedIndex].text
-            )
-          }
-        >
-          {this.state.selection.map(stop => (
-            <option key={stop.id} value={stop.id}>
-              {stop.name}
-            </option>
-          ))}
-        </select>
-        <button onClick={() => this.handleSubmit()}>Refresh</button>
-        <div>
-          <h2>{this.state.stop}</h2>
-          {this.state.error && <Error />}
-          <Tablehead />
-          {data !== undefined && data !== null && data.length > 0 ? (
-            data.map(dep => {
-              const identifier = `${dep.stop.id}:${dep.tripId}.${dep.when}`;
-              return <Departure dep={dep} key={identifier} />;
-            })
-          ) : (
-            <div>{text}</div>
-          )}
-        </div>
-      </div>
-    );
-  }
   saveData = data => {
     // console.log(data);
     this.setState({ data: data });
     this.setState({ selection: stops });
-    document.getElementById("stopinput").value = "";
+    this.inputField.current.value = "";
   };
   sortData() {
     if (
@@ -148,5 +106,24 @@ export default class Timetable extends Component {
           }
         }
       });
+  }
+  render() {
+    const data = this.sortData();
+    return (
+      <div>
+        <Input filterStops={this.filterStops} inputField={this.inputField} />
+        <Select
+          handleChange={this.handleChange}
+          selection={this.state.selection}
+        />
+        <Button handleSubmit={this.handleSubmit} />
+        <TableData
+          stop={this.state.stop}
+          error={this.state.error}
+          data={data}
+          duration={this.duration}
+        />
+      </div>
+    );
   }
 }
