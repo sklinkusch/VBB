@@ -147,7 +147,42 @@ const stops = stopsUnsorted.filter(
     stop.name === "Marxdorf" ||
     stop.name === "Metzdorf" ||
     stop.name.startsWith("Müncheberg,") ||
-    stop.name === "Münchehofe (bei Müncheberg)"
+    stop.name === "Münchehofe (bei Müncheberg)" ||
+    stop.name === "Neu Mahlisch" ||
+    stop.name.startsWith("Neu Rosenthal,") ||
+    stop.name.startsWith("Neu Tucheband,") ||
+    stop.name.startsWith("Neubarnim,") ||
+    stop.name.startsWith("Neuenhagen (bei Oderberg)") ||
+    stop.name === "Neuentempel" ||
+    stop.name === "Neufeld" ||
+    stop.name === "Neufriedland" ||
+    stop.name === "Neugaul" ||
+    stop.name === "Neugersdorf" ||
+    stop.name.startsWith("Neuhardenberg,") ||
+    stop.name === "Neukietz" ||
+    stop.name === "Neuküstrinchen" ||
+    stop.name === "Neulangsow" ||
+    stop.name.startsWith("Neulewin,") ||
+    stop.name === "Neulietzegöricke" ||
+    stop.name.startsWith("Neulietzegöricke,") ||
+    stop.name === "Neumädewitz" ||
+    stop.name === "Neuranft" ||
+    stop.name.startsWith("Neureetz,") ||
+    stop.name.startsWith("Neurüdnitz,") ||
+    stop.name === "Neutornow (MOL)" ||
+    stop.name.startsWith("Neutrebbin,") ||
+    stop.name === "Neuwustrow" ||
+    stop.name.startsWith("Niederjesar,") ||
+    stop.name.startsWith("Obersdorf,") ||
+    stop.name.startsWith("Ortwig,") ||
+    stop.name.startsWith("Petershagen (bei FF)") ||
+    stop.name.startsWith("Platkow,") ||
+    stop.name === "Platzfelde" ||
+    stop.name.startsWith("Podelzig,") ||
+    stop.name.startsWith("Posedin,") ||
+    stop.name.startsWith("Pritzhagen,") ||
+    stop.name.startsWith("Prötzel,") ||
+    stop.name === "Quappendorf"
 );
 
 export { stations, stops };
