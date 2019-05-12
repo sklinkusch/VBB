@@ -35,8 +35,8 @@
   flex: 0 0 300px;
   text-align: left;
 }
-.stophere {
-  flex: 0 0 350px;
-  text-align: left;
-  margin-left: 5px;
+@media all and (max-width: 750px) {
+  .thead {
+    display: none;
+  }
 }

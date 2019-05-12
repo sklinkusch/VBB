@@ -3,6 +3,7 @@ select {
   background-color: #ccc;
   opacity: 1;
   width: 400px;
+  max-width: 90%;
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -16,4 +17,5 @@ input {
   opacity: 1;
   background-color: #fff;
   width: 300px;
+  max-width: 90%;
 }

@@ -69,7 +69,6 @@ export default class Departure extends Component {
     const product = this.props.dep.line.product;
     const line = this.props.dep.line.name;
     const direction = this.props.dep.direction;
-    const stop = this.props.dep.stop.name;
     const remarks = this.props.dep.remarks;
     const platform = this.props.dep.platform;
     return (
@@ -82,7 +81,6 @@ export default class Departure extends Component {
           <div className="line">{line}</div>
           <div className="direction">{direction}</div>
           <div className="platform">{platform}</div>
-          <div className="stophere">{stop}</div>
           <Barrier remarks={remarks} />
           <Bike remarks={remarks} />
           <Warning remarks={remarks} />

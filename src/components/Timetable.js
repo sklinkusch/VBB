@@ -5,6 +5,8 @@ import Input from "./Input";
 import Select from "./Select";
 import Button from "./Button";
 import TableData from "./TableData";
+import StopName from "./StopName";
+import Error from "./Error";
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -107,8 +109,31 @@ export default class Timetable extends Component {
         }
       });
   }
+  splitArray(data) {
+    let resultArray = [];
+    let lowestValue = 0;
+    if (data === undefined) {
+      return null;
+    }
+    while (lowestValue < data.length) {
+      let lowestResult = data[lowestValue].stop.name;
+      let highestValue;
+      let filtered;
+      for (let i = lowestValue; i < data.length; i++) {
+        if (data[i].stop.name !== lowestResult) {
+          highestValue = i;
+          break;
+        }
+      }
+      filtered = data.slice(lowestValue, highestValue);
+      resultArray.push(filtered);
+      lowestValue = highestValue;
+    }
+    return resultArray;
+  }
   render() {
     const data = this.sortData();
+    const newData = this.splitArray(data);
     return (
       <div>
         <Input filterStops={this.filterStops} inputField={this.inputField} />
@@ -117,12 +142,20 @@ export default class Timetable extends Component {
           selection={this.state.selection}
         />
         <Button handleSubmit={this.handleSubmit} />
-        <TableData
-          stop={this.state.stop}
-          error={this.state.error}
-          data={data}
-          duration={this.duration}
-        />
+        <StopName stop={this.state.stop} element="h2" />
+        {this.state.error && <Error />}
+        {newData !== undefined &&
+          newData !== null &&
+          newData.map((depset, index) => {
+            return (
+              <TableData
+                stop={depset[0].stop.name}
+                data={depset}
+                duration={this.state.duration}
+                key={index}
+              />
+            );
+          })}
       </div>
     );
   }

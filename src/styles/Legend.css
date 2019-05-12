@@ -21,3 +21,11 @@
   flex: 0 0 95%;
   text-align: center;
 }
+@media all and (max-width: 750px) {
+  .legend,
+  .legendleft,
+  .legendright,
+  .legendfull {
+    display: none;
+  }
+}

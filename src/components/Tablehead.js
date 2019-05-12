@@ -11,7 +11,6 @@ export default function Tablehead() {
       <div className="line thead">line</div>
       <div className="direction thead">direction</div>
       <div className="platform thead">track</div>
-      <div className="stophere thead">stop</div>
       <div className="barrier thead" />
       <div className="bike thead" />
       <div className="warning thead" />
