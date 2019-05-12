@@ -182,7 +182,52 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Posedin,") ||
     stop.name.startsWith("Pritzhagen,") ||
     stop.name.startsWith("Prötzel,") ||
-    stop.name === "Quappendorf"
+    stop.name === "Quappendorf" ||
+    stop.name === "Rathsdorf" ||
+    stop.name.startsWith("Rathstock,") ||
+    stop.name === "Regenmantel" ||
+    stop.name.startsWith("Rehfeld (MOL)") ||
+    stop.name.startsWith("Rehfelde,") ||
+    stop.name.startsWith("Reichenberg,") ||
+    stop.name.startsWith("Reichenow,") ||
+    stop.name.startsWith("Ringenwalde (MOL)") ||
+    stop.name === "Ruhlsdorf (MOL)" ||
+    stop.name.startsWith("Sachsendorf,") ||
+    stop.name.startsWith("Schiffmühle,") ||
+    stop.name.startsWith("Schönfließ (MOL)") ||
+    stop.name.startsWith("Schulzendorf (MOL)") ||
+    stop.name.startsWith("Seelow,") ||
+    stop.name.startsWith("Seelow-Gusow,") ||
+    stop.name === "Sietzing" ||
+    stop.name.startsWith("Solikante,") ||
+    stop.name === "Sophienhof" ||
+    stop.name.startsWith("Sophienthal,") ||
+    stop.name === "Steinbeck" ||
+    stop.name === "Sternebeck" ||
+    stop.name.startsWith("Sternebeck,") ||
+    stop.name === "Sydowswiese" ||
+    stop.name === "Thöringswerder" ||
+    stop.name === "Torgelow (MOL)" ||
+    stop.name.startsWith("Trebnitz,") ||
+    stop.name.startsWith("Treplin,") ||
+    stop.name === "Vevais" ||
+    stop.name.startsWith("Voßberg (MOL)") ||
+    stop.name.startsWith("Waldsieversdorf,") ||
+    stop.name.startsWith("Werbig (MOL)") ||
+    stop.name.startsWith("Werder (bei Rehfelde)") ||
+    stop.name.startsWith("Wilhelmsaue,") ||
+    stop.name.startsWith("Wollenberg,") ||
+    stop.name === "Wollup" ||
+    stop.name === "Wölsickendorf" ||
+    stop.name.startsWith("Worin,") ||
+    stop.name.startsWith("Wriezen,") ||
+    stop.name.startsWith("Wulkow (bei Booßen)") ||
+    stop.name.startsWith("Wulkow (bei Trebnitz)") ||
+    stop.name.startsWith("Wuschewier,") ||
+    stop.name === "Wustrow" ||
+    stop.name.startsWith("Zäckericker Loose,") ||
+    stop.name.startsWith("Zechin,") ||
+    stop.name === "Zinndorf"
 );
 
 export { stations, stops };
