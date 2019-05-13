@@ -12,6 +12,7 @@ import { stops as stopsBRB } from "./BRB";
 import { stops as stopsCB } from "./CB";
 import { stops as stopsEE } from "./EE";
 import { stops as stopsFF } from "./FF";
+import { stops as stopsOSL } from "./OSL";
 
 const stopsBerlinUnsorted = [
   ...stopsB,
@@ -38,7 +39,8 @@ const stopsBrandenburgUnsorted = [
   ...stopsBRB,
   ...stopsCB,
   ...stopsEE,
-  ...stopsFF
+  ...stopsFF,
+  ...stopsOSL
 ];
 const stopsBrandenburg = sortItems(stopsBrandenburgUnsorted);
 const stops = [...stopsBerlin, ...stopsBrandenburg];
