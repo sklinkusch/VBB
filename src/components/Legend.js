@@ -17,7 +17,6 @@ export default function Legend() {
       <Legendrow left="del." right="delay in minutes" />
       <Legendrow left="line" right="line or train number" />
       <Legendrow left="direction" right="terminus of this line or train" />
-      <Legendrow left="stop" right="stop for which the current data is valid" />
       <Legendrow
         left={<span className="fas fa-wheelchair" />}
         right="the bus, train or ship is barrier-free"
