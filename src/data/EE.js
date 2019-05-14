@@ -19,7 +19,6 @@ const stops = stopsUnsorted.filter(
     stop.name === "Beyern" ||
     stop.name === "Bicking" ||
     stop.name.startsWith("Birkwalde,") ||
-    stop.name.startsWith("Bomsdorf,") ||
     stop.name.startsWith("Bönitz,") ||
     stop.name.startsWith("Borken (EE)") ||
     stop.name.startsWith("Brandis,") ||
@@ -124,7 +123,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Massen,") ||
     stop.name.startsWith("Merzdorf (EE)") ||
     stop.name.startsWith("Möglenz,") ||
-    stop.name.startsWith("Möllendorf,") ||
+    stop.name === "Möllendorf, Dorfplatz" ||
     stop.name.startsWith("Mühlberg (Elbe)") ||
     stop.name.startsWith("München (EE)") ||
     stop.name.startsWith("Münchhausen,") ||
