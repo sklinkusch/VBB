@@ -134,6 +134,9 @@ export default class Timetable extends Component {
   render() {
     const data = this.sortData();
     const newData = this.splitArray(data);
+    const text = `In the next ${
+      this.duration
+    } minutes, no departures are planned for the station or stop you have chosen.`;
     return (
       <div>
         <Input filterStops={this.filterStops} inputField={this.inputField} />
@@ -144,8 +147,7 @@ export default class Timetable extends Component {
         <Button handleSubmit={this.handleSubmit} />
         <StopName stop={this.state.stop} element="h2" />
         {this.state.error && <Error />}
-        {newData !== undefined &&
-          newData !== null &&
+        {newData !== undefined && newData !== null && newData.length > 0 ? (
           newData.map((depset, index) => {
             return (
               <TableData
@@ -155,7 +157,10 @@ export default class Timetable extends Component {
                 key={index}
               />
             );
-          })}
+          })
+        ) : (
+          <div>{text}</div>
+        )}
       </div>
     );
   }
