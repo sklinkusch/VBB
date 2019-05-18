@@ -158,7 +158,103 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Metzelthin (OPR)") ||
     stop.name === "Michaelisbruch" ||
     stop.name === "Möckern" ||
-    stop.name === "Molchow"
+    stop.name === "Molchow" ||
+    stop.name.startsWith("Nackel,") ||
+    stop.name.startsWith("Netzeband,") ||
+    stop.name === "Neu Biesen" ||
+    stop.name === "Neu-Cölln" ||
+    stop.name.startsWith("Neu Lutterow,") ||
+    stop.name === "Neuendorf (OPR)" ||
+    stop.name.startsWith("Neuglienicke,") ||
+    stop.name === "Neuhof (OPR)" ||
+    stop.name.startsWith("Neuruppin,") ||
+    stop.name.startsWith("Neustadt (Dosse)") ||
+    stop.name.startsWith("Niemerlang,") ||
+    stop.name.startsWith("Nietwerder,") ||
+    stop.name === "Nordhof" ||
+    stop.name === "Paalzow" ||
+    stop.name.startsWith("Papenbruch,") ||
+    stop.name === "Pfalzheim" ||
+    stop.name === "Plänitz" ||
+    stop.name === "Prebelow" ||
+    stop.name.startsWith("Protzen,") ||
+    stop.name.startsWith("Radensleben,") ||
+    stop.name.startsWith("Rägelin,") ||
+    stop.name === "Raminshof" ||
+    stop.name === "Randow" ||
+    stop.name.startsWith("Rehfeld (OPR)") ||
+    stop.name.startsWith("Rheinsberg,") ||
+    stop.name === "Rheinsberg Glienicke" ||
+    stop.name === "Ribbeckshorst" ||
+    stop.name === "Roddahn" ||
+    stop.name === "Rohrlack" ||
+    stop.name.startsWith("Rosenwinkel,") ||
+    stop.name.startsWith("Rossow,") ||
+    stop.name === "Rüdow" ||
+    stop.name === "Rüthnick" ||
+    stop.name === "Sandhorst" ||
+    stop.name.startsWith("Scharfenberg (OPR)") ||
+    stop.name.startsWith("Schönberg (bei Neuruppin)") ||
+    stop.name.startsWith("Schönberg (bei Kyritz)") ||
+    stop.name === "Schönermark (OPR)" ||
+    stop.name === "Schönfeld (OPR)" ||
+    stop.name === "Schwanow" ||
+    stop.name.startsWith("Schweinrich,") ||
+    stop.name === "Sechzehneichen" ||
+    stop.name.startsWith("Seebeck,") ||
+    stop.name === "Seehof" ||
+    stop.name.startsWith("Segeletz,") ||
+    stop.name.startsWith("Sewekow,") ||
+    stop.name.startsWith("Siebmannshorst") ||
+    stop.name === "Siegrothsbruch" ||
+    stop.name.startsWith("Sieversdorf (OPR)") ||
+    stop.name === "Steinberge" ||
+    stop.name === "Stöffin" ||
+    stop.name === "Stöffiner Berg" ||
+    stop.name.startsWith("Stolpe (OPR)") ||
+    stop.name.startsWith("Storbeck,") ||
+    stop.name === "Strubensee" ||
+    stop.name.startsWith("Stüdenitz,") ||
+    stop.name.startsWith("Tarmow,") ||
+    stop.name.startsWith("Teetz,") ||
+    stop.name.startsWith("Tetschendorf,") ||
+    stop.name.startsWith("Tornow (OPR)") ||
+    stop.name === "Tramnitz" ||
+    stop.name === "Trieplatz" ||
+    stop.name === "Vichel" ||
+    stop.name === "Vielitz" ||
+    stop.name === "Voigtbrügge" ||
+    stop.name.startsWith("Volkwig,") ||
+    stop.name === "Vollmersdorf" ||
+    stop.name.startsWith("Wahlendorf,") ||
+    stop.name === "Waisenkrug" ||
+    stop.name.startsWith("Walchow,") ||
+    stop.name.startsWith("Wall,") ||
+    stop.name === "Wallitz" ||
+    stop.name.startsWith("Wallitz,") ||
+    stop.name.startsWith("Walsleben,") ||
+    stop.name.startsWith("Werder (bei Neuruppin)") ||
+    stop.name.startsWith("Wernikow,") ||
+    stop.name.startsWith("Wildberg,") ||
+    stop.name === "Wilhelmsgrille" ||
+    stop.name.startsWith("Wittstock (Dosse)") ||
+    stop.name === "Woltersdorf (OPR)" ||
+    stop.name.startsWith("Wulfersdorf (OPR)") ||
+    stop.name === "Wulkow (bei Kyritz)" ||
+    stop.name.startsWith("Wulkow (bei Ruppin)") ||
+    stop.name.startsWith("Wusterhausen (Dosse)") ||
+    stop.name.startsWith("Wustrau,") ||
+    stop.name.startsWith("Wustrau-Radensleben,") ||
+    stop.name === "Wuthenow" ||
+    stop.name === "Zaatzke" ||
+    stop.name.startsWith("Zechlinerhütte,") ||
+    stop.name.startsWith("Zechow,") ||
+    stop.name === "Zempow" ||
+    stop.name === "Zermützel" ||
+    stop.name.startsWith("Zernitz,") ||
+    stop.name === "Zippelsförde" ||
+    stop.name === "Zootzen (OPR)" ||
+    stop.name === "Zühlen"
 );
 
 export { stops };
