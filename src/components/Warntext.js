@@ -18,15 +18,23 @@ export default class Warntext extends Component {
     if (warnings.length > 0) {
       return (
         <div className="warntext">
-          {warnings.map((warning, index) => (
-            <p key={index}>
-              <span className="fas fa-exclamation-triangle" />
-              {this.formatTime(warning.validFrom)} -{" "}
-              {this.formatTime(warning.validUntil)}:{" "}
-              {this.replaceLinks(warning.summary)},{" "}
-              {this.replaceLinks(warning.text)}
-            </p>
-          ))}
+          {warnings.map((warning, index) => {
+            const { validFrom, validUntil, summary, text } = warning;
+            const from = this.formatTime(validFrom);
+            const until = this.formatTime(validUntil);
+            const summaryFormatted = this.replaceLinks(summary);
+            const textFormatted = this.replaceLinks(text);
+            const limits =
+              until === "31.12.2049, 23:59"
+                ? `since ${from}`
+                : `${from} - ${until}`;
+            return (
+              <p key={index}>
+                <span className="fas fa-exclamation-triangle" />
+                {limits}: {summaryFormatted}, {textFormatted}
+              </p>
+            );
+          })}
         </div>
       );
     }
