@@ -166,6 +166,95 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Michelsdorf,") ||
     stop.name === "Mörz" ||
     stop.name.startsWith("Mötzow,") ||
-    stop.name === "Mützdorf"
+    stop.name === "Mützdorf" ||
+    stop.name.startsWith("Nahmitz,") ||
+    stop.name.startsWith("Neschholz,") ||
+    stop.name.startsWith("Netzen,") ||
+    stop.name.startsWith("Neu Bochow,") ||
+    stop.name.startsWith("Neu Plötzin,") ||
+    stop.name === "Neubensdorf" ||
+    stop.name.startsWith("Neubensdorf,") ||
+    stop.name === "Neuehütten" ||
+    stop.name === "Neuendorf (bei Brück)" ||
+    stop.name === "Neuendorf (bei Niemegk)" ||
+    stop.name === "Nichel" ||
+    stop.name.startsWith("Niebel,") ||
+    stop.name === "Niebelhorst" ||
+    stop.name === "Niederwerbig" ||
+    stop.name.startsWith("Niemegk,") ||
+    stop.name.startsWith("Oberjünne,") ||
+    stop.name === "Päwesin" ||
+    stop.name === "Pechüle" ||
+    stop.name === "Pflügkuff" ||
+    stop.name.startsWith("Phöben,") ||
+    stop.name.startsWith("Plessow,") ||
+    stop.name.startsWith("Plötzin,") ||
+    stop.name.startsWith("Preußnitz,") ||
+    stop.name.startsWith("Pritzerbe,") ||
+    stop.name === "Prützke" ||
+    stop.name === "Raben" ||
+    stop.name.startsWith("Radewege,") ||
+    stop.name === "Rädigke" ||
+    stop.name.startsWith("Ragösen,") ||
+    stop.name.startsWith("Reckahn,") ||
+    stop.name === "Reesdorf" ||
+    stop.name.startsWith("Reesdorf,") ||
+    stop.name.startsWith("Reetz (PM)") ||
+    stop.name === "Reetzerhütten" ||
+    stop.name === "Reppinichen" ||
+    stop.name.startsWith("Rieben,") ||
+    stop.name.startsWith("Rietz (bei Brandenburg)") ||
+    stop.name.startsWith("Rietz (bei Treuenbrietzen)") ||
+    stop.name.startsWith("Riewend,") ||
+    stop.name.startsWith("Rogäsen,") ||
+    stop.name.startsWith("Roskow,") ||
+    stop.name === "Rotscherlinde" ||
+    stop.name === "Rottstock" ||
+    stop.name === "Salzbrunn" ||
+    stop.name === "Schäpe" ||
+    stop.name.startsWith("Schenkenberg (bei Götz)") ||
+    stop.name.startsWith("Schlalach,") ||
+    stop.name === "Schlamau" ||
+    stop.name === "Schlunkendorf" ||
+    stop.name.startsWith("Schmergow,") ||
+    stop.name.startsWith("Schmerwitz,") ||
+    stop.name === "Schmögelsdorf" ||
+    stop.name === "Schönefeld (bei Beelitz)" ||
+    stop.name.startsWith("Schwabeck,") ||
+    stop.name === "Schwanebeck (PM)" ||
+    stop.name.startsWith("Seddin,") ||
+    stop.name.startsWith("Seddin (PM),") ||
+    stop.name.startsWith("Steinberg (PM)") ||
+    stop.name === "Steindorf" ||
+    stop.name.startsWith("Stücken,") ||
+    stop.name.startsWith("Tieckow,") ||
+    stop.name.startsWith("Tiefenbrunnen,") ||
+    stop.name.startsWith("Trebitz (PM)") ||
+    stop.name === "Trechwitz" ||
+    stop.name.startsWith("Trechwitz,") ||
+    stop.name.startsWith("Tremsdorf,") ||
+    stop.name.startsWith("Treuenbrietzen,") ||
+    stop.name === "Vehlen" ||
+    stop.name.startsWith("Verlorenwasser,") ||
+    stop.name === "Viesen" ||
+    stop.name === "Warchau" ||
+    stop.name === "Welsigke" ||
+    stop.name === "Wenzlow (PM)" ||
+    stop.name.startsWith("Werbig (PM)") ||
+    stop.name.startsWith("Weseram,") ||
+    stop.name.startsWith("Wiesenburg,") ||
+    stop.name.startsWith("Wildenbruch,") ||
+    stop.name.startsWith("Wittbrietzen,") ||
+    stop.name.startsWith("Wittstock (PM)") ||
+    stop.name.startsWith("Wollin (PM)") ||
+    stop.name.startsWith("Woltersdorf,") ||
+    stop.name.startsWith("Wusterwitz,") ||
+    stop.name === "Wutzow" ||
+    stop.name.startsWith("Zauchwitz,") ||
+    stop.name === "Zeuden" ||
+    stop.name.startsWith("Ziesar,") ||
+    stop.name === "Ziezow" ||
+    stop.name.startsWith("Zitz,") ||
+    stop.name === "Zixdorf"
 );
 export { stations, stops };
