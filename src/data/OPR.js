@@ -79,7 +79,6 @@ const stops = stopsUnsorted.filter(
     stop.name === "Goldbeck (bei Kyritz)" ||
     stop.name.startsWith("Gottberg,") ||
     stop.name.startsWith("Grabow (OPR)") ||
-    stop.name.startsWith("Granzow,") ||
     stop.name === "Griebsee" ||
     stop.name === "Groß Haßlow" ||
     stop.name.startsWith("Großzerlang,") ||
