@@ -224,7 +224,6 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Wulkow (bei Booßen)") ||
     stop.name.startsWith("Wulkow (bei Trebnitz)") ||
     stop.name.startsWith("Wuschewier,") ||
-    stop.name === "Wustrow" ||
     stop.name.startsWith("Zäckericker Loose,") ||
     stop.name.startsWith("Zechin,") ||
     stop.name === "Zinndorf"

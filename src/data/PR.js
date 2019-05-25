@@ -165,7 +165,114 @@ const stops = stopsUnsorted.filter(
     stop.name === "Moor (PR)" ||
     stop.name === "Motrich" ||
     stop.name === "Müggendorf" ||
-    stop.name.startsWith("Muggerkuhl,")
+    stop.name.startsWith("Muggerkuhl,") ||
+    stop.name.startsWith("Nausdorf,") ||
+    stop.name === "Nebelin" ||
+    stop.name.startsWith("Nettelbeck,") ||
+    stop.name === "Netzow (PR)" ||
+    stop.name === "Neu Kemnitz" ||
+    stop.name === "Neu Krüssow" ||
+    stop.name.startsWith("Neu Pinnow,") ||
+    stop.name === "Neu Premslin" ||
+    stop.name === "Neu Pröttlin" ||
+    stop.name === "Neu Redlin" ||
+    stop.name === "Neu Sagast" ||
+    stop.name === "Neu Schrepkow" ||
+    stop.name === "Neu Silmersdorf" ||
+    stop.name === "Neudorf (PR)" ||
+    stop.name.startsWith("Neuhausen (PR)") ||
+    stop.name.startsWith("Neuhof (PR)") ||
+    stop.name.startsWith("Penzlin,") ||
+    stop.name.startsWith("Perleberg,") ||
+    stop.name === "Pirow" ||
+    stop.name === "Plattenburg" ||
+    stop.name === "Ponitz (PR)" ||
+    stop.name === "Porep" ||
+    stop.name.startsWith("Postlin,") ||
+    stop.name.startsWith("Preddöhl,") ||
+    stop.name.startsWith("Premslin,") ||
+    stop.name.startsWith("Pritzwalk,") ||
+    stop.name.startsWith("Putlitz,") ||
+    stop.name === "Quitzöbel" ||
+    stop.name.startsWith("Quitzow,") ||
+    stop.name === "Rambow (bei Kleinow)" ||
+    stop.name === "Rambow (bei Mellen)" ||
+    stop.name.startsWith("Rapshagen,") ||
+    stop.name.startsWith("Reckenthin,") ||
+    stop.name === "Reckenzin" ||
+    stop.name.startsWith("Reetz (PR)") ||
+    stop.name === "Retzin" ||
+    stop.name === "Roddan" ||
+    stop.name === "Rohlsdorf (bei Halenbeck)" ||
+    stop.name.startsWith("Rohlsdorf (bei Perleberg)") ||
+    stop.name === "Rosenhagen" ||
+    stop.name === "Rühstädt" ||
+    stop.name.startsWith("Sadenbeck,") ||
+    stop.name.startsWith("Sagast,") ||
+    stop.name === "Sargleben" ||
+    stop.name.startsWith("Sarnow,") ||
+    stop.name === "Schabernack" ||
+    stop.name === "Scharleuk" ||
+    stop.name === "Schilde" ||
+    stop.name === "Schmarsow (PR)" ||
+    stop.name.startsWith("Schmolde,") ||
+    stop.name.startsWith("Schönebeck (PR)") ||
+    stop.name.startsWith("Schönfeld (PR)") ||
+    stop.name === "Schönhagen (bei Döllen)" ||
+    stop.name.startsWith("Schönhagen (bei Pritzwalk)") ||
+    stop.name.startsWith("Schönholz (PR)") ||
+    stop.name === "Schrepkow" ||
+    stop.name.startsWith("Seddin (PR)") ||
+    stop.name === "Seedorf" ||
+    stop.name.startsWith("Seefeld (PR)") ||
+    stop.name.startsWith("Seetz,") ||
+    stop.name === "Sigrön" ||
+    stop.name.startsWith("Silmersdorf,") ||
+    stop.name === "Simonshagen" ||
+    stop.name === "Söllenthin" ||
+    stop.name === "Spiegelhagen" ||
+    stop.name.startsWith("Spielhagen,") ||
+    stop.name === "Stavenow" ||
+    stop.name.startsWith("Steffenshagen,") ||
+    stop.name.startsWith("Steinberg (PR)") ||
+    stop.name.startsWith("Stepenitz,") ||
+    stop.name === "Storbeckshof" ||
+    stop.name.startsWith("Streckenthin,") ||
+    stop.name.startsWith("Streesow,") ||
+    stop.name === "Strehlen" ||
+    stop.name === "Strigleben" ||
+    stop.name === "Struck" ||
+    stop.name.startsWith("Sükow,") ||
+    stop.name.startsWith("Tacken,") ||
+    stop.name === "Tangendorf" ||
+    stop.name.startsWith("Telschow,") ||
+    stop.name === "Tiefenthal" ||
+    stop.name.startsWith("Triglitz,") ||
+    stop.name.startsWith("Tüchen,") ||
+    stop.name === "Uenze" ||
+    stop.name.startsWith("Unbesandten,") ||
+    stop.name === "Vehlin" ||
+    stop.name.startsWith("Vehlow,") ||
+    stop.name === "Vettin" ||
+    stop.name.startsWith("Viesecke,") ||
+    stop.name === "Warnsdorf" ||
+    stop.name.startsWith("Waterloo,") ||
+    stop.name.startsWith("Weisen,") ||
+    stop.name === "Weitgendorf" ||
+    stop.name === "Wentdorf" ||
+    stop.name === "Wilmersdorf (PR)" ||
+    stop.name.startsWith("Wittenberge,") ||
+    stop.name === "Wittmoor" ||
+    stop.name.startsWith("Wolfshagen (PR)") ||
+    stop.name === "Wootz" ||
+    stop.name.startsWith("Wüsten-Vahrnow,") ||
+    stop.name === "Wüsten Buchholz" ||
+    stop.name === "Wustrow" ||
+    stop.name.startsWith("Wutike,") ||
+    stop.name === "Zapel" ||
+    stop.name === "Zarenthin" ||
+    stop.name === "Zernikow (PR)" ||
+    stop.name.startsWith("Zichtow,")
 );
 
 export { stops };
