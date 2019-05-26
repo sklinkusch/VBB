@@ -31,7 +31,6 @@ const stops = stopsUnsorted.filter(
     stop.name === "Dörrwalde" ||
     stop.name.startsWith("Dörrwalde,") ||
     stop.name.startsWith("Drochow,") ||
-    stop.name.startsWith("Dubrau,") ||
     stop.name === "Eisdorf" ||
     stop.name === "Fleißdorf" ||
     stop.name === "Frauendorf, Oberdorf" ||
