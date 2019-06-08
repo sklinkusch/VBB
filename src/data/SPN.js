@@ -69,7 +69,6 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Heinersbrück,") ||
     stop.name.startsWith("Horlitza,") ||
     stop.name.startsWith("Hornow,") ||
-    stop.name.startsWith("Illmersdorf,") ||
     stop.name.startsWith("Jämlitz,") ||
     stop.name.startsWith("Jänschwalde,") ||
     stop.name.startsWith("Kraftwerk Jänschwalde,") ||
