@@ -114,7 +114,59 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Milkersdorf,") ||
     stop.name === "Muckrow" ||
     stop.name === "Mulknitz" ||
-    stop.name.startsWith("Müschen,")
+    stop.name.startsWith("Müschen,") ||
+    stop.name.startsWith("Naundorf (bei Forst)") ||
+    stop.name.startsWith("Neuendorf (bei Cottbus)") ||
+    stop.name.startsWith("Neuhausen (SPN)") ||
+    stop.name === "Oelsnig" ||
+    stop.name.startsWith("Papitz,") ||
+    stop.name === "Papproth" ||
+    stop.name.startsWith("Peitz,") ||
+    stop.name.startsWith("Pinnow (SPN)") ||
+    stop.name.startsWith("Preilack,") ||
+    stop.name.startsWith("Preschen,") ||
+    stop.name.startsWith("Proschim,") ||
+    stop.name === "Raden" ||
+    stop.name.startsWith("Radensdorf (SPN)") ||
+    stop.name.startsWith("Rehnsdorf,") ||
+    stop.name === "Reuthen" ||
+    stop.name.startsWith("Roggosen,") ||
+    stop.name === "Ruben" ||
+    stop.name.startsWith("Saccasne,") ||
+    stop.name.startsWith("Schenkendöbern,") ||
+    stop.name.startsWith("Schieben,") ||
+    stop.name.startsWith("Schlagsdorf (SPN)") ||
+    stop.name.startsWith("Schmogrow,") ||
+    stop.name.startsWith("Schönheide,") ||
+    stop.name.startsWith("Schorbus,") ||
+    stop.name.startsWith("Schwarze Pumpe,") ||
+    stop.name.startsWith("Sellessen,") ||
+    stop.name.startsWith("Sembten,") ||
+    stop.name.startsWith("Sergen,") ||
+    stop.name === "Siewisch" ||
+    stop.name.startsWith("Simmersdorf,") ||
+    stop.name.startsWith("Spremberg,") ||
+    stop.name.startsWith("Staakow (bei Beeskow)") ||
+    stop.name === "Steinitz" ||
+    stop.name.startsWith("Steinitz,") ||
+    stop.name.startsWith("Striesow,") ||
+    stop.name.startsWith("Tauer,") ||
+    stop.name.startsWith("Teichland,") ||
+    stop.name.startsWith("Terpe,") ||
+    stop.name.startsWith("Trebendorf,") ||
+    stop.name.startsWith("Tschernitz,") ||
+    stop.name === "Türkendorf" ||
+    stop.name.startsWith("Turnow,") ||
+    stop.name.startsWith("Wadelsdorf,") ||
+    stop.name.startsWith("Welzow,") ||
+    stop.name.startsWith("Werben (SPN)") ||
+    stop.name.startsWith("Weskow,") ||
+    stop.name === "Wiesendorf" ||
+    stop.name === "Wilschwitz" ||
+    stop.name.startsWith("Wolfshain,") ||
+    stop.name === "Zahsow" ||
+    stop.name === "Zelz" ||
+    stop.name === "Zelz-Bahren"
 );
 
 export { stops };
