@@ -79,6 +79,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Gräfendorf (TF)") ||
     stop.name.startsWith("Groß Ziescht,") ||
     stop.name.startsWith("Grüna,") ||
+    stop.name.startsWith("Heinsdorf,") ||
     stop.name.startsWith("Hennickendorf (TF)") ||
     stop.name.startsWith("Herbersdorf (TF)") ||
     stop.name.startsWith("Höfgen,") ||
@@ -105,6 +106,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Klein Ziescht (Baruth/Mark)") ||
     stop.name.startsWith("Kliestow,") ||
     stop.name.startsWith("Kloster Zinna,") ||
+    stop.name.startsWith("Kolpien,") ||
     stop.name.startsWith("Kolzenburg,") ||
     stop.name.startsWith("Körbitz (bei Jüterbog)") ||
     stop.name.startsWith("Kossin,") ||
@@ -133,7 +135,77 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Mellensee,") ||
     stop.name.startsWith("Mellnsdorf,") ||
     stop.name.startsWith("Merzdorf (TF)") ||
-    stop.name.startsWith("Mückendorf,")
+    stop.name.startsWith("Mückendorf,") ||
+    stop.name.startsWith("Nächst Neuendorf,") ||
+    stop.name === "Nettgendorf" ||
+    stop.name === "Neues Lager" ||
+    stop.name.startsWith("Neuheim,") ||
+    stop.name.startsWith("Neuhof (bei Zossen)") ||
+    stop.name.startsWith("Neuhof (bei Jüterbog)") ||
+    stop.name.startsWith("Niebendorf,") ||
+    stop.name.startsWith("Niedergörsdorf,") ||
+    stop.name.startsWith("Niendorf,") ||
+    stop.name.startsWith("Nonnendorf,") ||
+    stop.name.startsWith("Nunsdorf,") ||
+    stop.name.startsWith("Oehna (bei Niedergörsdorf)") ||
+    stop.name.startsWith("Paplitz,") ||
+    stop.name.startsWith("Petkus,") ||
+    stop.name.startsWith("Prensdorf,") ||
+    stop.name === "Priedel" ||
+    stop.name.startsWith("Priedel,") ||
+    stop.name.startsWith("Rehagen,") ||
+    stop.name.startsWith("Reinsdorf,") ||
+    stop.name.startsWith("Riesdorf,") ||
+    stop.name.startsWith("Rietdorf,") ||
+    stop.name.startsWith("Rinow,") ||
+    stop.name === "Rohrbeck, Jüterboger Str." ||
+    stop.name === "Rohrbeck, Hauptstr." ||
+    stop.name.startsWith("Rosenthal (Dahme)") ||
+    stop.name.startsWith("Rosenthal,") ||
+    stop.name.startsWith("Ruhlsdorf (TF)") ||
+    stop.name.startsWith("Saalow,") ||
+    stop.name.startsWith("Scharfenbrück,") ||
+    stop.name.startsWith("Schlenzer,") ||
+    stop.name.startsWith("Schöbendorf,") ||
+    stop.name.startsWith("Schöna (Dahme)") ||
+    stop.name.startsWith("Schönefeld (bei Jüterbog)") ||
+    stop.name.startsWith("Schönefeld (bei Luckenwalde)") ||
+    stop.name.startsWith("Schöneiche (bei Zossen)") ||
+    stop.name.startsWith("Schöneweide (TF)") ||
+    stop.name.startsWith("Schönhagen (TF)") ||
+    stop.name === "Schünow" ||
+    stop.name.startsWith("Schünow,") ||
+    stop.name.startsWith("Schwebendorf,") ||
+    stop.name.startsWith("Seehausen (TF)") ||
+    stop.name === "Sernow" ||
+    stop.name.startsWith("Sieb,") ||
+    stop.name.startsWith("Sperenberg,") ||
+    stop.name.startsWith("Stangenhagen,") ||
+    stop.name.startsWith("Stülpe,") ||
+    stop.name.startsWith("Trebbin,") ||
+    stop.name.startsWith("Wahlsdorf,") ||
+    stop.name.startsWith("Waldstadt,") ||
+    stop.name.startsWith("Waltersdorf (TF)") ||
+    stop.name.startsWith("Weißen,") ||
+    stop.name.startsWith("Weißen (Lichterfelde)") ||
+    stop.name.startsWith("Welsickendorf,") ||
+    stop.name.startsWith("Werbig (TF)") ||
+    stop.name.startsWith("Werder (bei Jüterbog)") ||
+    stop.name.startsWith("Wergzahna,") ||
+    stop.name.startsWith("Wiepersdorf (TF)") ||
+    stop.name.startsWith("Wiesenhagen,") ||
+    stop.name.startsWith("Wildau-Wentdorf,") ||
+    stop.name.startsWith("Wölmsdorf,") ||
+    stop.name.startsWith("Woltersdorf (TF)") ||
+    stop.name.startsWith("Woltersdorf (Nuthe-Urstromtal)") ||
+    stop.name.startsWith("Wünsdorf,") ||
+    stop.name.startsWith("Neu Wünsdorf,") ||
+    stop.name.startsWith("Wünsdorf-Waldstadt,") ||
+    stop.name === "Zagelsdorf" ||
+    stop.name.startsWith("Zellendorf,") ||
+    stop.name.startsWith("Zesch,") ||
+    stop.name.startsWith("Zossen,") ||
+    stop.name.startsWith("Zülichendorf,")
 );
 
 export { stations, stops };

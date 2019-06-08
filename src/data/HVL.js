@@ -101,6 +101,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Mützlitz" ||
     stop.name.startsWith("Nauen,") ||
     stop.name.startsWith("Nennhausen,") ||
+    stop.name.startsWith("Neu-Rohrbeck,") ||
     stop.name.startsWith("Neugarten,") ||
     stop.name.startsWith("Neukammer,") ||
     stop.name === "Neuwerder" ||
@@ -119,6 +120,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Rhinow,") ||
     stop.name === "Rhinsmühlen" ||
     stop.name === "Ribbeck (HVL)" ||
+    stop.name === "Rohrbeck, Kirche" ||
     stop.name === "Rübehorst" ||
     stop.name.startsWith("Schmetzdorf (HVL)") ||
     stop.name === "Schönholz (HVL)" ||
