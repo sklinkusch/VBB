@@ -7,6 +7,7 @@ import Button from "./Button";
 import TableData from "./TableData";
 import StopName from "./StopName";
 import Error from "./Error";
+import Filter from "./Filter";
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ export default class Timetable extends Component {
     this.inputField = React.createRef();
     this.state = {
       data: null,
+      viewdata: null,
       value: "900000160541",
       stop: "Josef-Orlopp-Str./Vulkanstr.",
       selection: stops
@@ -145,6 +147,7 @@ export default class Timetable extends Component {
           selection={this.state.selection}
         />
         <Button handleSubmit={this.handleSubmit} />
+        <Filter />
         <StopName stop={this.state.stop} element="h2" />
         {this.state.error && <Error />}
         {newData !== undefined && newData !== null && newData.length > 0 ? (
