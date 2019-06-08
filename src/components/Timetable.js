@@ -14,6 +14,8 @@ export default class Timetable extends Component {
     super(props);
     this.duration = 60;
     this.inputField = React.createRef();
+    this.filterField = React.createRef();
+    this.filterSelector = React.createRef();
     this.state = {
       data: null,
       viewdata: null,
@@ -22,6 +24,61 @@ export default class Timetable extends Component {
       selection: stops
     };
   }
+  filterAnd = filterValues => {
+    const filteredData = this.state.data.filter(departure => {
+      let decider = true;
+      for (let i = 0; i < filterValues.length; i++) {
+        if (
+          !departure.line.name
+            .toLowerCase()
+            .includes(
+              filterValues[i].toLowerCase() &&
+                !departure.direction
+                  .toLowerCase()
+                  .includes(filterValues[i].toLowerCase())
+            )
+        ) {
+          decider = false;
+          break;
+        }
+      }
+      return decider;
+    });
+    this.setState({ viewdata: filteredData });
+  };
+  filterData = () => {
+    if (this.filterField.current.value === "") {
+      this.setState({ viewdata: this.state.data });
+    } else {
+      const filterValues = this.filterField.current.value.split(" ");
+      const filterMode = this.filterSelector.current.value;
+      if (filterMode === "OR") {
+        this.filterOr(filterValues);
+      } else {
+        this.filterAnd(filterValues);
+      }
+    }
+  };
+  filterOr = filterValues => {
+    const filteredData = this.state.data.filter(departure => {
+      let decider = false;
+      for (let i = 0; i < filterValues.length; i++) {
+        if (
+          departure.line.name
+            .toLowerCase()
+            .includes(filterValues[i].toLowerCase()) ||
+          departure.direction
+            .toLowerCase()
+            .includes(filterValues[i].toLowerCase())
+        ) {
+          decider = true;
+          break;
+        }
+      }
+      return decider;
+    });
+    this.setState({ viewdata: filteredData });
+  };
   filterStops = value => {
     const stopDefault = { id: this.state.value, name: this.state.stop };
     let furtherStops;
@@ -147,7 +204,11 @@ export default class Timetable extends Component {
           selection={this.state.selection}
         />
         <Button handleSubmit={this.handleSubmit} />
-        <Filter />
+        <Filter
+          filterField={this.filterField}
+          filterSelector={this.filterSelector}
+          filterData={this.filterData}
+        />
         <StopName stop={this.state.stop} element="h2" />
         {this.state.error && <Error />}
         {newData !== undefined && newData !== null && newData.length > 0 ? (
