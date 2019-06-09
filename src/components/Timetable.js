@@ -29,15 +29,15 @@ export default class Timetable extends Component {
       let decider = true;
       for (let i = 0; i < filterValues.length; i++) {
         if (
-          !departure.line.name
+          departure.line.name
             .toLowerCase()
-            .includes(
-              filterValues[i].toLowerCase() &&
-                !departure.direction
-                  .toLowerCase()
-                  .includes(filterValues[i].toLowerCase())
-            )
+            .includes(filterValues[i].toLowerCase()) ||
+          departure.direction
+            .toLowerCase()
+            .includes(filterValues[i].toLowerCase())
         ) {
+          continue;
+        } else {
           decider = false;
           break;
         }
@@ -126,18 +126,19 @@ export default class Timetable extends Component {
     this.filterStops("");
   }
   saveData = data => {
-    // console.log(data);
+    console.log(data);
     this.setState({ data: data });
+    this.setState({ viewdata: data });
     this.setState({ selection: stops });
     this.inputField.current.value = "";
   };
   sortData() {
     if (
-      this.state.data !== null &&
-      this.state.data !== undefined &&
-      this.state.data.length > 0
+      this.state.viewdata !== null &&
+      this.state.viewdata !== undefined &&
+      this.state.viewdata.length > 0
     )
-      return this.state.data.sort((a, b) => {
+      return this.state.viewdata.sort((a, b) => {
         if (a.stop.name.toLowerCase() < b.stop.name.toLowerCase()) {
           return -1;
         } else if (b.stop.name.toLowerCase() < a.stop.name.toLowerCase()) {
