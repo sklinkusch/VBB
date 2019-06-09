@@ -131,6 +131,8 @@ export default class Timetable extends Component {
     this.setState({ viewdata: data });
     this.setState({ selection: stops });
     this.inputField.current.value = "";
+    this.filterField.current.value = "";
+    this.filterSelector.current.value = "OR";
   };
   sortData() {
     if (
