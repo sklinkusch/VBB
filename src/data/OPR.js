@@ -22,6 +22,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Biesen,") ||
     stop.name === "Neu Biesen" ||
     stop.name === "Binenwalde" ||
+    stop.name.startsWith("Birkenhain (OPR)") ||
     stop.name.startsWith("Blandikow,") ||
     stop.name === "Blankenberg" ||
     stop.name === "Blechern Hahn" ||
