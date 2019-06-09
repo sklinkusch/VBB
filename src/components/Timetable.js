@@ -126,7 +126,7 @@ export default class Timetable extends Component {
     this.filterStops("");
   }
   saveData = data => {
-    console.log(data);
+    // console.log(data);
     this.setState({ data: data });
     this.setState({ viewdata: data });
     this.setState({ selection: stops });
