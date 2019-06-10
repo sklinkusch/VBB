@@ -1,4 +1,4 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./HVL";
 
 const stations = stopsUnsorted.filter(
   stop =>
@@ -9,7 +9,10 @@ const stations = stopsUnsorted.filter(
     stop.name.includes("S Königs Wusterhausen") ||
     stop.name.startsWith("Flughafen Schönefeld")
 );
-const stops = stopsUnsorted.filter(
+const remainingAfterStations = stopsUnsorted.filter(
+  stop => stations.indexOf(stop) === -1
+);
+const stops = remainingAfterStations.filter(
   stop =>
     // Berlin C
     stop.name.startsWith("Boddinsfelde") ||
@@ -248,4 +251,9 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zöllmersdorf,") ||
     stop.name.startsWith("Zützen (LDS)")
 );
-export { stations, stops };
+
+const remainingStops = remainingAfterStations.filter(
+  stop => stops.indexOf(stop) === -1
+);
+console.log(`after LDS: ${remainingStops.length}`);
+export { stations, stops, remainingStops };

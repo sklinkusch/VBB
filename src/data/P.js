@@ -1,4 +1,4 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./OSL";
 
 const stations = stopsUnsorted.filter(
   stop =>
@@ -6,6 +6,15 @@ const stations = stopsUnsorted.filter(
     stop.name.includes("S Babelsberg") ||
     stop.name.includes("S Griebnitzsee")
 );
-const stops = stopsUnsorted.filter(stop => stop.name.startsWith("Potsdam,"));
+const remainingAfterStations = stopsUnsorted.filter(
+  stop => stations.indexOf(stop) === -1
+);
+const stops = remainingAfterStations.filter(stop =>
+  stop.name.startsWith("Potsdam,")
+);
+const remainingStops = remainingAfterStations.filter(
+  stop => stops.indexOf(stop) === -1
+);
+console.log(`after P: ${remainingStops.length}`);
 
-export { stations, stops };
+export { stations, stops, remainingStops };

@@ -1,4 +1,4 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./FF";
 
 const stops = stopsUnsorted.filter(
   stop =>
@@ -150,4 +150,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zollchow (HVL)"
 );
 
-export { stops };
+const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+console.log(`after HVL: ${remainingStops.length}`);
+
+export { stops, remainingStops };

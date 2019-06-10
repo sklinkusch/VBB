@@ -14,4 +14,9 @@ const stops = stopsFilter.map(stop => {
   }
   return { id: stop.id, name: stop.name };
 });
+
+export const remainingStops = stopsUnsorted.filter(
+  stop => stopsFilter.indexOf(stop) === -1
+);
+console.log(`after B: ${remainingStops.length}`);
 export default stops;

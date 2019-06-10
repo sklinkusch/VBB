@@ -1,7 +1,10 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./LDS";
 
 const stations = stopsUnsorted.filter(stop => stop.name.includes("S Erkner"));
-const stops = stopsUnsorted.filter(
+const remainingAfterStations = stopsUnsorted.filter(
+  stop => stations.indexOf(stop) === -1
+);
+const stops = remainingAfterStations.filter(
   stop =>
     // Berlin C
     stop.name.startsWith("Erkner,") ||
@@ -181,4 +184,9 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Ziltendorf,")
 );
 
-export { stations, stops };
+const remainingStops = remainingAfterStations.filter(
+  stop => stops.indexOf(stop) === -1
+);
+console.log(`after LOS: ${remainingStops.length}`);
+
+export { stations, stops, remainingStops };

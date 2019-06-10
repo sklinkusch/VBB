@@ -1,4 +1,4 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./OPR";
 
 const stops = stopsUnsorted.filter(
   stop =>
@@ -157,5 +157,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zerkwitz,") ||
     stop.name === "Zinnitz"
 );
+const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+console.log(`after OSL: ${remainingStops.length}`);
 
-export { stops };
+export { stops, remainingStops };

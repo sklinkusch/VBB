@@ -1,4 +1,4 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./BAR";
 
 const stops = stopsUnsorted.filter(
   stop =>
@@ -11,4 +11,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Wust,")
 );
 
-export { stops };
+const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+console.log(`after BRB: ${remainingStops.length}`);
+
+export { stops, remainingStops };

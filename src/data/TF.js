@@ -1,9 +1,12 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./SPN";
 
 const stations = stopsUnsorted.filter(
   stop => stop.name.includes("S Mahlow") || stop.name.includes("S Blankenfelde")
 );
-const stops = stopsUnsorted.filter(
+const remainingAfterStations = stopsUnsorted.filter(
+  stop => stations.indexOf(stop) === -1
+);
+const stops = remainingAfterStations.filter(
   stop =>
     // Berlin C
     stop.name.startsWith("Ahrensdorf (bei Ludwigsfelde),") ||
@@ -207,5 +210,8 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zossen,") ||
     stop.name.startsWith("Zülichendorf,")
 );
-
-export { stations, stops };
+const remainingStops = remainingAfterStations.filter(
+  stop => stops.indexOf(stop) === -1
+);
+console.log(`after TF: ${remainingStops.length}`);
+export { stations, stops, remainingStops };

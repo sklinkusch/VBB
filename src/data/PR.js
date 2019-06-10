@@ -1,4 +1,4 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./PM";
 
 const stops = stopsUnsorted.filter(
   stop =>
@@ -274,5 +274,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zernikow (PR)" ||
     stop.name.startsWith("Zichtow,")
 );
+const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+console.log(`after PR: ${remainingStops.length}`);
 
-export { stops };
+export { stops, remainingStops };

@@ -1,6 +1,6 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./TF";
 
-export const stops = stopsUnsorted.filter(
+const stops = stopsUnsorted.filter(
   stop =>
     stop.name === "Aalkasten" ||
     stop.name === "Ahlimbswalde" ||
@@ -222,3 +222,7 @@ export const stops = stopsUnsorted.filter(
     stop.name.startsWith("Mühlhof,") ||
     stop.name.startsWith("Mürow,")
 );
+
+const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+console.log(`after UM: ${remainingStops.length}`);
+export { stops, remainingStops };

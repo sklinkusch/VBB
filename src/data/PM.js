@@ -1,9 +1,12 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./P";
 
 const stations = stopsUnsorted.filter(stop =>
   stop.name.includes("S Teltow Stadt")
 );
-const stops = stopsUnsorted.filter(
+const remainingAfterStations = stopsUnsorted.filter(
+  stop => stations.indexOf(stop) === -1
+);
+const stops = remainingAfterStations.filter(
   stop =>
     // Berlin C
     stop.name.startsWith("Bergholz-Rehbrücke,") ||
@@ -257,4 +260,8 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zitz,") ||
     stop.name === "Zixdorf"
 );
-export { stations, stops };
+const remainingStops = remainingAfterStations.filter(
+  stop => stops.indexOf(stop) === -1
+);
+console.log(`after PM: ${remainingStops.length}`);
+export { stations, stops, remainingStops };

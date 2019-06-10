@@ -1,4 +1,4 @@
-import stopsUnsorted from "./unsorted";
+import { remainingStops as stopsUnsorted } from "./CB";
 
 const stops = stopsUnsorted.filter(
   stop =>
@@ -199,4 +199,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zürchel,")
 );
 
-export { stops };
+const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+console.log(`after EE: ${remainingStops.length}`);
+
+export { stops, remainingStops };
