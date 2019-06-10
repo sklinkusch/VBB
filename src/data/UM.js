@@ -220,7 +220,146 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Mittenwalde (bei Templin)") ||
     stop.name.startsWith("Moor (UM)") ||
     stop.name.startsWith("Mühlhof,") ||
-    stop.name.startsWith("Mürow,")
+    stop.name.startsWith("Mürow,") ||
+    stop.name === "Naugarten" ||
+    stop.name.startsWith("Nechlin,") ||
+    stop.name.startsWith("Netzow (UM)") ||
+    stop.name === "Neu Placht" ||
+    stop.name === "Neuenfeld" ||
+    stop.name.startsWith("Neu-Galow,") ||
+    stop.name === "Neuhaus" ||
+    stop.name.startsWith("Neuhof (UM)") ||
+    stop.name === "Neuhof, b. Warnitz" ||
+    stop.name === "Neu Kleinow" ||
+    stop.name.startsWith("Neukünkendorf,") ||
+    stop.name === "Neumannshof" ||
+    stop.name.startsWith("Neumeichow,") ||
+    stop.name.startsWith("Neumeichow (UM)") ||
+    stop.name === "Neurochlitz" ||
+    stop.name === "Neu-Rosow" ||
+    stop.name === "Neu Temmen" ||
+    stop.name.startsWith("Nieden,") ||
+    stop.name === "Niederfelde" ||
+    stop.name.startsWith("Niederlandin,") ||
+    stop.name.startsWith("Parmen,") ||
+    stop.name.startsWith("Passow,") ||
+    stop.name === "Paulinenhof" ||
+    stop.name === "Peetzig" ||
+    stop.name.startsWith("Petersdorf (bei Templin)") ||
+    stop.name.startsWith("Petersdorf,") ||
+    stop.name.startsWith("Petershagen (UM)") ||
+    stop.name === "Petersruh" ||
+    stop.name === "Petznick" ||
+    stop.name.startsWith("Pfingstberg,") ||
+    stop.name.startsWith("Pinnow (UM)") ||
+    stop.name.startsWith("Pinnow (bei Angermünde)") ||
+    stop.name.startsWith("Pinnow (bei Gerswalde)") ||
+    stop.name === "Placht-Weiler" ||
+    stop.name.startsWith("Polßen,") ||
+    stop.name === "Poratz" ||
+    stop.name === "Potzlow" ||
+    stop.name.startsWith("Prenzlau,") ||
+    stop.name === "Quast" ||
+    stop.name.startsWith("Raakow (UM)") ||
+    stop.name.startsWith("Reglingsruh,") ||
+    stop.name.startsWith("Retzow (UM)") ||
+    stop.name.startsWith("Ringenwalde (UM)") ||
+    stop.name.startsWith("Ringofen,") ||
+    stop.name.startsWith("Rittgarten,") ||
+    stop.name.startsWith("Röddelin,") ||
+    stop.name === "Röpersdorf" ||
+    stop.name.startsWith("Rosenow,") ||
+    stop.name.startsWith("Rosow,") ||
+    stop.name.startsWith("Ruhhof,") ||
+    stop.name === "Rutenberg" ||
+    stop.name.startsWith("Schapow,") ||
+    stop.name.startsWith("Schenkenberg (UM)") ||
+    stop.name === "Schifferhof" ||
+    stop.name === "Schlepkow" ||
+    stop.name === "Schlüßhof" ||
+    stop.name.startsWith("Schmachtenhagen (UM)") ||
+    stop.name.startsWith("Schmargendorf,") ||
+    stop.name.startsWith("Schmiedeberg,") ||
+    stop.name.startsWith("Schmölln,") ||
+    stop.name.startsWith("Schöneberg,") ||
+    stop.name.startsWith("Schönermark (bei Passow)") ||
+    stop.name.startsWith("Schönermark (bei Prenzlau)") ||
+    stop.name.startsWith("Schönfeld (bei Klockow)") ||
+    stop.name.startsWith("Schönfeld (bei Tantow)") ||
+    stop.name.startsWith("Schönow (UM)") ||
+    stop.name.startsWith("Schönwerder,") ||
+    stop.name === "Schreibermühle" ||
+    stop.name === "Schulenburgslust" ||
+    stop.name.startsWith("Schwaneberg,") ||
+    stop.name.startsWith("Schwedt,") ||
+    stop.name.startsWith("Seeberg (UM)") ||
+    stop.name.startsWith("Seehausen (UM)") ||
+    stop.name === "Seelübbe" ||
+    stop.name.startsWith("Stabeshorst,") ||
+    stop.name.startsWith("Staffelde (UM)") ||
+    stop.name.startsWith("Stegelitz,") ||
+    stop.name === "Stegemannshof" ||
+    stop.name === "Steinfurth" ||
+    stop.name.startsWith("Steinhöfel (UM)") ||
+    stop.name.startsWith("Steinrode,") ||
+    stop.name.startsWith("Stendell,") ||
+    stop.name === "Sternfelde" ||
+    stop.name.startsWith("Sternhagen,") ||
+    stop.name === "Sternthal" ||
+    stop.name.startsWith("Stolpe (Oder)") ||
+    stop.name.startsWith("Storkow (bei Templin)") ||
+    stop.name.startsWith("Stramehl,") ||
+    stop.name === "Strehlow" ||
+    stop.name === "Stützkow" ||
+    stop.name.startsWith("Suckow (UM)") ||
+    stop.name.startsWith("Tangersdorf,") ||
+    stop.name === "Tannendreieck" ||
+    stop.name === "Tannenhof" ||
+    stop.name.startsWith("Tantow,") ||
+    stop.name.startsWith("Taschenberg,") ||
+    stop.name.startsWith("Templin,") ||
+    stop.name.startsWith("Thomsdorf,") ||
+    stop.name.startsWith("Tornow (UM)") ||
+    stop.name.startsWith("Trampe (UM)") ||
+    stop.name.startsWith("Trebenow,") ||
+    stop.name.startsWith("Türkshof,") ||
+    stop.name.startsWith("Vierraden,") ||
+    stop.name.startsWith("Vietmannsdorf,") ||
+    stop.name === "Vogelsangsruh" ||
+    stop.name.startsWith("Voßberg (UM)") ||
+    stop.name.startsWith("Wallmow,") ||
+    stop.name.startsWith("Warnitz,") ||
+    stop.name.startsWith("Warthe,") ||
+    stop.name.startsWith("Wartin,") ||
+    stop.name.startsWith("Weggun,") ||
+    stop.name.startsWith("Welsow,") ||
+    stop.name.startsWith("Wendemark,") ||
+    stop.name === "Wendtshof" ||
+    stop.name.startsWith("Werbelow,") ||
+    stop.name.startsWith("Weselitz,") ||
+    stop.name === "Wichmannsdorf" ||
+    stop.name.startsWith("Wilhelmshayn,") ||
+    stop.name.startsWith("Wilhelmshof,") ||
+    stop.name.startsWith("Willmine,") ||
+    stop.name.startsWith("Wilmersdorf (bei Angermünde)") ||
+    stop.name === "Wilsickow" ||
+    stop.name.startsWith("Wittenhof,") ||
+    stop.name.startsWith("Wittstock (UM)") ||
+    stop.name === "Woddow" ||
+    stop.name.startsWith("Wolfshagen (UM)") ||
+    stop.name === "Wollenthin" ||
+    stop.name.startsWith("Wolletz,") ||
+    stop.name.startsWith("Wollin (UM)") ||
+    stop.name === "Wollschow" ||
+    stop.name.startsWith("Woltersdorf (UM)") ||
+    stop.name === "Wurlgrund" ||
+    stop.name.startsWith("Zernikow (UM)") ||
+    stop.name.startsWith("Zerwelin,") ||
+    stop.name.startsWith("Zichow,") ||
+    stop.name.startsWith("Ziemkendorf,") ||
+    stop.name === "Ziethenmühle" ||
+    stop.name.startsWith("Zollchow (UM)") ||
+    stop.name === "Zuchenberg"
 );
 
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
