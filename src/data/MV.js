@@ -7,8 +7,10 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Bad Kleinen,") ||
     stop.name.startsWith("Bannemin-Mölschow,") ||
     stop.name.startsWith("Bansin,") ||
+    stop.name.startsWith("Bergholz (UER)") ||
     stop.name === "Blankenberg(Meckl)" ||
     stop.name.startsWith("Blankensee(Meckl)") ||
+    stop.name.startsWith("Blücher,") ||
     stop.name.startsWith("Blumenhagen (bei Pasewalk)") ||
     stop.name === "Buddenhagen" ||
     stop.name.startsWith("Burg Stargard(Meckl)") ||
@@ -43,6 +45,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Kratzeburg,") ||
     stop.name.startsWith("Lalendorf,") ||
     stop.name.startsWith("Langhagen,") ||
+    stop.name === "Linchenshöh" ||
     stop.name.startsWith("Löcknitz,") ||
     stop.name.startsWith("Lüblow(Meckl)") ||
     stop.name.startsWith("Lübstorf,") ||
@@ -85,6 +88,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Torgelow" ||
     stop.name.startsWith("Trassenheide,") ||
     stop.name === "Trassenmoor" ||
+    stop.name.startsWith("Triepkendorf,") ||
     stop.name === "Ueckermünde" ||
     stop.name === "Ueckermünde Stadthafen" ||
     stop.name.startsWith("Ückeritz,") ||
@@ -95,6 +99,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Warnemünde Werft" ||
     stop.name.startsWith("Wismar,") ||
     stop.name.startsWith("Wittenhagen,") ||
+    stop.name.startsWith("Woldegk,") ||
     stop.name.startsWith("Wolgast,") ||
     stop.name.startsWith("Wolgaster Fähre,") ||
     stop.name.startsWith("Wüstenfelde,") ||

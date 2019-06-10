@@ -18,6 +18,7 @@ import { stops as stopsPR } from "./PR";
 import { stops as stopsSPN } from "./SPN";
 import { stops as stopsUM } from "./UM";
 import { stops as stopsMV } from "./MV";
+import { stops as stopsSA } from "./SA";
 
 const stopsBerlinUnsorted = [
   ...stopsB,
@@ -49,11 +50,13 @@ const stopsBrandenburgUnsorted = [
   ...stopsOPR,
   ...stopsPR,
   ...stopsSPN,
-  ...stopsUM,
-  ...stopsMV
+  ...stopsUM
 ];
 const stopsBrandenburg = sortItems(stopsBrandenburgUnsorted);
-const stops = [...stopsBerlin, ...stopsBrandenburg];
+
+const stopsOtherUnsorted = [...stopsMV, ...stopsSA];
+const stopsOther = sortItems(stopsOtherUnsorted);
+const stops = [...stopsBerlin, ...stopsBrandenburg, ...stopsOther];
 
 export default stops;
 
