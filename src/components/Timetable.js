@@ -110,6 +110,7 @@ export default class Timetable extends Component {
       .catch(error => {
         this.setState({ error: error });
         this.setState({ data: null });
+        this.setState({ viewdata: null });
         this.inputField.current.value = "";
       });
   }
