@@ -46,9 +46,11 @@ const stops = remainingAfterStations.filter(
     stop.name === "Alt Tucheband" ||
     stop.name.startsWith("Alt Zeschdorf,") ||
     stop.name.startsWith("Altbarnim,") ||
+    stop.name === "Altbleyen" ||
     stop.name.startsWith("Altfriedland,") ||
     stop.name.startsWith("Altgaul,") ||
     stop.name.startsWith("Altglietzen,") ||
+    stop.name.startsWith("Altlangsow,") ||
     stop.name === "Altlewin" ||
     stop.name.startsWith("Altmädewitz,") ||
     stop.name.startsWith("Altranft,") ||
@@ -65,7 +67,8 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Biesdorf (MOL)") ||
     stop.name.startsWith("Bleyen,") ||
     stop.name === "Bliesdorf" ||
-    stop.name.startsWith("Bollerdorf,") ||
+    stop.name === "Bochowsloos" ||
+    stop.name.startsWith("Bollersdorf,") ||
     stop.name.startsWith("Bralitz,") ||
     stop.name === "Brunow" ||
     stop.name.startsWith("Buckow (Märkische Schweiz)") ||
@@ -114,6 +117,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Heckelberg,") ||
     stop.name.startsWith("Heinrichsdorf (MOL)") ||
     stop.name === "Hermersdorf" ||
+    stop.name === "Herrenhof (MOL)" ||
     stop.name.startsWith("Herrensee,") ||
     stop.name === "Herzershof" ||
     stop.name.startsWith("Herzhorn,") ||
@@ -125,6 +129,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Jahnsfelde,") ||
     stop.name === "Karlsbiese" ||
     stop.name.startsWith("Karlsdorf (MOL)") ||
+    stop.name === "Karlshof (bei Gusow)" ||
     stop.name === "Karlshof (bei Neulewin)" ||
     stop.name === "Katharinenhof" ||
     stop.name === "Kerstenbruch" ||
@@ -157,6 +162,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Neubarnim,") ||
     stop.name.startsWith("Neuenhagen (bei Oderberg)") ||
     stop.name === "Neuentempel" ||
+    stop.name === "Neubleyen" ||
     stop.name === "Neufeld" ||
     stop.name === "Neufriedland" ||
     stop.name === "Neugaul" ||
@@ -186,6 +192,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Pritzhagen,") ||
     stop.name.startsWith("Prötzel,") ||
     stop.name === "Quappendorf" ||
+    stop.name.startsWith("Radebrück,") ||
     stop.name === "Rathsdorf" ||
     stop.name.startsWith("Rathstock,") ||
     stop.name === "Regenmantel" ||
@@ -193,6 +200,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Rehfelde,") ||
     stop.name.startsWith("Reichenberg,") ||
     stop.name.startsWith("Reichenow,") ||
+    stop.name.startsWith("Reitwein,") ||
     stop.name.startsWith("Ringenwalde (MOL)") ||
     stop.name === "Ruhlsdorf (MOL)" ||
     stop.name.startsWith("Sachsendorf,") ||
@@ -229,11 +237,12 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Wuschewier,") ||
     stop.name.startsWith("Zäckericker Loose,") ||
     stop.name.startsWith("Zechin,") ||
+    stop.name === "Zernikow (MOL)" ||
     stop.name === "Zinndorf"
 );
 const remainingStops = remainingAfterStations.filter(
   stop => stops.indexOf(stop) === -1
 );
-console.log(`after MOL: ${remainingStops.length}`);
+// console.log(`after MOL: ${remainingStops.length}`);
 
 export { stations, stops, remainingStops };

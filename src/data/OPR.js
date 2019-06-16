@@ -57,6 +57,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Dreetz,") ||
     stop.name === "Dreibrück" ||
     stop.name === "Drewen" ||
+    stop.name === "Dudel" ||
     stop.name === "Eichenfelde" ||
     stop.name === "Emilienhof" ||
     stop.name.startsWith("Emilienhof,") ||
@@ -94,7 +95,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Heimland" ||
     stop.name === "Heinrichsdorf (bei Neuruppin)" ||
     stop.name === "Heinrichsdorf (bei Wittstock)" ||
-    stop.name === "Heinrichsfelde (bei Kyritz)" ||
+    stop.name.startsWith("Heinrichsfelde (bei Kyritz)") ||
     stop.name === "Helenenhof" ||
     stop.name.startsWith("Herzberg (Mark)") ||
     stop.name === "Herzsprung (OPR)" ||
@@ -107,6 +108,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Kagar,") ||
     stop.name.startsWith("Kampehl,") ||
     stop.name.startsWith("Kantow,") ||
+    stop.name.startsWith("Karlfriedrichshof,") ||
     stop.name === "Karl-Marx-Hof" ||
     stop.name === "Karnzow" ||
     stop.name.startsWith("Karstedtshof,") ||
@@ -147,7 +149,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Linow" ||
     stop.name === "Linowsee" ||
     stop.name.startsWith("Linum,") ||
-    stop.name.startsWith("Lobeofsund,") ||
+    stop.name === "Lobeofsund" ||
     stop.name.startsWith("Lögow,") ||
     stop.name.startsWith("Lohm,") ||
     stop.name === "Lüchfeld" ||
@@ -204,6 +206,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Seebeck,") ||
     stop.name === "Seehof" ||
     stop.name.startsWith("Segeletz,") ||
+    stop.name === "Selenhorst" ||
     stop.name.startsWith("Sewekow,") ||
     stop.name.startsWith("Siebmannshorst") ||
     stop.name === "Siegrothsbruch" ||
@@ -215,6 +218,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Storbeck,") ||
     stop.name === "Strubensee" ||
     stop.name.startsWith("Stüdenitz,") ||
+    stop.name === "Sudrowshof" ||
     stop.name.startsWith("Tarmow,") ||
     stop.name.startsWith("Teetz,") ||
     stop.name.startsWith("Tetschendorf,") ||
@@ -223,7 +227,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Trieplatz" ||
     stop.name === "Vichel" ||
     stop.name === "Vielitz" ||
-    stop.name === "Voigtbrügge" ||
+    stop.name === "Voigtsbrügge" ||
     stop.name.startsWith("Volkwig,") ||
     stop.name === "Vollmersdorf" ||
     stop.name.startsWith("Wahlendorf,") ||
@@ -252,11 +256,13 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zempow" ||
     stop.name === "Zermützel" ||
     stop.name.startsWith("Zernitz,") ||
+    stop.name === "Ziethenhorst" ||
+    stop.name === "Ziethensaue" ||
     stop.name === "Zippelsförde" ||
     stop.name === "Zootzen (OPR)" ||
     stop.name === "Zühlen"
 );
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after OPR: ${remainingStops.length}`);
+// console.log(`after OPR: ${remainingStops.length}`);
 
 export { stops, remainingStops };

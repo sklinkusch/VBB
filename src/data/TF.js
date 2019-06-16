@@ -15,6 +15,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Blankenfelde (TF),") ||
     stop.name.startsWith("Dahlewitz,") ||
     stop.name.startsWith("Diedersdorf (TF),") ||
+    stop.name.startsWith("Forsthaus,") ||
     stop.name.startsWith("Genshagen,") ||
     stop.name.startsWith("Glasow,") ||
     stop.name.startsWith("Glienick,") ||
@@ -63,6 +64,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Danna,") ||
     stop.name.startsWith("Dennewitz,") ||
     stop.name.startsWith("Dobbrikow,") ||
+    stop.name.startsWith("Dornswalde,") ||
     stop.name.startsWith("Dümde,") ||
     stop.name.startsWith("Eckmannsdorf,") ||
     stop.name.startsWith("Felgentreu,") ||
@@ -98,6 +100,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Jüterbog,") ||
     stop.name.startsWith("Kallinchen,") ||
     stop.name.startsWith("Kaltenborn,") ||
+    stop.name.startsWith("Kaltenborn (TF)") ||
     stop.name.startsWith("Karlsdorf (Dahme)") ||
     stop.name.startsWith("Kemlitz (bei Baruth)") ||
     stop.name.startsWith("Kemlitz (bei Luckau)") ||
@@ -107,9 +110,11 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Klausdorf (TF)") ||
     stop.name.startsWith("Klein Schulzendorf,") ||
     stop.name.startsWith("Klein Ziescht (Baruth/Mark)") ||
+    stop.name === "Kliestow" ||
     stop.name.startsWith("Kliestow,") ||
     stop.name.startsWith("Kloster Zinna,") ||
     stop.name.startsWith("Kolpien,") ||
+    stop.name.startsWith("Kolpien (Dahme)") ||
     stop.name.startsWith("Kolzenburg,") ||
     stop.name.startsWith("Körbitz (bei Jüterbog)") ||
     stop.name.startsWith("Kossin,") ||
@@ -156,6 +161,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Prensdorf,") ||
     stop.name === "Priedel" ||
     stop.name.startsWith("Priedel,") ||
+    stop.name.startsWith("Radeland,") ||
     stop.name.startsWith("Rehagen,") ||
     stop.name.startsWith("Reinsdorf,") ||
     stop.name.startsWith("Riesdorf,") ||
@@ -174,6 +180,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Schönefeld (bei Jüterbog)") ||
     stop.name.startsWith("Schönefeld (bei Luckenwalde)") ||
     stop.name.startsWith("Schöneiche (bei Zossen)") ||
+    stop.name === "Schöneicher Plan (Zossen)" ||
     stop.name.startsWith("Schöneweide (TF)") ||
     stop.name.startsWith("Schönhagen (TF)") ||
     stop.name === "Schünow" ||
@@ -185,6 +192,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Sperenberg,") ||
     stop.name.startsWith("Stangenhagen,") ||
     stop.name.startsWith("Stülpe,") ||
+    stop.name.startsWith("Thyrow,") ||
     stop.name.startsWith("Trebbin,") ||
     stop.name.startsWith("Wahlsdorf,") ||
     stop.name.startsWith("Waldstadt,") ||
@@ -213,5 +221,5 @@ const stops = remainingAfterStations.filter(
 const remainingStops = remainingAfterStations.filter(
   stop => stops.indexOf(stop) === -1
 );
-console.log(`after TF: ${remainingStops.length}`);
+// console.log(`after TF: ${remainingStops.length}`);
 export { stations, stops, remainingStops };

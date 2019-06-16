@@ -137,7 +137,7 @@ const stops = remainingAfterStations.filter(
     stop.name === "Klein Leine" ||
     stop.name === "Klein Leuthen" ||
     stop.name === "Klein Wasserburg" ||
-    stop.name.startsWith("Klein-Eichholz,") ||
+    stop.name.startsWith("Klein Eichholz,") ||
     stop.name.startsWith("Kolberg,") ||
     stop.name === "Köthen" ||
     stop.name.startsWith("Krausnick,") ||
@@ -179,6 +179,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Neue Mühle,") ||
     stop.name === "Neuendorf am See" ||
     stop.name.startsWith("Neuendorf (bei Teupitz)") ||
+    stop.name === "Neuköthen" ||
     stop.name === "Niewitz" ||
     stop.name.startsWith("Oderin,") ||
     stop.name.startsWith("Paserin,") ||
@@ -255,5 +256,5 @@ const stops = remainingAfterStations.filter(
 const remainingStops = remainingAfterStations.filter(
   stop => stops.indexOf(stop) === -1
 );
-console.log(`after LDS: ${remainingStops.length}`);
+// console.log(`after LDS: ${remainingStops.length}`);
 export { stations, stops, remainingStops };

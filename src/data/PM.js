@@ -55,6 +55,7 @@ const stops = remainingAfterStations.filter(
     stop.name === "Birkhorst (PM)" ||
     stop.name.startsWith("Bliesendorf,") ||
     stop.name.startsWith("Bochow,") ||
+    stop.name.startsWith("Bochow (PM)") ||
     stop.name.startsWith("Neu Bochow,") ||
     stop.name === "Bochow-Bruch" ||
     stop.name.startsWith("Boecke,") ||
@@ -103,6 +104,7 @@ const stops = remainingAfterStations.filter(
     stop.name === "Gollwitz (bei Wusterwitz)" ||
     stop.name.startsWith("Golzow (PM)") ||
     stop.name.startsWith("Gömnigk,") ||
+    stop.name === "Görnsee" ||
     stop.name.startsWith("Gortz,") ||
     stop.name.startsWith("Görzke,") ||
     stop.name.startsWith("Götz,") ||
@@ -117,7 +119,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Groß Kreutz,") ||
     stop.name === "Groß Marzehns" ||
     stop.name === "Grubo" ||
-    stop.name === "Grubo," ||
+    stop.name.startsWith("Grubo,") ||
     stop.name === "Grüningen" ||
     stop.name.startsWith("Hagelberg,") ||
     stop.name === "Haseloff" ||
@@ -131,7 +133,9 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Jeserig (bei Götz)") ||
     stop.name === "Jeserig (bei Brück)" ||
     stop.name.startsWith("Jeserig (bei Wiesenburg)") ||
+    stop.name === "Jeserigerhütten" ||
     stop.name.startsWith("Kähnsdorf,") ||
+    stop.name === "Kaltenhausen" ||
     stop.name === "Kanin" ||
     stop.name.startsWith("Kemnitz (PM)") ||
     stop.name.startsWith("Ketzür,") ||
@@ -186,9 +190,11 @@ const stops = remainingAfterStations.filter(
     stop.name === "Niederwerbig" ||
     stop.name.startsWith("Niemegk,") ||
     stop.name.startsWith("Oberjünne,") ||
+    stop.name === "Paterdamm" ||
     stop.name === "Päwesin" ||
     stop.name === "Pechüle" ||
     stop.name === "Pflügkuff" ||
+    stop.name === "Philippsthal" ||
     stop.name.startsWith("Phöben,") ||
     stop.name.startsWith("Plessow,") ||
     stop.name.startsWith("Plötzin,") ||
@@ -196,6 +202,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Pritzerbe,") ||
     stop.name === "Prützke" ||
     stop.name === "Raben" ||
+    stop.name.startsWith("Rädel,") ||
     stop.name.startsWith("Radewege,") ||
     stop.name === "Rädigke" ||
     stop.name.startsWith("Ragösen,") ||
@@ -208,6 +215,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Rieben,") ||
     stop.name.startsWith("Rietz (bei Brandenburg)") ||
     stop.name.startsWith("Rietz (bei Treuenbrietzen)") ||
+    stop.name.startsWith("Rietz,") ||
     stop.name.startsWith("Riewend,") ||
     stop.name.startsWith("Rogäsen,") ||
     stop.name.startsWith("Roskow,") ||
@@ -240,7 +248,9 @@ const stops = remainingAfterStations.filter(
     stop.name === "Vehlen" ||
     stop.name.startsWith("Verlorenwasser,") ||
     stop.name === "Viesen" ||
+    stop.name === "Vogelgesang" ||
     stop.name === "Warchau" ||
+    stop.name === "Weitzgrund" ||
     stop.name === "Welsigke" ||
     stop.name === "Wenzlow (PM)" ||
     stop.name.startsWith("Werbig (PM)") ||
@@ -263,5 +273,5 @@ const stops = remainingAfterStations.filter(
 const remainingStops = remainingAfterStations.filter(
   stop => stops.indexOf(stop) === -1
 );
-console.log(`after PM: ${remainingStops.length}`);
+// console.log(`after PM: ${remainingStops.length}`);
 export { stations, stops, remainingStops };

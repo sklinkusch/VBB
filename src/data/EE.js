@@ -100,6 +100,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Körba,") ||
     stop.name === "Kosilenzien" ||
     stop.name.startsWith("Koßdorf,") ||
+    stop.name === "Kotschka" ||
     stop.name.startsWith("Krassig,") ||
     stop.name.startsWith("Kraupa,") ||
     stop.name === "Kröbeln" ||
@@ -166,6 +167,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Schmerkendorf" ||
     stop.name.startsWith("Schmielsdorf,") ||
     stop.name.startsWith("Schönborn,") ||
+    stop.name === "Schönewalde b. Brenitz" ||
     stop.name.startsWith("Schönewalde (bei Herzberg)") ||
     stop.name.startsWith("Schraden,") ||
     stop.name.startsWith("Sonnewalde,") ||
@@ -200,6 +202,6 @@ const stops = stopsUnsorted.filter(
 );
 
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after EE: ${remainingStops.length}`);
+// console.log(`after EE: ${remainingStops.length}`);
 
 export { stops, remainingStops };

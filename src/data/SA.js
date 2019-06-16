@@ -14,7 +14,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Coswig (Anhalt)") ||
     stop.name.startsWith("Demker,") ||
     stop.name.startsWith("Dessau,") ||
-    stop.name === "Dessau-Süd" ||
+    stop.name === "Dessau Süd" ||
     stop.name.startsWith("Eichstedt (Altmark)") ||
     stop.name.startsWith("Elster (Elbe)") ||
     stop.name.startsWith("Geestgottberg,") ||
@@ -43,6 +43,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Möser,") ||
     stop.name.startsWith("Mühlanger,") ||
     stop.name === "Muldenstein" ||
+    stop.name === "Neuschollene" ||
     stop.name.startsWith("Osterburg,") ||
     stop.name === "Petersroda" ||
     stop.name === "Pratau" ||
@@ -66,6 +67,6 @@ const stops = stopsUnsorted.filter(
 
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
 
-console.log(`after SA: ${remainingStops.length}`);
+// console.log(`after SA: ${remainingStops.length}`);
 // console.log(remainingStops);
 export { stops, remainingStops };

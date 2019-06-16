@@ -97,6 +97,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Lubochow" ||
     stop.name === "Luckaitz" ||
     stop.name.startsWith("Luckaitztal,") ||
+    stop.name === "Lug" ||
     stop.name.startsWith("Lug,") ||
     stop.name === "Mallenchen" ||
     stop.name.startsWith("Meuro,") ||
@@ -138,6 +139,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Schwarzheide,") ||
     stop.name.startsWith("Schwarzheide Ost,") ||
     stop.name.startsWith("Sedlitz,") ||
+    stop.name === "SeeCampus (NL)" ||
     stop.name === "Seese Ost" ||
     stop.name === "Sella" ||
     stop.name.startsWith("Senftenberg,") ||
@@ -155,9 +157,10 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Woschkow,") ||
     stop.name === "Wüstenhain" ||
     stop.name.startsWith("Zerkwitz,") ||
-    stop.name === "Zinnitz"
+    stop.name === "Zinnitz" ||
+    stop.name === "Zwietow"
 );
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after OSL: ${remainingStops.length}`);
+// console.log(`after OSL: ${remainingStops.length}`);
 
 export { stops, remainingStops };

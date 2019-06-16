@@ -5,6 +5,6 @@ const stops = stopsUnsorted.filter(stop =>
 );
 
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after FF: ${remainingStops.length}`);
+// console.log(`after FF: ${remainingStops.length}`);
 
 export { stops, remainingStops };

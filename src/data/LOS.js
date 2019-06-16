@@ -87,11 +87,11 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Kagel,") ||
     stop.name === "Kaisermühl I" ||
     stop.name === "Kehrigk" ||
-    stop.name === "Kienbaum," ||
+    stop.name.startsWith("Kienbaum,") ||
     stop.name === "Kieselwitz" ||
     stop.name === "Klein Muckrow" ||
     stop.name.startsWith("Klein Schauen,") ||
-    stop.name === "Klein-Briesen" ||
+    stop.name === "Klein Briesen (LOS)" ||
     stop.name === "Kobbeln" ||
     stop.name === "Kohlsdorf" ||
     stop.name.startsWith("Kolpin,") ||
@@ -121,10 +121,13 @@ const stops = remainingAfterStations.filter(
     stop.name === "Neu Boston" ||
     stop.name === "Neu Golm" ||
     stop.name.startsWith("Neu Golm,") ||
-    stop.name === "Neu Madlitz" ||
+    stop.name.startsWith("Neu Madlitz,") ||
     stop.name === "Neu Stahnsdorf" ||
     stop.name.startsWith("Neubrück (Spree)") ||
     stop.name.startsWith("Neuendorf im Sande") ||
+    stop.name === "Neuhartmannsdorf" ||
+    stop.name === "Neumönchwinkel" ||
+    stop.name === "Neureichenwalde" ||
     stop.name.startsWith("Neuzelle,") ||
     stop.name === "Niewisch" ||
     stop.name === "Ölsen" ||
@@ -187,6 +190,6 @@ const stops = remainingAfterStations.filter(
 const remainingStops = remainingAfterStations.filter(
   stop => stops.indexOf(stop) === -1
 );
-console.log(`after LOS: ${remainingStops.length}`);
+// console.log(`after LOS: ${remainingStops.length}`);
 
 export { stations, stops, remainingStops };

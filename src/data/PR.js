@@ -10,6 +10,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Babekuhl" ||
     stop.name.startsWith("Bad Wilsnack,") ||
     stop.name.startsWith("Baek,") ||
+    stop.name.startsWith("Baekern,") ||
     stop.name.startsWith("Bälow,") ||
     stop.name.startsWith("Bärensprung,") ||
     stop.name.startsWith("Barenthin,") ||
@@ -26,6 +27,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Blüthen,") ||
     stop.name === "Boberow" ||
     stop.name.startsWith("Boddin,") ||
+    stop.name.startsWith("Bölzke,") ||
     stop.name === "Bootz" ||
     stop.name.startsWith("Breese,") ||
     stop.name === "Breetz" ||
@@ -61,6 +63,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Gadow (PR)") ||
     stop.name === "Gandow" ||
     stop.name.startsWith("Garlin,") ||
+    stop.name === "Garsedow" ||
     stop.name.startsWith("Garz (PR)") ||
     stop.name.startsWith("Gerdshagen,") ||
     stop.name.startsWith("Giesenhagen,") ||
@@ -70,7 +73,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Gnevsdorf,") ||
     stop.name.startsWith("Görike,") ||
     stop.name === "Grabow (bei Buckow)" ||
-    stop.name.startsWith("Gramzow (PM)") ||
+    stop.name.startsWith("Gramzow (PR)") ||
     stop.name.startsWith("Granzow,") ||
     stop.name.startsWith("Grenzheim,") ||
     stop.name === "Griffenhagen" ||
@@ -95,6 +98,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Halenbeck,") ||
     stop.name.startsWith("Hasenwinkel,") ||
     stop.name === "Heidelberg (PR)" ||
+    stop.name === "Heinshof" ||
     stop.name === "Hellburg" ||
     stop.name === "Helle" ||
     stop.name === "Hinzdorf" ||
@@ -150,6 +154,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Lockstädt" ||
     stop.name === "Lübzow" ||
     stop.name === "Luggendorf" ||
+    stop.name === "Lütjenheide" ||
     stop.name.startsWith("Lütkendorf,") ||
     stop.name === "Lütkenwisch" ||
     stop.name.startsWith("Lütkenwisch,") ||
@@ -272,9 +277,10 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zapel" ||
     stop.name === "Zarenthin" ||
     stop.name === "Zernikow (PR)" ||
-    stop.name.startsWith("Zichtow,")
+    stop.name.startsWith("Zichtow,") ||
+    stop.name === "Zwischendeich"
 );
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after PR: ${remainingStops.length}`);
+// console.log(`after PR: ${remainingStops.length}`);
 
 export { stops, remainingStops };

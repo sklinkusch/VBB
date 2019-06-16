@@ -102,6 +102,8 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Nauen,") ||
     stop.name.startsWith("Nennhausen,") ||
     stop.name.startsWith("Neu-Rohrbeck,") ||
+    stop.name === "Neudessau" ||
+    stop.name.startsWith("Neufalkenrehde,") ||
     stop.name.startsWith("Neugarten,") ||
     stop.name.startsWith("Neukammer,") ||
     stop.name === "Neuwerder" ||
@@ -109,7 +111,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Nitzahn" ||
     stop.name === "Ohnewitz" ||
     stop.name.startsWith("Paretz,") ||
-    stop.name.startsWith("Parey,") ||
+    stop.name === "Parey" ||
     stop.name.startsWith("Paulinenaue,") ||
     stop.name.startsWith("Pessin,") ||
     stop.name.startsWith("Premnitz,") ||
@@ -138,6 +140,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Utershorst,") ||
     stop.name === "Vieritz" ||
     stop.name === "Vietznitz" ||
+    stop.name === "Vorketzin" ||
     stop.name.startsWith("Wachow,") ||
     stop.name.startsWith("Wagenitz,") ||
     stop.name === "Warsow" ||
@@ -151,6 +154,6 @@ const stops = stopsUnsorted.filter(
 );
 
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after HVL: ${remainingStops.length}`);
+// console.log(`after HVL: ${remainingStops.length}`);
 
 export { stops, remainingStops };

@@ -28,6 +28,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Gorinsee,") ||
     stop.name === "Hobrechtsfelde" ||
     stop.name.startsWith("Krummensee (BAR)") ||
+    stop.name.startsWith("Ladeburg,") ||
     stop.name.startsWith("Lindenberg (BAR)") ||
     stop.name.startsWith("Lobetal,") ||
     stop.name.startsWith("Löhme,") ||
@@ -53,6 +54,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Althüttendorf,") ||
     stop.name.startsWith("Altenhof,") ||
     stop.name.startsWith("Biesenthal,") ||
+    stop.name.startsWith("Brandenb. Viertel,") ||
     stop.name.startsWith("Britz,") ||
     stop.name.startsWith("Brodowin,") ||
     stop.name.startsWith("Chorin,") ||
@@ -66,7 +68,8 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Groß Schönebeck,") ||
     stop.name.startsWith("Groß-Ziethen (BAR)") ||
     stop.name.startsWith("Grüntal,") ||
-    stop.name.startsWith("Hirschfelde,") ||
+    stop.name === "Hirschfelde, Dorf" ||
+    stop.name === "Hirschfelde, Am Trafo" ||
     stop.name.startsWith("Hohenfinow,") ||
     stop.name.startsWith("Joachimsthal,") ||
     stop.name.startsWith("Klandorf,") ||
@@ -101,6 +104,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Sommerfelde,") ||
     stop.name === "Sophienstädt" ||
     stop.name.startsWith("Spechthausen,") ||
+    stop.name.startsWith("Stolzenhagen (bei Oderberg)") ||
     stop.name.startsWith("Struwenberg,") ||
     stop.name.startsWith("Tempelfelde,") ||
     stop.name.startsWith("Tiefensee,") ||
@@ -115,5 +119,5 @@ const stops = remainingAfterStations.filter(
 const remainingStops = remainingAfterStations.filter(
   stop => stops.indexOf(stop) === -1
 );
-console.log(`after BAR: ${remainingStops.length}`);
+// console.log(`after BAR: ${remainingStops.length}`);
 export { stations, stops, remainingStops };

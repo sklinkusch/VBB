@@ -85,8 +85,8 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Grieben,") ||
     stop.name.startsWith("Großmutz,") ||
     stop.name.startsWith("Großwoltersdorf (OHV)") ||
-    stop.name === "Groß-Ziethen (OHV)" ||
-    stop.name.startsWith("Grünebeck,") ||
+    stop.name === "Groß Ziethen (OHV)" ||
+    stop.name.startsWith("Grüneberg,") ||
     stop.name === "Güldenhof" ||
     stop.name.startsWith("Gutengermendorf,") ||
     stop.name.startsWith("Hammer,") ||
@@ -96,8 +96,9 @@ const stops = remainingAfterStations.filter(
     stop.name === "Höpen" ||
     stop.name === "Hoppenrade (OHV)" ||
     stop.name.startsWith("Kappe,") ||
+    stop.name === "Karlsruh" ||
     stop.name.startsWith("Klein-Mutz,") ||
-    stop.name === "Klein-Ziethen (OHV)" ||
+    stop.name === "Klein Ziethen (OHV)" ||
     stop.name.startsWith("Kraatz (bei Gransee)") ||
     stop.name.startsWith("Kremmen,") ||
     stop.name.startsWith("Kreuzbruch,") ||
@@ -113,21 +114,25 @@ const stops = remainingAfterStations.filter(
     stop.name === "Neu Ludwigsaue" ||
     stop.name.startsWith("Malz,") ||
     stop.name.startsWith("Marienthal,") ||
+    stop.name === "Mehlhase" ||
     stop.name.startsWith("Menz,") ||
     stop.name.startsWith("Meseberg,") ||
     stop.name.startsWith("Mildenberg,") ||
     stop.name.startsWith("Nassenheide,") ||
     stop.name === "Neuendorf" ||
+    stop.name.startsWith("Neuendorf,") ||
     stop.name === "Neuglobsow" ||
     stop.name === "Neuhäsen" ||
     stop.name.startsWith("Neuholland,") ||
     stop.name.startsWith("Neulögow,") ||
-    stop.name === "Neulöwenberg," ||
+    stop.name.startsWith("Neulöwenberg,") ||
     stop.name.startsWith("Neulüdersdorf,") ||
     stop.name.startsWith("Neuroofen,") ||
     stop.name === "Neuthymen" ||
     stop.name.startsWith("Neutornow (OHV)") ||
+    stop.name.startsWith("Neu Vehlefanz,") ||
     stop.name.startsWith("Osterne,") ||
+    stop.name.startsWith("Papenberge,") ||
     stop.name === "Qualzow" ||
     stop.name.startsWith("Rauschendorf,") ||
     stop.name.startsWith("Ravensbrück,") ||
@@ -139,6 +144,7 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Schwante,") ||
     stop.name.startsWith("Seilershof,") ||
     stop.name.startsWith("Sommerfeld,") ||
+    stop.name === "Sommerswalde" ||
     stop.name.startsWith("Sonnenberg,") ||
     stop.name.startsWith("Staffelde (OHV)") ||
     stop.name.startsWith("Steinförde,") ||
@@ -159,5 +165,5 @@ const stops = remainingAfterStations.filter(
 const remainingStops = remainingAfterStations.filter(
   stop => stops.indexOf(stop) === -1
 );
-console.log(`after OHV: ${remainingStops.length}`);
+// console.log(`after OHV: ${remainingStops.length}`);
 export { stations, stops, remainingStops };

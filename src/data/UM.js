@@ -60,6 +60,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Crussow,") ||
     stop.name.startsWith("Damitzow,") ||
     stop.name.startsWith("Damme (UM)") ||
+    stop.name === "Dargersdorf" ||
     stop.name === "Dauer" ||
     stop.name === "Dauerthal" ||
     stop.name.startsWith("Dedelow,") ||
@@ -67,6 +68,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Dobberzin,") ||
     stop.name.startsWith("Dolgen,") ||
     stop.name.startsWith("Dölln,") ||
+    stop.name === "Dollshof" ||
     stop.name === "Dorettenhof" ||
     stop.name.startsWith("Dreesch,") ||
     stop.name === "Drei Häuser" ||
@@ -74,7 +76,11 @@ const stops = stopsUnsorted.filter(
     stop.name === "Egarsee" ||
     stop.name === "Eichhof" ||
     stop.name.startsWith("Eickstedt,") ||
+    stop.name === "El Dorado" ||
     stop.name.startsWith("Ellingen,") ||
+    stop.name === "Engelsburg" ||
+    stop.name === "Eselshütt" ||
+    stop.name === "Ewaldshof" ||
     stop.name === "Fahrenholz" ||
     stop.name.startsWith("Fährkrug,") ||
     stop.name.startsWith("Falkenhagen (UM)") ||
@@ -193,6 +199,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Küstrinchen" ||
     stop.name.startsWith("Kutzerow,") ||
     stop.name === "Lemmersdorf" ||
+    stop.name.startsWith("Leopoldsthal,") ||
     stop.name === "Lichtenhain" ||
     stop.name.startsWith("Lindenhagen,") ||
     stop.name.startsWith("Lindenhof (bei Dedelow)") ||
@@ -225,6 +232,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Nechlin,") ||
     stop.name.startsWith("Netzow (UM)") ||
     stop.name === "Neu Placht" ||
+    stop.name === "Neudorf (UM)" ||
     stop.name === "Neuenfeld" ||
     stop.name.startsWith("Neu-Galow,") ||
     stop.name === "Neuhaus" ||
@@ -261,6 +269,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Prenzlau,") ||
     stop.name === "Quast" ||
     stop.name.startsWith("Raakow (UM)") ||
+    stop.name.startsWith("Radekow,") ||
     stop.name.startsWith("Reglingsruh,") ||
     stop.name.startsWith("Retzow (UM)") ||
     stop.name.startsWith("Ringenwalde (UM)") ||
@@ -295,6 +304,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Seeberg (UM)") ||
     stop.name.startsWith("Seehausen (UM)") ||
     stop.name === "Seelübbe" ||
+    stop.name.startsWith("Stabeshöhe,") ||
     stop.name.startsWith("Stabeshorst,") ||
     stop.name.startsWith("Staffelde (UM)") ||
     stop.name.startsWith("Stegelitz,") ||
@@ -318,6 +328,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Tantow,") ||
     stop.name.startsWith("Taschenberg,") ||
     stop.name.startsWith("Templin,") ||
+    stop.name.startsWith("Templin-Ahrensdorf (UM)") ||
     stop.name.startsWith("Thomsdorf,") ||
     stop.name.startsWith("Tornow (UM)") ||
     stop.name.startsWith("Trampe (UM)") ||
@@ -359,9 +370,10 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Ziemkendorf,") ||
     stop.name === "Ziethenmühle" ||
     stop.name.startsWith("Zollchow (UM)") ||
-    stop.name === "Zuchenberg"
+    stop.name === "Zuchenberg" ||
+    stop.name.startsWith("Zützen (UM)")
 );
 
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after UM: ${remainingStops.length}`);
+// console.log(`after UM: ${remainingStops.length}`);
 export { stops, remainingStops };

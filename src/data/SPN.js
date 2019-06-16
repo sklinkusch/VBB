@@ -35,6 +35,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Eichwege,") ||
     stop.name.startsWith("Fehrow,") ||
     stop.name.startsWith("Forst,") ||
+    stop.name === "Forst(Gr)" ||
     stop.name === "Frauendorf, Nord" ||
     stop.name === "Frauendorf, Waldstr." ||
     stop.name.startsWith("Friedrichshain,") ||
@@ -85,6 +86,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Kerkwitz,") ||
     stop.name === "Klein Bademeusel" ||
     stop.name.startsWith("Klein Döbbern,") ||
+    stop.name === "Klein Düben" ||
     stop.name.startsWith("Klein Gastrose,") ||
     stop.name === "Klein Jamno" ||
     stop.name.startsWith("Klein Jamno,") ||
@@ -92,6 +94,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Klein Limberg" ||
     stop.name.startsWith("Klein Loitz,") ||
     stop.name === "Klein Oßnig" ||
+    stop.name.startsWith("Klein See,") ||
     stop.name === "Klinge" ||
     stop.name.startsWith("Klinge,") ||
     stop.name.startsWith("Komptendorf,") ||
@@ -108,7 +111,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Limberg,") ||
     stop.name.startsWith("Löschen,") ||
     stop.name.startsWith("Lübbinchen,") ||
-    stop.name.startsWith("Mattendorf,") ||
+    stop.name === "Mattendorf" ||
     stop.name.startsWith("Maust,") ||
     stop.name.startsWith("Milkersdorf,") ||
     stop.name === "Muckrow" ||
@@ -126,6 +129,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Preschen,") ||
     stop.name.startsWith("Proschim,") ||
     stop.name === "Raden" ||
+    stop.name.startsWith("Radensdorf,") ||
     stop.name.startsWith("Radensdorf (SPN)") ||
     stop.name.startsWith("Rehnsdorf,") ||
     stop.name === "Reuthen" ||
@@ -165,9 +169,10 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Wolfshain,") ||
     stop.name === "Zahsow" ||
     stop.name === "Zelz" ||
-    stop.name === "Zelz-Bahren"
+    stop.name === "Zelz-Bahren" ||
+    stop.name.startsWith("Zschorno,")
 );
 const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
-console.log(`after SPN: ${remainingStops.length}`);
+// console.log(`after SPN: ${remainingStops.length}`);
 
 export { stops, remainingStops };
