@@ -1,4 +1,5 @@
 import { remainingStops as stopsUnsorted } from "./OSL";
+import { getBlnDuration } from "../components/helpers";
 
 const stations = stopsUnsorted.filter(
   stop =>
@@ -9,12 +10,21 @@ const stations = stopsUnsorted.filter(
 const remainingAfterStations = stopsUnsorted.filter(
   stop => stations.indexOf(stop) === -1
 );
-const stops = remainingAfterStations.filter(stop =>
+const stopsRaw = remainingAfterStations.filter(stop =>
   stop.name.startsWith("Potsdam,")
 );
 const remainingStops = remainingAfterStations.filter(
-  stop => stops.indexOf(stop) === -1
+  stop => stopsRaw.indexOf(stop) === -1
 );
 // console.log(`after P: ${remainingStops.length}`);
+
+const stops = stopsRaw.map(stop => {
+  const stopDuration = getBlnDuration() || 60;
+  return {
+    id: stop.id,
+    name: stop.name,
+    duration: stopDuration
+  };
+});
 
 export { stations, stops, remainingStops };
