@@ -8,6 +8,7 @@ import TableData from "./TableData";
 import StopName from "./StopName";
 import Error from "./Error";
 import Filter from "./Filter";
+import { getBlnDuration } from "./helpers";
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class Timetable extends Component {
       stop: {
         id: "900000160541",
         name: "Josef-Orlopp-Str./Vulkanstr.",
-        duration: 60
+        duration: getBlnDuration()
       },
       selection: stops
     };
