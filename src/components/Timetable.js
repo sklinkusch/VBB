@@ -12,15 +12,17 @@ import Filter from "./Filter";
 export default class Timetable extends Component {
   constructor(props) {
     super(props);
-    this.duration = 60;
     this.inputField = React.createRef();
     this.filterField = React.createRef();
     this.filterSelector = React.createRef();
     this.state = {
       data: null,
       viewdata: null,
-      value: "900000160541",
-      stop: "Josef-Orlopp-Str./Vulkanstr.",
+      stop: {
+        id: "900000160541",
+        name: "Josef-Orlopp-Str./Vulkanstr.",
+        duration: 60
+      },
       selection: stops
     };
   }
@@ -80,22 +82,25 @@ export default class Timetable extends Component {
     this.setState({ viewdata: filteredData });
   };
   filterStops = value => {
-    const stopDefault = { id: this.state.value, name: this.state.stop };
+    const stopDefault = this.state.stop;
     let furtherStops;
     if (value !== "") {
       furtherStops = stops.filter(
         stop =>
           stop.name.toLowerCase().includes(value.toLowerCase()) &&
-          stop.name !== this.state.stop
+          stop.name !== this.state.stop.name
       );
     } else {
-      furtherStops = stops.filter(stop => stop.name !== this.state.stop);
+      furtherStops = stops.filter(stop => stop.name !== this.state.stop.name);
     }
     const selectedStops = [stopDefault, ...furtherStops];
     this.setState({ selection: selectedStops });
   };
-  getData(stopid) {
-    fetch(`https://sklinkusch-vbbmicro.now.sh/?${stopid}`)
+  getData(stop) {
+    const { id, duration = 60 } = stop;
+    fetch(
+      `https://sklinkusch-vbbmicro.now.sh/?station=${id}&duration=${duration}`
+    )
       .then(response => {
         if (!response.ok) {
           let err = new Error(`HTTP status code: ${response.status}`);
@@ -114,16 +119,16 @@ export default class Timetable extends Component {
         this.inputField.current.value = "";
       });
   }
-  handleChange = (value, name) => {
-    this.setState({ value: value, stop: name });
-    this.getData(value);
+  handleChange = stop => {
+    this.setState({ stop: stop });
+    this.getData(stop);
   };
   handleSubmit = () => {
     // console.log(this.state.value);
-    this.getData(this.state.value);
+    this.getData(this.state.stop);
   };
   componentDidMount() {
-    this.getData(this.state.value);
+    this.getData(this.state.stop);
     this.filterStops("");
   }
   saveData = data => {
@@ -198,7 +203,7 @@ export default class Timetable extends Component {
     const data = this.sortData();
     const newData = this.splitArray(data);
     const text = `In the next ${
-      this.duration
+      this.state.stop.duration
     } minutes, no departures are planned for the station or stop you have chosen.`;
     return (
       <div>
@@ -213,7 +218,7 @@ export default class Timetable extends Component {
           filterSelector={this.filterSelector}
           filterData={this.filterData}
         />
-        <StopName stop={this.state.stop} element="h2" />
+        <StopName stop={this.state.stop.name} element="h2" />
         {this.state.error && <Error />}
         {newData !== undefined && newData !== null && newData.length > 0 ? (
           newData.map((depset, index) => {

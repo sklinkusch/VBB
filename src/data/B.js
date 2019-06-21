@@ -1,4 +1,5 @@
 import stopsUnsorted from "./unsorted";
+import { getBlnDuration } from "../components/helpers";
 
 const stopsFilter = stopsUnsorted.filter(
   stop =>
@@ -10,7 +11,7 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name === "U Alexanderplatz [Bus]" ||
     stop.name === "S Rahnsdorf [Tram]"
 );
-const stops = stopsFilter.map(stop => {
+const stopsRaw = stopsFilter.map(stop => {
   if (stop.name.startsWith("Berlin,")) {
     return { id: stop.id, name: stop.name.substr(8) };
   } else if (stop.name.endsWith("(Berlin)")) {
@@ -28,5 +29,13 @@ const stops = stopsFilter.map(stop => {
 export const remainingStops = stopsUnsorted.filter(
   stop => stopsFilter.indexOf(stop) === -1
 );
+const stops = stopsRaw.map(stop => {
+  const stopDuration = getBlnDuration() || 60;
+  return {
+    id: stop.id,
+    name: stop.name,
+    duration: stopDuration
+  };
+});
 // console.log(`after B: ${remainingStops.length}`);
 export default stops;

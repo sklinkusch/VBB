@@ -4,12 +4,11 @@ export default function Select(props) {
   return (
     <React.Fragment>
       <select
-        onChange={event =>
-          props.handleChange(
-            event.target.value,
-            event.target.options[event.target.selectedIndex].text
-          )
-        }
+        onChange={event => {
+          const id = event.target.value;
+          const stop = props.selection.filter(stop => stop.id === id)[0];
+          return props.handleChange(stop);
+        }}
       >
         {props.selection.map(stop => (
           <option key={stop.id} value={stop.id}>
