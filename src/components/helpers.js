@@ -1,4 +1,12 @@
-export function getBlnDuration() {
+export function getDuration(type) {
+  switch (type) {
+    case "BLN":
+      return getBlnDuration();
+    default:
+      break;
+  }
+}
+function getBlnDuration() {
   const nowDate = new Date();
   const nowDateString = nowDate.toLocaleDateString("en-GB", {
     timeZone: "Europe/Berlin",

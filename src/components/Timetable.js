@@ -8,7 +8,7 @@ import TableData from "./TableData";
 import StopName from "./StopName";
 import Error from "./Error";
 import Filter from "./Filter";
-import { getBlnDuration } from "./helpers";
+import { getDuration } from "./helpers";
 
 export default class Timetable extends Component {
   constructor(props) {
@@ -22,7 +22,8 @@ export default class Timetable extends Component {
       stop: {
         id: "900000160541",
         name: "Josef-Orlopp-Str./Vulkanstr.",
-        duration: getBlnDuration()
+        type: "BLN",
+        duration: getDuration("BLN")
       },
       selection: stops
     };
@@ -98,7 +99,8 @@ export default class Timetable extends Component {
     this.setState({ selection: selectedStops });
   };
   getData(stop) {
-    const { id, duration = 60 } = stop;
+    const { id, type = "BBG" } = stop;
+    const duration = getDuration(type);
     fetch(
       `https://sklinkusch-vbbmicro.now.sh/?station=${id}&duration=${duration}`
     )
