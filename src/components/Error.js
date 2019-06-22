@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Error.css";
+import "../styles/Error.scss";
 
 export default function Error(props) {
   return (

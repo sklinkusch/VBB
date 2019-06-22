@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "../styles/Timetable.css";
+import React, { useRef, useState, useEffect } from "react";
+import "../styles/Timetable.scss";
 import stops from "../data/stops";
 import Input from "./Input";
 import Select from "./Select";
@@ -10,26 +10,22 @@ import Error from "./Error";
 import Filter from "./Filter";
 import { getDuration } from "./helpers";
 
-export default class Timetable extends Component {
-  constructor(props) {
-    super(props);
-    this.inputField = React.createRef();
-    this.filterField = React.createRef();
-    this.filterSelector = React.createRef();
-    this.state = {
-      data: null,
-      viewdata: null,
-      stop: {
-        id: "900000160541",
-        name: "Josef-Orlopp-Str./Vulkanstr.",
-        type: "BLN",
-        duration: getDuration("BLN")
-      },
-      selection: stops
-    };
-  }
-  filterAnd = filterValues => {
-    const filteredData = this.state.data.filter(departure => {
+export default function Timetable() {
+  const inputField = useRef(null);
+  const filterField = useRef(null);
+  const filterSelector = useRef(null);
+  const [data, setData] = useState(null);
+  const [viewdata, setViewdata] = useState(null);
+  const [error, setError] = useState(null);
+  const [stop, setStop] = useState({
+    id: "900000160541",
+    name: "Josef-Orlopp-Str./Vulkanstr.",
+    type: "BLN",
+    duration: getDuration("BLN")
+  });
+  const [selection, setSelection] = useState(stops);
+  const filterAnd = filterValues => {
+    const filteredData = data.filter(departure => {
       let decider = true;
       for (let i = 0; i < filterValues.length; i++) {
         if (
@@ -48,23 +44,23 @@ export default class Timetable extends Component {
       }
       return decider;
     });
-    this.setState({ viewdata: filteredData });
+    setViewdata(filteredData);
   };
-  filterData = () => {
-    if (this.filterField.current.value === "") {
-      this.setState({ viewdata: this.state.data });
+  const filterData = () => {
+    if (filterField.current.value === "") {
+      setViewdata(data);
     } else {
-      const filterValues = this.filterField.current.value.split(" ");
-      const filterMode = this.filterSelector.current.value;
+      const filterValues = filterField.current.value.split(" ");
+      const filterMode = filterSelector.current.value;
       if (filterMode === "OR") {
-        this.filterOr(filterValues);
+        filterOr(filterValues);
       } else {
-        this.filterAnd(filterValues);
+        filterAnd(filterValues);
       }
     }
   };
-  filterOr = filterValues => {
-    const filteredData = this.state.data.filter(departure => {
+  const filterOr = filterValues => {
+    const filteredData = data.filter(departure => {
       let decider = false;
       for (let i = 0; i < filterValues.length; i++) {
         if (
@@ -81,24 +77,24 @@ export default class Timetable extends Component {
       }
       return decider;
     });
-    this.setState({ viewdata: filteredData });
+    setViewdata(filteredData);
   };
-  filterStops = value => {
-    const stopDefault = this.state.stop;
+  const filterStops = value => {
+    const stopDefault = stop;
     let furtherStops;
     if (value !== "") {
       furtherStops = stops.filter(
-        stop =>
-          stop.name.toLowerCase().includes(value.toLowerCase()) &&
-          stop.name !== this.state.stop.name
+        myStop =>
+          myStop.name.toLowerCase().includes(value.toLowerCase()) &&
+          myStop.name !== stopDefault.name
       );
     } else {
-      furtherStops = stops.filter(stop => stop.name !== this.state.stop.name);
+      furtherStops = stops.filter(myStop => myStop.name !== stopDefault.name);
     }
     const selectedStops = [stopDefault, ...furtherStops];
-    this.setState({ selection: selectedStops });
+    setSelection(selectedStops);
   };
-  getData(stop) {
+  const getData = stop => {
     const { id, type = "BBG" } = stop;
     const duration = getDuration(type);
     fetch(
@@ -112,44 +108,40 @@ export default class Timetable extends Component {
         return response.json();
       })
       .then(data => {
-        this.setState({ error: null });
-        return this.saveData(data);
+        setError(null);
+        return saveData(data);
       })
-      .catch(error => {
-        this.setState({ error: error });
-        this.setState({ data: null });
-        this.setState({ viewdata: null });
-        this.inputField.current.value = "";
+      .catch(myError => {
+        setError(myError);
+        setData(null);
+        setViewdata(null);
+        inputField.current.value = "";
       });
-  }
-  handleChange = stop => {
-    this.setState({ stop: stop });
-    this.getData(stop);
   };
-  handleSubmit = () => {
-    // console.log(this.state.value);
-    this.getData(this.state.stop);
+  const handleChange = myStop => {
+    setStop(myStop);
+    getData(myStop);
   };
-  componentDidMount() {
-    this.getData(this.state.stop);
-    this.filterStops("");
-  }
-  saveData = data => {
-    // console.log(data);
-    this.setState({ data: data });
-    this.setState({ viewdata: data });
-    this.setState({ selection: stops });
-    this.inputField.current.value = "";
-    this.filterField.current.value = "";
-    this.filterSelector.current.value = "OR";
+  const handleSubmit = () => {
+    // console.log(stop);
+    getData(stop);
   };
-  sortData() {
-    if (
-      this.state.viewdata !== null &&
-      this.state.viewdata !== undefined &&
-      this.state.viewdata.length > 0
-    )
-      return this.state.viewdata.sort((a, b) => {
+  useEffect(() => {
+    getData(stop);
+    filterStops("");
+  }, []);
+  const saveData = newData => {
+    // console.log(newData);
+    setData(newData);
+    setViewdata(newData);
+    setSelection(stops);
+    inputField.current.value = "";
+    filterField.current.value = "";
+    filterSelector.current.value = "OR";
+  };
+  const sortData = () => {
+    if (viewdata !== null && viewdata !== undefined && viewdata.length > 0)
+      return viewdata.sort((a, b) => {
         if (a.stop.name.toLowerCase() < b.stop.name.toLowerCase()) {
           return -1;
         } else if (b.stop.name.toLowerCase() < a.stop.name.toLowerCase()) {
@@ -179,65 +171,55 @@ export default class Timetable extends Component {
           }
         }
       });
-  }
-  splitArray(data) {
+  };
+  const splitArray = myData => {
     let resultArray = [];
     let lowestValue = 0;
-    if (data === undefined) {
+    if (myData === undefined) {
       return null;
     }
-    while (lowestValue < data.length) {
-      let lowestResult = data[lowestValue].stop.name;
+    while (lowestValue < myData.length) {
+      let lowestResult = myData[lowestValue].stop.name;
       let highestValue;
       let filtered;
-      for (let i = lowestValue; i < data.length; i++) {
-        if (data[i].stop.name !== lowestResult) {
+      for (let i = lowestValue; i < myData.length; i++) {
+        if (myData[i].stop.name !== lowestResult) {
           highestValue = i;
           break;
         }
       }
-      filtered = data.slice(lowestValue, highestValue);
+      filtered = myData.slice(lowestValue, highestValue);
       resultArray.push(filtered);
       lowestValue = highestValue;
     }
     return resultArray;
-  }
-  render() {
-    const data = this.sortData();
-    const newData = this.splitArray(data);
-    const text = `In the next ${
-      this.state.stop.duration
-    } minutes, no departures are planned for the station or stop you have chosen.`;
-    return (
-      <div>
-        <Input filterStops={this.filterStops} inputField={this.inputField} />
-        <Select
-          handleChange={this.handleChange}
-          selection={this.state.selection}
-        />
-        <Button handleSubmit={this.handleSubmit} />
-        <Filter
-          filterField={this.filterField}
-          filterSelector={this.filterSelector}
-          filterData={this.filterData}
-        />
-        <StopName stop={this.state.stop.name} element="h2" />
-        {this.state.error && <Error />}
-        {newData !== undefined && newData !== null && newData.length > 0 ? (
-          newData.map((depset, index) => {
-            return (
-              <TableData
-                stop={depset[0].stop.name}
-                data={depset}
-                duration={this.state.duration}
-                key={index}
-              />
-            );
-          })
-        ) : (
-          <div>{text}</div>
-        )}
-      </div>
-    );
-  }
+  };
+  const sortedData = sortData();
+  const newData = splitArray(sortedData);
+  const text = `In the next ${
+    stop.duration
+  } minutes, no departures are planned for the station or stop you have chosen.`;
+  return (
+    <div className="timetable">
+      <Input filterStops={filterStops} inputField={inputField} />
+      <Select handleChange={handleChange} selection={selection} />
+      <Button handleSubmit={handleSubmit} />
+      <Filter
+        filterField={filterField}
+        filterSelector={filterSelector}
+        filterData={filterData}
+      />
+      <StopName stop={stop.name} element="h2" />
+      {error && <Error />}
+      {newData !== undefined && newData !== null && newData.length > 0 ? (
+        newData.map((depset, index) => {
+          return (
+            <TableData stop={depset[0].stop.name} data={depset} key={index} />
+          );
+        })
+      ) : (
+        <div>{text}</div>
+      )}
+    </div>
+  );
 }

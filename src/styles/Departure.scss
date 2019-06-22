@@ -1,0 +1,54 @@
+.plantime,
+.realtime {
+  text-align: center;
+}
+.delay {
+  text-align: right;
+}
+.platform {
+  text-align: center;
+}
+.line {
+  text-align: left;
+}
+.direction {
+  text-align: left;
+}
+.row-add {
+  flex-wrap: wrap;
+}
+@media all and (max-width: 768px) {
+  .row {
+    flex-wrap: wrap;
+  }
+  .row-add {
+    border-bottom: 1px solid #ccc;
+  }
+  .plantime {
+    text-align: left;
+  }
+  .realtime {
+    text-align: center;
+  }
+  .delay {
+    text-align: center;
+  }
+  .mean {
+    text-align: center;
+  }
+  .line {
+    text-align: left;
+  }
+  .direction {
+    text-align: left;
+  }
+  .platform {
+    text-align: center;
+  }
+  .barrier,
+  .bike,
+  .warning,
+  .status {
+    text-align: center;
+  }
+}

@@ -1,14 +1,13 @@
 import React from "react";
-import stops from "../data/stops";
-import "../styles/Header.css";
+import { Navbar, NavbarBrand } from "reactstrap";
+import "../styles/Header.scss";
 
 const Header = () => {
   return (
     <header>
-      <h1>VBB departures</h1>
-      <p className="rightpara">
-        currently with data from {stops.length} stations and stops
-      </p>
+      <Navbar expand="sm">
+        <NavbarBrand href="/">VBB departures</NavbarBrand>
+      </Navbar>
     </header>
   );
 };

@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Product from "./Product";
-import "../styles/Departure.css";
+import "../styles/Departure.scss";
 import Barrier from "./Barrier";
 import Bike from "./Bike";
 import Warning from "./Warning";
 import Status from "./Status";
 import Warntext from "./Warntext";
 import Stattext from "./Stattext";
+import Time from "./Time";
 
 export default class Departure extends Component {
   getDelay(delay, cancelled) {
@@ -74,20 +75,22 @@ export default class Departure extends Component {
     return (
       <React.Fragment>
         <div className="row" key={this.props.dep.tripId}>
-          <div className="plantime">{plantime}</div>
-          <div className="realtime">{realtime}</div>
-          <div className="delay">{delayMin}</div>
+          <Time time={plantime} />
+          <Time time={realtime} />
+          <div className="delay col-md-2 col-8">{delayMin}</div>
           <Product product={product} line={line} />
-          <div className="line">{line}</div>
-          <div className="direction">{direction}</div>
-          <div className="platform">{platform}</div>
+          <div className="line col-md-3 col-6">{line}</div>
+          <div className="direction col-md-8 col-13">{direction}</div>
+          <div className="platform col-md-2 col-3">{platform}</div>
           <Barrier remarks={remarks} />
           <Bike remarks={remarks} />
           <Warning remarks={remarks} />
           <Status remarks={remarks} />
         </div>
-        <Warntext remarks={remarks} />
-        <Stattext remarks={remarks} />
+        <div className="row row-add" key={`add:${this.props.dep.tripId}`}>
+          <Warntext remarks={remarks} />
+          <Stattext remarks={remarks} />
+        </div>
       </React.Fragment>
     );
   }
