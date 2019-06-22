@@ -1,10 +1,20 @@
 export function getBlnDuration() {
   const nowDate = new Date();
-  const hour = nowDate.getHours();
-  const weekday = nowDate.getDay();
-  const day = nowDate.getDate();
-  const month = nowDate.getMonth() + 1;
-  const year = nowDate.getFullYear();
+  const nowDateString = nowDate.toLocaleDateString("en-GB", {
+    timeZone: "Europe/Berlin",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric"
+  });
+  const dateTime = nowDateString.split(",");
+  const dateArray = dateTime[0].split("/");
+  const hour = dateTime[1];
+  const day = dateArray[0];
+  const month = dateArray[1] + 1;
+  const year = dateArray[2];
+  const nowDateLocal = new Date(year, month - 1, day);
+  const weekday = nowDateLocal.getDay();
   const isItHoliday = isSunday(weekday) || isHoliday(day, month, year);
   const isItSaturday = isSaturday(weekday);
   let duration = 60;
