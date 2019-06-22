@@ -21,7 +21,7 @@
   flex: 0 0 95%;
   text-align: center;
 }
-@media all and (max-width: 750px) {
+@media all and (max-width: 768px) {
   .legend,
   .legendleft,
   .legendright,
