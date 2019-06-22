@@ -14,6 +14,9 @@
 .direction {
   text-align: left;
 }
+.row-add {
+  flex-wrap: wrap;
+}
 @media all and (max-width: 768px) {
   .row {
     flex-wrap: wrap;
