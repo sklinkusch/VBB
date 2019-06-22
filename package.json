@@ -11,6 +11,7 @@
     "react-dom": "^16.8.6",
     "react-fontawesome": "^1.6.1",
     "react-scripts": "2.1.8",
+    "reactstrap": "^8.0.0",
     "vbb-stations": "^6.10.0"
   },
   "scripts": {
