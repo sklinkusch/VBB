@@ -1,10 +1,13 @@
 import React from "react";
+import { Navbar, NavbarBrand } from "reactstrap";
 import "../styles/Header.css";
 
 const Header = () => {
   return (
     <header>
-      <h1>VBB departures</h1>
+      <Navbar expand="sm">
+        <NavbarBrand href="/">VBB departures</NavbarBrand>
+      </Navbar>
     </header>
   );
 };

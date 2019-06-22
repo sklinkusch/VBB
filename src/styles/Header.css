@@ -5,9 +5,9 @@ header {
   padding: 10px;
   border-radius: 15px;
 }
-header h1 {
-  color: white;
+nav {
+  background-color: darkblue;
 }
-header p {
+.navbar-brand {
   color: white;
 }
