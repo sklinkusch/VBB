@@ -11,11 +11,3 @@ header h1 {
 header p {
   color: white;
 }
-.rightpara {
-  text-align: right;
-}
-@media all and (max-width: 750px) {
-  .rightpara {
-    display: none;
-  }
-}
