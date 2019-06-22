@@ -1,5 +1,4 @@
 import { remainingStops as stopsUnsorted } from "./BAR";
-import { getBlnDuration } from "../components/helpers";
 
 const stopsRaw = stopsUnsorted.filter(
   stop =>
@@ -18,11 +17,11 @@ const remainingStops = stopsUnsorted.filter(
 // console.log(`after BRB: ${remainingStops.length}`);
 
 const stops = stopsRaw.map(stop => {
-  const stopDuration = getBlnDuration() || 60;
   return {
     id: stop.id,
     name: stop.name,
-    duration: stopDuration
+    type: "BLN",
+    duration: null
   };
 });
 

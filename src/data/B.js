@@ -1,5 +1,4 @@
 import stopsUnsorted from "./unsorted";
-import { getBlnDuration } from "../components/helpers";
 
 const stopsFilter = stopsUnsorted.filter(
   stop =>
@@ -30,11 +29,11 @@ export const remainingStops = stopsUnsorted.filter(
   stop => stopsFilter.indexOf(stop) === -1
 );
 const stops = stopsRaw.map(stop => {
-  const stopDuration = getBlnDuration() || 60;
   return {
     id: stop.id,
     name: stop.name,
-    duration: stopDuration
+    type: "BLN",
+    duration: null
   };
 });
 // console.log(`after B: ${remainingStops.length}`);
