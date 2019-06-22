@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import "../styles/Timetable.css";
+import "../styles/Timetable.scss";
 import stops from "../data/stops";
 import Input from "./Input";
 import Select from "./Select";

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Tablehead.css";
+import "../styles/Tablehead.scss";
 
 export default function Tablehead() {
   return (

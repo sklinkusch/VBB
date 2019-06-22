@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Stattext.css";
+import "../styles/Stattext.scss";
 
 export default function Stattext(props) {
   const statuses = props.remarks.filter(remark => remark.type === "status");

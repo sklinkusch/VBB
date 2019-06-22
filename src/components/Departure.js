@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Product from "./Product";
-import "../styles/Departure.css";
+import "../styles/Departure.scss";
 import Barrier from "./Barrier";
 import Bike from "./Bike";
 import Warning from "./Warning";

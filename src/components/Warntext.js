@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../styles/Warntext.css";
+import "../styles/Warntext.scss";
 
 export default class Warntext extends Component {
   formatTime(timestamp) {

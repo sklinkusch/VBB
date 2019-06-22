@@ -1,6 +1,6 @@
 import React from "react";
 import Legendrow from "./Legendrow";
-import "../styles/Legend.css";
+import "../styles/Legend.scss";
 
 export default function Legend() {
   return (

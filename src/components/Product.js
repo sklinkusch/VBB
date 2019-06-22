@@ -10,7 +10,7 @@ import expressbus from "../images/express-bus.svg";
 import bus from "../images/bus.svg";
 import specialbus from "../images/special-bus.svg";
 import ferry from "../images/ferry.svg";
-import "../styles/Product.css";
+import "../styles/Product.scss";
 
 export default class Product extends Component {
   render() {
