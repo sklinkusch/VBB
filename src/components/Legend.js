@@ -4,8 +4,8 @@ import "../styles/Legend.css";
 
 export default function Legend() {
   return (
-    <div className="legend">
-      <h3 className="legendfull">Legend</h3>
+    <div className="legend row">
+      <h3 className="col-12">Legend</h3>
       <Legendrow
         left="sched."
         right="time for the departure as stated in the timetable"
