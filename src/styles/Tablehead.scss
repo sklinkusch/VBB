@@ -9,30 +9,18 @@
 }
 .plantime,
 .realtime {
-  flex: 0 0 40px;
   text-align: center;
 }
 .delay {
-  flex: 0 0 30px;
   text-align: right;
 }
 .platform {
-  flex: 0 0 30px;
   text-align: center;
 }
-.mean,
-.barrier,
-.bike,
-.warning,
-.status {
-  flex: 0 0 20px;
-}
 .line {
-  flex: 0 0 80px;
   text-align: left;
 }
 .direction {
-  flex: 0 0 300px;
   text-align: left;
 }
 @media all and (max-width: 750px) {

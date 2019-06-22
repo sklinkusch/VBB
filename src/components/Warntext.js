@@ -17,7 +17,7 @@ export default class Warntext extends Component {
     );
     if (warnings.length > 0) {
       return (
-        <div className="warntext">
+        <div className="warntext col-22">
           {warnings.map((warning, index) => {
             const { validFrom, validUntil, summary, text } = warning;
             const from = this.formatTime(validFrom);

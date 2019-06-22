@@ -200,7 +200,7 @@ export default function Timetable() {
     stop.duration
   } minutes, no departures are planned for the station or stop you have chosen.`;
   return (
-    <div>
+    <div className="timetable">
       <Input filterStops={filterStops} inputField={inputField} />
       <Select handleChange={handleChange} selection={selection} />
       <Button handleSubmit={handleSubmit} />

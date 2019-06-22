@@ -6,12 +6,12 @@ export default class Status extends Component {
     for (let i = 0; i < remarks.length; i++) {
       if (remarks[i].type === "status") {
         return (
-          <div className="status">
+          <div className="status col-md-1 col-6">
             <span className="fas fa-times" title={remarks[i].text} />
           </div>
         );
       }
     }
-    return <div className="status" />;
+    return <div className="status col-md-1 col-6" />;
   }
 }

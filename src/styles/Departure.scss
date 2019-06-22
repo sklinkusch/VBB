@@ -1,72 +1,51 @@
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-}
 .plantime,
 .realtime {
-  flex: 0 0 40px;
   text-align: center;
 }
 .delay {
-  flex: 0 0 30px;
   text-align: right;
 }
 .platform {
-  flex: 0 0 30px;
   text-align: center;
 }
-.barrier,
-.bike,
-.warning,
-.status {
-  flex: 0 0 20px;
-}
 .line {
-  flex: 0 0 80px;
   text-align: left;
 }
 .direction {
-  flex: 0 0 300px;
   text-align: left;
 }
-.stophere {
-  flex: 0 0 350px;
-  text-align: left;
-  margin-left: 5px;
-}
-@media all and (max-width: 750px) {
+@media all and (max-width: 768px) {
   .row {
     flex-wrap: wrap;
+  }
+  .row-add {
     border-bottom: 1px solid #ccc;
   }
-  .plantime,
-  .realtime {
-    flex: 0 0 40%;
+  .plantime {
     text-align: left;
   }
+  .realtime {
+    text-align: center;
+  }
   .delay {
-    flex: 0 0 20%;
     text-align: center;
   }
   .mean {
-    flex: 0 0 10%;
     text-align: center;
   }
   .line {
-    flex: 0 0 20%;
+    text-align: left;
   }
   .direction {
-    flex: 0 0 60%;
+    text-align: left;
   }
   .platform {
-    flex: 0 0 10%;
+    text-align: center;
   }
   .barrier,
   .bike,
   .warning,
   .status {
-    flex: 0 0 25%;
+    text-align: center;
   }
 }

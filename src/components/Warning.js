@@ -19,7 +19,7 @@ export default class Warning extends Component {
         const summary = this.replaceLinks(remarks[i].summary);
         const text = this.replaceLinks(remarks[i].text);
         return (
-          <div className="warning">
+          <div className="warning col-md-1 col-6">
             <span
               className="fas fa-exclamation-triangle"
               title={`${from ? from : ""} - ${until ? until : ""}: ${
@@ -30,7 +30,7 @@ export default class Warning extends Component {
         );
       }
     }
-    return <div className="warning" />;
+    return <div className="warning col-md-1 col-6" />;
   }
   replaceLinks(item) {
     if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
