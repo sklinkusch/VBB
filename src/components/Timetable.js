@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "../styles/Timetable.css";
 import stops from "../data/stops";
 import Input from "./Input";
@@ -10,234 +10,227 @@ import Error from "./Error";
 import Filter from "./Filter";
 import { getDuration } from "./helpers";
 
-export default class Timetable extends Component {
-  constructor(props) {
-    super(props);
-    this.inputField = React.createRef();
-    this.filterField = React.createRef();
-    this.filterSelector = React.createRef();
-    this.state = {
-      data: null,
-      viewdata: null,
-      stop: {
+export default function Timetable() {
+    const inputField = useRef(null);
+    const filterField = useRef(null);
+    const filterSelector = useRef(null);
+    const [data, setData] = useState(null);
+    const [viewdata, setViewdata] = useState(null);
+    const [error, setError] = useState(null);
+    const [stop, setStop] = useState({
         id: "900000160541",
         name: "Josef-Orlopp-Str./Vulkanstr.",
         type: "BLN",
         duration: getDuration("BLN")
-      },
-      selection: stops
+    });
+    const [selection, setSelection] = useState(stops);
+    const filterAnd = filterValues => {
+        const filteredData = data.filter(departure => {
+            let decider = true;
+            for (let i = 0; i < filterValues.length; i++) {
+                if (
+                    departure.line.name
+                    .toLowerCase()
+                    .includes(filterValues[i].toLowerCase()) ||
+                    departure.direction
+                    .toLowerCase()
+                    .includes(filterValues[i].toLowerCase())
+                ) {
+                    continue;
+                } else {
+                    decider = false;
+                    break;
+                }
+            }
+            return decider;
+        });
+        setViewdata(filteredData);
     };
-  }
-  filterAnd = filterValues => {
-    const filteredData = this.state.data.filter(departure => {
-      let decider = true;
-      for (let i = 0; i < filterValues.length; i++) {
-        if (
-          departure.line.name
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase()) ||
-          departure.direction
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase())
-        ) {
-          continue;
+    const filterData = () => {
+        if (filterField.current.value === "") {
+            setViewdata(data);
         } else {
-          decider = false;
-          break;
+            const filterValues = filterField.current.value.split(" ");
+            const filterMode = filterSelector.current.value;
+            if (filterMode === "OR") {
+                filterOr(filterValues);
+            } else {
+                filterAnd(filterValues);
+            }
         }
-      }
-      return decider;
-    });
-    this.setState({ viewdata: filteredData });
-  };
-  filterData = () => {
-    if (this.filterField.current.value === "") {
-      this.setState({ viewdata: this.state.data });
-    } else {
-      const filterValues = this.filterField.current.value.split(" ");
-      const filterMode = this.filterSelector.current.value;
-      if (filterMode === "OR") {
-        this.filterOr(filterValues);
-      } else {
-        this.filterAnd(filterValues);
-      }
-    }
-  };
-  filterOr = filterValues => {
-    const filteredData = this.state.data.filter(departure => {
-      let decider = false;
-      for (let i = 0; i < filterValues.length; i++) {
-        if (
-          departure.line.name
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase()) ||
-          departure.direction
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase())
-        ) {
-          decider = true;
-          break;
-        }
-      }
-      return decider;
-    });
-    this.setState({ viewdata: filteredData });
-  };
-  filterStops = value => {
-    const stopDefault = this.state.stop;
-    let furtherStops;
-    if (value !== "") {
-      furtherStops = stops.filter(
-        stop =>
-          stop.name.toLowerCase().includes(value.toLowerCase()) &&
-          stop.name !== this.state.stop.name
-      );
-    } else {
-      furtherStops = stops.filter(stop => stop.name !== this.state.stop.name);
-    }
-    const selectedStops = [stopDefault, ...furtherStops];
-    this.setState({ selection: selectedStops });
-  };
-  getData(stop) {
-    const { id, type = "BBG" } = stop;
-    const duration = getDuration(type);
-    fetch(
-      `https://sklinkusch-vbbmicro.now.sh/?station=${id}&duration=${duration}`
-    )
-      .then(response => {
-        if (!response.ok) {
-          let err = new Error(`HTTP status code: ${response.status}`);
-          throw err;
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState({ error: null });
-        return this.saveData(data);
-      })
-      .catch(error => {
-        this.setState({ error: error });
-        this.setState({ data: null });
-        this.setState({ viewdata: null });
-        this.inputField.current.value = "";
-      });
-  }
-  handleChange = stop => {
-    this.setState({ stop: stop });
-    this.getData(stop);
-  };
-  handleSubmit = () => {
-    // console.log(this.state.value);
-    this.getData(this.state.stop);
-  };
-  componentDidMount() {
-    this.getData(this.state.stop);
-    this.filterStops("");
-  }
-  saveData = data => {
-    // console.log(data);
-    this.setState({ data: data });
-    this.setState({ viewdata: data });
-    this.setState({ selection: stops });
-    this.inputField.current.value = "";
-    this.filterField.current.value = "";
-    this.filterSelector.current.value = "OR";
-  };
-  sortData() {
-    if (
-      this.state.viewdata !== null &&
-      this.state.viewdata !== undefined &&
-      this.state.viewdata.length > 0
-    )
-      return this.state.viewdata.sort((a, b) => {
-        if (a.stop.name.toLowerCase() < b.stop.name.toLowerCase()) {
-          return -1;
-        } else if (b.stop.name.toLowerCase() < a.stop.name.toLowerCase()) {
-          return +1;
+    };
+    const filterOr = filterValues => {
+        const filteredData = data.filter(departure => {
+            let decider = false;
+            for (let i = 0; i < filterValues.length; i++) {
+                if (
+                    departure.line.name
+                    .toLowerCase()
+                    .includes(filterValues[i].toLowerCase()) ||
+                    departure.direction
+                    .toLowerCase()
+                    .includes(filterValues[i].toLowerCase())
+                ) {
+                    decider = true;
+                    break;
+                }
+            }
+            return decider;
+        });
+        setViewdata(filteredData);
+    };
+    const filterStops = value => {
+        const stopDefault = stop;
+        let furtherStops;
+        if (value !== "") {
+            furtherStops = stops.filter(
+                myStop =>
+                myStop.name.toLowerCase().includes(value.toLowerCase()) &&
+                myStop.name !== stopDefault.name
+            );
         } else {
-          const sortingArray = [
-            "express",
-            "regional",
-            "suburban",
-            "subway",
-            "tram",
-            "bus",
-            "ferry"
-          ];
-          if (
-            sortingArray.indexOf(a.line.product) <
-            sortingArray.indexOf(b.line.product)
-          ) {
-            return -1;
-          } else if (
-            sortingArray.indexOf(b.line.product) <
-            sortingArray.indexOf(a.line.product)
-          ) {
-            return +1;
-          } else {
-            return 0;
-          }
+            furtherStops = stops.filter(myStop => myStop.name !== stopDefault.name);
         }
-      });
-  }
-  splitArray(data) {
-    let resultArray = [];
-    let lowestValue = 0;
-    if (data === undefined) {
-      return null;
+        const selectedStops = [stopDefault, ...furtherStops];
+        setSelection(selectedStops);
+    };
+    const getData = (stop) => {
+        const { id, type = "BBG" } = stop;
+        const duration = getDuration(type);
+        fetch(
+            `https://sklinkusch-vbbmicro.now.sh/?station=${id}&duration=${duration}`
+        )
+        .then(response => {
+            if (!response.ok) {
+                let err = new Error(`HTTP status code: ${response.status}`);
+                throw err;
+            }
+            return response.json();
+        })
+        .then(data => {
+            setError(null);
+            return saveData(data);
+        })
+        .catch(myError => {
+            setError(myError);
+            setData(null);
+            setViewdata(null);
+            inputField.current.value = "";
+        });
     }
-    while (lowestValue < data.length) {
-      let lowestResult = data[lowestValue].stop.name;
-      let highestValue;
-      let filtered;
-      for (let i = lowestValue; i < data.length; i++) {
-        if (data[i].stop.name !== lowestResult) {
-          highestValue = i;
-          break;
+    const handleChange = myStop => {
+        setStop(myStop);
+        getData(myStop);
+    };
+    const handleSubmit = () => {
+        // console.log(stop);
+        getData(stop);
+    };
+    useEffect(() => {
+        getData(stop);
+        filterStops("");
+    });
+    const saveData = newData => {
+        // console.log(newData);
+        setData(newData);
+        setViewdata(newData);
+        setSelection(stops);
+        inputField.current.value = "";
+        filterField.current.value = "";
+        filterSelector.current.value = "OR";
+    };
+    const sortData = () => {
+        if (
+            viewdata !== null &&
+            viewdata !== undefined &&
+            viewdata.length > 0
+        )
+            return viewdata.sort((a, b) => {
+                if (a.stop.name.toLowerCase() < b.stop.name.toLowerCase()) {
+                    return -1;
+                } else if (b.stop.name.toLowerCase() < a.stop.name.toLowerCase()) {
+                    return +1;
+                } else {
+                    const sortingArray = [
+                        "express",
+                        "regional",
+                        "suburban",
+                        "subway",
+                        "tram",
+                        "bus",
+                        "ferry"
+                    ];
+                    if (
+                        sortingArray.indexOf(a.line.product) <
+                        sortingArray.indexOf(b.line.product)
+                    ) {
+                        return -1;
+                    } else if (
+                        sortingArray.indexOf(b.line.product) <
+                        sortingArray.indexOf(a.line.product)
+                    ) {
+                        return +1;
+                    } else {
+                        return 0;
+                    }
+                }
+        });
+    }
+    const splitArray = (myData) => {
+        let resultArray = [];
+        let lowestValue = 0;
+        if (myData === undefined) {
+            return null;
         }
-      }
-      filtered = data.slice(lowestValue, highestValue);
-      resultArray.push(filtered);
-      lowestValue = highestValue;
+        while (lowestValue < myData.length) {
+            let lowestResult = myData[lowestValue].stop.name;
+            let highestValue;
+            let filtered;
+            for (let i = lowestValue; i < myData.length; i++) {
+                if (myData[i].stop.name !== lowestResult) {
+                    highestValue = i;
+                    break;
+                }
+            }
+            filtered = myData.slice(lowestValue, highestValue);
+            resultArray.push(filtered);
+            lowestValue = highestValue;
+        }
+        return resultArray;
     }
-    return resultArray;
-  }
-  render() {
-    const data = this.sortData();
-    const newData = this.splitArray(data);
+    const sortedData = sortData();
+    const newData = splitArray(sortedData);
     const text = `In the next ${
-      this.state.stop.duration
+      stop.duration
     } minutes, no departures are planned for the station or stop you have chosen.`;
     return (
       <div>
-        <Input filterStops={this.filterStops} inputField={this.inputField} />
+        <Input filterStops={filterStops} inputField={inputField} />
         <Select
-          handleChange={this.handleChange}
-          selection={this.state.selection}
+          handleChange={handleChange}
+          selection={selection}
         />
-        <Button handleSubmit={this.handleSubmit} />
+        <Button handleSubmit={handleSubmit} />
         <Filter
-          filterField={this.filterField}
-          filterSelector={this.filterSelector}
-          filterData={this.filterData}
+          filterField={filterField}
+          filterSelector={filterSelector}
+          filterData={filterData}
         />
-        <StopName stop={this.state.stop.name} element="h2" />
-        {this.state.error && <Error />}
+        <StopName stop={stop.name} element="h2" />
+        {error && <Error />}
         {newData !== undefined && newData !== null && newData.length > 0 ? (
-          newData.map((depset, index) => {
-            return (
-              <TableData
-                stop={depset[0].stop.name}
-                data={depset}
-                duration={this.state.duration}
-                key={index}
-              />
-            );
-          })
+            newData.map((depset, index) => {
+                return (
+                    <TableData
+                    stop={depset[0].stop.name}
+                    data={depset}
+                    key={index}
+                    />
+                );
+            })
         ) : (
-          <div>{text}</div>
+            <div>{text}</div>
         )}
-      </div>
+        </div>
     );
-  }
 }
