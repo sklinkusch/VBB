@@ -4,6 +4,7 @@ export default function Select(props) {
   return (
     <React.Fragment>
       <select
+        defaultValue={props.selection[0].id}
         onChange={event => {
           const id = event.target.value;
           const stop = props.selection.filter(stop => stop.id === id)[0];

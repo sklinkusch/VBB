@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
+import { connect } from "react-redux";
 import "../styles/Timetable.scss";
-import stops from "../data/stops";
 import Input from "./Input";
 import Select from "./Select";
 import Button from "./Button";
@@ -9,47 +9,34 @@ import StopName from "./StopName";
 import Error from "./Error";
 import Filter from "./Filter";
 import { getDuration } from "./helpers";
+import {
+  HANDLE_CHANGE,
+  FILTER_STOPS,
+  VBB_REQUEST,
+  FILTER_AND,
+  FILTER_OR,
+  NO_FILTERS
+} from "../actions/actionTypes";
 
-export default function Timetable() {
+function Timetable(props) {
+  const {
+    selection,
+    stop,
+    viewdata,
+    error,
+    setStop,
+    filterStops,
+    getData,
+    filterAnd,
+    filterOr,
+    noFilters
+  } = props;
   const inputField = useRef(null);
   const filterField = useRef(null);
   const filterSelector = useRef(null);
-  const [data, setData] = useState(null);
-  const [viewdata, setViewdata] = useState(null);
-  const [error, setError] = useState(null);
-  const [stop, setStop] = useState({
-    id: "900000160541",
-    name: "Josef-Orlopp-Str./Vulkanstr.",
-    type: "BLN",
-    duration: getDuration("BLN")
-  });
-  const [selection, setSelection] = useState(stops);
-  const filterAnd = filterValues => {
-    const filteredData = data.filter(departure => {
-      let decider = true;
-      for (let i = 0; i < filterValues.length; i++) {
-        if (
-          departure.line.name
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase()) ||
-          departure.direction
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase())
-        ) {
-          continue;
-        } else {
-          decider = false;
-          break;
-        }
-      }
-      return decider;
-    });
-    setViewdata(filteredData);
-  };
-  const filterData = () => {
-    if (filterField.current.value === "") {
-      setViewdata(data);
-    } else {
+  const filterData = (event) => {
+    if(event.key === "Enter"){
+      if (filterField.current.value !== "") {
       const filterValues = filterField.current.value.split(" ");
       const filterMode = filterSelector.current.value;
       if (filterMode === "OR") {
@@ -57,88 +44,34 @@ export default function Timetable() {
       } else {
         filterAnd(filterValues);
       }
-    }
-  };
-  const filterOr = filterValues => {
-    const filteredData = data.filter(departure => {
-      let decider = false;
-      for (let i = 0; i < filterValues.length; i++) {
-        if (
-          departure.line.name
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase()) ||
-          departure.direction
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase())
-        ) {
-          decider = true;
-          break;
-        }
-      }
-      return decider;
-    });
-    setViewdata(filteredData);
-  };
-  const filterStops = value => {
-    const stopDefault = stop;
-    let furtherStops;
-    if (value !== "") {
-      furtherStops = stops.filter(
-        myStop =>
-          myStop.name.toLowerCase().includes(value.toLowerCase()) &&
-          myStop.name !== stopDefault.name
-      );
     } else {
-      furtherStops = stops.filter(myStop => myStop.name !== stopDefault.name);
+        noFilters();
     }
-    const selectedStops = [stopDefault, ...furtherStops];
-    setSelection(selectedStops);
+    }
   };
-  const getData = stop => {
-    const { id, type = "BBG" } = stop;
-    const duration = getDuration(type);
-    fetch(
-      `https://sklinkusch-vbbmicro.now.sh/?station=${id}&duration=${duration}`
-    )
-      .then(response => {
-        if (!response.ok) {
-          let err = new Error(`HTTP status code: ${response.status}`);
-          throw err;
-        }
-        return response.json();
-      })
-      .then(data => {
-        setError(null);
-        return saveData(data);
-      })
-      .catch(myError => {
-        setError(myError);
-        setData(null);
-        setViewdata(null);
-        inputField.current.value = "";
-      });
+  const doFilter = event => {
+    if (event.key === "Enter") {
+      const filterValue = event.target.value;
+      filterStops(filterValue);
+    }
   };
   const handleChange = myStop => {
     setStop(myStop);
     getData(myStop);
-  };
-  const handleSubmit = () => {
-    // console.log(stop);
-    getData(stop);
-  };
-  useEffect(() => {
-    getData(stop);
-    filterStops("");
-  }, []);
-  const saveData = newData => {
-    // console.log(newData);
-    setData(newData);
-    setViewdata(newData);
-    setSelection(stops);
     inputField.current.value = "";
     filterField.current.value = "";
     filterSelector.current.value = "OR";
   };
+  const handleSubmit = () => {
+    // console.log(stop);
+    getData(stop);
+    inputField.current.value = "";
+    filterField.current.value = "";
+    filterSelector.current.value = "OR";
+  };
+  useEffect(() => {
+    getData(stop);
+  }, []);
   const sortData = () => {
     if (viewdata !== null && viewdata !== undefined && viewdata.length > 0)
       return viewdata.sort((a, b) => {
@@ -196,12 +129,12 @@ export default function Timetable() {
   };
   const sortedData = sortData();
   const newData = splitArray(sortedData);
-  const text = `In the next ${
-    stop.duration
-  } minutes, no departures are planned for the station or stop you have chosen.`;
+  const text = `In the next ${getDuration(
+    stop.type
+  )} minutes, no departures are planned for the station or stop you have chosen.`;
   return (
     <div className="timetable">
-      <Input filterStops={filterStops} inputField={inputField} />
+      <Input filterStops={doFilter} inputField={inputField} />
       <Select handleChange={handleChange} selection={selection} />
       <Button handleSubmit={handleSubmit} />
       <Filter
@@ -223,3 +156,29 @@ export default function Timetable() {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  return {
+    selection: state.selection,
+    stop: state.stop,
+    loading: state.loading,
+    viewdata: state.viewdata,
+    error: state.error
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setStop: stop => dispatch({ type: HANDLE_CHANGE, stop: stop }),
+    filterStops: filter => dispatch({ type: FILTER_STOPS, filter: filter }),
+    getData: stop => dispatch({ type: VBB_REQUEST, stop: stop }),
+    filterAnd: filter => dispatch({ type: FILTER_AND, filter: filter }),
+    filterOr: filter => dispatch({ type: FILTER_OR, filter: filter }),
+    noFilters: () => dispatch({type: NO_FILTERS})
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Timetable);

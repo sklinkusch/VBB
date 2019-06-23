@@ -5,3 +5,4 @@ export const VBB_FAILURE = "VBB_FAILURE";
 export const FILTER_AND = "FILTER_AND";
 export const FILTER_OR = "FILTER_OR";
 export const HANDLE_CHANGE = "HANDLE_CHANGE";
+export const NO_FILTERS = "NO_FILTERS";
