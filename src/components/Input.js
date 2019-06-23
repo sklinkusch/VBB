@@ -5,9 +5,9 @@ export default function Input(props) {
     <React.Fragment>
       <input
         type="text"
-        onChange={event => props.filterStops(event.target.value)}
+        onKeyPress={event => props.filterStops(event)}
         ref={props.inputField}
-        placeholder="Insert stop, then choose from list"
+        placeholder="Insert stop, press enter, then choose"
       />
     </React.Fragment>
   );

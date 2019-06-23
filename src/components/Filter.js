@@ -6,9 +6,9 @@ export default function Filter(props) {
     <div>
       <input
         type="text"
-        placeholder="Enter string to filter departures"
+        placeholder="Enter string & Enter to filter departures"
         ref={filterField}
-        onChange={filterData}
+        onKeyPress={event => props.filterData(event)}
       />
       <select ref={filterSelector} onChange={filterData}>
         <option value="OR">OR</option>
