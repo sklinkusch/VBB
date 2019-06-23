@@ -4,7 +4,7 @@ import "../styles/Legend.scss";
 
 export default function Legend() {
   return (
-    <div className="legend row">
+    <div className="legend">
       <h3 className="col-24">Legend</h3>
       <Legendrow
         left="sched."
