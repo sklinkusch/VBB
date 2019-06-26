@@ -30,7 +30,7 @@ export const remainingStops = stopsUnsorted.filter(
 );
 const stops = stopsRaw.map(stop => {
   if (
-    stop.name.includes("S+U Hauptbahnhof") ||
+    stop.name.includes("S+U Berlin Hauptbahnhof") ||
     stop.name.includes("S+U Zoologischer Garten")
   ) {
     return {

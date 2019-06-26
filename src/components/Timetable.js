@@ -144,8 +144,9 @@ function Timetable(props) {
         filterData={filterData}
       />
       <StopName stop={stop.name} element="h2" />
-      {error && <Error />}
-      {newData !== undefined && newData !== null && newData.length > 0 ? (
+      {error ? (
+        <Error />
+      ) : newData !== undefined && newData !== null && newData.length > 0 ? (
         newData.map((depset, index) => {
           return (
             <TableData stop={depset[0].stop.name} data={depset} key={index} />

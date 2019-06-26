@@ -29,21 +29,25 @@ export function reducer(state = initialState, action) {
     case FILTER_STOPS:
       const stopDefault = state.stop;
       let furtherStops;
-        if(action.filter === "@init"){
-            furtherStops = state.allStops.filter(stop => stop.name !== stopDefault.name);
-        } else if(action.filter !== ""){
-            furtherStops = state.allStops.filter(
-                stop =>
-                stop.name.toLowerCase().includes(action.filter.toLowerCase()) &&
-                stop.name !== stopDefault.name
-                                          )
-        } else {
-            furtherStops = state.allStops.filter(stop => stop.name !== stopDefault.name);
-        }
+      if (action.filter === "@init") {
+        furtherStops = state.allStops.filter(
+          stop => stop.name !== stopDefault.name
+        );
+      } else if (action.filter !== "") {
+        furtherStops = state.allStops.filter(
+          stop =>
+            stop.name.toLowerCase().includes(action.filter.toLowerCase()) &&
+            stop.name !== stopDefault.name
+        );
+      } else {
+        furtherStops = state.allStops.filter(
+          stop => stop.name !== stopDefault.name
+        );
+      }
       const stopArray = [stopDefault, ...furtherStops];
       return { ...state, selection: stopArray };
     case NO_FILTERS:
-        return {...state, viewdata: state.data};
+      return { ...state, viewdata: state.data };
     case VBB_REQUEST:
       return { ...state, loading: true, data: [], error: null };
     case VBB_SUCCESS:
@@ -55,7 +59,13 @@ export function reducer(state = initialState, action) {
         error: null
       };
     case VBB_FAILURE:
-      return { ...state, loading: false, data: [], error: action.error };
+      return {
+        ...state,
+        loading: false,
+        data: [],
+        viewdata: [],
+        error: action.error
+      };
     case FILTER_OR:
       const filteredOr = filterOr(state.data, action.filter);
       return { ...state, viewdata: filteredOr };
