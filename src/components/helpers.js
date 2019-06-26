@@ -2,29 +2,14 @@ export function getDuration(type) {
   switch (type) {
     case "BLN":
       return getBlnDuration();
+    case "BHF":
+      return getBhfDuration();
     default:
       break;
   }
 }
 function getBlnDuration() {
-  const nowDate = new Date();
-  const nowDateString = nowDate.toLocaleDateString("en-GB", {
-    timeZone: "Europe/Berlin",
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-    hour: "numeric"
-  });
-  const dateTime = nowDateString.split(",");
-  const dateArray = dateTime[0].split("/");
-  const hour = dateTime[1];
-  const day = dateArray[0];
-  const month = dateArray[1] + 1;
-  const year = dateArray[2];
-  const nowDateLocal = new Date(year, month - 1, day);
-  const weekday = nowDateLocal.getDay();
-  const isItHoliday = isSunday(weekday) || isHoliday(day, month, year);
-  const isItSaturday = isSaturday(weekday);
+  const { isItHoliday, isItSaturday, hour } = getDate();
   let duration = 60;
   if (isItHoliday) {
     if (hour < 7) {
@@ -55,6 +40,41 @@ function getBlnDuration() {
       duration = 20;
     } else {
       duration = 30;
+    }
+  }
+  return duration;
+}
+
+function getBhfDuration() {
+  const { isItHoliday, isItSaturday, hour } = getDate();
+  let duration = 60;
+  if (isItHoliday || isItSaturday) {
+    if (hour < 5) {
+      duration = 60;
+    } else if (hour < 6) {
+      duration = 30;
+    } else if (hour < 7) {
+      duration = 20;
+    } else if (hour < 22) {
+      duration = 10;
+    } else if (hour < 23) {
+      duration = 20;
+    } else {
+      duration = 30;
+    }
+  } else {
+    if (hour < 5) {
+      duration = 30;
+    } else if (hour < 6) {
+      duration = 20;
+    } else if (hour < 7) {
+      duration = 10;
+    } else if (hour < 22) {
+      duration = 5;
+    } else if (hour < 23) {
+      duration = 10;
+    } else {
+      duration = 20;
     }
   }
   return duration;
@@ -168,3 +188,25 @@ const easterDate = year => {
   const holidays = [goodFridayDate, easterMonday, ascension, pentecostMonday];
   return holidays;
 };
+
+function getDate() {
+  const nowDate = new Date();
+  const nowDateString = nowDate.toLocaleDateString("en-GB", {
+    timeZone: "Europe/Berlin",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric"
+  });
+  const dateTime = nowDateString.split(",");
+  const dateArray = dateTime[0].split("/");
+  const hour = dateTime[1];
+  const day = dateArray[0];
+  const month = dateArray[1] + 1;
+  const year = dateArray[2];
+  const nowDateLocal = new Date(year, month - 1, day);
+  const weekday = nowDateLocal.getDay();
+  const isItHoliday = isSunday(weekday) || isHoliday(day, month, year);
+  const isItSaturday = isSaturday(weekday);
+  return { isItHoliday, isItSaturday, hour };
+}

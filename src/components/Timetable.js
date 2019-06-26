@@ -34,19 +34,19 @@ function Timetable(props) {
   const inputField = useRef(null);
   const filterField = useRef(null);
   const filterSelector = useRef(null);
-  const filterData = (event) => {
-    if(event.key === "Enter"){
+  const filterData = event => {
+    if (event.key === "Enter") {
       if (filterField.current.value !== "") {
-      const filterValues = filterField.current.value.split(" ");
-      const filterMode = filterSelector.current.value;
-      if (filterMode === "OR") {
-        filterOr(filterValues);
+        const filterValues = filterField.current.value.split(" ");
+        const filterMode = filterSelector.current.value;
+        if (filterMode === "OR") {
+          filterOr(filterValues);
+        } else {
+          filterAnd(filterValues);
+        }
       } else {
-        filterAnd(filterValues);
-      }
-    } else {
         noFilters();
-    }
+      }
     }
   };
   const doFilter = event => {
@@ -104,6 +104,7 @@ function Timetable(props) {
           }
         }
       });
+    return undefined;
   };
   const splitArray = myData => {
     let resultArray = [];
@@ -174,7 +175,7 @@ const mapDispatchToProps = dispatch => {
     getData: stop => dispatch({ type: VBB_REQUEST, stop: stop }),
     filterAnd: filter => dispatch({ type: FILTER_AND, filter: filter }),
     filterOr: filter => dispatch({ type: FILTER_OR, filter: filter }),
-    noFilters: () => dispatch({type: NO_FILTERS})
+    noFilters: () => dispatch({ type: NO_FILTERS })
   };
 };
 

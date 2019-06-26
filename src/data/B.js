@@ -29,12 +29,22 @@ export const remainingStops = stopsUnsorted.filter(
   stop => stopsFilter.indexOf(stop) === -1
 );
 const stops = stopsRaw.map(stop => {
-  return {
-    id: stop.id,
-    name: stop.name,
-    type: "BLN",
-    duration: null
-  };
+  if (
+    stop.name.includes("S+U Hauptbahnhof") ||
+    stop.name.includes("S+U Zoologischer Garten")
+  ) {
+    return {
+      id: stop.id,
+      name: stop.name,
+      type: "BHF"
+    };
+  } else {
+    return {
+      id: stop.id,
+      name: stop.name,
+      type: "BLN"
+    };
+  }
 });
 // console.log(`after B: ${remainingStops.length}`);
 export default stops;
