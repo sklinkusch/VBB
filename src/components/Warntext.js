@@ -11,6 +11,24 @@ export default class Warntext extends Component {
     }
     return null;
   }
+  formatText(text) {
+    const textWithoutLinks = this.replaceLinks(text);
+    const formattedText = this.includeSpecialChars(textWithoutLinks);
+    return formattedText;
+  }
+  replaceLinks(item) {
+    if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
+      const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g;
+      return item.replace(pattern, "$2 ($1)");
+    }
+    return item;
+  }
+  includeSpecialChars(text) {
+    let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ");
+    let textForm = textWODoubleBrs.replace(/&lt;/g, "<");
+    textForm = textForm.replace(/&gt;/g, ">");
+    return textForm;
+  }
   render() {
     const warnings = this.props.remarks.filter(
       remark => remark.type === "warning"
@@ -22,8 +40,8 @@ export default class Warntext extends Component {
             const { validFrom, validUntil, summary, text } = warning;
             const from = this.formatTime(validFrom);
             const until = this.formatTime(validUntil);
-            const summaryFormatted = this.replaceLinks(summary);
-            const textFormatted = this.replaceLinks(text);
+            const summaryFormatted = this.formatText(summary);
+            const textFormatted = this.formatText(text);
             const limits =
               until === "31.12.2049, 23:59"
                 ? `since ${from}`
@@ -39,12 +57,5 @@ export default class Warntext extends Component {
       );
     }
     return null;
-  }
-  replaceLinks(item) {
-    if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
-      const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g;
-      return item.replace(pattern, "$2 ($1)");
-    }
-    return item;
   }
 }

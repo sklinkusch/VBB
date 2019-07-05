@@ -10,6 +10,24 @@ export default class Warning extends Component {
     }
     return null;
   }
+  formatText(text) {
+    const textWithoutLinks = this.replaceLinks(text);
+    const formattedText = this.includeSpecialChars(textWithoutLinks);
+    return formattedText;
+  }
+  replaceLinks(item) {
+    if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
+      const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g;
+      return item.replace(pattern, "$2 ($1)");
+    }
+    return item;
+  }
+  includeSpecialChars(text) {
+    let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ");
+    let textForm = textWODoubleBrs.replace(/&lt;/g, "<");
+    textForm = textForm.replace(/&gt;/g, ">");
+    return textForm;
+  }
   render() {
     const remarks = this.props.remarks;
     for (let i = 0; i < remarks.length; i++) {
@@ -31,12 +49,5 @@ export default class Warning extends Component {
       }
     }
     return <div className="warning col-md-1 col-6" />;
-  }
-  replaceLinks(item) {
-    if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
-      const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g;
-      return item.replace(pattern, "$2 ($1)");
-    }
-    return item;
   }
 }
