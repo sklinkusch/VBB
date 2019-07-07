@@ -12,6 +12,6 @@ export default class Barrier extends Component {
       }
       return <div className="barrier col-md-1 col-6" />;
     }
-    return <div className="barrier" />;
+    return <div className="barrier col-md-1 col-6" />;
   }
 }

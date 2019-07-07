@@ -12,6 +12,6 @@ export default class Bike extends Component {
       }
       return <div className="bike col-md-1 col-6" />;
     }
-    return <div className="bike" />;
+    return <div className="bike col-md-1 col-6" />;
   }
 }
