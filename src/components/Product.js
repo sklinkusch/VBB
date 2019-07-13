@@ -1,5 +1,5 @@
 import React from "react";
-import express from "../images/express.svg";
+import train from "../images/express.svg";
 import regional from "../images/regional.svg";
 import suburban from "../images/suburban.svg";
 import subway from "../images/subway.svg";
@@ -9,16 +9,18 @@ import metrobus from "../images/metro-bus.svg";
 import expressbus from "../images/express-bus.svg";
 import bus from "../images/bus.svg";
 import specialbus from "../images/special-bus.svg";
+import nightbus from "../images/night-bus.svg";
 import ferry from "../images/ferry.svg";
 import "../styles/Product.scss";
 
 const Product = props => {
-  const { product, line } = props;
+  const { line } = props;
+  const { express, metro, name, night, product } = line;
   switch (product) {
     case "express":
       return (
         <div className="mean col-md-1 col-2">
-          <img src={express} alt="express" />
+          <img src={train} alt="express" />
         </div>
       );
     case "regional":
@@ -40,41 +42,33 @@ const Product = props => {
         </div>
       );
     case "tram":
-      if (line.startsWith("M")) {
-        return (
-          <div className="mean col-md-1 col-2">
-            <img src={metrotram} alt="metro-tram" />
-          </div>
-        );
-      }
-      return (
+      return metro ? (
+        <div className="mean col-md-1 col-2">
+          <img src={metrotram} alt="metro-tram" />
+        </div>
+      ) : (
         <div className="mean col-md-1 col-2">
           <img src={tram} alt="tram" />
         </div>
       );
     case "bus":
-      if (line.startsWith("M")) {
-        return (
-          <div className="mean col-md-1 col-2">
-            <img src={metrobus} alt="metro-bus" />
-          </div>
-        );
-      }
-      if (line === "TXL" || line.startsWith("X")) {
-        return (
-          <div className="mean col-md-1 col-2">
-            <img src={expressbus} alt="express-bus" />
-          </div>
-        );
-      }
-      if (line === "A05") {
-        return (
-          <div className="mean col-md-1 col-2">
-            <img src={specialbus} alt="special-bus" />
-          </div>
-        );
-      }
-      return (
+      return express ? (
+        <div className="mean col-md-1 col-2">
+          <img src={expressbus} alt="express-bus" />
+        </div>
+      ) : metro ? (
+        <div className="mean col-md-1 col-2">
+          <img src={metrobus} alt="metro-bus" />
+        </div>
+      ) : night ? (
+        <div className="mean col-md-1 col-2">
+          <img src={nightbus} alt="night-bus" />
+        </div>
+      ) : name === "A05" ? (
+        <div className="mean col-md-1 col-2">
+          <img src={specialbus} alt="special-bus" />
+        </div>
+      ) : (
         <div className="mean col-md-1 col-2">
           <img src={bus} alt="bus" />
         </div>

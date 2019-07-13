@@ -66,17 +66,16 @@ const Departure = props => {
       getTime(props.dep.formerScheduledWhen) ||
       getTime(props.dep.scheduledWhen);
   }
-  const product = props.dep.line.product;
-  const line = props.dep.line.name;
-  const { direction, remarks, platform } = props.dep;
+  const { line, direction, remarks, platform } = props.dep;
+  const { name: linenumber } = line;
   return (
     <React.Fragment>
       <div className="row" key={props.dep.tripId}>
         <Time time={plantime} />
         <Time time={realtime} />
         <div className="delay col-md-2 col-8">{delayMin}</div>
-        <Product product={product} line={line} />
-        <div className="line col-md-3 col-6">{line}</div>
+        <Product line={line} />
+        <div className="line col-md-3 col-6">{linenumber}</div>
         <div className="direction col-md-8 col-13">{direction}</div>
         <div className="platform col-md-2 col-3">{platform}</div>
         <Barrier remarks={remarks} />
