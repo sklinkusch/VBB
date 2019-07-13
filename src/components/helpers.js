@@ -200,7 +200,7 @@ function getDate() {
   });
   const dateTime = nowDateString.split(",");
   const dateArray = dateTime[0].split("/");
-  const hour = dateTime[1];
+  const hour = Number(dateTime[1]);
   const day = dateArray[0];
   const month = dateArray[1] + 1;
   const year = dateArray[2];
