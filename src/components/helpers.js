@@ -11,9 +11,6 @@ export function getDuration(type) {
 function getBlnDuration() {
   const { isItHoliday, isItSaturday, hour } = getDate();
   let duration = 60;
-  console.log(`Hour: ${hour}`);
-  console.log(`Saturday: ${isItSaturday.toString()}`);
-  console.log(`Holiday/Sunday: ${isItHoliday.toString()}`);
   if (isItHoliday) {
     if (hour < 7) {
       duration = 60;
@@ -205,7 +202,7 @@ function getDate() {
   const dateArray = dateTime[0].split("/");
   const hour = Number(dateTime[1]);
   const day = dateArray[0];
-  const month = dateArray[1] + 1;
+  const month = Number(dateArray[1]);
   const year = dateArray[2];
   const nowDateLocal = new Date(year, month - 1, day);
   const weekday = nowDateLocal.getDay();
