@@ -11,6 +11,9 @@ export function getDuration(type) {
 function getBlnDuration() {
   const { isItHoliday, isItSaturday, hour } = getDate();
   let duration = 60;
+  console.log(`Hour: ${hour}`);
+  console.log(`Saturday: ${isItSaturday.toString()}`);
+  console.log(`Holiday/Sunday: ${isItHoliday.toString()}`);
   if (isItHoliday) {
     if (hour < 7) {
       duration = 60;
