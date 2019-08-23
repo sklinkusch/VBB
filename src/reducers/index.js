@@ -6,22 +6,22 @@ import {
   VBB_SUCCESS,
   VBB_FAILURE,
   HANDLE_CHANGE,
-  NO_FILTERS
-} from "../actions/actionTypes";
-import stops from "../data/stops";
+  NO_FILTERS,
+} from '../actions/actionTypes';
+import stops from '../data/stops';
 
 const initialState = {
   allStops: stops,
   selection: stops,
   stop: {
-    id: "900000160541",
-    name: "Josef-Orlopp-Str./Vulkanstr.",
-    type: "BLN"
+    id: '900000160541',
+    name: 'Josef-Orlopp-Str./Vulkanstr.',
+    type: 'BLN',
   },
   loading: false,
   data: [],
   viewdata: [],
-  error: null
+  error: null,
 };
 
 export function reducer(state = initialState, action) {
@@ -29,11 +29,11 @@ export function reducer(state = initialState, action) {
     case FILTER_STOPS:
       const stopDefault = state.stop;
       let furtherStops;
-      if (action.filter === "@init") {
+      if (action.filter === '@init') {
         furtherStops = state.allStops.filter(
           stop => stop.name !== stopDefault.name
         );
-      } else if (action.filter !== "") {
+      } else if (action.filter !== '') {
         furtherStops = state.allStops.filter(
           stop =>
             stop.name.toLowerCase().includes(action.filter.toLowerCase()) &&
@@ -54,9 +54,10 @@ export function reducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
+        stop: action.stop,
         data: action.data,
         viewdata: action.data,
-        error: null
+        error: null,
       };
     case VBB_FAILURE:
       return {
@@ -64,7 +65,7 @@ export function reducer(state = initialState, action) {
         loading: false,
         data: [],
         viewdata: [],
-        error: action.error
+        error: action.error,
       };
     case FILTER_OR:
       const filteredOr = filterOr(state.data, action.filter);

@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 import "../styles/App.scss";
 import Header from "./Header";
 import Timetable from "./Timetable";
@@ -8,10 +9,12 @@ import Footer from "./Footer";
 function App() {
   return (
     <div className="App container">
-      <Header />
-      <Legend />
-      <Timetable />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <Legend />
+        <Timetable />
+        <Footer />
+        </BrowserRouter>
     </div>
   );
 }
