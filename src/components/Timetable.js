@@ -19,7 +19,6 @@ import {
 } from '../actions/actionTypes';
 
 function Timetable(props) {
-  console.log(props);
   const {
     selection,
     stop,
