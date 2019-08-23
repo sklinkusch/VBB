@@ -19,7 +19,7 @@ const StopBody = ({ match, error, stop, viewdata, getData }) => {
   useEffect(() => {
     const myStop = stops.filter(stop => stop.id === id)[0];
     getData(myStop);
-  }, []);
+  }, [match.params.id]);
   const sortData = () => {
     if (viewdata !== null && viewdata !== undefined && viewdata.length > 0)
       return viewdata.sort((a, b) => {
