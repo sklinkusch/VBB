@@ -8,7 +8,7 @@ import StopBody from './StopBody';
 import Filter from './Filter';
 import Home from './Home';
 import NoMatch from './NoMatch';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import {
   HANDLE_CHANGE,
   FILTER_STOPS,
@@ -19,6 +19,7 @@ import {
 } from '../actions/actionTypes';
 
 function Timetable(props) {
+  console.log(props);
   const {
     selection,
     stop,
@@ -28,6 +29,7 @@ function Timetable(props) {
     filterAnd,
     filterOr,
     noFilters,
+    history,
   } = props;
   const inputField = useRef(null);
   const filterField = useRef(null);
@@ -55,7 +57,8 @@ function Timetable(props) {
   };
   const handleChange = myStop => {
     setStop(myStop);
-    getData(myStop);
+    // getData(myStop);
+    history.push(`${myStop.id}`);
     inputField.current.value = '';
     filterField.current.value = '';
     filterSelector.current.value = 'OR';
@@ -110,7 +113,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Timetable);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Timetable)
+);
