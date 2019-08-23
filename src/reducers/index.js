@@ -13,11 +13,7 @@ import stops from '../data/stops';
 const initialState = {
   allStops: stops,
   selection: stops,
-  stop: {
-    id: '900000160541',
-    name: 'Josef-Orlopp-Str./Vulkanstr.',
-    type: 'BLN',
-  },
+  stop: {},
   loading: false,
   data: [],
   viewdata: [],
