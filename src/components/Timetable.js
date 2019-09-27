@@ -57,7 +57,7 @@ function Timetable(props) {
   const handleChange = myStop => {
     setStop(myStop);
     // getData(myStop);
-    history.push(`${myStop.id}`);
+    history.push(`/${myStop.id}`);
     inputField.current.value = '';
     filterField.current.value = '';
     filterSelector.current.value = 'OR';
