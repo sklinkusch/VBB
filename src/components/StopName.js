@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
 
 export default function StopName(props) {
-  return props.element === "h2" ? <h2>{props.stop}</h2> : <h3>{props.stop}</h3>;
+  const { element, stop } = props;
+  return element === 'h2' ? <h2>{stop.name}</h2> : <h3>{stop.name}</h3>;
 }

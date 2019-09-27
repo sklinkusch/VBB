@@ -1,7 +1,7 @@
-import React from "react";
-import Tablehead from "./Tablehead";
-import StopName from "./StopName";
-import Tablebody from "./Tablebody";
+import React from 'react';
+import Tablehead from './Tablehead';
+import StopName from './StopName';
+import Tablebody from './Tablebody';
 
 export default function TableData(props) {
   const { stop, data } = props;

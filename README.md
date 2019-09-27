@@ -10,7 +10,7 @@ It features
 - a dropdown list with all available stations or a selection of them
 - a refresh button to get the _current_ data for the selected station
 - an input field to filter the _departures_ using the filter strings
-- a list of departures including 
+- a list of departures including
   - the time, as it is stated in the timetable
   - the time when the bus/train will (hopefully) depart in real time
   - the delay in minutes (the difference between the times in the first two columns)
@@ -37,16 +37,19 @@ It features
 ## Sorting
 
 The departures are sorted by
+
 1. the stop from which they depart
 1. the product they are using in the order:
-  - express trains
-  - regional trains
-  - suburban trains
-  - subways
-  - tramways
-  - buses (all kinds)
-  - ferries
-3. the time they will (hopefully) depart (cancelled first, others later) 
+
+- express trains
+- regional trains
+- suburban trains
+- subways
+- tramways
+- buses (all kinds)
+- ferries
+
+3. the time they will (hopefully) depart (cancelled first, others later)
 
 ## Techniques
 
@@ -54,6 +57,7 @@ The departures are sorted by
 - SCSS/Sass
 - Bootstrap
 - React
+- React Router
 - React hooks
 - Redux
 - redux-saga
