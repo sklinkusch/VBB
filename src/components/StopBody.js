@@ -95,9 +95,7 @@ const StopBody = ({ match, error, stop, viewdata, getData }) => {
         <Error />
       ) : newData !== undefined && newData !== null && newData.length > 0 ? (
         newData.map((depset, index) => {
-          return (
-            <TableData stop={depset[0].stop.name} data={depset} key={index} />
-          );
+          return <TableData stop={depset[0].stop} data={depset} key={index} />;
         })
       ) : (
         <div>{text}</div>
