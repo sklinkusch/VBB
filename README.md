@@ -52,6 +52,7 @@ The departures are sorted by
 
 - HTML5
 - SCSS/Sass
+- Bootstrap
 - React
 - React hooks
 - Redux
