@@ -1,20 +1,20 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import "../styles/App.scss";
-import Header from "./Header";
-import Timetable from "./Timetable";
-import Legend from "./Legend";
-import Footer from "./Footer";
+import React from 'react';
+import { HashRouter } from 'react-router-dom';
+import '../styles/App.scss';
+import Header from './Header';
+import Timetable from './Timetable';
+import Legend from './Legend';
+import Footer from './Footer';
 
 function App() {
   return (
     <div className="App container">
-      <BrowserRouter>
+      <HashRouter hashType="noslash">
         <Header />
         <Legend />
         <Timetable />
         <Footer />
-        </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
