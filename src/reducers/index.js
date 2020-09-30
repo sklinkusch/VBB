@@ -7,45 +7,48 @@ import {
   VBB_FAILURE,
   HANDLE_CHANGE,
   NO_FILTERS,
-} from '../actions/actionTypes';
-import stops from '../data/stops';
+} from "../actions/actionTypes"
+import stops from "../data/stops"
+
+const initialStopArray = stops.filter((stop) => stop === "U Stadtmitte")
+const [initialStop] = initialStopArray
 
 const initialState = {
   allStops: stops,
   selection: stops,
-  stop: {},
+  stop: initialStop,
   loading: false,
   data: [],
   viewdata: [],
   error: null,
-};
+}
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
     case FILTER_STOPS:
-      const stopDefault = state.stop;
-      let furtherStops;
-      if (action.filter === '@init') {
+      const stopDefault = state.stop
+      let furtherStops
+      if (action.filter === "@init") {
         furtherStops = state.allStops.filter(
-          stop => stop.name !== stopDefault.name
-        );
-      } else if (action.filter !== '') {
+          (stop) => stop.name !== stopDefault.name
+        )
+      } else if (action.filter !== "") {
         furtherStops = state.allStops.filter(
-          stop =>
+          (stop) =>
             stop.name.toLowerCase().includes(action.filter.toLowerCase()) &&
             stop.name !== stopDefault.name
-        );
+        )
       } else {
         furtherStops = state.allStops.filter(
-          stop => stop.name !== stopDefault.name
-        );
+          (stop) => stop.name !== stopDefault.name
+        )
       }
-      const stopArray = [stopDefault, ...furtherStops];
-      return { ...state, selection: stopArray };
+      const stopArray = [stopDefault, ...furtherStops]
+      return { ...state, selection: stopArray }
     case NO_FILTERS:
-      return { ...state, viewdata: state.data };
+      return { ...state, viewdata: state.data }
     case VBB_REQUEST:
-      return { ...state, loading: true, data: [], error: null };
+      return { ...state, loading: true, data: [], error: null }
     case VBB_SUCCESS:
       return {
         ...state,
@@ -54,7 +57,7 @@ export function reducer(state = initialState, action) {
         data: action.data,
         viewdata: action.data,
         error: null,
-      };
+      }
     case VBB_FAILURE:
       return {
         ...state,
@@ -62,23 +65,23 @@ export function reducer(state = initialState, action) {
         data: [],
         viewdata: [],
         error: action.error,
-      };
+      }
     case FILTER_OR:
-      const filteredOr = filterOr(state.data, action.filter);
-      return { ...state, viewdata: filteredOr };
+      const filteredOr = filterOr(state.data, action.filter)
+      return { ...state, viewdata: filteredOr }
     case FILTER_AND:
-      const filteredAnd = filterAnd(state.data, action.filter);
-      return { ...state, viewdata: filteredAnd };
+      const filteredAnd = filterAnd(state.data, action.filter)
+      return { ...state, viewdata: filteredAnd }
     case HANDLE_CHANGE:
-      return { ...state, stop: action.stop, selection: state.allStops };
+      return { ...state, stop: action.stop, selection: state.allStops }
     default:
-      return state;
+      return state
   }
 }
 
 const filterOr = (data, filterValues) => {
-  const filteredData = data.filter(departure => {
-    let decider = false;
+  const filteredData = data.filter((departure) => {
+    let decider = false
     for (let i = 0; i < filterValues.length; i++) {
       if (
         departure.line.name
@@ -88,18 +91,18 @@ const filterOr = (data, filterValues) => {
           .toLowerCase()
           .includes(filterValues[i].toLowerCase())
       ) {
-        decider = true;
-        break;
+        decider = true
+        break
       }
     }
-    return decider;
-  });
-  return filteredData;
-};
+    return decider
+  })
+  return filteredData
+}
 
 const filterAnd = (data, filterValues) => {
-  const filteredData = data.filter(departure => {
-    let decider = true;
+  const filteredData = data.filter((departure) => {
+    let decider = true
     for (let i = 0; i < filterValues.length; i++) {
       if (
         departure.line.name
@@ -109,13 +112,13 @@ const filterAnd = (data, filterValues) => {
           .toLowerCase()
           .includes(filterValues[i].toLowerCase())
       ) {
-        continue;
+        continue
       } else {
-        decider = false;
-        break;
+        decider = false
+        break
       }
     }
-    return decider;
-  });
-  return filteredData;
-};
+    return decider
+  })
+  return filteredData
+}
