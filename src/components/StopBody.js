@@ -1,16 +1,13 @@
-import React from "react"
+import React, { useContext } from "react"
 import StopName from "./StopName"
 import Error from "./Error"
 import TableData from "./TableData"
 import { getDuration } from "./helpers"
+import AppContext from "../context/AppContext"
 
-export default function StopBody({
-  selection,
-  stop,
-  loading,
-  viewdata,
-  error,
-}) {
+export default function StopBody() {
+  const stopContext = useContext(AppContext)
+  const { stop, viewdata, error } = stopContext
   const sortData = () => {
     if (viewdata !== null && viewdata !== undefined && viewdata.length > 0)
       return viewdata.sort((a, b) => {
@@ -80,17 +77,25 @@ export default function StopBody({
         "BLN"
       )} minutes, no departures are planned for the station or stop you have chosen`
   return (
-    <React.Fragment>
-      <StopName stop={stop} element="h2" />
-      {error ? (
-        <Error />
-      ) : newData !== undefined && newData !== null && newData.length > 0 ? (
-        newData.map((depset, index) => {
-          return <TableData stop={depset[0].stop} data={depset} key={index} />
-        })
-      ) : (
-        <div>{text}</div>
+    <AppContext.Consumer>
+      {(context) => (
+        <React.Fragment>
+          <StopName stop={context.stop} element="h2" />
+          {error ? (
+            <Error />
+          ) : newData !== undefined &&
+            newData !== null &&
+            newData.length > 0 ? (
+            newData.map((depset, index) => {
+              return (
+                <TableData stop={depset[0].stop} data={depset} key={index} />
+              )
+            })
+          ) : (
+            <div>{text}</div>
+          )}
+        </React.Fragment>
       )}
-    </React.Fragment>
+    </AppContext.Consumer>
   )
 }
