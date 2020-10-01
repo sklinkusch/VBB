@@ -4,17 +4,13 @@ import stops from "../data/stops"
 import { getDuration } from "../components/helpers"
 import axios from "axios"
 
-const initialStopArray = stops.filter((stop) => stop.name === "U Stadtmitte")
-const [initialStop] = initialStopArray
-
 export default class AppProvider extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      allStops: stops,
-      selection: stops,
-      stop: initialStop,
-      loading: false,
+      allStops: [],
+      selection: [],
+      stop: {},
       data: [],
       viewdata: [],
       error: null,
@@ -88,10 +84,19 @@ export default class AppProvider extends Component {
         if (status === 500 || status !== 200) {
           this.setState({ error: `HTTP status code: ${status}`, data: [] })
         } else {
-          this.setState({ data: data, error: null })
+          this.setState({ data: data, viewdata: data, error: null })
         }
       },
     }
+  }
+  componentDidMount() {
+    const initialStopArray = stops.filter(
+      (stop) => stop.name === "U Stadtmitte"
+    )
+    const [initialStop] = initialStopArray
+    const { id: initialId } = initialStop
+    this.setState({ allStops: stops, selection: stops, stop: initialStop })
+    this.state.getData(initialId)
   }
   render() {
     return (
