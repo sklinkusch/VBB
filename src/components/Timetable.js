@@ -59,20 +59,20 @@ export default function Timetable(props) {
   //   getData(stop);
   // }, []);
   return (
-    <div className="timetable">
-      <AppContext.Consumer>
-        <Input filterStops={doFilter} inputField={inputField} />
-        {(context) => (
+    <AppContext.Consumer>
+      {(context) => (
+        <div className="timetable">
+          <Input filterStops={doFilter} inputField={inputField} />
           <Select handleChange={handleChange} selection={context.selection} />
-        )}
-        <Button handleSubmit={handleSubmit} />
-        <Filter
-          filterField={filterField}
-          filterSelector={filterSelector}
-          filterData={filterData}
-        />
-        <StopBody />
-      </AppContext.Consumer>
-    </div>
+          <Button handleSubmit={handleSubmit} />
+          <Filter
+            filterField={filterField}
+            filterSelector={filterSelector}
+            filterData={filterData}
+          />
+          <StopBody />
+        </div>
+      )}
+    </AppContext.Consumer>
   )
 }
