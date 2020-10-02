@@ -34,22 +34,23 @@ export default function Timetable(props) {
   const filterField = useRef(null)
   const filterSelector = useRef(null)
   const filterData = (event) => {
-    if (event.key === "Enter") {
-      if (filterField.current.value !== "") {
-        const filterValues = filterField.current.value.split(" ")
-        const filterMode = filterSelector.current.value
-        if (filterMode === "OR") {
-          filterOr(filterValues)
-        } else {
-          filterAnd(filterValues)
-        }
+    const { current: fieldCurrent } = filterField
+    const { value: fieldValue } = fieldCurrent
+    const filterValues = fieldValue.split(" ")
+    const { current: selectorCurrent } = filterSelector
+    const { value: filterMode } = selectorCurrent
+    if (filterValues.length > 0) {
+      if (filterMode === "OR") {
+        filterOr(filterValues)
       } else {
-        noFilters()
+        filterAnd(filterValues)
       }
+    } else {
+      noFilters()
     }
   }
   const filterOr = (filterValues) => {
-    const filteredData = this.state.data.filter((departure) => {
+    const filteredData = data.filter((departure) => {
       let decider = false
       for (let i = 0; i < filterValues.length; i++) {
         if (
@@ -69,7 +70,7 @@ export default function Timetable(props) {
     setViewData(filteredData)
   }
   const filterAnd = (filterValues) => {
-    const filteredData = this.state.data.filter((departure) => {
+    const filteredData = data.filter((departure) => {
       let decider = true
       for (let i = 0; i < filterValues.length; i++) {
         if (
