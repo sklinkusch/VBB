@@ -7,7 +7,7 @@ export default function Input({ filterStops, inputField }) {
         type="text"
         onInput={(event) => filterStops(event)}
         ref={inputField}
-        placeholder="Insert stop, press enter, then choose"
+        placeholder="Insert string to filter stops"
       />
     </React.Fragment>
   )

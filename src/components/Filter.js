@@ -6,7 +6,7 @@ export default function Filter(props) {
     <div>
       <input
         type="text"
-        placeholder="Enter string & Enter to filter departures"
+        placeholder="Enter string to filter departures"
         ref={filterField}
         onInput={(event) => props.filterData(event)}
       />
