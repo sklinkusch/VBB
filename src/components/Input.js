@@ -1,14 +1,14 @@
-import React from "react";
+import React from "react"
 
-export default function Input(props) {
+export default function Input({ filterStops, inputField }) {
   return (
     <React.Fragment>
       <input
         type="text"
-        onKeyPress={event => props.filterStops(event)}
-        ref={props.inputField}
+        onInput={(event) => filterStops(event)}
+        ref={inputField}
         placeholder="Insert stop, press enter, then choose"
       />
     </React.Fragment>
-  );
+  )
 }

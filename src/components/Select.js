@@ -8,7 +8,7 @@ export default function Select(props) {
         value={stop.id}
         onChange={(event) => {
           const id = event.target.value
-          const stop = props.selection.filter((stop) => stop.id === id)[0]
+          const stop = selection.filter((stop) => stop.id === id)[0]
           return handleChange(stop)
         }}
       >

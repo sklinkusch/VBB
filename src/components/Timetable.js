@@ -95,23 +95,21 @@ export default function Timetable(props) {
   }
   const filterStops = (filterValue) => {
     const remainingStops = allStops.filter(
-      (stop) =>
-        stop.id !== this.state.selection.id &&
-        stop.name.toLowerCase().includes(filterValue.toLowerCase())
+      (currStop) =>
+        currStop.id !== stop.id &&
+        currStop.name.toLowerCase().includes(filterValue.toLowerCase())
     )
-    const newSelection = [selection, ...remainingStops]
+    const newSelection = [stop, ...remainingStops]
     setSelection(newSelection)
   }
   const doFilter = (event) => {
-    if (event.key === "Enter") {
-      const filterValue = event.target.value
-      filterStops(filterValue)
-    }
+    // if (event.key === "Enter") {
+    const filterValue = event.target.value
+    filterStops(filterValue)
+    // }
   }
-  const setCurrStop = (id) => {
-    const currentStopArray = allStops.filter((stop) => stop.id === id)
-    const [currentStop] = currentStopArray
-    setStop(currentStop)
+  const setCurrStop = (currStop) => {
+    setStop(currStop)
   }
   const getData = async (id) => {
     const currentStopArray = allStops.filter((stop) => stop.id === id)
@@ -130,9 +128,9 @@ export default function Timetable(props) {
       setError(null)
     }
   }
-  const handleChange = (e) => {
-    const myStopId = e.target.value
-    setCurrStop(myStopId)
+  const handleChange = (currentStop) => {
+    setCurrStop(currentStop)
+    const { id: myStopId } = currentStop
     getData(myStopId)
     inputField.current.value = ""
     filterField.current.value = ""
