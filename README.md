@@ -59,8 +59,8 @@ The departures are sorted by
 - React
 - React Router
 - React hooks
-- Redux
-- redux-saga
+  <!-- - Redux -->
+  <!-- - redux-saga -->
 - axios
 
 Further, it uses the [VBB proxy](https://github.com/sklinkusch/VBB-micro-proxy).
