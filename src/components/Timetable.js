@@ -150,7 +150,7 @@ export default function Timetable(props) {
   return (
     <div className="timetable">
       <Input filterStops={doFilter} inputField={inputField} />
-      <Select handleChange={handleChange} selection={selection} />
+      <Select handleChange={handleChange} selection={selection} stop={stop} />
       <Button handleSubmit={handleSubmit} />
       <Filter
         filterField={filterField}
