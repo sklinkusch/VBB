@@ -1,17 +1,18 @@
-import React from "react";
+import React from "react"
 
-const Bike = props => {
-  for (let i = 0; i < props.remarks.length; i++) {
-    if (props.remarks[i].code === "FB") {
-      return (
+const Bike = ({ remarks }) => {
+  const bikeRemarks = remarks.filter((remark) => remark.code === "FB")
+  return (
+    <React.Fragment>
+      {bikeRemarks.length > 0 ? (
         <div className="bike col-md-1 col-6">
           <span className="fas fa-bicycle" title="bike transport" />
         </div>
-      );
-    }
-    return <div className="bike col-md-1 col-6" />;
-  }
-  return <div className="bike col-md-1 col-6" />;
-};
+      ) : (
+        <div className="bike col-md-1 col-6" />
+      )}
+    </React.Fragment>
+  )
+}
 
-export default Bike;
+export default Bike
