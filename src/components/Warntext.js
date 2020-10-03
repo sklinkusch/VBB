@@ -18,8 +18,25 @@ const Warntext = (props) => {
   }
   const replaceLinks = (item) => {
     if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
-      const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g
-      return item.replace(pattern, "$2 ($1)")
+      if (
+        /<a.*href=".*" target="_blank" rel="noopener noreferrer[ ]*">.*<\/a>/.test(
+          item
+        )
+      ) {
+        const pattern1 = /<a.*href="(.*)" target="_blank" rel="noopener noreferrer[ ]*">(.*)<\/a>/g
+        return item.replace(pattern1, "$2 ($1)")
+      } else if (
+        /<a.*href=".*" target="_blank" rel="noopener[ ]*">.*<\/a>/.test(item)
+      ) {
+        const pattern2 = /<a.*href="(.*)" target="_blank" rel="noopener[ ]*">(.*)<\/a>/g
+        return item.replace(pattern2, "$2 ($1)")
+      } else if (/<a.*href?".*" target="_blank">.*<\/a>/.test(item)) {
+        const pattern3 = /<a.*href="(.*)" target="_blank">(.*)<\/a>/g
+        return item.replace(pattern3, "$2 ($1)")
+      } else {
+        const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g
+        return item.replace(pattern, "$2 ($1)")
+      }
     }
     return item
   }
