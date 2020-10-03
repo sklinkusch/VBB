@@ -1,17 +1,18 @@
-import React from "react";
+import React from "react"
 
-const Barrier = props => {
-  for (let i = 0; i < props.remarks.length; i++) {
-    if (props.remarks[i].code === "bf") {
-      return (
+const Barrier = ({ remarks }) => {
+  const barrierRemarks = remarks.filter((remark) => remark.code === "bf")
+  return (
+    <React.Fragment>
+      {barrierRemarks.length > 0 ? (
         <div className="barrier col-md-1 col-6">
           <span className="fas fa-wheelchair" title="barrier-free" />
         </div>
-      );
-    }
-    return <div className="barrier col-md-1 col-6" />;
-  }
-  return <div className="barrier col-md-1 col-6" />;
-};
+      ) : (
+        <div className="barrier col-md-1 col-6" />
+      )}
+    </React.Fragment>
+  )
+}
 
-export default Barrier;
+export default Barrier
