@@ -7,7 +7,9 @@ const stations = stopsUnsorted.filter(
     stop.name.includes("S Zeuthen") ||
     stop.name.includes("S Wildau") ||
     stop.name.includes("S Königs Wusterhausen") ||
-    stop.name.startsWith("Flughafen Schönefeld")
+    stop.name.startsWith("Flughafen Schönefeld") ||
+    stop.name.includes("Flughafen BER - Terminal") ||
+    stop.name.includes("S Waßmannsdorf")
 );
 const remainingAfterStations = stopsUnsorted.filter(
   stop => stations.indexOf(stop) === -1
