@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/VBB/static/css/main.f339d00f.chunk.css",
-    "main.js": "/VBB/static/js/main.cf3ad32e.chunk.js",
-    "main.js.map": "/VBB/static/js/main.cf3ad32e.chunk.js.map",
+    "main.js": "/VBB/static/js/main.6323835d.chunk.js",
+    "main.js.map": "/VBB/static/js/main.6323835d.chunk.js.map",
     "runtime-main.js": "/VBB/static/js/runtime-main.df4de834.js",
     "runtime-main.js.map": "/VBB/static/js/runtime-main.df4de834.js.map",
     "static/css/2.8cd73846.chunk.css": "/VBB/static/css/2.8cd73846.chunk.css",
@@ -34,6 +34,6 @@
     "static/css/2.8cd73846.chunk.css",
     "static/js/2.54e7d50d.chunk.js",
     "static/css/main.f339d00f.chunk.css",
-    "static/js/main.cf3ad32e.chunk.js"
+    "static/js/main.6323835d.chunk.js"
   ]
 }
