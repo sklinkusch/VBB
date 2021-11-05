@@ -8,6 +8,7 @@ import StopBody from "./StopBody"
 import Filter from "./Filter"
 import stops from "../data/stops"
 import { getDuration } from "../components/helpers"
+/* eslint-disable react-hooks/exhaustive-deps */
 
 export default function Timetable(props) {
   const [allStops] = useState(stops)
@@ -29,7 +30,7 @@ export default function Timetable(props) {
     )
     const stopSelection = [initialStop, ...remainingStops]
     setSelection(stopSelection)
-  }, [])
+  }, []) 
   const inputField = useRef(null)
   const filterField = useRef(null)
   const filterSelector = useRef(null)
