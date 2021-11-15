@@ -1,37 +1,38 @@
 import React from "react";
 import Legendrow from "./Legendrow";
+import getLocale from "./getLocale";
 import "../styles/Legend.scss";
 
 export default function Legend() {
   return (
     <div className="legend">
-      <h3 className="col-24">Legend</h3>
+      <h3 className="col-24">{getLocale("legend")}</h3>
       <Legendrow
-        left="sched."
-        right="time for the departure as stated in the timetable"
+        left={getLocale("scheduled")}
+        right={getLocale("scheduledDesc")}
       />
       <Legendrow
-        left="real"
-        right="currently planned time for the departure (with delays)"
+        left={getLocale("real")}
+        right={getLocale("realDesc")}
       />
-      <Legendrow left="del." right="delay in minutes" />
-      <Legendrow left="line" right="line or train number" />
-      <Legendrow left="direction" right="terminus of this line or train" />
+      <Legendrow left={getLocale("delay")} right={getLocale("delayDesc")} />
+      <Legendrow left={getLocale("line")} right={getLocale("lineDesc")} />
+      <Legendrow left={getLocale("direction")} right={getLocale("directionDesc")} />
       <Legendrow
         left={<span className="fas fa-wheelchair" />}
-        right="the bus, train or ship is barrier-free"
+        right={getLocale("barrierfree")}
       />
       <Legendrow
         left={<span className="fas fa-bicycle" />}
-        right="bike transport is permitted"
+        right={getLocale("bike")}
       />
       <Legendrow
         left={<span className="fas fa-exclamation-triangle" />}
-        right="there is additional information for this line (detour, reasons for delays etc.)"
+        right={getLocale("attention")}
       />
       <Legendrow
         left={<span className="fas fa-times" />}
-        right="cancellation/additional service"
+        right={getLocale("cancelled")}
       />
     </div>
   );
