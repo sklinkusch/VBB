@@ -8,7 +8,7 @@ export default function Input({ filterStops, inputField }) {
         type="text"
         onInput={(event) => filterStops(event)}
         ref={inputField}
-        placeholder={getLocale("filterPlaceholder")}
+        placeholder={getLocale("filterStops")}
       />
     </React.Fragment>
   )

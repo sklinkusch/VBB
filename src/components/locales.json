@@ -16,7 +16,10 @@
     "bike": "Fahrradmitnahme möglich",
     "attention": "Zusatzinformationen vorhanden (Umleitung, Gründe für Verspätung usw.)",
     "cancelled": "Ausfall/zusätzliche Fahrten",
-    "filterPlaceholder": "Haltestellen filtern"
+    "filterStops": "Haltestellen filtern",
+    "filterDepartures": "Abfahrten filtern",
+    "filterOr": "Oder (mindestens ein Wort enthalten)",
+    "filterAnd": "Und (alle Wörter enthalten)"
   },
   "en": {
     "legend": "legend",
@@ -35,6 +38,9 @@
     "bike": "bike transport is permitted",
     "attention": "there is additional information for this line (detour, reasons for delays etc.)",
     "cancelled": "cancellation/additional service",
-    "filterPlaceholder": "Insert string to filter stops"
+    "filterPlaceholder": "Insert string to filter stops",
+    "filterDepartures": "Enter string to filter departures",
+    "filterOr": "OR (at least one word included)",
+    "filterAnd": "AND (all words included)"
   }
 }
