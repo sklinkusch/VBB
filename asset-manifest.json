@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/VBB/static/css/main.c3e572f8.chunk.css",
-    "main.js": "/VBB/static/js/main.a52a76ff.chunk.js",
-    "main.js.map": "/VBB/static/js/main.a52a76ff.chunk.js.map",
-    "runtime-main.js": "/VBB/static/js/runtime-main.8ebb8dc8.js",
-    "runtime-main.js.map": "/VBB/static/js/runtime-main.8ebb8dc8.js.map",
+    "main.css": "/VBB/static/css/main.88ad7287.chunk.css",
+    "main.js": "/VBB/static/js/main.229d3794.chunk.js",
+    "main.js.map": "/VBB/static/js/main.229d3794.chunk.js.map",
+    "runtime-main.js": "/VBB/static/js/runtime-main.84d36303.js",
+    "runtime-main.js.map": "/VBB/static/js/runtime-main.84d36303.js.map",
     "static/css/2.4e8b3e7b.chunk.css": "/VBB/static/css/2.4e8b3e7b.chunk.css",
-    "static/js/2.cbcffda7.chunk.js": "/VBB/static/js/2.cbcffda7.chunk.js",
-    "static/js/2.cbcffda7.chunk.js.map": "/VBB/static/js/2.cbcffda7.chunk.js.map",
-    "static/js/3.9343535d.chunk.js": "/VBB/static/js/3.9343535d.chunk.js",
-    "static/js/3.9343535d.chunk.js.map": "/VBB/static/js/3.9343535d.chunk.js.map",
+    "static/js/2.17ca38fd.chunk.js": "/VBB/static/js/2.17ca38fd.chunk.js",
+    "static/js/2.17ca38fd.chunk.js.map": "/VBB/static/js/2.17ca38fd.chunk.js.map",
+    "static/js/3.3f918c6b.chunk.js": "/VBB/static/js/3.3f918c6b.chunk.js",
+    "static/js/3.3f918c6b.chunk.js.map": "/VBB/static/js/3.3f918c6b.chunk.js.map",
     "index.html": "/VBB/index.html",
     "static/css/2.4e8b3e7b.chunk.css.map": "/VBB/static/css/2.4e8b3e7b.chunk.css.map",
-    "static/css/main.c3e572f8.chunk.css.map": "/VBB/static/css/main.c3e572f8.chunk.css.map",
-    "static/js/2.cbcffda7.chunk.js.LICENSE.txt": "/VBB/static/js/2.cbcffda7.chunk.js.LICENSE.txt",
+    "static/css/main.88ad7287.chunk.css.map": "/VBB/static/css/main.88ad7287.chunk.css.map",
+    "static/js/2.17ca38fd.chunk.js.LICENSE.txt": "/VBB/static/js/2.17ca38fd.chunk.js.LICENSE.txt",
     "static/media/bus.0fa12962.svg": "/VBB/static/media/bus.0fa12962.svg",
     "static/media/express-bus.d50a065f.svg": "/VBB/static/media/express-bus.d50a065f.svg",
     "static/media/express.442b39ec.svg": "/VBB/static/media/express.442b39ec.svg",
@@ -30,10 +30,10 @@
     "static/media/tram.22700ed3.svg": "/VBB/static/media/tram.22700ed3.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.8ebb8dc8.js",
+    "static/js/runtime-main.84d36303.js",
     "static/css/2.4e8b3e7b.chunk.css",
-    "static/js/2.cbcffda7.chunk.js",
-    "static/css/main.c3e572f8.chunk.css",
-    "static/js/main.a52a76ff.chunk.js"
+    "static/js/2.17ca38fd.chunk.js",
+    "static/css/main.88ad7287.chunk.css",
+    "static/js/main.229d3794.chunk.js"
   ]
 }
