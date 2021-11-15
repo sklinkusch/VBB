@@ -15,7 +15,8 @@
     "barrierfree": "barrierefrei",
     "bike": "Fahrradmitnahme möglich",
     "attention": "Zusatzinformationen vorhanden (Umleitung, Gründe für Verspätung usw.)",
-    "cancelled": "Ausfall/zusätzliche Fahrten"
+    "cancelled": "Ausfall/zusätzliche Fahrten",
+    "filterPlaceholder": "Haltestellen filtern"
   },
   "en": {
     "legend": "legend",
@@ -33,6 +34,7 @@
     "barrierfree": "the bus, train or ship is barrier-free",
     "bike": "bike transport is permitted",
     "attention": "there is additional information for this line (detour, reasons for delays etc.)",
-    "cancelled": "cancellation/additional service"
+    "cancelled": "cancellation/additional service",
+    "filterPlaceholder": "Insert string to filter stops"
   }
 }
