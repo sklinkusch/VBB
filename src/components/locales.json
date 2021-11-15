@@ -1,5 +1,6 @@
 {
   "de": {
+    "VBBDep": "VBB-Abfahrten",
     "legend": "Legende",
     "scheduled": "planm.",
     "scheduledDesc": "planmäßige Abfahrt (laut Fahrplan)",
@@ -22,6 +23,7 @@
     "filterAnd": "Und (alle Wörter enthalten)"
   },
   "en": {
+    "VBBDep": "VBB Departures",
     "legend": "legend",
     "scheduled": "sched.",
     "scheduledDesc": "time for the departure as stated in the timetable",
