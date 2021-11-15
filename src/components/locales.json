@@ -1,0 +1,38 @@
+{
+  "de": {
+    "legend": "Legende",
+    "scheduled": "planm.",
+    "scheduledDesc": "planmäßige Abfahrt (laut Fahrplan)",
+    "real": "real",
+    "realDesc": "Abfahrt in Echtzeit (mit Verspätung)",
+    "delay": "Versp.",
+    "delayDesc": "Verspätung in Minuten",
+    "line": "Linie",
+    "lineDesc": "Linien- oder Zugnummer",
+    "direction": "Richtung",
+    "directionDesc": "Endhaltestelle des Busses, Zuges oder Schiffes",
+    "track": "Gleis",
+    "barrierfree": "barrierefrei",
+    "bike": "Fahrradmitnahme möglich",
+    "attention": "Zusatzinformationen vorhanden (Umleitung, Gründe für Verspätung usw.)",
+    "cancelled": "Ausfall/zusätzliche Fahrten"
+  },
+  "en": {
+    "legend": "legend",
+    "scheduled": "sched.",
+    "scheduledDesc": "time for the departure as stated in the timetable",
+    "real": "real",
+    "realDesc": "currently planned time for the departure (with delays)",
+    "delay": "delay",
+    "delayDesc": "delay in minutes",
+    "line": "line",
+    "lineDesc": "line or train number",
+    "direction": "direction",
+    "directionDesc": "terminus of this line or train",
+    "track": "track",
+    "barrierfree": "the bus, train or ship is barrier-free",
+    "bike": "bike transport is permitted",
+    "attention": "there is additional information for this line (detour, reasons for delays etc.)",
+    "cancelled": "cancellation/additional service"
+  }
+}
