@@ -1,12 +1,12 @@
 import React from "react"
 import "../styles/App.scss"
 import Timetable from "../components/Timetable"
-import LegendDep from "../components/LegendDep"
+import LegendArr from "../components/LegendArr"
 
 function App() {
   return (
     <div>
-      <LegendDep />
+      <LegendArr />
       <Timetable />
     </div>
   )

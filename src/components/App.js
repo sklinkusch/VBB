@@ -4,6 +4,7 @@ import "../styles/App.scss"
 import Header from "./Header"
 import Footer from "./Footer"
 const VBBDepartures = lazy(() => import("../pages/VBBDepartures"))
+const VBBArrivals = lazy(() => import("../pages/VBBArrivals"))
 
 function App() {
   return (
@@ -12,6 +13,9 @@ function App() {
         <Header />
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
+              <Route path="/arrivals">
+                <VBBArrivals />
+              </Route>
               <Route path="/">
                 <VBBDepartures />
               </Route>
