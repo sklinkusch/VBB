@@ -4,7 +4,7 @@ import Error from "./Error"
 import TableData from "./TableData"
 import { getDuration } from "./helpers"
 
-export default function StopBody({ stop, data, error }) {
+export default function StopBody({ stop, data, error, mode = "dep" }) {
   const sortData = () => {
     if (data !== null && data !== undefined && data.length > 0)
       return data.sort((a, b) => {
@@ -65,14 +65,16 @@ export default function StopBody({ stop, data, error }) {
   const newData = splitArray(sortedData)
   // const text = `In the next ${getDuration(
   //   stop.type || 'BLN'
-  // )} minutes, no departures are planned for the station or stop you have chosen.`;
+  //   )} minutes, no departures are planned for the station or stop you have
+  //   chosen.`;
+  const keyword = mode === "dep" ? "departures" : "arrivals"
   const text = stop
     ? `In the next ${getDuration(
         stop.type
-      )} minutes, no departures are planned for the station or stop you have chosen`
+      )} minutes, no ${keyword} are planned for the station or stop you have chosen`
     : `In the next ${getDuration(
         "BLN"
-      )} minutes, no departures are planned for the station or stop you have chosen`
+      )} minutes, no ${keyword} are planned for the station or stop you have chosen`
   return (
     <React.Fragment>
       {stop && <StopName stop={stop} element="h2" />}
@@ -80,7 +82,7 @@ export default function StopBody({ stop, data, error }) {
         <Error />
       ) : newData !== undefined && newData !== null && newData.length > 0 ? (
         newData.map((depset, index) => {
-          return <TableData stop={depset[0].stop} data={depset} key={index} />
+          return <TableData stop={depset[0].stop} data={depset} key={index} mode={mode} />
         })
       ) : (
         <div>{text}</div>

@@ -3,7 +3,7 @@ import Legendrow from "./Legendrow";
 import getLocale from "./getLocale";
 import "../styles/Legend.scss";
 
-export default function Legend() {
+export default function LegendArr() {
   return (
     <div className="legend">
       <h3 className="col-24">{getLocale("legend")}</h3>
@@ -17,7 +17,7 @@ export default function Legend() {
       />
       <Legendrow left={getLocale("delay")} right={getLocale("delayDesc")} />
       <Legendrow left={getLocale("line")} right={getLocale("lineDesc")} />
-      <Legendrow left={getLocale("direction")} right={getLocale("directionDesc")} />
+      <Legendrow left={getLocale("from")} right={getLocale("fromDesc")} />
       <Legendrow
         left={<span className="fas fa-wheelchair" />}
         right={getLocale("barrierfree")}
