@@ -19,7 +19,7 @@
     "react-scripts": "2.1.8",
     "reactstrap": "^9.0.0",
     "use-named-state": "^1.0.0",
-    "vbb-stations": "latest",
+    "vbb-stations": "^8.0.0",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
