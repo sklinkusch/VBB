@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"
 import "./styles/index.css"
 import App from "./components/App"
 import reportWebVitals from "./reportWebVitals"
-import "@fortawesome/fontawesome-free/css/all.min.css"
+import "@fortawesome/fontawesome-free/js/all.min.js"
 import { ThemeProvider } from "theme-ui"
 import theme from "./styles/theme"
 

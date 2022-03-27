@@ -117,7 +117,7 @@ export default function Timetable(props) {
     const [currentStop] = currentStopArray
     const { type = "BBG" } = currentStop
     const duration = getDuration(type)
-    const url = `https://sklinkusch-vbbmicro.now.sh/?station=${id}&duration=${duration}&mode=arr`
+    const url = `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr`
     const response = await axios.get(url)
     const { data: resData, status } = await response
     if (status === 500 || status !== 200) {
