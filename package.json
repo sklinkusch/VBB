@@ -25,9 +25,7 @@
     "vbb-stations": "latest",
     "web-vitals": "^2.1.4"
   },
-  "devDependencies": {
-    "node-sass": "^4.13.1"
-  },
+  "devDependencies": {},
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
