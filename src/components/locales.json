@@ -30,7 +30,8 @@
     "filterAnd": "Und (alle Wörter enthalten)",
     "footerCreated": "erstellt von",
     "footerBgImage": "Hintergrundbild von",
-    "footerData": "Daten von"
+    "footerData": "Daten von",
+    "since": "ab"
   },
   "en": {
     "VBBInfo": "VBB Timetable Information",
@@ -63,6 +64,7 @@
     "filterAnd": "AND (all words included)",
     "footerCreated": "created by",
     "footerBgImage": "background image from",
-    "footerData": "data from"
+    "footerData": "data from",
+    "since": "from"
   }
 }

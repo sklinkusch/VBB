@@ -1,6 +1,7 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { Fragment } from "react";
 import Product from "./Product";
-import "../styles/Departure.scss";
 import Barrier from "./Barrier";
 import Bike from "./Bike";
 import Warning from "./Warning";
@@ -69,25 +70,25 @@ const Arrival = props => {
   const { line, provenance, remarks, platform } = props.arr;
   const { name: linenumber } = line;
   return (
-    <React.Fragment>
-      <div className="row" key={props.arr.tripId}>
-        <Time time={plantime} />
-        <Time time={realtime} />
-        <div className="delay col-md-2 col-8">{delayMin}</div>
+    <Fragment>
+      <div className="row" key={props.arr.tripId} sx={{ display: "grid", gridTemplateColumns: "repeat(24,1fr)" }}>
+        <Time time={plantime} class="plantime" />
+        <Time time={realtime} class="realtime" />
+        <div className="delay" sx={{ textAlign: ["center", "center", "right"], gridColumn: ["17 / span 8", "5 / span 2"]}}>{delayMin}</div>
         <Product line={line} />
-        <div className="line col-md-3 col-6">{linenumber}</div>
-        <div className="direction col-md-8 col-13">{provenance}</div>
-        <div className="platform col-md-2 col-3">{platform}</div>
+        <div className="line" sx={{ textAlign: "left", gridColumn: ["2 / span 6", "8 / span 3"] }}>{linenumber}</div>
+        <div className="direction" sx={{ textAlign: "left", gridColumn: ["8 / span 13", "11 / span 8"] }}>{provenance}</div>
+        <div className="platform" sx={{ textAlign: "center", gridColumn: ["22 / span 3", "19 / span 2"] }}>{platform}</div>
         <Barrier remarks={remarks} />
         <Bike remarks={remarks} />
         <Warning remarks={remarks} />
         <Status remarks={remarks} />
       </div>
-      <div className="row row-add" key={`add:${props.arr.tripId}`}>
+      <div className="row row-add" key={`add:${props.arr.tripId}`} sx={{ display: "grid", gridTemplateColumns: "repeat(24, 1fr)", borderBottom: ["1px solid #ccc", "1px solid #ccc","none"] }}>
         <Warntext remarks={remarks} />
         <Stattext remarks={remarks} />
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 };
 

@@ -1,12 +1,12 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import Legendrow from "./Legendrow";
 import getLocale from "./getLocale";
-import "../styles/Legend.scss";
 
 export default function LegendDep() {
   return (
-    <div className="legend">
-      <h3 className="col-24">{getLocale("legend")}</h3>
+    <div className="legend" sx={{ display: ["none", "none", "grid"], gridTemplateColumns: "repeat(24,1fr)", border: "2px solid black", width: "70%", margin: "0 auto 40px auto", borderRadius: "10px" }}>
+      <h3 sx={{ gridColumn: "1 / span 24" }}>{getLocale("legend")}</h3>
       <Legendrow
         left={getLocale("scheduled")}
         right={getLocale("scheduledDesc")}

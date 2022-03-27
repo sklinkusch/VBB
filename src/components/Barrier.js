@@ -1,17 +1,20 @@
-import React from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { Fragment } from "react"
 
 const Barrier = ({ remarks }) => {
   const barrierRemarks = remarks.filter((remark) => remark.code === "bf")
+  const styles = { textAlign: "center", gridColumn: ["1 / span 6", "21 / span 1"]}
   return (
-    <React.Fragment>
+    <Fragment>
       {barrierRemarks.length > 0 ? (
-        <div className="barrier col-md-1 col-6">
+        <div className="barrier" sx={{ ...styles }}>
           <span className="fas fa-wheelchair" title="barrier-free" />
         </div>
       ) : (
-        <div className="barrier col-md-1 col-6" />
+        <div className="barrier" sx={{ ...styles }} />
       )}
-    </React.Fragment>
+    </Fragment>
   )
 }
 

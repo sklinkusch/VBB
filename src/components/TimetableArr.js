@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
 import axios from "axios"
-import "../styles/Timetable.scss"
 import Input from "./Input"
 import Select from "./Select"
 import Button from "./Button"

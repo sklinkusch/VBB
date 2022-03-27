@@ -1,11 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./styles/index.scss"
+import "./styles/index.css"
 import App from "./components/App"
 import reportWebVitals from "./reportWebVitals"
 import "@fortawesome/fontawesome-free/css/all.min.css"
+import { ThemeProvider } from "theme-ui"
+import theme from "./styles/theme"
 
-ReactDOM.render(<App />, document.getElementById("root"))
+ReactDOM.render(<ThemeProvider theme={theme}><App /></ThemeProvider>, document.getElementById("root"))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

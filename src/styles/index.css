@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url("../soroush-karimi-192112-unsplash.min.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";

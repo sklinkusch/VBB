@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { useState, useRef, useEffect } from "react"
 import axios from "axios"
-import "../styles/Timetable.scss"
 import Input from "./Input"
 import Select from "./Select"
 import Button from "./Button"
@@ -148,7 +149,7 @@ export default function Timetable(props) {
   //   getData(stop);
   // }, []);
   return (
-    <div className="timetable">
+    <div className="timetable" sx={{ minHeight: "75vh" }}>
       <Input filterStops={doFilter} inputField={inputField} />
       <Select handleChange={handleChange} selection={selection} stop={stop} />
       <Button handleSubmit={handleSubmit} />
