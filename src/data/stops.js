@@ -66,7 +66,14 @@ const stopsBerlin = sortItems(stopsBerlinUnsorted);
 ];*/
 // const stopsOther = sortItems(stopsOtherUnsorted);
 // const stops = [...stopsBerlin, ...stopsBrandenburg, ...stopsOther];
-const stops = [...stopsBerlin]
+const stopsUnfiltered = [...stopsBerlin]
+const stopsObject = stopsUnfiltered.reduce((acc, curr) => {
+  const obj = { ...acc }
+  const { id, name } = curr
+  if(obj.hasOwnProperty(name) === false) obj[name] = { id, name }
+  return obj
+}, {})
+const stops = Object.values(stopsObject).sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase(),"de",{ sensitivity: "base"}))
 
 export default stops;
 
