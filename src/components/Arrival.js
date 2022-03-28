@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import { Fragment } from "react";
-import Product from "./Product";
-import Barrier from "./Barrier";
-import Bike from "./Bike";
-import Warning from "./Warning";
-import Status from "./Status";
-import Warntext from "./Warntext";
-import Stattext from "./Stattext";
-import Time from "./Time";
+import { Fragment, lazy } from "react";
+const Time = lazy(() => import("./Time"));
+const Product = lazy(() => import("./Product"));
+const Barrier = lazy(() => import("./Barrier"));
+const Bike = lazy(() => import("./Bike"));
+const Warning = lazy(() => import("./Warning"));
+const Status = lazy(() => import("./Status"));
+const Warntext = lazy(() => import("./Warntext"));
+const Stattext = lazy(() => import("./Stattext"));
 
 const Arrival = props => {
   const getDelay = (delay, cancelled) => {

@@ -1,6 +1,6 @@
-import React from "react";
-import Arrival from "./Arrival";
-import Departure from "./Departure";
+import React, { lazy } from "react";
+const Departure = lazy(() => import("./Departure"));
+const Arrival = lazy(() => import("./Arrival"));
 
 export default function Tablebody(props) {
   const { data, mode } = props;

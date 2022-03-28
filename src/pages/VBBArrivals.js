@@ -1,6 +1,6 @@
-import React from "react"
-import TimetableArr from "../components/TimetableArr"
-import LegendArr from "../components/LegendArr"
+import React, { lazy } from "react"
+const LegendArr = lazy(() => import("../components/LegendArr")) 
+const TimetableArr = lazy(() => import("../components/TimetableArr")) 
 
 function App() {
   return (

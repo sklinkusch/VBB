@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, lazy } from "react"
 import axios from "axios"
-import Input from "./Input"
-import Select from "./Select"
-import Button from "./Button"
-import StopBody from "./StopBody"
-import Filter from "./Filter"
-import stops from "../data/stops"
 import { getDuration } from "../components/helpers"
+import stops from "../data/stops"
+const Input = lazy(() => import("./Input"))
+const Select = lazy(() => import("./Select"))
+const Button = lazy(() => import("./Button"))
+const Filter = lazy(() => import("./Filter"))
+const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
 export default function Timetable(props) {
