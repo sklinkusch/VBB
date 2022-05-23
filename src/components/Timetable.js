@@ -1,13 +1,14 @@
-import React, { useState, useRef, useEffect } from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import { useState, useRef, useEffect, lazy } from "react"
 import axios from "axios"
-import "../styles/Timetable.scss"
-import Input from "./Input"
-import Select from "./Select"
-import Button from "./Button"
-import StopBody from "./StopBody"
-import Filter from "./Filter"
-import stops from "../data/stops"
 import { getDuration } from "../components/helpers"
+import stops from "../data/stops"
+const Input = lazy(() => import("./Input"))
+const Select = lazy(() => import("./Select"))
+const Button = lazy(() => import("./Button"))
+const Filter = lazy(() => import("./Filter"))
+const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
 export default function Timetable(props) {
@@ -118,7 +119,7 @@ export default function Timetable(props) {
     const [currentStop] = currentStopArray
     const { type = "BBG" } = currentStop
     const duration = getDuration(type)
-    const url = `https://sklinkusch-vbbmicro.now.sh/?station=${id}&duration=${duration}`
+    const url = `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}`
     const response = await axios.get(url)
     const { data: resData, status } = await response
     if (status === 500 || status !== 200) {
@@ -148,7 +149,7 @@ export default function Timetable(props) {
   //   getData(stop);
   // }, []);
   return (
-    <div className="timetable">
+    <div className="timetable" sx={{ minHeight: "75vh" }}>
       <Input filterStops={doFilter} inputField={inputField} />
       <Select handleChange={handleChange} selection={selection} stop={stop} />
       <Button handleSubmit={handleSubmit} />

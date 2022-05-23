@@ -1,8 +1,8 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 import { useDebugState } from "use-named-state"
 import { Collapse, Navbar, NavbarBrand, NavbarToggler, Nav, NavItem, NavLink } from "reactstrap";
 import { NavLink as RRNavLink, withRouter } from "react-router-dom"
-import "../styles/Header.scss";
 import getLocale from "./getLocale";
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
     setOpen(!isOpen)
   }
   return (
-    <header>
+    <header sx={{ backgroundColor: "darkblue", width: "85%", mx: "auto", my: "20px", padding: "10px", borderRadius: "15px", 'nav': { backgroundColor: "darkblue !important" }, '.navbar-brand': { color: "white"}}}>
       <Navbar color="dark" dark expand="lg">
         <NavbarBrand href="/">{getLocale("VBBInfo")}</NavbarBrand>
         <NavbarToggler onClick={toggle} />

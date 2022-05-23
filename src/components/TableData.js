@@ -1,7 +1,7 @@
-import React from 'react';
-import Tablehead from './Tablehead';
-import StopName from './StopName';
-import Tablebody from './Tablebody';
+import React, {lazy} from 'react';
+const StopName = lazy(() => import('./StopName'));
+const Tablehead = lazy(() => import('./Tablehead'));
+const Tablebody = lazy(() => import('./Tablebody'));
 
 export default function TableData(props) {
   const { stop, data, mode } = props;

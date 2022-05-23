@@ -1,7 +1,6 @@
-import React from "react"
-import "../styles/App.scss"
-import Timetable from "../components/Timetable"
-import LegendDep from "../components/LegendDep"
+import React, { lazy } from "react"
+const LegendDep = lazy(() => import("../components/LegendDep"))
+const Timetable = lazy(() => import("../components/Timetable"))
 
 function App() {
   return (

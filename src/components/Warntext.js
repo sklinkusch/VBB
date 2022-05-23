@@ -1,5 +1,6 @@
-import React from "react"
-import "../styles/Warntext.scss"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
+import getLocale from "./getLocale"
 
 const Warntext = (props) => {
   const formatTime = (timestamp) => {
@@ -12,33 +13,8 @@ const Warntext = (props) => {
     return null
   }
   const formatText = (text) => {
-    const textWithoutLinks = replaceLinks(text)
-    const formattedText = includeSpecialChars(textWithoutLinks)
+    const formattedText = includeSpecialChars(text)
     return formattedText
-  }
-  const replaceLinks = (item) => {
-    if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
-      if (
-        /<a.*href=".*" target="_blank" rel="noopener noreferrer[ ]*">.*<\/a>/.test(
-          item
-        )
-      ) {
-        const pattern1 = /<a.*href="(.*)" target="_blank" rel="noopener noreferrer[ ]*">(.*)<\/a>/g
-        return item.replace(pattern1, "$2 ($1)")
-      } else if (
-        /<a.*href=".*" target="_blank" rel="noopener[ ]*">.*<\/a>/.test(item)
-      ) {
-        const pattern2 = /<a.*href="(.*)" target="_blank" rel="noopener[ ]*">(.*)<\/a>/g
-        return item.replace(pattern2, "$2 ($1)")
-      } else if (/<a.*href?".*" target="_blank">.*<\/a>/.test(item)) {
-        const pattern3 = /<a.*href="(.*)" target="_blank">(.*)<\/a>/g
-        return item.replace(pattern3, "$2 ($1)")
-      } else {
-        const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g
-        return item.replace(pattern, "$2 ($1)")
-      }
-    }
-    return item
   }
   const includeSpecialChars = (text) => {
     let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
@@ -49,7 +25,7 @@ const Warntext = (props) => {
   const warnings = props.remarks.filter((remark) => remark.type === "warning")
   if (warnings.length > 0) {
     return (
-      <div className="warntext col-22">
+      <div className="warntext" sx={{ gridColumn: "2 / span 22"}}>
         {warnings.map((warning, index) => {
           const { validFrom, validUntil, summary, text } = warning
           const from = formatTime(validFrom)
@@ -58,12 +34,14 @@ const Warntext = (props) => {
           const textFormatted = formatText(text)
           const limits =
             until === "31.12.2049, 23:59"
-              ? `since ${from}`
+              ? `${getLocale("since")} ${from}`
               : `${from} - ${until}`
           return (
-            <p key={index}>
+            <p key={index} sx={{ textAlign: "justify" }}>
               <span className="fas fa-exclamation-triangle" />
-              {limits}: {summaryFormatted}, {textFormatted}
+              <span>{limits}: </span>
+              <span dangerouslySetInnerHTML={{__html: summaryFormatted}} />,
+              <span dangerouslySetInnerHTML={{__html: textFormatted}} />
             </p>
           )
         })}

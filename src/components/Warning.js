@@ -1,6 +1,8 @@
-import React from "react"
+/** @jsx jsx */
+import { jsx } from "theme-ui"
 
 const Warning = ({ remarks }) => {
+  const styles = { textAlign: "center", gridColumn: ["13 / span 6", "23 / span 1"]}
   const formatTime = (timestamp) => {
     if (timestamp !== null && timestamp !== undefined) {
       const dateArray = timestamp.substr(0, 10).split("-")
@@ -58,7 +60,7 @@ const Warning = ({ remarks }) => {
     })
     .join("\n")
   return (
-    <div className="warning col-md-1 col-6">
+    <div className="warning" sx={{ ...styles }}>
       {warnings.length > 0 ? (
         <span
           className="fas fa-exclamation-triangle"
