@@ -17,8 +17,8 @@ export default function Select(props) {
       >
         {selection &&
           selection.length >= 1 &&
-          selection.map((stop) => (
-            <option key={stop.id} value={stop.id}>
+          selection.map((stop, index) => (
+            <option key={`${stop.id}-${index}`} value={stop.id}>
               {stop.name}
             </option>
           ))}
