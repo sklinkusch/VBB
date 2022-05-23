@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "6431056a6286bc2baacb",
-    "url": "/VBB/static/js/22.7ced52ba.chunk.js"
-  },
-  {
     "revision": "16522b1509d5b66a39d0",
     "url": "/VBB/static/js/0.d27d9977.chunk.js"
+  },
+  {
+    "revision": "2ddc61af86f418d1a81b",
+    "url": "/VBB/static/js/1.59ad21e2.chunk.js"
   },
   {
     "revision": "a679ce19c35bbfadd4c9",
@@ -64,8 +64,8 @@ self.__precacheManifest = [
     "url": "/VBB/static/js/15.619b2488.chunk.js"
   },
   {
-    "revision": "ccc6ab35b01701734507a0d752a191a7",
-    "url": "/VBB/static/media/ferry.ccc6ab35.svg"
+    "revision": "b0542c049a7c30cf0ca0",
+    "url": "/VBB/static/css/main.73ff7a1b.chunk.css"
   },
   {
     "revision": "b0542c049a7c30cf0ca0",
@@ -76,11 +76,11 @@ self.__precacheManifest = [
     "url": "/VBB/static/js/runtime~main.a94b6376.js"
   },
   {
-    "revision": "f0c4db903ee25fcd3fc7487eeaa2a9da",
-    "url": "/VBB/static/media/night-bus.f0c4db90.svg"
+    "revision": "98f47fa346340fb98546",
+    "url": "/VBB/static/css/18.b28ec595.chunk.css"
   },
   {
-    "revision": "5c5aa8adbdd1be4e30ca",
+    "revision": "98f47fa346340fb98546",
     "url": "/VBB/static/js/18.8644d97b.chunk.js"
   },
   {
@@ -96,8 +96,8 @@ self.__precacheManifest = [
     "url": "/VBB/static/js/21.e4e4dc73.chunk.js"
   },
   {
-    "revision": "2ddc61af86f418d1a81b",
-    "url": "/VBB/static/js/1.59ad21e2.chunk.js"
+    "revision": "6431056a6286bc2baacb",
+    "url": "/VBB/static/js/22.7ced52ba.chunk.js"
   },
   {
     "revision": "3fcc924c503108833303",
@@ -180,12 +180,12 @@ self.__precacheManifest = [
     "url": "/VBB/static/media/special-bus.f3b46a0d.svg"
   },
   {
-    "revision": "b0542c049a7c30cf0ca0",
-    "url": "/VBB/static/css/main.73ff7a1b.chunk.css"
+    "revision": "f0c4db903ee25fcd3fc7487eeaa2a9da",
+    "url": "/VBB/static/media/night-bus.f0c4db90.svg"
   },
   {
-    "revision": "5c5aa8adbdd1be4e30ca",
-    "url": "/VBB/static/css/18.b28ec595.chunk.css"
+    "revision": "ccc6ab35b01701734507a0d752a191a7",
+    "url": "/VBB/static/media/ferry.ccc6ab35.svg"
   },
   {
     "revision": "a48e4526b789bf27d7e91faf833a2f96",
