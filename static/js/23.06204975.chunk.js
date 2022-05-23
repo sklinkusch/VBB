@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[23],{129:function(e,r,n){"use strict";n.r(r),n.d(r,"default",function(){return t});var o=n(3);function t(e){return Object(o.a)("p",{className:"error",sx:{color:"red",fontWeight:"bold"}},"Your request could not be handled by the server.")}}}]);
-//# sourceMappingURL=23.06204975.chunk.js.map

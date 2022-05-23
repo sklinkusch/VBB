@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{91:function(n,t,a){"use strict";a.r(t),a.d(t,"default",function(){return e});var c=a(3),o=a(1);function e(n){return Object(c.a)(o.Fragment,null,Object(c.a)("button",{onClick:function(){return n.handleSubmit()},sx:{padding:"5px",backgroundColor:"#ccc",opacity:1}},Object(c.a)("i",{className:"fas fa-redo-alt"})))}}}]);
-//# sourceMappingURL=5.00573dde.chunk.js.map

@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{97:function(e,a,r){"use strict";r.r(a);var t=r(72),n=r(3),c=r(1);a.default=function(e){var a=e.remarks.filter(function(e){return"bf"===e.code}),r={textAlign:"center",gridColumn:["1 / span 6","21 / span 1"]};return Object(n.a)(c.Fragment,null,a.length>0?Object(n.a)("div",{className:"barrier",sx:Object(t.a)({},r)},Object(n.a)("span",{className:"fas fa-wheelchair",title:"barrier-free"})):Object(n.a)("div",{className:"barrier",sx:Object(t.a)({},r)}))}}}]);
-//# sourceMappingURL=3.e798b3db.chunk.js.map

@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{102:function(t,n,e){"use strict";e.r(n),e.d(n,"default",function(){return s});var a=e(3);function s(t){var n=t.remarks.filter(function(t){return"status"===t.type});return n.length>0?Object(a.a)("div",{className:"stattext",sx:{textAlign:"justify",gridColumn:"2 / span 22"}},n.map(function(t,n){return Object(a.a)("p",{key:n},Object(a.a)("span",{className:"fas fa-times"}),t.text)})):null}}}]);
-//# sourceMappingURL=9.681a4de9.chunk.js.map

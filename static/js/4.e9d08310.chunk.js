@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{101:function(e,a,t){"use strict";t.r(a);var n=t(75),c=t(3),s=t(1);a.default=function(e){var a=e.remarks.filter(function(e){return"FB"===e.code}),t={textAlign:"center",gridColumn:["7 / span 6","22 / span 1"]};return Object(c.a)(s.Fragment,null,a.length>0?Object(c.a)("div",{className:"bike",sx:Object(n.a)({},t)},Object(c.a)("span",{className:"fas fa-bicycle",title:"bike transport"})):Object(c.a)("div",{className:"bike",sx:Object(n.a)({},t)}))}}}]);
+//# sourceMappingURL=4.e9d08310.chunk.js.map
