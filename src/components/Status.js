@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 
 const Status = props => {
   const styles = { textAlign: "center", gridColumn: ["19 / span 6", "24 / span 1"]}

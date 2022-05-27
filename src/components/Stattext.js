@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 
 export default function Stattext(props) {
   const statuses = props.remarks.filter(remark => remark.type === "status");

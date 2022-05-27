@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import { Suspense, lazy } from "react"
 import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom"
 import Header from "./Header"
