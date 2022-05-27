@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkvbb=self.webpackChunkvbb||[]).push([[732],{4453:function(n,t,c){c.r(t),c.d(t,{default:function(){return u}});var e=c(2791),r=c(9922);function u(n){return(0,r.tZ)(e.Fragment,{children:(0,r.tZ)("button",{onClick:function(){return n.handleSubmit()},sx:{padding:"5px",backgroundColor:"#ccc",opacity:1},children:(0,r.tZ)("i",{className:"fas fa-redo-alt"})})})}}}]);
+//# sourceMappingURL=732.51f9bdf2.chunk.js.map

@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{98:function(e,t,n){"use strict";n.r(t),n.d(t,"default",function(){return s});var i=n(75),a=n(3);function s(e){var t="plantime"===e.class?{textAlign:["left","left","center"],gridColumn:["1 / span 8","1 / span 2"]}:{textAlign:"center",gridColumn:["9 / span 8","3 / span 2"]};return null!==e.time&&void 0!==e.time&&""!==e.time?Object(a.a)("div",{className:"time",sx:Object(i.a)({},t)},e.time):Object(a.a)("div",{className:"time",sx:Object(i.a)({},t)},"\xa0")}}}]);
-//# sourceMappingURL=13.e3e04a53.chunk.js.map

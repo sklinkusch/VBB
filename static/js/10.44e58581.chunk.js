@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[10],{103:function(t,a,s){"use strict";s.r(a);var e=s(75),n=s(3);a.default=function(t){for(var a={textAlign:"center",gridColumn:["19 / span 6","24 / span 1"]},s=t.remarks,c=0;c<s.length;c++){var r=s[c],i=r.type,u=r.text;if("status"===i)return Object(n.a)("div",{className:"status",sx:Object(e.a)({},a)},Object(n.a)("span",{className:"fas fa-times",title:u}))}return Object(n.a)("div",{className:"status",sx:Object(e.a)({},a)})}}}]);
-//# sourceMappingURL=10.44e58581.chunk.js.map
