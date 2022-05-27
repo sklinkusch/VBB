@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import { Fragment } from "react"
 import getLocale from "./getLocale"
 

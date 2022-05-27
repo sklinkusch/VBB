@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import { useState, useRef, useEffect, lazy } from "react"
 import axios from "axios"
 import { getDuration } from "../components/helpers"

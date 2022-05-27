@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 
 const Warning = ({ remarks }) => {
   const styles = { textAlign: "center", gridColumn: ["13 / span 6", "23 / span 1"]}

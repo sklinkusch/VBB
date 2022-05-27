@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import { Fragment, lazy } from "react";
 const Time = lazy(() => import("./Time"));
 const Product = lazy(() => import("./Product"));

@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
+/** @jsxImportSource theme-ui */
 import train from "../images/express.svg";
 import regional from "../images/regional.svg";
 import suburban from "../images/suburban.svg";
