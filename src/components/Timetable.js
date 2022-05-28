@@ -118,7 +118,6 @@ export default function Timetable(props) {
     setStop(currStop)
   }
   const getData = async (id) => {
-    console.log(new Date(), "entering getData function")
     const currentStopArray = stops.filter((stop) => stop.id === id)
     const [currentStop] = currentStopArray
     const { type = "BBG" } = currentStop
@@ -126,7 +125,6 @@ export default function Timetable(props) {
     const url = `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}`
     const response = await axios.get(url)
     const { data: resData, status } = await response
-    await console.log(new Date(), "obtained data")
     if (status === 500 || status !== 200) {
       setError(`HTTP status code: ${status}`)
       setData([])
