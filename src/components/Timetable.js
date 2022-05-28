@@ -1,17 +1,21 @@
 /** @jsxImportSource theme-ui */
-import { useState, useRef, useEffect, lazy } from "react"
+import { useState, useRef, useEffect } from "react"
 import axios from "axios"
 import { getDuration } from "../components/helpers"
 import stops from "../data/stops"
-const Input = lazy(() => import("./Input"))
-const Select = lazy(() => import("./Select"))
-const Button = lazy(() => import("./Button"))
-const Filter = lazy(() => import("./Filter"))
-const StopBody = lazy(() => import("./StopBody"))
+import Input from "./Input"
+import Select from "./Select"
+import Button from "./Button"
+import Filter from "./Filter"
+import StopBody from "./StopBody"
+// const Input = lazy(() => import("./Input"))
+// const Select = lazy(() => import("./Select"))
+// const Button = lazy(() => import("./Button"))
+// const Filter = lazy(() => import("./Filter"))
+// const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
 export default function Timetable(props) {
-  const [allStops] = useState(stops)
   const [selection, setSelection] = useState(stops)
   const [stop, setStop] = useState({})
   const [data, setData] = useState([])
@@ -25,7 +29,7 @@ export default function Timetable(props) {
     const { id: initialId } = initialStop
     setStop(initialStop)
     getData(initialId)
-    const remainingStops = allStops.filter(
+    const remainingStops = stops.filter(
       (stop) => stop.name !== initialStop.name
     )
     const stopSelection = [initialStop, ...remainingStops]
@@ -96,7 +100,7 @@ export default function Timetable(props) {
     setViewData(data)
   }
   const filterStops = (filterValue) => {
-    const remainingStops = allStops.filter(
+    const remainingStops = stops.filter(
       (currStop) =>
         currStop.id !== stop.id &&
         currStop.name.toLowerCase().includes(filterValue.toLowerCase())
@@ -114,7 +118,7 @@ export default function Timetable(props) {
     setStop(currStop)
   }
   const getData = async (id) => {
-    const currentStopArray = allStops.filter((stop) => stop.id === id)
+    const currentStopArray = stops.filter((stop) => stop.id === id)
     const [currentStop] = currentStopArray
     const { type = "BBG" } = currentStop
     const duration = getDuration(type)

@@ -1,8 +1,11 @@
-import React, {lazy} from "react"
+import React from "react"
 import { getDuration } from "./helpers"
-const StopName = lazy(() => import("./StopName"))
-const Error = lazy(() => import("./Error"))
-const TableData = lazy(() => import("./TableData"))
+import StopName from "./StopName"
+import Error from "./Error"
+import TableData from "./TableData"
+// const StopName = lazy(() => import("./StopName"))
+// const Error = lazy(() => import("./Error"))
+// const TableData = lazy(() => import("./TableData"))
 
 export default function StopBody({ stop, data, error, mode = "dep" }) {
   const sortData = () => {
