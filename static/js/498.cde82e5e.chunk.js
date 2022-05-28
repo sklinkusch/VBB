@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkvbb=self.webpackChunkvbb||[]).push([[498],{2498:function(e,r,n){n.r(r),n.d(r,{default:function(){return u}});var t=n(9922);function u(e){return(0,t.tZ)("p",{className:"error",sx:{color:"red",fontWeight:"bold"},children:"Your request could not be handled by the server."})}}}]);
-//# sourceMappingURL=498.cde82e5e.chunk.js.map
