@@ -9,37 +9,39 @@ import TableData from "./TableData"
 
 export default function StopBody({ stop, data, error, mode = "dep" }) {
   const sortData = () => {
-    if (data !== null && data !== undefined && data.length > 0)
-      return data.sort((a, b) => {
-        if (a.stop.name.toLowerCase() < b.stop.name.toLowerCase()) {
+    if (data !== null && data !== undefined && data.length > 0) {
+      const tempArray = data.map((element, index) => {
+        const stopName = element.stop.name.toLowerCase()
+        const product = element.line.product
+        return { index, stop: stopName, product }
+      })
+      const sortedTempArray = tempArray.sort((a,b) => {
+        if(a.stopName < b.stopName) {
           return -1
-        } else if (b.stop.name.toLowerCase() < a.stop.name.toLowerCase()) {
+        } else if (b.stopName < a.stopName) {
           return +1
         } else {
           const sortingArray = [
-            "express",
-            "regional",
-            "suburban",
-            "subway",
-            "tram",
-            "bus",
-            "ferry",
+            'express',    // ICE, IC, EC
+            'regional',   // IRE, RE, RB
+            'suburban',   // S
+            'subway',     // U
+            'tram',       // Tram
+            'bus',        // Bus
+            'ferry'       // F
           ]
-          if (
-            sortingArray.indexOf(a.line.product) <
-            sortingArray.indexOf(b.line.product)
-          ) {
+          if (sortingArray.indexOf(a.product) < sortingArray.indexOf(b.product)) {
             return -1
-          } else if (
-            sortingArray.indexOf(b.line.product) <
-            sortingArray.indexOf(a.line.product)
-          ) {
+          } else if (sortingArray.indexOf(b.product) < sortingArray.indexOf(a.product)) {
             return +1
           } else {
             return 0
           }
         }
       })
+      const sortedDataArray = sortedTempArray.map(e => data[e.index])
+      return sortedDataArray
+    }
     return undefined
   }
   const splitArray = (myData) => {
