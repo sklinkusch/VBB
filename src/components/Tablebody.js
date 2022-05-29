@@ -3,7 +3,7 @@ const Departure = lazy(() => import("./Departure"));
 const Arrival = lazy(() => import("./Arrival"));
 
 export default function Tablebody(props) {
-  const { data, mode } = props;
+  const { data = [], mode } = props;
   return (
     <React.Fragment>
       {data !== undefined && data !== null && data.length > 0 && (
