@@ -4,6 +4,31 @@ import StopName from "./StopName"
 import Error from "./Error"
 import TableData from "./TableData"
 
+function getZooBusStops(stopName, lineName, direction) {
+  if(direction.includes("Hertzallee")) {
+    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 10]"
+  }
+  if(["X10", "109", "110", "N7X", "N10"].includes(lineName)) {
+    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 4]"
+  }
+  if(["M49", "X34"].includes(lineName) || (lineName === "N9" && direction.includes("Steglitz"))) {
+    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 5]"
+  }
+  if(["M45", "245"].includes(lineName)) {
+    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 6]"
+  }
+  if(["100", "200"].includes(lineName) || (lineName === "N2" && direction.includes("Pankow"))) {
+    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 7]"
+  }
+  if(["M46", "204", "N1"].includes(lineName)) {
+    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 8]"
+  }
+  if(["249", "N26"].includes(lineName)) {
+    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 9]"
+  }
+  return stopName
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -38,9 +63,21 @@ export default function StopBody({ data, error, stop }) {
   }
   const splitArray = async (data) => {
     if (data !== null && data !== undefined && data.length > 0) {
-      const stopsRaw = await data.map(e => e.stop.name)
-      const stopsContracted = await stopsRaw.filter((val, ind, arr) => arr.indexOf(val) === ind)
-      const resultArray = await data.reduce((acc, curr) => {
+      const dataModified = await data.map(e => {
+        const { stop, line, direction, ...rest } = e
+        const { name: stopName, id, ...restStop } = stop
+        const { product, name: lineName, ...restLine } = line
+        if (["900000023201"].includes(id) && product === "bus") {
+          const newStopName = getZooBusStops(stopName, lineName, direction)
+          const newStop = { name: newStopName, id, ...restStop}
+          const newLine = { product, lineName, ...restLine}
+          return { stop: newStop, line: newLine, direction, ...rest }
+        } 
+        return e
+      })
+      const stopsRaw = await dataModified.map(e => e.stop.name)
+      const stopsContracted = await stopsRaw.filter((val, ind, arr) => arr.indexOf(val) === ind).sort()
+      const resultArray = await dataModified.reduce((acc, curr) => {
         const arr = [ ...acc ]
         const index = stopsContracted.indexOf(curr.stop.name)
         if(Array.isArray(arr[index])) {
@@ -50,8 +87,8 @@ export default function StopBody({ data, error, stop }) {
         }
         return arr
       },[])
-      if(resultArray.length > 0) {
-        setNewData(await resultArray)
+      if(await resultArray.length > 0) {
+        await setNewData(await resultArray)
       }
     }
   }
