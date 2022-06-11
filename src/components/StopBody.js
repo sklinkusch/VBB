@@ -36,6 +36,22 @@ function getSteglitz(lineName, direction) {
   return null
 }
 
+function getSuedkreuz(lineName, direction) {
+  if(lineName === "M46") {
+    if(["S+U Zoologischer Garten", "U Wittenbergplatz"].includes(direction)) return 1
+    if(["U Alt-Tempelhof", "U Britz-Süd"].includes(direction)) return 3
+  }
+  if(lineName === "106") {
+    if(["U Seestr.", "U Bülowstr.", "U Kurfürstenstr."].includes(direction)) return 1
+    if(["Lindenhof"].includes(direction)) return 2
+  }
+  if(lineName === "204") return 1
+  if(lineName === "N42") {
+    if(["S+U Alexanderplatz"]) return 2
+  }
+  return null
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -83,6 +99,12 @@ export default function StopBody({ data, error, stop }) {
         if(["900000062282"].includes(id)) {
           const trackNo = getSteglitz(lineName, direction)
           return { ...e, platform: trackNo }
+        }
+        if(["900000058101"].includes(id) && product === "bus") {
+          const newStopName = "S Südkreuz [Hildegard-Knef-Platz]"
+          const trackNo = getSuedkreuz(lineName, direction)
+          const newStop = { name: newStopName, id, ...restStop }
+          return { ...e, stop: newStop, platform: trackNo }
         }
         return e
       })
