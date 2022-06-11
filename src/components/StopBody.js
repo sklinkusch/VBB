@@ -52,6 +52,13 @@ function getSuedkreuz(lineName, direction) {
   return null
 }
 
+function getPankow(lineName, direction) {
+  if(["M1", "50", "250", "255", "N50"].includes(lineName)) return "S+U Pankow [Berliner Str.]"
+  if(["M27"].includes(lineName)) return "S+U Pankow [Florastr.]"
+  if(["155"].includes(lineName) && direction === "Fontanestr.") return "S+U Pankow [Berliner Str.]"
+  return "S+U Pankow"
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -105,6 +112,11 @@ export default function StopBody({ data, error, stop }) {
           const trackNo = getSuedkreuz(lineName, direction)
           const newStop = { name: newStopName, id, ...restStop }
           return { ...e, stop: newStop, platform: trackNo }
+        }
+        if(["900000130002"].includes(id) && ["tram", "bus"].includes(product)) {
+          const newStopName = getPankow(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop }
         }
         return e
       })
