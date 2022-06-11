@@ -59,6 +59,12 @@ function getPankow(lineName, direction) {
   return "S+U Pankow"
 }
 
+function getWarschauer(lineName, direction) {
+  if(["M10", "347", "N1"].includes(lineName)) return "S+U Warschauer Str. [Warschauer Str.]"
+  if(["300"].includes(lineName)) return "S+U Warschauer Str. [Tamara-Danz-Str.]"
+  return "S+U Warschauer Str."
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -115,6 +121,11 @@ export default function StopBody({ data, error, stop }) {
         }
         if(["900000130002"].includes(id) && ["tram", "bus"].includes(product)) {
           const newStopName = getPankow(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop }
+        }
+        if(["900000120004"].includes(id) && ["tram", "bus"].includes(product)) {
+          const newStopName = getWarschauer(lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop }
         }
