@@ -69,8 +69,8 @@ const stopsBerlin = sortItems(stopsBerlinUnsorted);
 const stopsUnfiltered = [...stopsBerlin]
 const stopsObject = stopsUnfiltered.reduce((acc, curr) => {
   const obj = { ...acc }
-  const { id, name } = curr
-  if(obj.hasOwnProperty(name) === false) obj[name] = { id, name }
+  const { id, name, type } = curr
+  if(obj.hasOwnProperty(name) === false) obj[name] = { id, name, type }
   return obj
 }, {})
 const stops = Object.values(stopsObject).sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase(),"de",{ sensitivity: "base"}))
