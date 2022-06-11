@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/VBB/static/css/main.2e26aee6.css",
-    "main.js": "/VBB/static/js/main.3ae2f5f5.js",
+    "main.js": "/VBB/static/js/main.e606cc84.js",
     "static/js/742.2522ea44.chunk.js": "/VBB/static/js/742.2522ea44.chunk.js",
     "static/js/875.24c91b69.chunk.js": "/VBB/static/js/875.24c91b69.chunk.js",
     "static/js/787.43a9d60c.chunk.js": "/VBB/static/js/787.43a9d60c.chunk.js",
@@ -28,7 +28,7 @@
     "static/media/subway.svg": "/VBB/static/media/subway.e00cb078c48eaddfde2a412432846c32.svg",
     "static/media/metro-tram.svg": "/VBB/static/media/metro-tram.4777a6b064a33b4a3ea8b5002429f52e.svg",
     "main.2e26aee6.css.map": "/VBB/static/css/main.2e26aee6.css.map",
-    "main.3ae2f5f5.js.map": "/VBB/static/js/main.3ae2f5f5.js.map",
+    "main.e606cc84.js.map": "/VBB/static/js/main.e606cc84.js.map",
     "742.2522ea44.chunk.js.map": "/VBB/static/js/742.2522ea44.chunk.js.map",
     "875.24c91b69.chunk.js.map": "/VBB/static/js/875.24c91b69.chunk.js.map",
     "787.43a9d60c.chunk.js.map": "/VBB/static/js/787.43a9d60c.chunk.js.map",
@@ -43,6 +43,6 @@
   },
   "entrypoints": [
     "static/css/main.2e26aee6.css",
-    "static/js/main.3ae2f5f5.js"
+    "static/js/main.e606cc84.js"
   ]
 }
