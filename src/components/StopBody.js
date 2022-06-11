@@ -65,6 +65,12 @@ function getWarschauer(lineName, direction) {
   return "S+U Warschauer Str."
 }
 
+function getHbf(lineName, direction) {
+  if(["M5", "M8", "M10", "120", "142", "147", "245", "N5", "N20", "N40"].includes(lineName)) return "S+U Berlin Hauptbahnhof [Invalidenstr.]"
+  if(["M41", "M85", "123"].includes(lineName)) return "S+U Berlin Hauptbahnhof [Minna-Cauer-Str.]"
+  return "S+U Berlin Hauptbahnhof" 
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -126,6 +132,11 @@ export default function StopBody({ data, error, stop }) {
         }
         if(["900000120004"].includes(id) && ["tram", "bus"].includes(product)) {
           const newStopName = getWarschauer(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop }
+        }
+        if(["900000003201"].includes(id) && ["tram", "bus"].includes(product)) {
+          const newStopName = getHbf(lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop }
         }
