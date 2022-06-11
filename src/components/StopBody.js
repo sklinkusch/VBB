@@ -29,6 +29,13 @@ function getZooBusStops(stopName, lineName, direction) {
   return stopName
 }
 
+function getSteglitz(lineName, direction) {
+  if(["285", "N88"].includes(lineName)) return 6
+  if(["170", "283"].includes(lineName)) return 7
+  if(["188"].includes(lineName)) return 8
+  return null
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -73,6 +80,10 @@ export default function StopBody({ data, error, stop }) {
           const newLine = { product, lineName, ...restLine}
           return { stop: newStop, line: newLine, direction, ...rest }
         } 
+        if(["900000062282"].includes(id)) {
+          const trackNo = getSteglitz(lineName, direction)
+          return { ...e, platform: trackNo }
+        }
         return e
       })
       const stopsRaw = await dataModified.map(e => e.stop.name)
