@@ -4,29 +4,60 @@ import StopName from "./StopName"
 import Error from "./Error"
 import TableData from "./TableData"
 
-function getZooBusStops(stopName, lineName, direction) {
-  if(direction.includes("Hertzallee")) {
-    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 10]"
+function getZooBusStops(id, lineName, direction) {
+  switch(id) {
+    case "900000023201":
+      if(direction.includes("Hertzallee")) {
+        return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10]
+      }
+      switch(lineName) {
+        case "X10":
+        case "109":
+        case "110":
+        case "N7X":
+        case "N10":
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4]
+        case "M49":
+        case "X34":
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+        case "N9":
+          if(direction.includes("Steglitz")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+        case "M45":
+        case "245":
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6]
+        case "100":
+        case "200":
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+        case "N2":
+          if(direction.includes("Pankow")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+          if(direction.includes("Alexanderplatz")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+        case "M46":
+        case "204":
+        case "N1":
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8]
+        case "249":
+        case "N26":
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9]
+        default:
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+      }
+    case "900000023172":
+      switch(lineName) {
+        case "M45":
+        case "245":
+          return ["S+U Zoologischer Garten/Jebensstr.", 2]
+        case "N2":
+        case "N9":
+          return ["S+U Zoologischer Garten/Jebensstr.", 3]
+        default:
+          return ["S+U Zoologischer Garten/Jebensstr.", null]
+      }
+    case "900000023173":
+      return ["Jebensstr.", 1]
+    default: return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
   }
-  if(["X10", "109", "110", "N7X", "N10"].includes(lineName)) {
-    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 4]"
-  }
-  if(["M49", "X34"].includes(lineName) || (lineName === "N9" && direction.includes("Steglitz"))) {
-    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 5]"
-  }
-  if(["M45", "245"].includes(lineName)) {
-    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 6]"
-  }
-  if(["100", "200"].includes(lineName) || (lineName === "N2" && direction.includes("Pankow"))) {
-    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 7]"
-  }
-  if(["M46", "204", "N1"].includes(lineName)) {
-    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 8]"
-  }
-  if(["249", "N26"].includes(lineName)) {
-    return "S+U Zoologischer Garten [Hardenbergplatz Busstg. 9]"
-  }
-  return stopName
 }
 
 function getSteglitz(lineName, direction) {
@@ -209,14 +240,13 @@ export default function StopBody({ data, error, stop }) {
   const splitArray = async (data) => {
     if (data !== null && data !== undefined && data.length > 0) {
       const dataModified = await data.map(e => {
-        const { stop, line, direction, ...rest } = e
-        const { name: stopName, id, ...restStop } = stop
-        const { product, name: lineName, ...restLine } = line
-        if (["900000023201"].includes(id) && product === "bus") {
-          const newStopName = getZooBusStops(stopName, lineName, direction)
-          const newStop = { name: newStopName, id, ...restStop}
-          const newLine = { product, lineName, ...restLine}
-          return { stop: newStop, line: newLine, direction, ...rest }
+        const { stop, line, direction } = e
+        const { id } = stop
+        const { product, name: lineName } = line
+        if (["900000023201", "900000023172", "900000023173"].includes(id) && product === "bus") {
+          const [newStopName, trackNo] = getZooBusStops(id, lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
         } 
         if(["900000062282"].includes(id)) {
           const trackNo = getSteglitz(lineName, direction)
@@ -225,7 +255,7 @@ export default function StopBody({ data, error, stop }) {
         if(["900000058101"].includes(id) && product === "bus") {
           const newStopName = "S Südkreuz [Hildegard-Knef-Platz]"
           const trackNo = getSuedkreuz(lineName, direction)
-          const newStop = { name: newStopName, id, ...restStop }
+          const newStop = { ...e, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000130002"].includes(id) && ["tram", "bus"].includes(product)) {
