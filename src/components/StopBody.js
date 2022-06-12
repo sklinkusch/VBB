@@ -97,9 +97,39 @@ function getWarschauer(lineName, direction) {
 }
 
 function getHbf(lineName, direction) {
-  if(["M5", "M8", "M10", "120", "142", "147", "245", "N5", "N20", "N40"].includes(lineName)) return "S+U Berlin Hauptbahnhof [Invalidenstr.]"
-  if(["M41", "M85", "123"].includes(lineName)) return "S+U Berlin Hauptbahnhof [Minna-Cauer-Str.]"
-  return "S+U Berlin Hauptbahnhof" 
+  switch(lineName) {
+    case "M5":
+    case "M8":
+    case "M10":
+      if(direction.includes("Lüneburger Str")) return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 4]
+      return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 5]
+    case "120":
+      if(direction.includes("Seydlitzstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+    case "142":
+    case "147":
+      if(direction.includes("Ostbahnhof")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      if(direction.includes("Märkisches Museum")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+    case "245":
+      if(direction.includes("Zoo")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+    case "N5":
+    case "N20":
+      if(direction.includes("Riesaer Str")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      if(direction.includes("Wuhletal")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      if(direction.includes("Hainbuchenstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+    case "N40":
+      if(direction.includes("Turmstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+    case "M41":
+    case "M85":
+    case "123":
+      return ["S+U Berlin Hauptbahnhof [Bus Minna-Cauer-Str.]", 2]
+    default:
+      return ["S+U Berlin Hauptbahnhof", null]
+  }
 }
 
 function getSpandau(id, lineName, direction) {
@@ -269,9 +299,9 @@ export default function StopBody({ data, error, stop }) {
           return { ...e, stop: newStop }
         }
         if(["900000003201"].includes(id) && ["tram", "bus"].includes(product)) {
-          const newStopName = getHbf(lineName, direction)
+          const [newStopName, trackNo] = getHbf(lineName, direction)
           const newStop = { ...stop, name: newStopName }
-          return { ...e, stop: newStop }
+          return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000029302", "900000029371"].includes(id) && product === "bus") {
           const [newStopName, trackNo] = getSpandau(id, lineName, direction)
