@@ -48,6 +48,8 @@ function getZooBusStops(id, lineName, direction) {
         case "M45":
         case "245":
           return ["S+U Zoologischer Garten/Jebensstr.", 2]
+        case "100":
+        case "200":
         case "N2":
         case "N9":
           return ["S+U Zoologischer Garten/Jebensstr.", 3]
@@ -318,6 +320,38 @@ function getJungfernheide(id,lineName, direction) {
   }
 }
 
+function getAdlershof(lineName, direction) {
+  switch(lineName) {
+    case "M17":
+      return ["S Adlershof [Tram Wendeschleife]", 5]
+    case "61":
+      if(direction.includes("Schöneweide")) return ["S Adlershof [Tram]", 2]
+      return ["S Adlershof [Tram]", 3]
+    case "63":
+      if(direction.includes("Johannisthal")) return ["S Adlershof [Tram]", 2]
+      return ["S Adlershof [Tram]",3]
+    case "162":
+      if(direction.includes("Rudow")) return ["S Adlershof [Bus]", 1]
+      return ["S Adlershof [Bus Rudower Chaussee]", 7]
+    case "163":
+      if(direction.includes("Schöneweide")) return ["S Adlershof [Bus]", 1]
+      return ["S Adlershof [Bus Rudower Chaussee]", 7]
+    case "164":
+      if(direction.includes("Köpenick")) return ["S Adlershof [Bus Rudower Chaussee]", 7]
+      return ["S Adlershof [Bus]", 1]
+    case "260":
+      return ["S Adlershof [Bus]", 1]
+    case "N60":
+      if(direction.includes("Flughafen")) return ["S Adlershof [Bus]", 1]
+      return ["S Adlershof [Bus]", 4]
+    case "N64":
+    case "N68":
+      return ["S Adlershof [Bus]", 4]
+    default:
+      return ["S Adlershof", null]
+  }
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -398,6 +432,11 @@ export default function StopBody({ data, error, stop }) {
         }
         if(["900000020201", "900000020207"].includes(id) && product === "bus") {
           const [newStopName, trackNo] = getJungfernheide(id,lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
+        }
+        if(["900000193002"].includes(id) && ["tram", "bus"].includes(product)) {
+          const [newStopName, trackNo] = getAdlershof(lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
