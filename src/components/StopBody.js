@@ -352,6 +352,26 @@ function getAdlershof(lineName, direction) {
   }
 }
 
+function getGruenau(lineName, direction) {
+  switch(lineName) {
+    case "68":
+      if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 9]
+      return ["S Grünau [Adlergestell]", 8]
+    case "163":
+    case "263":
+    case "363":
+      return ["S Grünau [Richterstr.]", 1]
+    case "N62":
+      if(direction.includes("Wendenschloß")) return ["S Grünau [Richterstr.]", 1]
+      return ["S Grünau [Richterstr.]", 5]
+    case "N68":
+      if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 11]
+      return ["S Grünau [Adlergestell]", 10]
+    default:
+      return ["S Grünau", null]
+  }
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -437,6 +457,11 @@ export default function StopBody({ data, error, stop }) {
         }
         if(["900000193002"].includes(id) && ["tram", "bus"].includes(product)) {
           const [newStopName, trackNo] = getAdlershof(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
+        }
+        if(["900000186001", "900000186701", "900000186704"].includes(id) && ["tram", "bus"].includes(product)) {
+          const [newStopName, trackNo] = getGruenau(lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
