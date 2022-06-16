@@ -415,6 +415,27 @@ function getFriedrichsfeldeOst(lineName, direction) {
   }
 }
 
+function getLichtenberg(lineName, direction) {
+  switch(lineName) {
+    case "21":
+    case "37":
+      return ["S+U Lichtenberg/Siegfriedstr.", 2]
+    case "240":
+      if(direction.includes("Ostbahnhof")) return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
+      return ["S+U Lichtenberg [Bus Weitlingstr.]", 11]
+    case "256":
+      if(direction.includes("Zentralfriedhof")) return ["S+U Lichtenberg/Siegfriedstr.", 1]
+      return ["S+U Lichtenberg/Siegfriedstr.", 2]
+    case "108":
+    case "296":
+      return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
+    case "N50":
+      return ["S+U Lichtenberg [Bus Einbecker Str.]", 12]
+    default:
+      return ["S+U Lichtenberg", null]
+  }
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -515,6 +536,11 @@ export default function StopBody({ data, error, stop }) {
         }
         if(["900000171002"].includes(id) && ["tram", "bus"].includes(product)) {
           const [newStopName, trackNo] = getFriedrichsfeldeOst(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
+        }
+        if(["900000160004", "900000160702", "900000160701", "900000160020", "900000160704"].includes(id) && ["tram", "bus"].includes(product)) {
+          const [newStopName, trackNo] = getLichtenberg(lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
