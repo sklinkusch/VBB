@@ -395,6 +395,26 @@ function getMahlsdorf(id, lineName, direction) {
   }
 }
 
+function getFriedrichsfeldeOst(lineName, direction) {
+  switch(lineName) {
+    case "M17":
+    case "27":
+    case "37":
+      if(direction.includes("Falkenberg")) return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
+      if(direction.includes("Gehrenseestr")) return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
+      if(direction.includes("Pasedagplatz")) return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
+      if(direction.includes("Lichtenberg")) return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
+      return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 1]
+    case "192":
+      return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 3]
+    case "194":
+      if(direction.includes("Helene-Weigel-Platz")) return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 5]
+      return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 4]
+    default:
+      return ["S Friedrichsfelde Ost", null]
+  }
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -492,6 +512,11 @@ export default function StopBody({ data, error, stop }) {
           const [newStopName, trackNo] = getMahlsdorf(id, lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo}
+        }
+        if(["900000171002"].includes(id) && ["tram", "bus"].includes(product)) {
+          const [newStopName, trackNo] = getFriedrichsfeldeOst(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
         }
         return e
       })
