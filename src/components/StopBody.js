@@ -465,6 +465,18 @@ function getMarzahn(product, lineName, direction) {
   }
 }
 
+function getGrunewald(lineName, direction) {
+  switch(lineName) {
+    case "M19":
+    case "186":
+      return "S Grunewald [Karmielplatz]"
+    case "349":
+      return "S Grunewald [Schmetterlingsplatz]"
+    default: 
+      return "S Grunewald"
+  }
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -577,6 +589,11 @@ export default function StopBody({ data, error, stop }) {
           const [newStopName, trackNo] = getMarzahn(product, lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
+        }
+        if(["900000048101"].includes(id) && ["bus"].includes(product)) {
+          const newStopName = getGrunewald(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop }
         }
         return e
       })
