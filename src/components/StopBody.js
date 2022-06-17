@@ -436,6 +436,35 @@ function getLichtenberg(lineName, direction) {
   }
 }
 
+function getMarzahn(product, lineName, direction) {
+  console.log(product, lineName, direction)
+  switch(lineName) {
+    case "M6":
+    case "16":
+      if(direction.includes("Riesaer Str")) return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
+      if(direction.includes("Betriebshof Marzahn")) return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
+      if(direction.includes("Ahrensfelde")) return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
+      return ["S Marzahn [Tram Bus Marzahner Promenade]", 6]
+    case "X54":
+      if(direction.includes("Hellersdorf")) return ["S Marzahn [Tram Bus Marzahner Promenade]", 5]
+      return ["S Marzahn [Tram Bus Marzahner Promenade]", 4]
+    case "191":
+    case "192":
+    case "195":
+      return ["S Marzahn [Bushafen]", 2]
+    case "291":
+      return ["S Marzahn [Bushafen]", 3]
+    default:
+      if(product === "tram") {
+        if (direction.includes("Riesaer Str")) return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
+        if(direction.includes("Betriebshof Marzahn")) return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
+        if(direction.includes("Ahrensfelde")) return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
+        return ["S Marzahn [Tram Bus Marzahner Promenade]", 6]
+      }
+      return ["S Marzahn", null]
+  }
+}
+
 export default function StopBody({ data, error, stop }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
@@ -541,6 +570,11 @@ export default function StopBody({ data, error, stop }) {
         }
         if(["900000160004", "900000160702", "900000160701", "900000160020", "900000160704"].includes(id) && ["tram", "bus"].includes(product)) {
           const [newStopName, trackNo] = getLichtenberg(lineName, direction)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
+        }
+        if(["900000170001", "900000170702", "900000170701"].includes(id) && ["tram", "bus"].includes(product)) {
+          const [newStopName, trackNo] = getMarzahn(product, lineName, direction)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
