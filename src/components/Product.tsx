@@ -12,9 +12,7 @@ import specialbus from "../images/special-bus.svg";
 import nightbus from "../images/night-bus.svg";
 import ferry from "../images/ferry.svg";
 
-const Product = props => {
-  const { line } = props;
-  const { express, metro, name, night, product } = line;
+const Product = ({line: { express, metro, name, night, product }}: { line: { express: boolean, metro: boolean, name: string, night: boolean, product: string }}) => {
   switch (product) {
     case "express":
       return (
