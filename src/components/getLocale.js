@@ -1,6 +1,6 @@
-const locales: any = require("./locales.json")
+import locales from "./locales.json"
 
-const getLocale = (element: string) => {
+const getLocale = (element) => {
   if(navigator.language.startsWith("de")) {
     return locales.de[element]
   }

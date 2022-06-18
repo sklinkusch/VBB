@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import getLocale from "./getLocale";
 
-export default function Tablehead({mode}: { mode: string }) {
+export default function Tablehead({mode}) {
   return (
     <div className="row thead" sx={{ fontWeight: "bold", display: ["none","grid"], width: "100%", gridTemplateColumns: "repeat(24,1fr)"}}>
       <div className="plantime thead" sx={{ fontWeight: "bold", display: ["none", "block"], textAlign: "center", gridColumn: "1 / span 2" }}>{getLocale("scheduled")}</div>

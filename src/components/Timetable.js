@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { useState, useRef, useEffect } from "react"
 import axios from "axios"
-import { getDuration } from "./helpers"
+import { getDuration } from "../components/helpers"
 import stops from "../data/stops"
 import Input from "./Input"
 import Select from "./Select"
@@ -15,9 +15,9 @@ import StopBody from "./StopBody"
 // const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
-export default function Timetable() {
+export default function Timetable(props) {
   const [selection, setSelection] = useState(stops)
-  const [stop, setStop] = useState({ id: "", name: "", type: "" })
+  const [stop, setStop] = useState({})
   const [data, setData] = useState([])
   const [viewData, setViewData] = useState([])
   const [error, setError] = useState(null)
@@ -38,7 +38,7 @@ export default function Timetable() {
   const inputField = useRef(null)
   const filterField = useRef(null)
   const filterSelector = useRef(null)
-  const filterData = (event: any) => {
+  const filterData = (event) => {
     const { current: fieldCurrent } = filterField
     const { value: fieldValue } = fieldCurrent
     const filterValues = fieldValue.split(" ")
@@ -101,7 +101,7 @@ export default function Timetable() {
   }
   const filterStops = (filterValue) => {
     const remainingStops = stops.filter(
-      (currStop: { id: string, name: string }) =>
+      (currStop) =>
         currStop.id !== stop.id &&
         currStop.name.toLowerCase().includes(filterValue.toLowerCase())
     )
@@ -160,9 +160,8 @@ export default function Timetable() {
         filterField={filterField}
         filterSelector={filterSelector}
         filterData={filterData}
-        mode="dep"
       />
-      <StopBody stop={stop} data={viewData} error={error} mode="dep" />
+      <StopBody stop={stop} data={viewData} error={error} />
     </div>
   )
 }

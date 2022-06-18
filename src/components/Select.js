@@ -1,18 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Fragment } from "react"
 
-interface Selection {
-  id: string
-  name: string
-}
-
-interface Props {
-  selection: Selection[]
-  stop: Selection
-  handleChange: any
-}
-
-export default function Select(props: Props) {
+export default function Select(props) {
   const { handleChange, selection, stop } = props
   return (
     <Fragment>
