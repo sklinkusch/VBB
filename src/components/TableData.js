@@ -6,7 +6,8 @@ import Tablebody from './Tablebody';
 // const Tablehead = lazy(() => import('./Tablehead'));
 // const Tablebody = lazy(() => import('./Tablebody'));
 
-export default function TableData({ stop, data, mode }: { stop: any, mode: string, data: any }) {
+export default function TableData(props) {
+  const { stop, data, mode } = props;
   return (
     <div>
       <StopName stop={stop} element="h3" />

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, lazy } from "react"
 import axios from "axios"
-import { getDuration } from "./helpers"
+import { getDuration } from "../components/helpers"
 import stops from "../data/stops"
 const Input = lazy(() => import("./Input"))
 const Select = lazy(() => import("./Select"))
@@ -9,10 +9,10 @@ const Filter = lazy(() => import("./Filter"))
 const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
-export default function Timetable() {
+export default function Timetable(props) {
   const [allStops] = useState(stops)
   const [selection, setSelection] = useState(stops)
-  const [stop, setStop] = useState({ id: "", name: "", type: "" })
+  const [stop, setStop] = useState({})
   const [data, setData] = useState([])
   const [viewData, setViewData] = useState([])
   const [error, setError] = useState(null)
@@ -33,7 +33,7 @@ export default function Timetable() {
   const inputField = useRef(null)
   const filterField = useRef(null)
   const filterSelector = useRef(null)
-  const filterData = () => {
+  const filterData = (event) => {
     const { current: fieldCurrent } = filterField
     const { value: fieldValue } = fieldCurrent
     const filterValues = fieldValue.split(" ")

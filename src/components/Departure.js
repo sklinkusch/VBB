@@ -9,38 +9,8 @@ const Status = lazy(() => import("./Status"));
 const Warntext = lazy(() => import("./Warntext"));
 const Stattext = lazy(() => import("./Stattext"));
 
-interface Remark {
-  code: string
-  type: string
-  validFrom: string
-  validUntil: string
-  summary: string
-  text: string
-}
-
-interface Props {
-  dep: {
-    when: string | null
-    delay: number | null
-    cancelled: boolean
-    formerScheduledWhen: string | null 
-    scheduledWhen: string | null
-    tripId: string
-    line: {
-      name: string
-      express: boolean
-      metro: boolean
-      night: boolean
-      product: string
-    }
-    direction: string
-    remarks: Remark[]
-    platform: number
-  }
-}
-
-const Departure = (props: Props) => {
-  const getDelay = (delay: number | null, cancelled: boolean) => {
+const Departure = props => {
+  const getDelay = (delay, cancelled) => {
     if (delay != null) {
       return Math.floor(delay / 60);
     } else if (cancelled) {
@@ -49,33 +19,31 @@ const Departure = (props: Props) => {
       return "?";
     }
   };
-  const getPlanTime = (realtime: string, delay: string | number) => {
-    let hours = Number(realtime.substring(0, 2));
-    let minutes = Number(realtime.substring(3, 5));
-    if(typeof delay === "number") {
-      minutes -= delay;
-      if (minutes < 0) {
-        minutes += 60;
-        hours -= 1;
-      }
-      if (minutes > 59) {
-        minutes -= 60;
-        hours += 1;
-      }
-      if (hours < 0) {
-        hours += 24;
-      }
-      if (hours > 23) {
-        hours -= 24;
-      }
+  const getPlanTime = (realtime, delay) => {
+    let hours = Number(realtime.substr(0, 2));
+    let minutes = Number(realtime.substr(3, 2));
+    minutes -= delay;
+    if (minutes < 0) {
+      minutes += 60;
+      hours -= 1;
+    }
+    if (minutes > 59) {
+      minutes -= 60;
+      hours += 1;
+    }
+    if (hours < 0) {
+      hours += 24;
+    }
+    if (hours > 23) {
+      hours -= 24;
     }
     let hourString = hours < 10 ? `0${hours}` : `${hours}`;
     let minuteString = minutes < 10 ? `0${minutes}` : `${minutes}`;
     return `${hourString}:${minuteString}`;
   };
-  const getTime = (timestamp: string | null) => {
+  const getTime = timestamp => {
     if (timestamp != null) {
-      return timestamp.substring(11, 16);
+      return timestamp.substr(11, 5);
     } else {
       return "";
     }

@@ -1,33 +1,22 @@
 /** @jsxImportSource theme-ui */
 
-interface Remark {
-  code: string
-  type: string
-  validFrom: string
-  validUntil: string
-  summary: string
-  text: string
-}
-
-interface Props {
-  remarks: Remark[]
-}
-
-const Warning = (props: Props) => {
-  const formatTime = (timestamp: string )  => {
+const Warning = ({ remarks }) => {
+  const styles = { textAlign: "center", gridColumn: ["13 / span 6", "23 / span 1"]}
+  const formatTime = (timestamp) => {
     if (timestamp !== null && timestamp !== undefined) {
-      const dateArray = timestamp.substring(0, 10).split("-")
+      const dateArray = timestamp.substr(0, 10).split("-")
       const [year, month, day] = dateArray
-      const time = timestamp.substring(11, 16)
+      const time = timestamp.substr(11, 5)
       return `${day}.${month}.${year}, ${time}`
     }
+    return null
   }
-  const formatText = (text: string) => {
+  const formatText = (text) => {
     const textWithoutLinks = replaceLinks(text)
     const formattedText = includeSpecialChars(textWithoutLinks)
     return formattedText
   }
-  const replaceLinks = (item: string) => {
+  const replaceLinks = (item) => {
     if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
       if (
         /<a.*href=".*" target="_blank" rel="noopener noreferrer[ ]*">.*<\/a>/.test(
@@ -51,15 +40,15 @@ const Warning = (props: Props) => {
     }
     return item
   }
-  const includeSpecialChars = (text: string) => {
+  const includeSpecialChars = (text) => {
     let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
     let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
     textForm = textForm.replace(/&gt;/g, ">")
     return textForm
   }
-  const warnings = props.remarks.filter((remark) => remark.type === "warning")
+  const warnings = remarks.filter((remark) => remark.type === "warning")
   const formattedWarnings = warnings
-    .map((warning: Remark) => {
+    .map((warning) => {
       const from = formatTime(warning.validFrom)
       const until = formatTime(warning.validUntil)
       const summary = formatText(warning.summary)
@@ -70,7 +59,7 @@ const Warning = (props: Props) => {
     })
     .join("\n")
   return (
-    <div className="warning" sx={{ textAlign: "center", gridColumn: ["13 / span 6", "23 / span 1"]}}>
+    <div className="warning" sx={{ ...styles }}>
       {warnings.length > 0 ? (
         <span
           className="fas fa-exclamation-triangle"

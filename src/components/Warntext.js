@@ -1,34 +1,21 @@
 /** @jsxImportSource theme-ui */
 import getLocale from "./getLocale"
 
-interface Remark {
-  code: string
-  type: string
-  validFrom: string
-  validUntil: string
-  summary: string
-  text: string
-}
-
-interface Props {
-  remarks: Remark[]
-}
-
-const Warntext = (props: Props) => {
-  const formatTime = (timestamp: string | null | undefined) => {
+const Warntext = (props) => {
+  const formatTime = (timestamp) => {
     if (timestamp !== null && timestamp !== undefined) {
-      const dateArray = timestamp.substring(0, 10).split("-")
+      const dateArray = timestamp.substr(0, 10).split("-")
       const [year, month, day] = dateArray
-      const time = timestamp.substring(11, 16)
+      const time = timestamp.substr(11, 5)
       return `${day}.${month}.${year}, ${time}`
     }
     return null
   }
-  const formatText = (text: string) => {
+  const formatText = (text) => {
     const formattedText = includeSpecialChars(text)
     return formattedText
   }
-  const includeSpecialChars = (text: string) => {
+  const includeSpecialChars = (text) => {
     let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
     let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
     textForm = textForm.replace(/&gt;/g, ">")
