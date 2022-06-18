@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkvbb=self.webpackChunkvbb||[]).push([[577],{5577:function(e,r,a){a.r(r);var n=a(1413),t=a(2791),s=a(9922);r.default=function(e){var r=e.remarks.filter((function(e){return"bf"===e.code})),a={textAlign:"center",gridColumn:["1 / span 6","21 / span 1"]};return(0,s.tZ)(t.Fragment,{children:r.length>0?(0,s.tZ)("div",{className:"barrier",sx:(0,n.Z)({},a),children:(0,s.tZ)("span",{className:"fas fa-wheelchair",title:"barrier-free"})}):(0,s.tZ)("div",{className:"barrier",sx:(0,n.Z)({},a)})})}}}]);
-//# sourceMappingURL=577.ba782db6.chunk.js.map
