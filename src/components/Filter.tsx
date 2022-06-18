@@ -1,7 +1,15 @@
 /** @jsxImportSource theme-ui */
+import { LegacyRef } from "react"
 import getLocale from "./getLocale"
 
-export default function Filter(props) {
+interface Props {
+  filterField: LegacyRef<HTMLInputElement>
+  filterSelector: LegacyRef<HTMLSelectElement>
+  mode: string
+  filterData: any
+}
+
+export default function Filter(props: Props) {
   const { filterField, filterSelector, filterData, mode = "dep" } = props
   return (
     <div>

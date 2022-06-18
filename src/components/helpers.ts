@@ -1,4 +1,4 @@
-export function getDuration(type) {
+export function getDuration(type: string) {
   switch (type) {
     case "BLN":
       return getBlnDuration();
@@ -80,13 +80,13 @@ function getBhfDuration() {
   return duration;
 }
 
-const isSunday = weekday => {
+const isSunday = (weekday: number) => {
   if (weekday === 0) {
     return true;
   }
   return false;
 };
-const isHoliday = (day, month, year) => {
+const isHoliday = (day: number, month: number, year: number) => {
   if (day === 1 && month === 1) {
     return true;
   }
@@ -114,13 +114,13 @@ const isHoliday = (day, month, year) => {
   }
   return false;
 };
-function isSaturday(weekday) {
+function isSaturday(weekday: number) {
   if (weekday === 6) {
     return true;
   }
   return false;
 }
-const gauss = number => {
+const gauss = (number: number) => {
   if (number > 0) {
     return Number(number.toFixed(0));
   } else if (number < 0) {
@@ -130,7 +130,7 @@ const gauss = number => {
   }
 };
 
-export function leap(year) {
+export function leap(year: number) {
   if (year % 400 === 0) {
     return true;
   } else if (year % 100 === 0) {
@@ -142,7 +142,7 @@ export function leap(year) {
   }
 }
 
-const easterDate = year => {
+const easterDate = (year: number) => {
   // Gaussian calculus
   // some constants
   const g = year % 19;
@@ -157,7 +157,7 @@ const easterDate = year => {
   const i = h - f * (1 - k * m);
   const j = (year + n + i + 2 - c + a) % 7;
   const l = i - j;
-  const easterSundayMonth = l <= 3 ? 2 : 3;
+  const easterSundayMonth = l <= 3 ? 3 : 4;
   const easterSundayDay = l <= 3 ? l + 28 : l - 3;
   const goodFridayDate =
     easterSundayDay < 3 && easterSundayMonth === 4
@@ -204,9 +204,9 @@ function getDate() {
   const day = dateArray[0];
   const month = Number(dateArray[1]);
   const year = dateArray[2];
-  const nowDateLocal = new Date(year, month - 1, day);
+  const nowDateLocal = new Date(Number(year), month - 1, Number(day));
   const weekday = nowDateLocal.getDay();
-  const isItHoliday = isSunday(weekday) || isHoliday(day, month, year);
+  const isItHoliday = isSunday(weekday) || isHoliday(Number(day), month, Number(year));
   const isItSaturday = isSaturday(weekday);
   return { isItHoliday, isItSaturday, hour };
 }

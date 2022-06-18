@@ -1,8 +1,14 @@
 /** @jsxImportSource theme-ui */
-import { Fragment } from "react"
+import { Fragment, LegacyRef } from "react"
 import getLocale from "./getLocale"
 
-export default function Input({ filterStops, inputField }) {
+interface Props {
+  filterStops: any
+  inputField: LegacyRef<HTMLInputElement>
+}
+
+export default function Input(props: Props) {
+  const { filterStops, inputField } = props
   return (
     <Fragment>
       <input

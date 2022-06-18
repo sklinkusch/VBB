@@ -4,7 +4,7 @@ import StopName from "./StopName"
 import Error from "./Error"
 import TableData from "./TableData"
 
-function getZooBusStops(id, lineName, direction) {
+function getZooBusStops(id: string, lineName: string, direction: string) {
   switch(id) {
     case "900000023201":
       if(direction.includes("Hertzallee")) {
@@ -62,14 +62,14 @@ function getZooBusStops(id, lineName, direction) {
   }
 }
 
-function getSteglitz(lineName, direction) {
+function getSteglitz(lineName: string) {
   if(["285", "N88"].includes(lineName)) return 6
   if(["170", "283"].includes(lineName)) return 7
   if(["188"].includes(lineName)) return 8
   return null
 }
 
-function getSuedkreuz(lineName, direction) {
+function getSuedkreuz(lineName: string, direction: string) {
   if(lineName === "M46") {
     if(["S+U Zoologischer Garten", "U Wittenbergplatz"].includes(direction)) return 1
     if(["U Alt-Tempelhof", "U Britz-Süd"].includes(direction)) return 3
@@ -85,20 +85,20 @@ function getSuedkreuz(lineName, direction) {
   return null
 }
 
-function getPankow(lineName, direction) {
+function getPankow(lineName: string, direction: string) {
   if(["M1", "50", "250", "255", "N50"].includes(lineName)) return "S+U Pankow [Berliner Str.]"
   if(["M27"].includes(lineName)) return "S+U Pankow [Florastr.]"
   if(["155"].includes(lineName) && direction === "Fontanestr.") return "S+U Pankow [Berliner Str.]"
   return "S+U Pankow"
 }
 
-function getWarschauer(lineName, direction) {
+function getWarschauer(lineName: string) {
   if(["M10", "347", "N1"].includes(lineName)) return "S+U Warschauer Str. [Warschauer Str.]"
   if(["300"].includes(lineName)) return "S+U Warschauer Str. [Tamara-Danz-Str.]"
   return "S+U Warschauer Str."
 }
 
-function getAlex(id, lineName, direction) {
+function getAlex(id: string, lineName: string, direction: string) {
   switch(id) {
     case "900000100712":
       return ["S+U Alexanderplatz/Grunerstr. [Alexanderstr.]", 18]
@@ -149,7 +149,7 @@ function getAlex(id, lineName, direction) {
   }
 }
 
-function getHbf(lineName, direction) {
+function getHbf(lineName: string, direction: string) {
   switch(lineName) {
     case "M5":
     case "M8":
@@ -185,7 +185,7 @@ function getHbf(lineName, direction) {
   }
 }
 
-function getSpandau(id, lineName, direction) {
+function getSpandau(id: string, lineName: string, direction: string) {
   switch(id) {
     case "900000029302": 
       switch(lineName) {
@@ -216,7 +216,7 @@ function getSpandau(id, lineName, direction) {
           return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null]
         case "X37":
           if (direction.includes("Falkensee")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 6]
-          if (direction.includes("Ruhleben")) return ("S+U Rathaus Spandau [Bus Altstädter Ring]", 5)
+          if (direction.includes("Ruhleben")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5]
           if (direction.includes("Galenstr")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5]
           return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null]
         case "134":
@@ -288,7 +288,7 @@ function getSpandau(id, lineName, direction) {
   }
 }
 
-function getJungfernheide(id,lineName, direction) {
+function getJungfernheide(id: string,lineName: string, direction: string) {
   switch(id) {
     case "900000020201":
       switch(lineName) {
@@ -320,7 +320,7 @@ function getJungfernheide(id,lineName, direction) {
   }
 }
 
-function getAdlershof(lineName, direction) {
+function getAdlershof(lineName: string, direction: string) {
   switch(lineName) {
     case "M17":
       return ["S Adlershof [Tram Wendeschleife]", 5]
@@ -352,7 +352,7 @@ function getAdlershof(lineName, direction) {
   }
 }
 
-function getGruenau(lineName, direction) {
+function getGruenau(lineName: string, direction: string) {
   switch(lineName) {
     case "68":
       if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 9]
@@ -372,7 +372,7 @@ function getGruenau(lineName, direction) {
   }
 }
 
-function getMahlsdorf(id, lineName, direction) {
+function getMahlsdorf(id: string, lineName: string, direction: string) {
   switch(lineName) {
     case "62":
       return ["S Mahlsdorf [Tram Bus Treskowstr.]", 6]
@@ -395,7 +395,7 @@ function getMahlsdorf(id, lineName, direction) {
   }
 }
 
-function getFriedrichsfeldeOst(lineName, direction) {
+function getFriedrichsfeldeOst(lineName: string, direction: string) {
   switch(lineName) {
     case "M17":
     case "27":
@@ -415,7 +415,7 @@ function getFriedrichsfeldeOst(lineName, direction) {
   }
 }
 
-function getLichtenberg(lineName, direction) {
+function getLichtenberg(lineName: string, direction: string) {
   switch(lineName) {
     case "21":
     case "37":
@@ -436,7 +436,7 @@ function getLichtenberg(lineName, direction) {
   }
 }
 
-function getMarzahn(product, lineName, direction) {
+function getMarzahn(product: string, lineName: string, direction: string) {
   console.log(product, lineName, direction)
   switch(lineName) {
     case "M6":
@@ -465,7 +465,7 @@ function getMarzahn(product, lineName, direction) {
   }
 }
 
-function getGrunewald(lineName, direction) {
+function getGrunewald(lineName: string, direction: string) {
   switch(lineName) {
     case "M19":
     case "186":
@@ -477,9 +477,33 @@ function getGrunewald(lineName, direction) {
   }
 }
 
-export default function StopBody({ data, error, stop }) {
+interface DataElement {
+  stop: {
+    name: string
+    id: string
+  }
+  line: {
+    product: string
+    name: string
+  }
+  direction: string
+}
+
+interface Props {
+  data: DataElement[] | null | undefined
+  error: Error | null
+  stop: {
+    id: string
+    name: string
+    type: string
+  }
+  mode: string
+}
+
+export default function StopBody(props: Props) {
+  const { data, error, stop } = props
   const [newData, setNewData] = useState(null)
-  const sortData = (data) => {
+  const sortData = (data: DataElement[] | null | undefined) => {
     if (data !== null && data !== undefined && data.length > 0) {
       const tempArray = data.map((element, index) => {
         const stopName = element.stop.name.toLowerCase()
@@ -509,7 +533,7 @@ export default function StopBody({ data, error, stop }) {
     }
     return undefined
   }
-  const splitArray = async (data) => {
+  const splitArray = async (data: DataElement[] | null | undefined) => {
     if (data !== null && data !== undefined && data.length > 0) {
       const dataModified = await data.map(e => {
         const { stop, line, direction } = e
@@ -521,7 +545,7 @@ export default function StopBody({ data, error, stop }) {
           return { ...e, stop: newStop, platform: trackNo }
         } 
         if(["900000062282"].includes(id)) {
-          const trackNo = getSteglitz(lineName, direction)
+          const trackNo = getSteglitz(lineName)
           return { ...e, platform: trackNo }
         }
         if(["900000058101"].includes(id) && product === "bus") {
@@ -536,7 +560,7 @@ export default function StopBody({ data, error, stop }) {
           return { ...e, stop: newStop }
         }
         if(["900000120004"].includes(id) && ["tram", "bus"].includes(product)) {
-          const newStopName = getWarschauer(lineName, direction)
+          const newStopName = getWarschauer(lineName)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop }
         }
