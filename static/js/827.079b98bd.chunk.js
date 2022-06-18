@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkvbb=self.webpackChunkvbb||[]).push([[827],{9827:function(e,t,n){n.r(t);var a=n(1413),s=n(2791),r=n(9922);t.default=function(e){var t=e.remarks.filter((function(e){return"FB"===e.code})),n={textAlign:"center",gridColumn:["7 / span 6","22 / span 1"]};return(0,r.tZ)(s.Fragment,{children:t.length>0?(0,r.tZ)("div",{className:"bike",sx:(0,a.Z)({},n),children:(0,r.tZ)("span",{className:"fas fa-bicycle",title:"bike transport"})}):(0,r.tZ)("div",{className:"bike",sx:(0,a.Z)({},n)})})}}}]);
+//# sourceMappingURL=827.079b98bd.chunk.js.map
