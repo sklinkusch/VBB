@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { useState, useRef, useEffect } from "react"
+import { useParams } from "react-router-dom"
 import axios from "axios"
 import { getDuration } from "../components/helpers"
 import stops from "../data/stops"
@@ -21,19 +22,29 @@ export default function Timetable(props) {
   const [data, setData] = useState([])
   const [viewData, setViewData] = useState([])
   const [error, setError] = useState(null)
+  const params = useParams()
   useEffect(() => {
-    const initialStopArray = stops.filter(
-      (stop) => stop.name === "U Stadtmitte"
-    )
-    const [initialStop] = initialStopArray
-    const { id: initialId } = initialStop
-    setStop(initialStop)
-    getData(initialId)
-    const remainingStops = stops.filter(
-      (stop) => stop.name !== initialStop.name
-    )
-    const stopSelection = [initialStop, ...remainingStops]
-    setSelection(stopSelection)
+    if (params.stopId) {
+      const selectedStop = stops.filter(stop => stop.id === params.stopId)[0]
+      setStop(selectedStop)
+      getData(params.stopId)
+      const remainingStops = stops.filter(stop => stop.name !== selectedStop.name)
+      const stopSelection = [selectedStop, ...remainingStops]
+      setSelection(stopSelection)
+    } else {
+      const initialStopArray = stops.filter(
+        (stop) => stop.name === "U Stadtmitte"
+      )
+      const [initialStop] = initialStopArray
+      const { id: initialId } = initialStop
+      setStop(initialStop)
+      getData(initialId)
+      const remainingStops = stops.filter(
+        (stop) => stop.name !== initialStop.name
+      )
+      const stopSelection = [initialStop, ...remainingStops]
+      setSelection(stopSelection)
+    }
   }, []) 
   const inputField = useRef(null)
   const filterField = useRef(null)
