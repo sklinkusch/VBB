@@ -12,10 +12,12 @@ function App() {
        pathProps = {}
       break
     case "production":
-      pathProps = { basename: process.env.PUBLIC_URL }
+      // pathProps = { basename: process.env.PUBLIC_URL }
+      pathProps = {}
       break
     default:
-      pathProps = { basename: process.env.PUBLIC_URL }
+      // pathProps = { basename: process.env.PUBLIC_URL }
+      pathProps = {}
   }
   return (
     <div>
