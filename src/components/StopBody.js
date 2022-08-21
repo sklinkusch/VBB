@@ -47,6 +47,9 @@ function getZooBusStops(id, lineName, direction) {
       switch(lineName) {
         case "M45":
         case "245":
+          if (direction.includes("S+U Zoologischer Garten") || direction.includes("Hertzallee")) {
+            return ["S+U Zoologischer Garten/Jebensstr.", 1]
+          }
           return ["S+U Zoologischer Garten/Jebensstr.", 2]
         case "100":
         case "200":
@@ -56,8 +59,6 @@ function getZooBusStops(id, lineName, direction) {
         default:
           return ["S+U Zoologischer Garten/Jebensstr.", null]
       }
-    case "900000023173":
-      return ["Jebensstr.", 1]
     default: return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
   }
 }
