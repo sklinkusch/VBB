@@ -7,7 +7,7 @@ import TableData from "./TableData"
 function getZooBusStops(id, lineName, direction) {
   switch(id) {
     case "900000023201":
-      if(direction.includes("Hertzallee")) {
+      if(direction.includes("Hertzallee") || direction.includes("Fahrt endet hier")) {
         return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10]
       }
       switch(lineName) {
