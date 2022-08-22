@@ -16,30 +16,36 @@ function getBlnDuration() {
       duration = 60;
     } else if (hour < 8) {
       duration = 30;
-    } else if (hour < 23) {
+    } else if (hour < 20) {
       duration = 20;
-    } else {
+    } else if (hour < 22) {
       duration = 30;
+    } else {
+      duration = 60;
     }
   } else if (isItSaturday) {
     if (hour < 6) {
       duration = 60;
     } else if (hour < 7) {
       duration = 30;
-    } else if (hour < 23) {
+    } else if (hour < 21) {
       duration = 20;
-    } else {
+    } else if (hour < 23) {
       duration = 30;
+    } else {
+      duration = 60;
     }
   } else {
     if (hour < 5) {
       duration = 60;
     } else if (hour < 6) {
       duration = 30;
-    } else if (hour < 23) {
+    } else if (hour < 20) {
       duration = 20;
-    } else {
+    } else if (hour < 22) {
       duration = 30;
+    } else {
+      duration = 60;
     }
   }
   return duration;
