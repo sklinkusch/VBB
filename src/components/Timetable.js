@@ -24,7 +24,7 @@ export default function Timetable(props) {
   const [error, setError] = useState(null)
   const params = useParams()
   useEffect(() => {
-    if (params.stopId) {
+    if (params.hasOwnProperty("stopId") && typeof params.stopId === "string" && params.stopId.length > 0) {
       const selectedStop = stops.filter(stop => stop.id === params.stopId)[0]
       setStop(selectedStop)
       getData(params.stopId)
