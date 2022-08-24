@@ -26,7 +26,7 @@ function App() {
       <Router { ...pathProps }>
         <Routes>
           <Route path="/:stopId" element={<Timetable />} />
-          <Route path="/" element={< Timetable />} />
+          <Route path="" element={< Timetable />} />
           <Route path="*" element={< Timetable />} />
         </Routes>
       </Router>
