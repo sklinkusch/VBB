@@ -11,5 +11,4 @@ jobs:
       - name: Use node.js
         uses: actions/setup-node@v1
       - run: npm i
-      - run: npm run build --if-present
       - run: npm test
