@@ -15,11 +15,11 @@ function getBlnDuration() {
     if (hour < 7) {
       duration = 60;
     } else if (hour < 8) {
-      duration = 30;
+      duration = 60;
     } else if (hour < 20) {
-      duration = 20;
+      duration = 40;
     } else if (hour < 22) {
-      duration = 30;
+      duration = 60;
     } else {
       duration = 60;
     }
@@ -27,18 +27,18 @@ function getBlnDuration() {
     if (hour < 6) {
       duration = 60;
     } else if (hour < 7) {
-      duration = 30;
+      duration = 40;
     } else if (hour < 21) {
-      duration = 20;
-    } else if (hour < 23) {
       duration = 30;
+    } else if (hour < 23) {
+      duration = 40;
     } else {
       duration = 60;
     }
   } else {
     if (hour < 5) {
       duration = 60;
-    } else if (hour < 6) {
+    } else if (hour < 7) {
       duration = 30;
     } else if (hour < 20) {
       duration = 20;
