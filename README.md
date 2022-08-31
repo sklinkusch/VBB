@@ -57,7 +57,7 @@ The departures are sorted by
 - SCSS/Sass
 - Bootstrap
 - React
-- React Router
+- React Router with static URLs (BrowserRouter)
 - React hooks
   <!-- - Redux -->
   <!-- - redux-saga -->
