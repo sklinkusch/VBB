@@ -485,20 +485,27 @@ export default function StopBody({ data, error, stop }) {
       const tempArray = data.map((element, index) => {
         const stopName = element.stop.name.toLowerCase()
         const product = element.line.product
-        return { index, stop: stopName, product}
+        const time = element.when || element.scheduledWhen || element.formerScheduledWhen || element.plannedWhen
+        return { index, stop: stopName, product, time }
       })
       const sortedTempArray = tempArray.sort((a,b) => {
-        if (a.stop < b.stop) {
+        const { stop: aStop, product: aProduct, time: aTime } = a
+        const { stop: bStop, product: bProduct, time: bTime } = b
+        if (aStop < bStop) {
           return -1
-        } else if (b.stop < a.stop) {
+        } else if (bStop < aStop) {
           return +1
         } else {
           const sortingArray = [
             'express', 'regional', 'suburban', 'subway', 'tram', 'bus', 'ferry'
           ]
-          if(sortingArray.indexOf(a.product) < sortingArray.indexOf(b.product)) {
+          if(sortingArray.indexOf(aProduct) < sortingArray.indexOf(bProduct)) {
             return -1
-          } else if (sortingArray.indexOf(b.product) < sortingArray.indexOf(a.product)) {
+          } else if (sortingArray.indexOf(bProduct) < sortingArray.indexOf(aProduct)) {
+            return +1
+          } else if (aTime < bTime) {
+            return -1
+          } else if (bTime < aTime) {
             return +1
           } else {
             return 0
