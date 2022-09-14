@@ -64,9 +64,10 @@ const Departure = props => {
   } else {
     plantime =
       getTime(props.dep.formerScheduledWhen) ||
-      getTime(props.dep.scheduledWhen);
+      getTime(props.dep.scheduledWhen) ||
+      getTime(props.dep.plannedWhen);
   }
-  const { line, direction, remarks, platform } = props.dep;
+  const { line, direction, remarks, platform, plannedPlatform, prognosedPlatform } = props.dep;
   const { name: linenumber } = line;
   return (
     <Fragment>
@@ -77,7 +78,7 @@ const Departure = props => {
         <Product line={line} />
         <div className="line" sx={{ textAlign: "left", gridColumn: ["2 / span 6", "8 / span 3"] }}>{linenumber}</div>
         <div className="direction" sx={{ textAlign: "left", gridColumn: ["8 / span 13", "11 / span 8"] }}>{direction}</div>
-        <div className="platform" sx={{ textAlign: "center", gridColumn: ["22 / span 3", "19 / span 2"] }}>{platform}</div>
+        <div className="platform" sx={{ textAlign: "center", gridColumn: ["22 / span 3", "19 / span 2"] }}>{platform || plannedPlatform || prognosedPlatform}</div>
         <Barrier remarks={remarks} />
         <Bike remarks={remarks} />
         <Warning remarks={remarks} />
