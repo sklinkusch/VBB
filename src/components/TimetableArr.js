@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, lazy } from "react"
+import { useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { getDuration } from "../components/helpers"
 import stops from "../data/stops"
@@ -9,26 +10,38 @@ const Filter = lazy(() => import("./Filter"))
 const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
-export default function Timetable(props) {
-  const [allStops] = useState(stops)
+export default function TimetableArr(props) {
   const [selection, setSelection] = useState(stops)
   const [stop, setStop] = useState({})
   const [data, setData] = useState([])
   const [viewData, setViewData] = useState([])
   const [error, setError] = useState(null)
+  const params = useParams()
+  const navigate = useNavigate()
   useEffect(() => {
-    const initialStopArray = stops.filter(
-      (stop) => stop.name === "U Stadtmitte"
-    )
-    const [initialStop] = initialStopArray
-    const { id: initialId } = initialStop
-    setStop(initialStop)
-    getData(initialId)
-    const remainingStops = allStops.filter(
-      (stop) => stop.name !== initialStop.name
-    )
-    const stopSelection = [initialStop, ...remainingStops]
-    setSelection(stopSelection)
+    if (params.hasOwnProperty("id") && typeof params.id === "string" && params.id.length > 0) {
+      const selectedStop = stops.find(stop => stop.id === params.id)
+      navigate(`/arrivals/${params.id}`)
+      setStop(selectedStop)
+      getData(params.id)
+      const remainingStops = stops.filter(stop => stop.name !== selectedStop.name)
+      const stopSelection = [selectedStop, ...remainingStops]
+      setSelection(stopSelection)
+    } else {
+      const initialStopArray = stops.filter(
+        (stop) => stop.name === "U Stadtmitte"
+      )
+      const [initialStop] = initialStopArray
+      const { id: initialId } = initialStop
+      navigate(`/arrivals/${initialId}`)
+      setStop(initialStop)
+      getData(initialId)
+      const remainingStops = stops.filter(
+        (stop) => stop.name !== initialStop.name
+      )
+      const stopSelection = [initialStop, ...remainingStops]
+      setSelection(stopSelection)
+    }
   }, []) 
   const inputField = useRef(null)
   const filterField = useRef(null)
@@ -95,7 +108,7 @@ export default function Timetable(props) {
     setViewData(data)
   }
   const filterStops = (filterValue) => {
-    const remainingStops = allStops.filter(
+    const remainingStops = stops.filter(
       (currStop) =>
         currStop.id !== stop.id &&
         currStop.name.toLowerCase().includes(filterValue.toLowerCase())
@@ -113,7 +126,7 @@ export default function Timetable(props) {
     setStop(currStop)
   }
   const getData = async (id) => {
-    const currentStopArray = allStops.filter((stop) => stop.id === id)
+    const currentStopArray = stops.filter((stop) => stop.id === id)
     const [currentStop] = currentStopArray
     const { type = "BBG" } = currentStop
     const duration = getDuration(type)
@@ -149,7 +162,7 @@ export default function Timetable(props) {
   return (
     <div className="timetable">
       <Input filterStops={doFilter} inputField={inputField} />
-      <Select handleChange={handleChange} selection={selection} stop={stop} />
+      <Select handleChange={handleChange} selection={selection} stop={stop} mode="arr" />
       <Button handleSubmit={handleSubmit} />
       <Filter
         filterField={filterField}

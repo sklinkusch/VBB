@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { useState, useRef, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { getDuration } from "../components/helpers"
 import stops from "../data/stops"
@@ -23,11 +23,13 @@ export default function Timetable(props) {
   const [viewData, setViewData] = useState([])
   const [error, setError] = useState(null)
   const params = useParams()
+  const navigate = useNavigate()
   useEffect(() => {
-    if (params.hasOwnProperty("stopId") && typeof params.stopId === "string" && params.stopId.length > 0) {
-      const selectedStop = stops.filter(stop => stop.id === params.stopId)[0]
+    if (params.hasOwnProperty("id") && typeof params.id === "string" && params.id.length > 0) {
+      const selectedStop = stops.filter(stop => stop.id === params.id)[0]
+      navigate(`/departures/${params.id}`)
       setStop(selectedStop)
-      getData(params.stopId)
+      getData(params.id)
       const remainingStops = stops.filter(stop => stop.name !== selectedStop.name)
       const stopSelection = [selectedStop, ...remainingStops]
       setSelection(stopSelection)
@@ -37,6 +39,7 @@ export default function Timetable(props) {
       )
       const [initialStop] = initialStopArray
       const { id: initialId } = initialStop
+      navigate(`/departures/${initialId}`)
       setStop(initialStop)
       getData(initialId)
       const remainingStops = stops.filter(
@@ -165,7 +168,7 @@ export default function Timetable(props) {
   return (
     <div className="timetable" sx={{ minHeight: "75vh" }}>
       <Input filterStops={doFilter} inputField={inputField} />
-      <Select handleChange={handleChange} selection={selection} stop={stop} />
+      <Select handleChange={handleChange} selection={selection} stop={stop} mode="dep" />
       <Button handleSubmit={handleSubmit} />
       <Filter
         filterField={filterField}
