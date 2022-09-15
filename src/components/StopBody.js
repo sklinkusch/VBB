@@ -3,94 +3,327 @@ import { getDuration } from "./helpers"
 import StopName from "./StopName"
 import Error from "./Error"
 import TableData from "./TableData"
+/* eslint-disable react-hooks/exhaustive-deps */
 
-function getZooBusStops(id, lineName, direction) {
-  switch(id) {
-    case "900000023201":
-      if(direction.includes("Hertzallee") || direction.includes("Fahrt endet hier")) {
-        return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10]
-      }
-      switch(lineName) {
-        case "X10":
-        case "109":
-        case "110":
-        case "N7X":
-        case "N10":
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4]
-        case "M49":
-        case "X34":
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
-        case "N9":
-          if(direction.includes("Steglitz")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
-        case "M45":
-        case "245":
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6]
-        case "100":
-        case "200":
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
-        case "N2":
-          if(direction.includes("Pankow")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
-          if(direction.includes("Alexanderplatz")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
-        case "M46":
-        case "204":
-        case "N1":
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8]
-        case "249":
-        case "N26":
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9]
-        default:
-          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
-      }
-    case "900000023172":
-      switch(lineName) {
-        case "M45":
-        case "245":
-          if (direction.includes("S+U Zoologischer Garten") || direction.includes("Hertzallee")) {
-            return ["S+U Zoologischer Garten/Jebensstr.", 1]
+function getZooBusStops(id, mode, lineName, direction, provenance) {
+  if (mode === 'arr') {
+    switch(id) {
+      case "900000023201":
+        if(!provenance.includes("Hertzallee")) {
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10]
+        }
+        switch(lineName) {
+          case "X10":
+          case "109":
+          case "110":
+          case "N7X":
+          case "N10":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4]
+          case "M49":
+          case "X34":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+          case "N9":
+            if(provenance.includes("Osloer")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+          case "M45":
+          case "245":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6]
+          case "100":
+          case "200":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+          case "N2":
+            if(provenance.includes("Ruhleben")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+          case "M46":
+          case "204":
+          case "N1":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8]
+          case "249":
+          case "N26":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9]
+          default:
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+        }
+      case "900000023172":
+        switch (lineName) {
+          case "M45":
+          case "245":
+            if (!provenance.includes("S+U Zoologischer Garten") && !provenance.includes("Hertzallee")) {
+              return ["S+U Zoologischer Garten/Jebensstr.", 1]
+            }
+            return ["S+U Zoologischer Garten/Jebensstr.", 2]
+          case "100":
+          case "200":
+          case "N2":
+          case "N9":
+            return ["S+U Zoologischer Garten/Jebensstr.", 3]
+          default:
+            return ["S+U Zoologischer Garten/Jebensstr.", null]
+        }
+      default: return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+    }
+  } else {
+    switch(id) {
+      case "900000023201":
+        if(direction.includes("Hertzallee") || direction.includes("Fahrt endet hier")) {
+          return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10]
+        }
+        switch(lineName) {
+          case "X10":
+          case "109":
+          case "110":
+          case "N7X":
+          case "N10":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4]
+          case "M49":
+          case "X34":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+          case "N9":
+            if(direction.includes("Steglitz")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+          case "M45":
+          case "245":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6]
+          case "100":
+          case "200":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+          case "N2":
+            if(direction.includes("Pankow")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+            if(direction.includes("Alexanderplatz")) return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+          case "M46":
+          case "204":
+          case "N1":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8]
+          case "249":
+          case "N26":
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9]
+          default:
+            return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+        }
+      case "900000023172":
+        switch(lineName) {
+          case "M45":
+          case "245":
+            if (direction.includes("S+U Zoologischer Garten") || direction.includes("Hertzallee")) {
+              return ["S+U Zoologischer Garten/Jebensstr.", 1]
+            }
+            return ["S+U Zoologischer Garten/Jebensstr.", 2]
+          case "100":
+          case "200":
+          case "N2":
+          case "N9":
+            return ["S+U Zoologischer Garten/Jebensstr.", 3]
+          default:
+            return ["S+U Zoologischer Garten/Jebensstr.", null]
+        }
+      default: return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+    }
+  }
+}
+
+function getSteglitz(id, mode, lineName, direction, provenance) {
+  if (mode === 'arr') {
+    switch (id) {
+      case "900000062282":
+        if(["285", "N88"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]",6]
+        if(["170", "283"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]", 7]
+        if(["188"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]",8]
+        return ["S+U Rathaus Steglitz [Busbahnhof]",null]
+      case "900000062784":
+        if (lineName === "X83" && provenance.includes("Clayallee")) return ["S+U Rathaus Steglitz [Albrechtstr.]",5]
+      if (lineName === "282" && provenance.includes("Breitenbachplatz")) return ["S+U Rathaus Steglitz [Albrechtstr.]",5]
+      if (["M82", "X83", "282", "284", "380"].includes(lineName)) return ["S+U Rathaus Steglitz [Albrechtstr.]",4]
+      if (["170"].includes(lineName)) return ["S+U Rathaus Steglitz [Kuhligkshofstr.]", 11]
+      return ["S+U Rathaus Steglitz [Albrechtstr.]",null]
+    case "900000062782":
+      if (lineName === "M48" && provenance.includes("Mohrenstr")) return ["S+U Rathaus Steglitz [Schloßstr.]", 2]
+      if (lineName === "M48") return ["S+U Rathaus Steglitz [Schloßstr.]", 3]
+      if (["M85", "N88"].includes(lineName) && provenance.includes("Lichterfelde")) return ["S+U Rathaus Steglitz [Schloßstr.]", 3]
+      if (lineName === "M85") return ["S+U Rathaus Steglitz [Schloßstr.]", 1]
+      if (lineName === "186" && provenance.includes("Lichterfelde")) return ["S+U Rathaus Steglitz [Schloßstr.]", 3]
+      if (lineName === "186") return ["S+U Rathaus Steglitz [Schloßstr.]", 2]
+      if (lineName === "283" && !provenance.includes("Fahrt")) return ["S+U Rathaus Steglitz [Schloßstr.]", 10]
+      if (lineName === "285" && provenance.includes("Dahlem")) return ["S+U Rathaus Steglitz [Schloßstr.]", 10]
+      if (["188", "283", "285"].includes(lineName)) return ["S+U Rathaus Steglitz [Schloßstr.]", 1]
+      if (lineName === "N9") return ["S+U Rathaus Steglitz [Schloßstr.]", null]
+      return ["S+U Rathaus Steglitz [Schloßstr.]", null]
+    default:
+      return ["S+U Rathaus Steglitz",null]
+  }
+
+  } else {
+    switch (id) {
+      case "900000062282":
+        if(["285", "N88"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]",6]
+        if(["170", "283"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]", 7]
+        if(["188"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]",8]
+        return ["S+U Rathaus Steglitz [Busbahnhof]",null]
+      case "900000062784":
+        if (lineName === "X83" && direction.includes("Clayallee")) return ["S+U Rathaus Steglitz [Albrechtstr.]",4]
+        if (lineName === "282" && direction.includes("Breitenbachplatz")) return ["S+U Rathaus Steglitz [Albrechtstr.]",4]
+        if (["M82", "X83", "282", "284", "380"].includes(lineName)) return ["S+U Rathaus Steglitz [Albrechtstr.]",5]
+        if (["170"].includes(lineName)) return ["S+U Rathaus Steglitz [Kuhligkshofstr.]", 9]
+        return ["S+U Rathaus Steglitz [Albrechtstr.]",null]
+      case "900000062782":
+        if (lineName === "M48" && direction.includes("Mohrenstr")) return ["S+U Rathaus Steglitz [Schloßstr.]", 3]
+        if (lineName === "M48") return ["S+U Rathaus Steglitz [Schloßstr.]", 2]
+        if (["M85", "N88"].includes(lineName) && direction.includes("Lichterfelde")) return ["S+U Rathaus Steglitz [Schloßstr.]", 1]
+        if (lineName === "M85") return ["S+U Rathaus Steglitz [Schloßstr.]", 3]
+        if (lineName === "186" && direction.includes("Lichterfelde")) return ["S+U Rathaus Steglitz [Schloßstr.]", 2]
+        if (lineName === "186") return ["S+U Rathaus Steglitz [Schloßstr.]", 3]
+        if (lineName === "283" && !direction.includes("Fahrt")) return ["S+U Rathaus Steglitz [Schloßstr.]", 1]
+        if (lineName === "285" && direction.includes("Dahlem")) return ["S+U Rathaus Steglitz [Schloßstr.]", 1]
+        if (["188", "283", "285"].includes(lineName)) return ["S+U Rathaus Steglitz [Schloßstr.]", 10]
+        if (lineName === "N9") return ["S+U Rathaus Steglitz [Schloßstr.]", 3]
+        return ["S+U Rathaus Steglitz [Schloßstr.]", null]
+      default:
+        return ["S+U Rathaus Steglitz",null]
+    }
+  }
+}
+
+function getSuedkreuz(id, mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch(id) {
+      case "900000058101":
+        if (lineName === "M46") {
+          if (["Hertzallee", "U Wittenbergplatz"].includes(provenance)) return ["S Südkreuz [Hildegard-Knef-Platz]", 3]
+          return ["S Südkreuz [Hildegard-Knef-Platz]", 1]
+        }
+        if (lineName === "106") {
+          if (["Lindenhof"].includes(provenance)) return ["S Südkreuz [Hildegard-Knef-Platz]", 1]
+          return ["S Südkreuz [Hildegard-Knef-Platz]", 2]
+        }
+        if (lineName === "204") return ["S Südkreuz [Hildegard-Knef-Platz]", 1]
+        if (lineName === "N42") return ["S Südkreuz [Hildegard-Knef-Platz]", 2]
+        return ["S Südkreuz [Hildegard-Knef-Platz]", null]
+      case "900000058100":
+        if (lineName === "184") {
+          if (provenance.includes("Reichartstr")) return ["S Südkreuz/Ostseite", 4]
+          return ["S Südkreuz/Ostseite", 5]
+        }
+        if (lineName === "248") {
+          if (provenance.includes("Breitenbachplatz")) return ["S Südkreuz/Ostseite", 5]
+          return ["S Südkreuz/Ostseite", 4]
+        }
+        if (lineName === "N42") {
+          if (direction.includes("Südkreuz")) return ["S Südkreuz/Ostseite", 5]
+          return ["S Südkreuz/Ostseite", 4]
+        }
+        return ["S Südkreuz/Ostseite", null]
+      default: return ["S Südkreuz", null]
+    }
+  } else  {
+    switch(id) {
+      case "900000058101":
+        if (lineName === "M46") {
+          if (["S+U Zoologischer Garten", "U Wittenbergplatz"].includes(direction)) return ["S Südkreuz [Hildegard-Knef-Platz]", 1]
+          return ["S Südkreuz [Hildegard-Knef-Platz]", 3]
+        }
+        if (lineName === "106") {
+          if (["Lindenhof"].includes(direction)) return ["S Südkreuz [Hildegard-Knef-Platz]", 2]
+          return ["S Südkreuz [Hildegard-Knef-Platz]", 1]
+        }
+        if (lineName === "204") return ["S Südkreuz [Hildegard-Knef-Platz]", 1]
+        if (lineName === "N42") return ["S Südkreuz [Hildegard-Knef-Platz]", 2]
+        return ["S Südkreuz [Hildegard-Knef-Platz]", null]
+      case "900000058100":
+        if (lineName === "184") {
+          if (direction.includes("Reichartstr")) return ["S Südkreuz/Ostseite", 4]
+          return ["S Südkreuz/Ostseite", 5]
+        }
+        if (lineName === "248") {
+          if (direction.includes("Breitenbachplatz") || direction.includes("Fahrt")) return ["S Südkreuz/Ostseite", 4]
+          return ["S Südkreuz/Ostseite", 5]
+        }
+        if (lineName === "N42") {
+          if (direction.includes("Südkreuz")) return ["S Südkreuz/Ostseite", 4]
+          return ["S Südkreuz/Ostseite", 5]
+        }
+        return ["S Südkreuz/Ostseite", null]
+      default: return ["S Südkreuz", null]
+    }
+  }
+}
+
+function getPankow(id, mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch (lineName) {
+      case "M1":
+        if (provenance.includes("Schillerstr") || provenance.includes("Rosenthal")) return ["S+U Pankow [Berliner Str.]", 3]
+        return ["S+U Pankow [Berliner Str.]", 4]
+      case "50":
+        if (provenance.includes("Guyotstr")) return ["S+U Pankow [Berliner Str.]", 3]
+        return ["S+U Pankow [Berliner Str.]", 4]
+      case "M27":
+        if (provenance.includes("Hadlichstr")) return ["S+U Pankow [Florastr.]", 2]
+        return ["S+U Pankow [Florastr.]", 1]
+      case "X54":
+        if (provenance.includes("Masurenstr")) return ["S+U Pankow [Berliner Str.]", 5]
+        return ["S+U Pankow [Granitzstr.]", 6]
+      case "155":
+        if (provenance.includes("Masurenstr")) return ["S+U Pankow [Florastr.]", 4]
+        return ["S+U Pankow [Berliner Str.]", 1]
+      case "250":
+      case "255":
+      case "N50":
+        if (provenance.includes("Buchholz")) return ["S+U Pankow [Berliner Str.]", 4]
+        if (provenance.includes("Schwarzelfenweg")) return ["S+U Pankow [Berliner Str.]", 4]
+        if (provenance.includes("Tierpark")) return ["S+U Pankow [Berliner Str.]", 4]
+        return ["S+U Pankow [Berliner Str.]", 3]
+      case "N2":
+        if (provenance.includes("Hadlichstr.")) return ["S+U Pankow [Berliner Str.]", 3]
+        return ["S+U Pankow [Berliner Str.]", 4]
+      default: return ["S+U Pankow", null]
+    }
+  } else {
+    switch (id) {
+      case "900000130002":
+        switch (lineName) {
+          case "M1":
+            if (direction.includes("Schillerstr") || direction.includes("Rosenthal")) return ["S+U Pankow [Berliner Str.]", 4]
+            return ["S+U Pankow [Berliner Str.]", 3]
+          case "50":
+            if (direction.includes("Guyotstr")) return ["S+U Pankow [Berliner Str.]", 4]
+            return ["S+U Pankow [Berliner Str.]", 3]
+          case "M27":
+            if (direction.includes("Hadlichstr")) return ["S+U Pankow [Florastr.]", 1]
+            return ["S+U Pankow [Florastr.]", 2]
+          case "X54":
+            if (direction.includes("Masurenstr")) return ["S+U Pankow/Granitzstr.", 6]
+            return ["S+U Pankow/Granitzstr.", 5]
+          case "155":
+            if (direction.includes("Masurenstr")) return ["S+U Pankow [Florastr.]", 1]
+            return ["S+U Pankow [Berliner Str.]", 4]
+          case "250":
+          case "255":
+          case "N50":
+            if (direction.includes("Buchholz")) return ["S+U Pankow [Berliner Str.]", 3]
+            if (direction.includes("Schwarzelfenweg")) return ["S+U Pankow [Berliner Str.]", 3]
+            if (direction.includes("Tierpark")) return ["S+U Pankow [Berliner Str.]", 3]
+            return ["S+U Pankow [Berliner Str.]", 4]
+          case "N2":
+            if (direction.includes("Hadlichstr.")) return ["S+U Pankow [Berliner Str.]", 4]
+            return ["S+U Pankow [Berliner Str.]", 3]
+          default: return ["S+U Pankow", null]
+        }
+        case "900000130500":
+          switch(lineName){
+            case "X54":
+            if (direction.includes("Masurenstr")) return ["S+U Pankow/Granitzstr.", 6]
+            return ["S+U Pankow/Granitzstr.", 5]
+          case "155":
+            return ["S+U Pankow/Granitzstr.", 6]
+          case "250":
+          case "255":
+          case "N50":
+            return ["S+U Pankow/Granitzstr.", 5]
+          default: return ["S+U Pankow", null]
           }
-          return ["S+U Zoologischer Garten/Jebensstr.", 2]
-        case "100":
-        case "200":
-        case "N2":
-        case "N9":
-          return ["S+U Zoologischer Garten/Jebensstr.", 3]
-        default:
-          return ["S+U Zoologischer Garten/Jebensstr.", null]
-      }
-    default: return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+        default: return ["S+U Pankow", null]
+    }
   }
-}
-
-function getSteglitz(lineName, direction) {
-  if(["285", "N88"].includes(lineName)) return 6
-  if(["170", "283"].includes(lineName)) return 7
-  if(["188"].includes(lineName)) return 8
-  return null
-}
-
-function getSuedkreuz(lineName, direction) {
-  if(lineName === "M46") {
-    if(["S+U Zoologischer Garten", "U Wittenbergplatz"].includes(direction)) return 1
-    if(["U Alt-Tempelhof", "U Britz-Süd"].includes(direction)) return 3
-  }
-  if(lineName === "106") {
-    if(["U Seestr.", "U Bülowstr.", "U Kurfürstenstr."].includes(direction)) return 1
-    if(["Lindenhof"].includes(direction)) return 2
-  }
-  if(lineName === "204") return 1
-  if(lineName === "N42") {
-    if(["S+U Alexanderplatz"]) return 2
-  }
-  return null
-}
-
-function getPankow(lineName, direction) {
-  if(["M1", "50", "250", "255", "N50"].includes(lineName)) return "S+U Pankow [Berliner Str.]"
-  if(["M27"].includes(lineName)) return "S+U Pankow [Florastr.]"
-  if(["155"].includes(lineName) && direction === "Fontanestr.") return "S+U Pankow [Berliner Str.]"
-  return "S+U Pankow"
 }
 
 function getWarschauer(lineName, direction) {
@@ -478,7 +711,7 @@ function getGrunewald(lineName, direction) {
   }
 }
 
-export default function StopBody({ data, error, stop }) {
+export default function StopBody({ data, error, stop, mode = 'dep' }) {
   const [newData, setNewData] = useState(null)
   const sortData = (data) => {
     if (data !== null && data !== undefined && data.length > 0) {
@@ -520,28 +753,28 @@ export default function StopBody({ data, error, stop }) {
   const splitArray = async (data) => {
     if (data !== null && data !== undefined && data.length > 0) {
       const dataModified = await data.map(e => {
-        const { stop, line, direction } = e
+        const { stop, line, direction, provenance } = e
         const { id } = stop
         const { product, name: lineName } = line
         if (["900000023201", "900000023172", "900000023173"].includes(id) && product === "bus") {
-          const [newStopName, trackNo] = getZooBusStops(id, lineName, direction)
+          const [newStopName, trackNo] = getZooBusStops(id, mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         } 
-        if(["900000062282"].includes(id)) {
-          const trackNo = getSteglitz(lineName, direction)
-          return { ...e, platform: trackNo }
+        if(["900000062784", "900000062282", "900000062782"].includes(id) && product === 'bus') {
+          const [newStopName, trackNo] = getSteglitz(id, mode, lineName, direction, provenance)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
         }
-        if(["900000058101"].includes(id) && product === "bus") {
-          const newStopName = "S Südkreuz [Hildegard-Knef-Platz]"
-          const trackNo = getSuedkreuz(lineName, direction)
+        if(["900000058101", "900000058100"].includes(id) && product === "bus") {
+          const [newStopName, trackNo] = getSuedkreuz(id, mode, lineName, direction, provenance)
           const newStop = { ...e, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
-        if(["900000130002"].includes(id) && ["tram", "bus"].includes(product)) {
-          const newStopName = getPankow(lineName, direction)
+        if(["900000130002", "900000130500"].includes(id) && ["tram", "bus"].includes(product)) {
+          const [newStopName, trackNo] = getPankow(id, mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
-          return { ...e, stop: newStop }
+          return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000120004"].includes(id) && ["tram", "bus"].includes(product)) {
           const newStopName = getWarschauer(lineName, direction)
@@ -629,8 +862,7 @@ export default function StopBody({ data, error, stop }) {
     }
     fetchData()
   },[data])
-  const mode = "dep"
-  const text = `In the next ${getDuration(stop.type || 'BLN')} minutes, no departures are planned for the station or stop you have chosen`
+  const text = `In the next ${getDuration(stop.type || 'BLN')} minutes, no ${mode === 'dep' ? 'departures' : 'arrivals'} are planned for the station or stop you have chosen`
   return (
     <Fragment>
       {stop && <StopName stop={stop} element="h2" />}
