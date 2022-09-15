@@ -2,7 +2,7 @@ import React, { lazy } from "react"
 const LegendArr = lazy(() => import("../components/LegendArr")) 
 const TimetableArr = lazy(() => import("../components/TimetableArr")) 
 
-function App() {
+function VBBArrivals() {
   return (
     <div>
       <LegendArr />
@@ -11,4 +11,4 @@ function App() {
   )
 }
 
-export default App
+export default VBBArrivals
