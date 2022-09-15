@@ -3,7 +3,7 @@ import { Fragment } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function Select(props) {
-  const { handleChange, selection, stop } = props
+  const { handleChange, selection, stop, mode } = props
   const navigate = useNavigate()
   return (
     <Fragment>
@@ -19,7 +19,7 @@ export default function Select(props) {
         {selection &&
           selection.length >= 1 &&
           selection.map((stop, index) => (
-            <option onClick={() => navigate(`/${stop.id}`)} key={`${stop.id}-${index}`} value={stop.id}>
+            <option onClick={() => navigate(mode === 'arr' ? `/arrivals/${stop.id}` : `/departures/${stop.id}`)} key={`${stop.id}-${index}`} value={stop.id}>
               {stop.name}
             </option>
           ))}
