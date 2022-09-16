@@ -64,7 +64,8 @@ const Arrival = props => {
   } else {
     plantime =
       getTime(props.arr.formerScheduledWhen) ||
-      getTime(props.arr.scheduledWhen);
+      getTime(props.arr.scheduledWhen) ||
+      getTime(props.arr.plannedWhen);
   }
   const { line, provenance, remarks, platform } = props.arr;
   const { name: linenumber } = line;
