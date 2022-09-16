@@ -249,33 +249,50 @@ function getSuedkreuz(id, mode, lineName, direction, provenance) {
 
 function getPankow(id, mode, lineName, direction, provenance) {
   if (mode === "arr") {
-    switch (lineName) {
-      case "M1":
-        if (provenance.includes("Schillerstr") || provenance.includes("Rosenthal")) return ["S+U Pankow [Berliner Str.]", 3]
-        return ["S+U Pankow [Berliner Str.]", 4]
-      case "50":
-        if (provenance.includes("Guyotstr")) return ["S+U Pankow [Berliner Str.]", 3]
-        return ["S+U Pankow [Berliner Str.]", 4]
-      case "M27":
-        if (provenance.includes("Hadlichstr")) return ["S+U Pankow [Florastr.]", 2]
-        return ["S+U Pankow [Florastr.]", 1]
-      case "X54":
-        if (provenance.includes("Masurenstr")) return ["S+U Pankow [Berliner Str.]", 5]
-        return ["S+U Pankow [Granitzstr.]", 6]
-      case "155":
-        if (provenance.includes("Masurenstr")) return ["S+U Pankow [Florastr.]", 4]
-        return ["S+U Pankow [Berliner Str.]", 1]
-      case "250":
-      case "255":
-      case "N50":
-        if (provenance.includes("Buchholz")) return ["S+U Pankow [Berliner Str.]", 4]
-        if (provenance.includes("Schwarzelfenweg")) return ["S+U Pankow [Berliner Str.]", 4]
-        if (provenance.includes("Tierpark")) return ["S+U Pankow [Berliner Str.]", 4]
-        return ["S+U Pankow [Berliner Str.]", 3]
-      case "N2":
-        if (provenance.includes("Hadlichstr.")) return ["S+U Pankow [Berliner Str.]", 3]
-        return ["S+U Pankow [Berliner Str.]", 4]
-      default: return ["S+U Pankow", null]
+    switch (id) {
+      case "900000130002":
+        switch (lineName) {
+          case "M1":
+            if (provenance.includes("Schillerstr") || provenance.includes("Rosenthal")) return ["S+U Pankow [Berliner Str.]", 3]
+            return ["S+U Pankow [Berliner Str.]", 4]
+          case "50":
+            if (provenance.includes("Guyotstr")) return ["S+U Pankow [Berliner Str.]", 3]
+            return ["S+U Pankow [Berliner Str.]", 4]
+          case "M27":
+            if (provenance.includes("Hadlichstr")) return ["S+U Pankow [Florastr.]", 2]
+            return ["S+U Pankow [Florastr.]", 1]
+          case "X54":
+            if (provenance.includes("Masurenstr")) return ["S+U Pankow/Granitzstr.", 5]
+            return ["S+U Pankow/Granitzstr.", 6]
+          case "155":
+            if (provenance.includes("Masurenstr")) return ["S+U Pankow [Florastr.]", 4]
+            return ["S+U Pankow [Berliner Str.]", 1]
+          case "250":
+          case "255":
+          case "N50":
+            if (provenance.includes("Buchholz")) return ["S+U Pankow [Berliner Str.]", 4]
+            if (provenance.includes("Schwarzelfenweg")) return ["S+U Pankow [Berliner Str.]", 4]
+            if (provenance.includes("Tierpark")) return ["S+U Pankow [Berliner Str.]", 4]
+            return ["S+U Pankow [Berliner Str.]", 3]
+          case "N2":
+            if (provenance.includes("Hadlichstr.")) return ["S+U Pankow [Berliner Str.]", 3]
+            return ["S+U Pankow [Berliner Str.]", 4]
+          default: return ["S+U Pankow", null]
+        }
+        case "900000130500":
+          switch(lineName){
+            case "X54":
+            if (provenance.includes("Masurenstr")) return ["S+U Pankow/Granitzstr.", 5]
+            return ["S+U Pankow/Granitzstr.", 6]
+          case "155":
+            return ["S+U Pankow/Granitzstr.", 6]
+          case "250":
+          case "255":
+          case "N50":
+            return ["S+U Pankow/Granitzstr.", 5]
+          default: return ["S+U Pankow", null]
+          }
+        default: return ["S+U Pankow", null]
     }
   } else {
     switch (id) {
@@ -326,7 +343,26 @@ function getPankow(id, mode, lineName, direction, provenance) {
   }
 }
 
-function getWarschauer(lineName, direction) {
+function getWarschauer(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch (lineName) {
+      case "M10": return ["S+U Warschauer Str. [Warschauer Str.]", 4]
+      case "300": return ["S+U Warschauer Str. [Tamara-Danz-Str.]", 8]
+      case "347": 
+        if (provenance.includes("Tunnelstr")) return ["S+U Warschauer Str. [Warschauer Str.]", 6]
+        return ["S+U Warschauer Str. [Warschauer Str.]", 3]
+      default: return ["S+U Warschauer Str.", null]
+    }
+  } else {
+    switch (lineName) {
+      case "M10": return ["S+U Warschauer Str. [Warschauer Str.]", 5]
+      case "300": return ["S+U Warschauer Str. [Tamara-Danz-Str.]", 7]
+      case "347": 
+        if (direction.includes("Tunnelstr")) return ["S+U Warschauer Str. [Warschauer Str.]", 3]
+        return ["S+U Warschauer Str. [Warschauer Str.]", 6]
+      default: return ["S+U Warschauer Str.", null]
+    }
+  }
   if(["M10", "347", "N1"].includes(lineName)) return "S+U Warschauer Str. [Warschauer Str.]"
   if(["300"].includes(lineName)) return "S+U Warschauer Str. [Tamara-Danz-Str.]"
   return "S+U Warschauer Str."
@@ -777,9 +813,9 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000120004"].includes(id) && ["tram", "bus"].includes(product)) {
-          const newStopName = getWarschauer(lineName, direction)
+          const [newStopName, trackNo] = getWarschauer(mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
-          return { ...e, stop: newStop }
+          return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000100712", "900000100711", "900000100024", "900000100026", "900000100031"].includes(id)) {
           const [newStopName, trackNo] = getAlex(id, lineName, direction)
