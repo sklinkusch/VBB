@@ -464,39 +464,74 @@ function getAlex(id, mode, lineName, direction, provenance) {
   }
 }
 
-function getHbf(lineName, direction) {
-  switch(lineName) {
-    case "M5":
-    case "M8":
-    case "M10":
-      if(direction.includes("Lüneburger Str")) return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 4]
-      return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 5]
-    case "120":
-      if(direction.includes("Seydlitzstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
-      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-    case "142":
-    case "147":
-      if(direction.includes("Ostbahnhof")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-      if(direction.includes("Märkisches Museum")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
-    case "245":
-      if(direction.includes("Zoo")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
-      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-    case "N5":
-    case "N20":
-      if(direction.includes("Riesaer Str")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-      if(direction.includes("Wuhletal")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-      if(direction.includes("Hainbuchenstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
-    case "N40":
-      if(direction.includes("Turmstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
-      return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
-    case "M41":
-    case "M85":
-    case "123":
-      return ["S+U Berlin Hauptbahnhof [Bus Minna-Cauer-Str.]", 2]
-    default:
-      return ["S+U Berlin Hauptbahnhof", null]
+function getHbf(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch(lineName) {
+      case "M5":
+      case "M8":
+      case "M10":
+        if (provenance.includes("Clara-Jaschke-Str")) return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 5]
+        return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 4]
+      case "120":
+        if(provenance.includes("Seydlitzstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      case "142":
+      case "147":
+        if(provenance.includes("Ostbahnhof")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        if(provenance.includes("Märkisches Museum")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      case "245":
+        if(provenance.includes("Hertzallee")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      case "N5":
+      case "N20":
+        if(provenance.includes("Riesaer Str")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        if(provenance.includes("Wuhletal")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        if(provenance.includes("Hainbuchenstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      case "N40":
+        if(provenance.includes("Tiergarten")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      case "M41":
+      case "M85":
+      case "123":
+        return ["S+U Berlin Hauptbahnhof [Bus Minna-Cauer-Str.]", 1]
+      default: return ["S+U Berlin Hauptbahnhof", null]
+    }
+  } else {
+    switch(lineName) {
+      case "M5":
+      case "M8":
+      case "M10":
+        if(direction.includes("Lüneburger Str")) return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 4]
+        return ["S+U Berlin Hauptbahnhof [Tram Invalidenstr.]", 5]
+      case "120":
+        if(direction.includes("Seydlitzstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      case "142":
+      case "147":
+        if(direction.includes("Ostbahnhof")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        if(direction.includes("Märkisches Museum")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      case "245":
+        if(direction.includes("Zoo")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      case "N5":
+      case "N20":
+        if(direction.includes("Riesaer Str")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        if(direction.includes("Wuhletal")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        if(direction.includes("Hainbuchenstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+      case "N40":
+        if(direction.includes("Turmstr")) return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 3]
+        return ["S+U Berlin Hauptbahnhof [Bus Invalidenstr.]", 6]
+      case "M41":
+      case "M85":
+      case "123":
+        return ["S+U Berlin Hauptbahnhof [Bus Minna-Cauer-Str.]", 2]
+      default:
+        return ["S+U Berlin Hauptbahnhof", null]
+    }
   }
 }
 
@@ -868,7 +903,7 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000003201"].includes(id) && ["tram", "bus"].includes(product)) {
-          const [newStopName, trackNo] = getHbf(lineName, direction)
+          const [newStopName, trackNo] = getHbf(mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
