@@ -363,9 +363,6 @@ function getWarschauer(mode, lineName, direction, provenance) {
       default: return ["S+U Warschauer Str.", null]
     }
   }
-  if(["M10", "347", "N1"].includes(lineName)) return "S+U Warschauer Str. [Warschauer Str.]"
-  if(["300"].includes(lineName)) return "S+U Warschauer Str. [Tamara-Danz-Str.]"
-  return "S+U Warschauer Str."
 }
 
 function getAlex(id, lineName, direction) {
