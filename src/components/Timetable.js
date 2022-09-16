@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
-import { useState, useRef, useEffect } from "react"
+import { useRef, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
+import { useDebugState } from "use-named-state"
 import axios from "axios"
 import { getDuration } from "../components/helpers"
 import stops from "../data/stops"
@@ -17,11 +18,11 @@ import StopBody from "./StopBody"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 export default function Timetable(props) {
-  const [selection, setSelection] = useState(stops)
-  const [stop, setStop] = useState({})
-  const [data, setData] = useState([])
-  const [viewData, setViewData] = useState([])
-  const [error, setError] = useState(null)
+  const [selection, setSelection] = useDebugState("selection",stops)
+  const [stop, setStop] = useDebugState("stop",{})
+  const [data, setData] = useDebugState("data",[])
+  const [viewData, setViewData] = useDebugState("viewData",[])
+  const [error, setError] = useDebugState("error",null)
   const params = useParams()
   const navigate = useNavigate()
   useEffect(() => {

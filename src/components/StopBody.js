@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import { useDebugState } from 'use-named-state'
 import { getDuration } from "./helpers"
 import StopName from "./StopName"
 import Error from "./Error"
@@ -828,7 +829,7 @@ function getGrunewald(lineName, direction) {
 }
 
 export default function StopBody({ data, error, stop, mode = 'dep' }) {
-  const [newData, setNewData] = useState(null)
+  const [newData, setNewData] = useDebugState("newData", null)
   const sortData = (data) => {
     if (data !== null && data !== undefined && data.length > 0) {
       const tempArray = data.map((element, index) => {
