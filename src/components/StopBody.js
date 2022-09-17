@@ -807,35 +807,67 @@ function getJungfernheide(id, mode, lineName, direction, provenance) {
   }
 }
 
-function getAdlershof(lineName, direction) {
-  switch(lineName) {
-    case "M17":
-      return ["S Adlershof [Tram Wendeschleife]", 5]
-    case "61":
-      if(direction.includes("Schöneweide")) return ["S Adlershof [Tram]", 2]
-      return ["S Adlershof [Tram]", 3]
-    case "63":
-      if(direction.includes("Johannisthal")) return ["S Adlershof [Tram]", 2]
-      return ["S Adlershof [Tram]",3]
-    case "162":
-      if(direction.includes("Rudow")) return ["S Adlershof [Bus]", 1]
-      return ["S Adlershof [Bus Rudower Chaussee]", 7]
-    case "163":
-      if(direction.includes("Schöneweide")) return ["S Adlershof [Bus]", 1]
-      return ["S Adlershof [Bus Rudower Chaussee]", 7]
-    case "164":
-      if(direction.includes("Köpenick")) return ["S Adlershof [Bus Rudower Chaussee]", 7]
-      return ["S Adlershof [Bus]", 1]
-    case "260":
-      return ["S Adlershof [Bus]", 1]
-    case "N60":
-      if(direction.includes("Flughafen")) return ["S Adlershof [Bus]", 1]
-      return ["S Adlershof [Bus]", 4]
-    case "N64":
-    case "N68":
-      return ["S Adlershof [Bus]", 4]
-    default:
-      return ["S Adlershof", null]
+function getAdlershof(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch(lineName) {
+      case "M17":
+        return ["S Adlershof [Tram Wendeschleife]", 6]
+      case "61":
+        if(provenance.includes("Schöneweide")) return ["S Adlershof [Tram Rudower Chaussee]", 3]
+        return ["S Adlershof [Tram Rudower Chaussee]", 2]
+      case "63":
+        if(provenance.includes("Johannisthal")) return ["S Adlershof [Tram Rudower Chaussee]", 3]
+        return ["S Adlershof [Tram Rudower Chaussee]",2]
+      case "162":
+        if(provenance.includes("Rudow")) return ["S Adlershof [Bus Rudower Chaussee]", 7]
+        return ["S Adlershof [Bus Rudower Chaussee]", 1]
+      case "163":
+        if(provenance.includes("Schöneweide")) return ["S Adlershof [Bus Rudower Chaussee]", 7]
+        return ["S Adlershof [Bus Rudower Chaussee]", 1]
+      case "164":
+        if(provenance.includes("Köpenick")) return ["S Adlershof [Bus Rudower Chaussee]", 1]
+        return ["S Adlershof [Bus Rudower Chaussee]", 7]
+      case "260":
+        return ["S Adlershof [Bus Rudower Chaussee]", 4]
+      case "N60":
+        if(provenance.includes("Flughafen")) return ["S Adlershof [Bus Rudower Chaussee]", 4]
+        return ["S Adlershof [Bus Rudower Chaussee]", 1]
+      case "N64":
+      case "N68":
+        return ["S Adlershof [Bus Rudower Chaussee]", 1]
+      default:
+        return ["S Adlershof", null]
+    }
+  } else {
+    switch(lineName) {
+      case "M17":
+        return ["S Adlershof [Tram Wendeschleife]", 5]
+      case "61":
+        if(direction.includes("Schöneweide")) return ["S Adlershof [Tram Rudower Chaussee]", 2]
+        return ["S Adlershof [Tram Rudower Chaussee]", 3]
+      case "63":
+        if(direction.includes("Johannisthal")) return ["S Adlershof [Tram Rudower Chaussee]", 2]
+        return ["S Adlershof [Tram Rudower Chaussee]",3]
+      case "162":
+        if(direction.includes("Rudow")) return ["S Adlershof [Bus Rudower Chaussee]", 1]
+        return ["S Adlershof [Bus Rudower Chaussee]", 7]
+      case "163":
+        if(direction.includes("Schöneweide")) return ["S Adlershof [Bus Rudower Chaussee]", 1]
+        return ["S Adlershof [Bus Rudower Chaussee]", 7]
+      case "164":
+        if(direction.includes("Köpenick")) return ["S Adlershof [Bus Rudower Chaussee]", 7]
+        return ["S Adlershof [Bus Rudower Chaussee]", 1]
+      case "260":
+        return ["S Adlershof [Bus Rudower Chaussee]", 1]
+      case "N60":
+        if(direction.includes("Flughafen")) return ["S Adlershof [Bus Rudower Chaussee]", 1]
+        return ["S Adlershof [Bus Rudower Chaussee]", 4]
+      case "N64":
+      case "N68":
+        return ["S Adlershof [Bus Rudower Chaussee]", 4]
+      default:
+        return ["S Adlershof", null]
+    }
   }
 }
 
@@ -1055,7 +1087,7 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000193002"].includes(id) && ["tram", "bus"].includes(product)) {
-          const [newStopName, trackNo] = getAdlershof(lineName, direction)
+          const [newStopName, trackNo] = getAdlershof(mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
