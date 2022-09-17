@@ -871,23 +871,43 @@ function getAdlershof(mode, lineName, direction, provenance) {
   }
 }
 
-function getGruenau(lineName, direction) {
-  switch(lineName) {
-    case "68":
-      if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 9]
-      return ["S Grünau [Adlergestell]", 8]
-    case "163":
-    case "263":
-    case "363":
-      return ["S Grünau [Richterstr.]", 1]
-    case "N62":
-      if(direction.includes("Wendenschloß")) return ["S Grünau [Richterstr.]", 1]
-      return ["S Grünau [Richterstr.]", 5]
-    case "N68":
-      if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 11]
-      return ["S Grünau [Adlergestell]", 10]
-    default:
-      return ["S Grünau", null]
+function getGruenau(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch(lineName) {
+      case "68":
+        if(provenance.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 8]
+        return ["S Grünau [Adlergestell]", 9]
+      case "163":
+      case "263":
+      case "363":
+        return ["S Grünau [Richterstr.]", 2]
+      case "N62":
+        if(provenance.includes("Wendenschloß")) return ["S Grünau [Richterstr.]", 5]
+        return ["S Grünau [Richterstr.]", 1]
+      case "N68":
+        if(provenance.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 10]
+        return ["S Grünau [Adlergestell]", 11]
+      default:
+        return ["S Grünau", null]
+    }
+  } else {
+    switch(lineName) {
+      case "68":
+        if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 9]
+        return ["S Grünau [Adlergestell]", 8]
+      case "163":
+      case "263":
+      case "363":
+        return ["S Grünau [Richterstr.]", 1]
+      case "N62":
+        if(direction.includes("Wendenschloß")) return ["S Grünau [Richterstr.]", 1]
+        return ["S Grünau [Richterstr.]", 5]
+      case "N68":
+        if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 11]
+        return ["S Grünau [Adlergestell]", 10]
+      default:
+        return ["S Grünau", null]
+    }
   }
 }
 
@@ -1092,7 +1112,7 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000186001", "900000186701", "900000186704"].includes(id) && ["tram", "bus"].includes(product)) {
-          const [newStopName, trackNo] = getGruenau(lineName, direction)
+          const [newStopName, trackNo] = getGruenau(mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
