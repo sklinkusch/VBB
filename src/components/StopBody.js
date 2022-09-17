@@ -745,35 +745,65 @@ function getSpandau(id, mode, lineName, direction, provenance) {
   }
 }
 
-function getJungfernheide(id,lineName, direction) {
-  switch(id) {
-    case "900000020201":
-      switch(lineName) {
-        case "M21":
-        case "X21":
-          if(direction.includes("Goerdelersteg")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-          return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3]
-        case "M27":
-        case "N7":
-          if(direction.includes("Flughafen")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-          if(direction.includes("Rudow")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-          if(direction.includes("Pankow")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-          return ["S+U Jungfernheide [Bus Olbersstr.]", 6]
-        default:
-          return ["S+U Jungfernheide", null]
-      }
-    case "900000020207":
-      switch(lineName) {
-        case "M27":
-        case "N7":
-          return ["Tegeler Weg/S Jungfernheide", 2]
-        case "109":
-          if (direction.includes("Zoologischer Garten")) return ["Tegeler Weg/S Jungfernheide", 1]
-          return ["Tegeler Weg/S Jungfernheide", 2]
-        default:
-          return ["Tegeler Weg/S Jungfernheide", 2]
-      }
-    default: return [null, null]
+function getJungfernheide(id, mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch(id) {
+      case "900000020201":
+        switch(lineName) {
+          case "M21":
+          case "X21":
+            if(provenance.includes("Goerdelersteg")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3]
+            return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
+          case "M27":
+          case "N7":
+            if (provenance.includes("Galenstr")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
+            return ["S+U Jungfernheide [Bus Olbersstr.]", 6]
+          default:
+            return ["S+U Jungfernheide", null]
+        }
+      case "900000020207":
+        switch(lineName) {
+          case "M27":
+          case "N7":
+            return ["Tegeler Weg/S Jungfernheide", 2]
+          case "109":
+            if (provenance.includes("Hertzallee")) return ["Tegeler Weg/S Jungfernheide", 2]
+            return ["Tegeler Weg/S Jungfernheide", 1]
+          default:
+            return ["Tegeler Weg/S Jungfernheide", 2]
+        }
+      default: return ["S+U Jungfernheide", null]
+    }
+  } else {
+    switch(id) {
+      case "900000020201":
+        switch(lineName) {
+          case "M21":
+          case "X21":
+            if(direction.includes("Goerdelersteg")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
+            return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3]
+          case "M27":
+          case "N7":
+            if(direction.includes("Flughafen")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
+            if(direction.includes("Rudow")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
+            if(direction.includes("Pankow")) return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
+            return ["S+U Jungfernheide [Bus Olbersstr.]", 6]
+          default:
+            return ["S+U Jungfernheide", null]
+        }
+      case "900000020207":
+        switch(lineName) {
+          case "M27":
+          case "N7":
+            return ["Tegeler Weg/S Jungfernheide", 2]
+          case "109":
+            if (direction.includes("Zoologischer Garten")) return ["Tegeler Weg/S Jungfernheide", 1]
+            return ["Tegeler Weg/S Jungfernheide", 2]
+          default:
+            return ["Tegeler Weg/S Jungfernheide", 2]
+        }
+      default: return ["S+U Jungfernheide", null]
+    }
   }
 }
 
@@ -1020,7 +1050,7 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000020201", "900000020207"].includes(id) && product === "bus") {
-          const [newStopName, trackNo] = getJungfernheide(id,lineName, direction)
+          const [newStopName, trackNo] = getJungfernheide(id, mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
