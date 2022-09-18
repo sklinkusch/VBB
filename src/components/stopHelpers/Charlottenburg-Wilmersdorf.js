@@ -228,6 +228,10 @@ export function getRuhleben(mode, lineName, direction, provenance) {
   }
 }
 
+export function getTheo() {
+  return "U Theodor-Heuss-Platz [Bus Th.-Heuss-Pl. Nord]"
+}
+
 export function getWestend(id) {
     switch(id) {
       case "900000026207": return "S Westend [Bus Spandauer Damm]"
