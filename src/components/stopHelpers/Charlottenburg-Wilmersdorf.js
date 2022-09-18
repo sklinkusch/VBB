@@ -1,3 +1,7 @@
+export function getBundesplatz() {
+  return "S+U Bundesplatz [Bus Bundesallee]"
+}
+
 export function getCharlottenburg(id, mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch (id) {
