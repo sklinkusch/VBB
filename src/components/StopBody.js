@@ -911,26 +911,50 @@ function getGruenau(mode, lineName, direction, provenance) {
   }
 }
 
-function getMahlsdorf(id, lineName, direction) {
-  switch(lineName) {
-    case "62":
-      return ["S Mahlsdorf [Tram Bus Treskowstr.]", 6]
-    case "195":
-    case "395":
-    case "398":
-      if(direction.includes("S Marzahn")) return ["S Mahlsdorf [Bus Hönower Str.]", 4]
-      if(direction.includes("S Mahlsdorf")) return ["S Mahlsdorf [Bus Hönower Str.]", 4]
-      return ["S Mahlsdorf [Bus Hönower Str.]", 3]
-    case "197":
-      if(id === "900000176702") return ["S Mahlsdorf [Tram Bus Treskowstr.]", 6]
-      return ["S Mahlsdorf [Bus Hönower Str.]", 4]
-    case "N90":
-      if(direction.includes("S+U Wuhletal")) return ["S Mahlsdorf [Bus Hönower Str.]", 4]
-      return ["S Mahlsdorf [Bus Hönower Str.]", 3]
-    case "N95":
-      return ["S Mahlsdorf [Bus Hönower Str.]", 4]
-    default:
-      return ["S Mahlsdorf", null]
+function getMahlsdorf(id, mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch(lineName) {
+      case "62":
+        return ["S Mahlsdorf [Tram Bus Treskowstr.]", 5]
+      case "195":
+      case "395":
+      case "398":
+        if(id === "900000176007") return ["Wodanstr./S Mahlsdorf", 2]
+        if(provenance.includes("S Marzahn")) return ["S Mahlsdorf [Bus Hönower Str.]", 3]
+        if(provenance.includes("S Mahlsdorf")) return ["S Mahlsdorf [Bus Hönower Str.]", 3]
+        return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+      case "197":
+        if(id === "900000176702") return ["S Mahlsdorf [Tram Bus Treskowstr.]", 6]
+        return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+      case "N90":
+        if(provenance.includes("S+U Wuhletal")) return ["S Mahlsdorf [Bus Hönower Str.]", 3]
+        return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+      case "N95":
+        return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+      default:
+        return ["S Mahlsdorf", null]
+    }
+  } else {
+    switch(lineName) {
+      case "62":
+        return ["S Mahlsdorf [Tram Bus Treskowstr.]", 6]
+      case "195":
+      case "395":
+      case "398":
+        if(direction.includes("S Marzahn")) return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+        if(direction.includes("S Mahlsdorf")) return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+        return ["S Mahlsdorf [Bus Hönower Str.]", 3]
+      case "197":
+        if(id === "900000176702") return ["S Mahlsdorf [Tram Bus Treskowstr.]", 6]
+        return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+      case "N90":
+        if(direction.includes("S+U Wuhletal")) return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+        return ["S Mahlsdorf [Bus Hönower Str.]", 3]
+      case "N95":
+        return ["S Mahlsdorf [Bus Hönower Str.]", 4]
+      default:
+        return ["S Mahlsdorf", null]
+    }
   }
 }
 
@@ -1116,8 +1140,8 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo }
         }
-        if(["900000176001","900000176701", "900000176702"].includes(id) && ["tram", "bus"].includes(product)) {
-          const [newStopName, trackNo] = getMahlsdorf(id, lineName, direction)
+        if(["900000176001","900000176007","900000176701", "900000176702"].includes(id) && ["tram", "bus"].includes(product)) {
+          const [newStopName, trackNo] = getMahlsdorf(id, mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo}
         }
