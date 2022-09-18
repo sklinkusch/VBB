@@ -110,6 +110,17 @@ export function getJungfernheide(id, mode, lineName, direction, provenance) {
   }
 }
 
+export function getMesseNord(id, lineName) {
+  switch(id) {
+    case "900000026204": return "Messedamm/ZOB"
+    case "900000024106": return "S Messe Nord/ICC [Bus]"
+    case "900000026202": 
+      if (lineName === "N2") return "U Kaiserdamm [Bus Kaiserdamm]"
+      return "U Kaiserdamm [Bus Königin-Elisabeth-Str.]"
+    default: return "S Messe Nord/ICC [Bus]"
+  }
+}
+
 export function getRuhleben(mode, lineName, direction, provenance) {
   if (mode === 'arr') {
     switch (lineName) {
