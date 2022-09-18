@@ -162,6 +162,10 @@ export function getWestend(id) {
     }
 }
 
+export function getWestkreuz() {
+  return "S Westkreuz [Bus]"
+}
+
 export function getZooBusStops(id, mode, lineName, direction, provenance) {
   if (mode === 'arr') {
     switch(id) {
