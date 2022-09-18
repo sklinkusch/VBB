@@ -56,6 +56,10 @@ export function getHalensee() {
   return "S Halensee [Bus Kurfürstendamm]"
 }
 
+export function getHeerstr() {
+  return "S Heerstr. [Bus Heerstr.]"
+}
+
 export function getHeidelbergerPlatz(mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch (lineName) {
