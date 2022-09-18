@@ -52,6 +52,36 @@ export function getHalensee() {
   return "S Halensee [Bus]"
 }
 
+export function getHohenzollerndamm(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch(lineName) {
+      case "115":
+        if (provenance.includes("Barstr.")) return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 5]
+        return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 2]
+      case "N3":
+        if (provenance.includes("Mexikoplatz")) return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 6]
+        return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 5]
+      case "N10":
+        if (provenance.includes("Hertzallee")) return ["S Hohenzollerndamm [Bus Seesener Str.]", 3]
+        return ["S Hohenzollerndamm [Bus Seesener Str.]", 4]
+      default: return ["S Hohenzollerndamm [Bus]", null]
+    }
+  } else {
+    switch(lineName) {
+      case "115":
+        if (direction.includes("Fehrbelliner Platz")) return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 2]
+        return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 5]
+      case "N3":
+        if (direction.includes("Mexikoplatz")) return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 5]
+        return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 6]
+      case "N10":
+        if (direction.includes("Zoo")) return ["S Hohenzollerndamm [Bus Seesener Str.]", 4]
+        return ["S Hohenzollerndamm [Bus Seesener Str.]", 3]
+      default: return ["S Hohenzollerndamm [Bus]", null]
+    }
+  }
+}
+
 export function getJungfernheide(id, mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(id) {
