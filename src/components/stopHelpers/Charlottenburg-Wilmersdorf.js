@@ -228,6 +228,28 @@ export function getRuhleben(mode, lineName, direction, provenance) {
   }
 }
 
+export function getSophieCharlottePlatz (mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch (lineName) {
+      case "309":
+        if (provenance.includes("Wilmersdorfer")) return "U Sophie-Charlotte-Platz [Bus Suarezstr.]"
+        return "U Sophie-Charlotte-Platz [Bus Schloßstr.]"
+      case "N2":
+        return "U Sophie-Charlotte-Platz [Bus Kaiserdamm]"
+      default: return "U Sophie-Charlotte-Platz [Bus]"
+    }
+  } else {
+    switch (lineName) {
+      case "309":
+        if (direction.includes("Wilmersdorfer")) return "U Sophie-Charlotte-Platz [Bus Schloßstr.]"
+        return "U Sophie-Charlotte-Platz [Bus Suarezstr.]"
+      case "N2":
+        return "U Sophie-Charlotte-Platz [Bus Kaiserdamm]"
+      default: return "U Sophie Charlotte-Platz [Bus]"
+    }
+  }
+}
+
 export function getTheo() {
   return "U Theodor-Heuss-Platz [Bus Th.-Heuss-Pl. Nord]"
 }
