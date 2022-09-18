@@ -48,6 +48,10 @@ export function getGrunewald(lineName, direction) {
   }
 }
 
+export function getHalensee() {
+  return "S Halensee [Bus]"
+}
+
 export function getJungfernheide(id, mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(id) {
