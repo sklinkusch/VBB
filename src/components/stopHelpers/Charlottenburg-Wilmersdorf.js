@@ -52,6 +52,30 @@ export function getHalensee() {
   return "S Halensee [Bus]"
 }
 
+export function getHeidelbergerPlatz(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch (lineName) {
+      case "249":
+      case "310":
+        return "S+U Heidelberger Platz [Bus Mecklenburgische Str.]"
+      case "N3":
+        if (provenance.includes("Mexikoplatz")) return "S+U Heidelberger Platz [Bus Detmolder Str.]"
+        return "S+U Heidelberger Platz [Bus Rudolstädter Str.]"
+      default: return "S+U Heidelberger Platz [Bus]"
+    }
+  } else {
+    switch (lineName) {
+      case "249":
+      case "310":
+        return "S+U Heidelberger Platz [Bus Mecklenburgische Str.]"
+      case "N3":
+        if (direction.includes("Mexikoplatz")) return "S+U Heidelberger Platz [Bus Rudolstädter Str.]"
+        return "S+U Heidelberger Platz [Bus Detmolder Str.]"
+      default: return "S+U Heidelberger Platz [Bus]"
+    }
+  }
+}
+
 export function getHohenzollerndamm(mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(lineName) {
