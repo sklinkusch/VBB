@@ -53,7 +53,7 @@ export function getGrunewald(lineName) {
 }
 
 export function getHalensee() {
-  return "S Halensee [Bus]"
+  return "S Halensee [Bus Kurfürstendamm]"
 }
 
 export function getHeidelbergerPlatz(mode, lineName, direction, provenance) {
@@ -175,12 +175,16 @@ export function getJungfernheide(id, mode, lineName, direction, provenance) {
 export function getMesseNord(id, lineName) {
   switch(id) {
     case "900000026204": return "Messedamm/ZOB"
-    case "900000024106": return "S Messe Nord/ICC [Bus]"
+    case "900000024106": return "S Messe Nord/ICC [Bus Neue Kantstr.]"
     case "900000026202": 
       if (lineName === "N2") return "U Kaiserdamm [Bus Kaiserdamm]"
       return "U Kaiserdamm [Bus Königin-Elisabeth-Str.]"
     default: return "S Messe Nord/ICC [Bus]"
   }
+}
+
+export function getMesseSüd() {
+  return "S Messe Süd [Bus Eichkampstr.]"
 }
 
 export function getRuhleben(mode, lineName, direction, provenance) {
@@ -218,7 +222,7 @@ export function getRuhleben(mode, lineName, direction, provenance) {
 
 export function getWestend(id) {
     switch(id) {
-      case "900000026207": return "S Westend [Bus]"
+      case "900000026207": return "S Westend [Bus Spandauer Damm]"
       case "900000020204": return "Sophie-Charlotten-Str."
       default: return "S Westend [Bus]"
     }
