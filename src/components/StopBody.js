@@ -958,6 +958,44 @@ function getMahlsdorf(id, mode, lineName, direction, provenance) {
   }
 }
 
+function getCharlottenburg(id, mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch (id) {
+      case "900000024101":
+        return ["S Charlottenburg [Bus Stuttgarter Platz]", 5]
+      case "900000024103":
+        if(provenance.includes("Hertzallee")) return ["S Charlottenburg/Gervinusstr.", 7]
+        if(provenance.includes("Blissestr")) return ["S Charlottenburg/Gervinusstr.", 7]
+        return ["S Charlottenburg/Gervinusstr.", 6]
+      case "900000024202":
+        if(provenance.includes("Hertzallee")) return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
+        if(provenance.includes("Savignyplatz")) return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
+        if(["X49", "309"].includes(lineName)) return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
+        return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1]
+      case "900000024205":
+        if(["309", "310"].includes(lineName)) return ["U Wilmersdorfer Str./S Charlottenburg", 4]
+        return ["U Wilmersdorfer Str./S Charlottenburg", 3]
+      default: return ["S Charlottenburg [Bus]", null]
+    }
+  } else {
+    switch (id) {
+      case "900000024101":
+        return ["S Charlottenburg [Bus Stuttgarter Platz]", 5]
+      case "900000024103":
+        if(direction.includes("Zoo")) return ["S Charlottenburg/Gervinusstr.", 6]
+        return ["S Charlottenburg/Gervinusstr.", 7]
+      case "900000024202":
+        if(direction.includes("Zoo")) return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1]
+        if(direction.includes("Savignyplatz")) return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1]
+        return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
+      case "900000024205":
+        if(lineName === "X49") return ["U Wilmersdorfer Str./S Charlottenburg", 3]
+        return ["U Wilmersdorfer Str./S Charlottenburg", 4]
+      default: return ["S Charlottenburg [Bus]", null]
+    }
+  }
+}
+
 function getFriedrichsfeldeOst(lineName, direction) {
   switch(lineName) {
     case "M17":
@@ -1144,6 +1182,11 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           const [newStopName, trackNo] = getMahlsdorf(id, mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop, platform: trackNo}
+        }
+        if(["900000024101","900000024103","900000024202","900000024205"].includes(id) && ["bus"].includes(product)) {
+          const [newStopName, trackNo] = getCharlottenburg(id, mode, lineName, direction, provenance)
+          const newStop = { ...stop, name: newStopName}
+          return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000171002"].includes(id) && ["tram", "bus"].includes(product)) {
           const [newStopName, trackNo] = getFriedrichsfeldeOst(lineName, direction)
