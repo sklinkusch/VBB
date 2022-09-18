@@ -40,7 +40,7 @@ export function getCharlottenburg(id, mode, lineName, direction, provenance) {
   }
 }
 
-export function getGrunewald(lineName, direction) {
+export function getGrunewald(lineName) {
   switch(lineName) {
     case "M19":
     case "186":

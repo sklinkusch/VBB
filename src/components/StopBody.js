@@ -1068,7 +1068,7 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000048101"].includes(id) && ["bus"].includes(product)) {
-          const newStopName = getGrunewald(lineName, direction)
+          const newStopName = getGrunewald(lineName)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop }
         }
