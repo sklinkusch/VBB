@@ -1,3 +1,7 @@
+export function getBismarckstr() {
+  return "U Bismarckstr. [Bus Bismarckstr.]"
+}
+
 export function getBundesplatz() {
   return "S+U Bundesplatz [Bus Bundesallee]"
 }
