@@ -996,6 +996,39 @@ function getCharlottenburg(id, mode, lineName, direction, provenance) {
   }
 }
 
+function getRuhleben(mode, lineName, direction, provenance) {
+  if (mode === 'arr') {
+    switch (lineName) {
+      case "M45":
+        if (provenance.includes("Hertzallee")) return "U Ruhleben [Bus Hempelsteig]"
+        if (provenance.includes("Westend")) return "U Ruhleben [Bus Hempelsteig]"
+        return "U Ruhleben [Bus Charlottenburger Chaussee]"
+      case "130":
+      case "N2":
+        return "U Ruhleben [Bus Hempelsteig]"
+      case "131":
+      case "X37":
+        return "U Ruhleben [Bus]"
+      default: return "U Ruhleben [Bus]"
+    }
+  } else {
+    switch (lineName) {
+      case "M45":
+        if (direction.includes("Zoologischer Garten")) return "U Ruhleben [Bus Charlottenburger Chaussee]"
+        if (direction.includes("Westend")) return "U Ruhleben [Bus Charlottenburger Chaussee]"
+        return "U Ruhleben [Bus Hempelsteig]"
+      case "131":
+      case "X37":
+        if (direction.includes("Ruhleben")) return "U Ruhleben [Bus Charlottenburger Chaussee]"
+        return "U Ruhleben [Bus Hempelsteig]"
+      case "130":
+      case "N2":
+        return "U Ruhleben [Bus]"
+      default: return "U Ruhleben [Bus]"
+    }
+  }
+}
+
 function getFriedrichsfeldeOst(lineName, direction) {
   switch(lineName) {
     case "M17":
@@ -1187,6 +1220,11 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           const [newStopName, trackNo] = getCharlottenburg(id, mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName}
           return { ...e, stop: newStop, platform: trackNo }
+        }
+        if(["900000025202"].includes(id) && ["bus"].includes(product)) {
+          const newStopName = getRuhleben(mode, lineName, direction, provenance)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop }
         }
         if(["900000171002"].includes(id) && ["tram", "bus"].includes(product)) {
           const [newStopName, trackNo] = getFriedrichsfeldeOst(lineName, direction)
