@@ -191,6 +191,10 @@ export function getMesseSüd() {
   return "S Messe Süd [Bus Eichkampstr.]"
 }
 
+export function getNeuWestend() {
+  return "U Neu-Westend [Bus Reichsstr.]"
+}
+
 export function getRuhleben(mode, lineName, direction, provenance) {
   if (mode === 'arr') {
     switch (lineName) {
