@@ -1029,6 +1029,53 @@ function getRuhleben(mode, lineName, direction, provenance) {
   }
 }
 
+function getWannsee(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch (lineName) {
+      case "114":
+      case "316":
+      case "318":
+      case "620":
+        return ["S Wannsee [Bus]", 4]
+      case "118":
+        if(provenance.includes("Krumme Lanke")) return ["S Wannsee [Bus]", 2]
+        if(provenance.includes("Rathaus Zehlendorf")) return ["S Wannsee [Bus]", 2]
+        return ["S Wannsee [Bus]", 1]
+      case "218":
+        if(provenance.includes("Pfaueninsel")) return ["S Wannsee [Bus]", 3]
+        return ["S Wannsee [Bus]", 2]
+      case "F10":
+        return ["S Wannsee [Fähre]", null]
+      case "N16":
+        if(provenance.includes("Nikolassee")) return ["S Wannsee [Bus]", 2]
+        return ["S Wannsee [Bus]", 5]
+      default: return ["S Wannsee [Bus]", null]
+    }
+  } else {
+    switch (lineName) {
+      case "114":
+        return ["S Wannsee [Bus]", 2]
+      case "118":
+        if(direction.includes("Krumme Lanke")) return ["S Wannsee [Bus]", 1]
+        if(direction.includes("Rathaus Zehlendorf")) return ["S Wannsee [Bus]", 1]
+        return ["S Wannsee [Bus]", 2]
+      case "218":
+        if(direction.includes("Pfaueninsel")) return ["S Wannsee [Bus]", 2]
+        return ["S Wannsee [Bus]", 3]
+      case "316":
+      case "318":
+      case "620":
+        return ["S Wannsee [Bus]", 2]
+      case "F10":
+        return ["S Wannsee [Fähre]", null]
+      case "N16":
+        if(direction.includes("Potsdam")) return ["S Wannsee [Bus]", 2]
+        return ["S Wannsee [Bus]", 5]
+      default: return ["S Wannsee [Bus]", null]
+    }
+  }
+}
+
 function getFriedrichsfeldeOst(lineName, direction) {
   switch(lineName) {
     case "M17":
@@ -1225,6 +1272,11 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
           const newStopName = getRuhleben(mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop }
+        }
+        if(["900000053301"].includes(id) && ["bus", "ferry"].includes(product)) {
+          const [newStopName, trackNo] = getWannsee(mode, lineName, direction, provenance)
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop, platform: trackNo }
         }
         if(["900000171002"].includes(id) && ["tram", "bus"].includes(product)) {
           const [newStopName, trackNo] = getFriedrichsfeldeOst(lineName, direction)
