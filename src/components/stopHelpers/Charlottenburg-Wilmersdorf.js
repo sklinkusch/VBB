@@ -44,6 +44,10 @@ export function getCharlottenburg(id, mode, lineName, direction, provenance) {
   }
 }
 
+export function getErnstReuterPlatz() {
+  return "U Ernst-Reuter-Platz [Bus Hardenbergstr.]"
+}
+
 export function getGrunewald(lineName) {
   switch(lineName) {
     case "M19":
