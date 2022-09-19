@@ -317,6 +317,10 @@ export function getTheo() {
   return "U Theodor-Heuss-Platz [Bus Th.-Heuss-Pl. Nord]"
 }
 
+export function getUhlandstr() {
+  return "U Uhlandstr. [Bus Kurfürstendamm]"
+}
+
 export function getWestend(id) {
     switch(id) {
       case "900000026207": return "S Westend [Bus Spandauer Damm]"
