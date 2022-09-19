@@ -4,7 +4,7 @@ import { getDuration } from "./helpers"
 import StopName from "./StopName"
 import Error from "./Error"
 import TableData from "./TableData"
-import { getBismarckstr, getBundesplatz, getCharlottenburg, getErnstReuterPlatz, getGrunewald, getHalensee, getHeerstr, getHeidelbergerPlatz, getHohenzollerndamm, getJungfernheide, getMesseNord, getMesseSüd, getNeuWestend, getRuhleben, getSophieCharlottePlatz, getTheo, getWestend, getWestkreuz, getZooBusStops } from "./stopHelpers/Charlottenburg-Wilmersdorf"
+import { getBismarckstr, getBundesplatz, getCharlottenburg, getErnstReuterPlatz, getGrunewald, getHalensee, getHeerstr, getHeidelbergerPlatz, getHohenzollerndamm, getJungfernheide, getKurfürstendamm, getMesseNord, getMesseSüd, getNeuWestend, getRuhleben, getSophieCharlottePlatz, getTheo, getWestend, getWestkreuz, getZooBusStops } from "./stopHelpers/Charlottenburg-Wilmersdorf"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 function getSteglitz(id, mode, lineName, direction, provenance) {
@@ -1084,6 +1084,11 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
         }
         if(["900000023101"].includes(id) && ["bus"].includes(product)) {
           const newStopName = getErnstReuterPlatz()
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop }
+        }
+        if(["900000023203"].includes(id) && ["bus"].includes(product)) {
+          const newStopName = getKurfürstendamm(mode, lineName, direction, provenance)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop }
         }

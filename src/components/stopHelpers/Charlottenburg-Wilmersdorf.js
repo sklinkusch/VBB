@@ -184,6 +184,61 @@ export function getJungfernheide(id, mode, lineName, direction, provenance) {
   }
 }
 
+export function getKurfürstendamm(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+    switch (lineName) {
+      case "M19":
+      case "M29":
+      case "N3":
+        return "U Kurfürstendamm [Bus Kurfürstendamm]"
+      case "M46":
+      case "X10":
+      case "109":
+      case "110":
+      case "N1":
+      case "N10":
+      case "N26":
+        if (provenance.includes("Hertzallee")) return "U Kurfürstendamm [Bus Kurfürstendamm]"
+        return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+      case "204":
+      case "249":
+      case "N9":
+        return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+      case "N2":
+        if (provenance.includes("Ruhleben")) return "U Kurfürstendamm [Bus Kurfürstendamm]"
+        if (provenance.includes("Zoologischer Garten")) return "U Kurfürstendamm [Bus Kurfürstendamm]"
+        return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+      default: return "U Kurfürstendamm [Bus]"
+    }
+  } else {
+    switch (lineName) {
+      case "M19":
+      case "M29":
+      case "N3":
+        return "U Kurfürstendamm [Bus Kurfürstendamm]"
+      case "M46":
+      case "X10":
+      case "109":
+      case "110":
+      case "N1":
+      case "N10":
+      case "N26":
+        if (direction.includes("Zoologischer Garten")) return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+        if (direction.includes("Hertzallee")) return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+        return "U Kurfürstendamm [Bus Kurfürstendamm]"
+      case "204":
+      case "249":
+      case "N9":
+        return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+      case "N2":
+        if (direction.includes("Ruhleben")) return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+        if (direction.includes("Zoologischer Garten")) return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
+        return "U Kurfürstendamm [Bus Kurfürstendamm]"
+      default: return "U Kurfürstendamm [Bus]"
+    }
+  }
+}
+
 export function getMesseNord(id, lineName) {
   switch(id) {
     case "900000026204": return "Messedamm/ZOB"
