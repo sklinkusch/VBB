@@ -313,6 +313,10 @@ export function getSophieCharlottePlatz (mode, lineName, direction, provenance) 
   }
 }
 
+export function getSpichernstr() {
+  return "U Spichernstr. [Bus Bundesallee]"
+}
+
 export function getTheo() {
   return "U Theodor-Heuss-Platz [Bus Th.-Heuss-Pl. Nord]"
 }
