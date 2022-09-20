@@ -48,6 +48,21 @@ export function getErnstReuterPlatz() {
   return "U Ernst-Reuter-Platz [Bus Hardenbergstr.]"
 }
 
+export function getFehrbellinerPlatz (lineName) {
+  switch (lineName) {
+    case "101": 
+    case "143":
+    case "N7":
+    case "N43":
+      return "U Fehrbelliner Platz [Bus Brandenburgische Str.]"
+    case "115": 
+    case "N3":
+      return "U Fehrbelliner Platz [Bus Hohenzollerndamm]"
+    default: 
+    return "U Fehrbelliner Platz [Bus]"
+  }
+}
+
 export function getGrunewald(lineName) {
   switch(lineName) {
     case "M19":
