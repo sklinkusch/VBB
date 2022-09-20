@@ -122,6 +122,14 @@ export function getHohenzollerndamm(mode, lineName, direction, provenance) {
   }
 }
 
+export function getHohenzollernplatz(lineName) {
+  switch(lineName) {
+    case "249": return "U Hohenzollernplatz [Bus Uhlandstr.]"
+    case "N3": return "U Hohenzollernplatz [Bus Hohenzollerndamm]"
+    default: return "U Hohenzollernplatz [Bus]"
+  }
+}
+
 export function getJungfernheide(id, mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(id) {
