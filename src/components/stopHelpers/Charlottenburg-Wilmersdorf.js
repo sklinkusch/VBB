@@ -281,6 +281,10 @@ export function getNeuWestend() {
   return "U Neu-Westend [Bus Reichsstr.]"
 }
 
+export function getRüdesheimerPlatz() {
+  return "U Rüdesheimer Platz [Bus Wiesbadener Str.]"
+}
+
 export function getRuhleben(mode, lineName, direction, provenance) {
   if (mode === 'arr') {
     switch (lineName) {
