@@ -75,6 +75,10 @@ export function getGrunewald(lineName) {
   }
 }
 
+export function getHalemweg() {
+  return "U Halemweg [Bus Halemweg]"
+}
+
 export function getHalensee() {
   return "S Halensee [Bus Kurfürstendamm]"
 }
