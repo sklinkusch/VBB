@@ -353,6 +353,14 @@ export function getNeuWestend() {
   return "U Neu-Westend [Bus Reichsstr.]"
 }
 
+export function getRichardWagnerPlatz(lineName) {
+  switch (lineName) {
+    case "M45": return "U Richard-Wagner-Platz [Bus O.-Suhr-Allee]"
+    case "N7": return "U Richard-Wagner-Platz [Bus R.-Wagner-Str.]"
+    default: return "U Richard-Wagner-Platz [Bus]"
+  }
+}
+
 export function getRüdesheimerPlatz() {
   return "U Rüdesheimer Platz [Bus Wiesbadener Str.]"
 }
