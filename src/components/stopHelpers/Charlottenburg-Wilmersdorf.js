@@ -323,6 +323,32 @@ export function getMesseSüd() {
   return "S Messe Süd [Bus Eichkampstr.]"
 }
 
+export function getMierendorffplatz(mode, lineName, direction, provenance) {
+  if (mode === 'arr') {
+    switch(lineName) {
+      case "M27":
+        if (provenance.includes("Jungfernheide")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+        return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
+      case "N7":
+        if (direction.includes("Spandau")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+        if (direction.includes("Galenstr")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+        return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
+      default: return "U Mierendorffplatz [Bus]"
+    }
+  } else {
+    switch(lineName) {
+      case "M27":
+        if (direction.includes("Jungfernheide")) return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
+        return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+      case "N7":
+        if (direction.includes("Spandau")) return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
+        if (direction.includes("Galenstr")) return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
+        return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+      default: return "U Mierendorffplatz [Bus]"
+    }
+  }
+}
+
 export function getNeuWestend() {
   return "U Neu-Westend [Bus Reichsstr.]"
 }
