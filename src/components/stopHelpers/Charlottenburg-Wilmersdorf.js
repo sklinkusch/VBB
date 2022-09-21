@@ -47,6 +47,34 @@ export function getBismarckstr() {
   return "U Bismarckstr. [Bus Bismarckstr.]"
 }
 
+export function getBlissestr(id, lineName) {
+  switch (id) {
+    case "900000041102":
+      switch (lineName) {
+        case "101":
+        case "310":
+          return "U Blissestr. [Bus Blissestr.]"
+        case "143":
+        case "N7":
+        case "N43":
+          return "U Blissestr. [Bus Brandenburgische Str.]"
+        default: return "U Blissestr. [Bus]"
+      }
+    case "900000043172":
+      switch (lineName) {
+        case "249":
+        case "310":
+          return "U Blissestr./Uhlandstr. [Bus Uhlandstr.]"
+        case "143":
+        case "N7":
+        case "N43":
+          return "U Blissestr./Uhlandstr. [Bus Berliner Str.]"
+        default: return "U Blissestr./Uhlandstr."
+      }
+    default: return "U Blissestr. [Bus]"
+  }
+}
+
 export function getBundesplatz() {
   return "S+U Bundesplatz [Bus Bundesallee]"
 }

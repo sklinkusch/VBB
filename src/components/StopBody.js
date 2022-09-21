@@ -4,7 +4,7 @@ import { getDuration } from "./helpers"
 import StopName from "./StopName"
 import Error from "./Error"
 import TableData from "./TableData"
-import { getAdenauerplatz, getBismarckstr, getBundesplatz, getCharlottenburg, getErnstReuterPlatz, getFehrbellinerPlatz, getGrunewald, getHalemweg, getHalensee, getHeerstr, getHeidelbergerPlatz, getHohenzollerndamm, getHohenzollernplatz, getJakobKaiserPlatz, getJungfernheide, getKonstanzerStr, getKurfürstendamm, getMesseNord, getMesseSüd, getMierendorffplatz, getNeuWestend, getRichardWagnerPlatz, getRuhleben, getRüdesheimerPlatz, getSophieCharlottePlatz, getSpichernstr, getTheo, getUhlandstr, getWestend, getWestkreuz, getZooBusStops } from "./stopHelpers/Charlottenburg-Wilmersdorf"
+import { getAdenauerplatz, getBismarckstr, getBlissestr, getBundesplatz, getCharlottenburg, getErnstReuterPlatz, getFehrbellinerPlatz, getGrunewald, getHalemweg, getHalensee, getHeerstr, getHeidelbergerPlatz, getHohenzollerndamm, getHohenzollernplatz, getJakobKaiserPlatz, getJungfernheide, getKonstanzerStr, getKurfürstendamm, getMesseNord, getMesseSüd, getMierendorffplatz, getNeuWestend, getRichardWagnerPlatz, getRuhleben, getRüdesheimerPlatz, getSophieCharlottePlatz, getSpichernstr, getTheo, getUhlandstr, getWestend, getWestkreuz, getZooBusStops } from "./stopHelpers/Charlottenburg-Wilmersdorf"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 function getSteglitz(id, mode, lineName, direction, provenance) {
@@ -1144,6 +1144,11 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
         }
         if(["900000041201"].includes(id) && ['bus'].includes(product)) {
           const newStopName = getKonstanzerStr()
+          const newStop = { ...stop, name: newStopName }
+          return { ...e, stop: newStop }
+        }
+        if(["900000041102", "900000043172"].includes(id) && ['bus'].includes(product)) {
+          const newStopName = getBlissestr(id, lineName)
           const newStop = { ...stop, name: newStopName }
           return { ...e, stop: newStop }
         }
