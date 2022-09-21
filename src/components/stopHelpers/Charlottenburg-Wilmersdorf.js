@@ -1,3 +1,48 @@
+export function getAdenauerplatz(mode, lineName, direction, provenance) {
+  if (mode === 'arr') {
+    switch (lineName) {
+      case "M19":
+      case "M29":
+      case "X10":
+      case "N10":
+        return "U Adenauerplatz [Bus Kurfürstendamm]"
+      case "310":
+      case "N7":
+        if (provenance.includes("Charlottenburg")) return "U Adenauerplatz [Bus Brandenburgische Str.]"
+        if (provenance.includes("Galenstr")) return "U Adenauerplatz [Bus Brandenburgische Str.]"
+        return "U Adenauerplatz [Bus Lewishamstr.]"
+      case "109":
+        if (provenance.includes("Hertzallee")) return "U Adenauerplatz [Bus Lewishamstr.]"
+        return "U Adenauerplatz [Bus Kurfürstendamm]"
+      case "110":
+        if (provenance.includes("Hertzallee")) return "U Adenauerplatz [Bus Brandenburgische Str.]"
+        return "U Adenauerplatz [Bus Kurfürstendamm]"
+      default: return "U Adenauerplatz [Bus]"
+    }
+  } else {
+    switch (lineName) {
+      case "M19":
+      case "M29":
+      case "X10":
+      case "N10":
+        return "U Adenauerplatz [Bus Kurfürstendamm]"
+      case "310":
+      case "N7":
+        if (direction.includes("Charlottenburg")) return "U Adenauerplatz [Bus Lewishamstr.]"
+        if (direction.includes("Spandau")) return "U Adenauerplatz [Bus Lewishamstr.]"
+        if (direction.includes("Galenstr")) return "U Adenauerplatz [Bus Lewishamstr.]"
+        return "U Adenauerplatz [Bus Brandenburgische Str.]"
+      case "109":
+        if (direction.includes("Zoo")) return "U Adenauerplatz [Bus Kurfürstendamm]"
+        return "U Adenauerplatz [Bus Lewishamstr.]"
+      case "110":
+        if (direction.includes("Zoo")) return "U Adenauerplatz [Bus Kurfürstendamm]"
+        return "U Adenauerplatz [Bus Brandenburgische Str.]"
+      default: return "U Adenauerplatz [Bus]"
+    }
+  }
+}
+
 export function getBismarckstr() {
   return "U Bismarckstr. [Bus Bismarckstr.]"
 }
