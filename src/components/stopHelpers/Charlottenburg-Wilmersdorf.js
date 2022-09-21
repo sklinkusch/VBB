@@ -298,6 +298,10 @@ export function getJungfernheide(id, mode, lineName, direction, provenance) {
   }
 }
 
+export function getKonstanzerStr() {
+  return "U Konstanzer Str. [Bus Brandenburgische Str.]"
+}
+
 export function getKurfürstendamm(mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch (lineName) {
