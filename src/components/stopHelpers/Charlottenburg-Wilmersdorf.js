@@ -149,6 +149,30 @@ export function getHohenzollernplatz(lineName) {
   }
 }
 
+export function getJakobKaiserPlatz(mode, lineName, direction, provenance) {
+  if (mode === "arr") {
+  } else {
+    switch (lineName) {
+      case "M21":
+      case "X21":
+        if(direction.includes("Jungfernheide")) return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+        return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+      case "109":
+        if(direction.includes("Tegel")) return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+        return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+      case "123":
+        if(direction.includes("Hauptbahnhof")) return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+        if(direction.includes("Turmstr")) return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+        return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+      case "N7":
+        if(direction.includes("Spandau")) return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+        if(direction.includes("Galenstr")) return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+        return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+      default: return "U Jakob-Kaiser-Platz [Bus]"
+    } 
+  }
+}
+
 export function getJungfernheide(id, mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(id) {
