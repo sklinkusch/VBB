@@ -43,6 +43,19 @@ export function getAdenauerplatz(mode, lineName, direction, provenance) {
   }
 }
 
+export function getBerlinerStr(lineName) {
+  switch (lineName) {
+    case "M43":
+    case "143":
+    case "N7X":
+    case "N9":
+      return "U Berliner Str. [Bus Bundesallee]"
+    case "N7":
+      return "U Berliner Str. [Bus Berliner Str.]"
+    default: return "U Berliner Str. [Bus]"
+  }
+}
+
 export function getBismarckstr() {
   return "U Bismarckstr. [Bus Bismarckstr.]"
 }
@@ -348,6 +361,7 @@ export function getKurfürstendamm(mode, lineName, direction, provenance) {
         return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
       case "204":
       case "249":
+      case "N7X":
       case "N9":
         return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
       case "N2":
