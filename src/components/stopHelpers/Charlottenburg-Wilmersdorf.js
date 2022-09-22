@@ -519,8 +519,13 @@ export function getSpichernstr() {
   return "U Spichernstr. [Bus Bundesallee]"
 }
 
-export function getTheo() {
-  return "U Theodor-Heuss-Platz [Bus Th.-Heuss-Pl. Nord]"
+export function getTheo(id) {
+  switch (id) {
+    case "900000026201": return "U Theodor-Heuss-Platz [Bus Th.-Heuss-Pl. Nord]"
+    case "900000026203": return "U Theodor-Heuss-Platz Süd"
+    case "900000026271": return "U Theodor-Heuss-Platz West"
+    default: return "U Theodor-Heuss-Platz [Bus]"
+  }
 }
 
 export function getUhlandstr() {
