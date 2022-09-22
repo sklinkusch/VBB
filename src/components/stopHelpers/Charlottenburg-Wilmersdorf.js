@@ -52,7 +52,7 @@ export function getBerlinerStr(lineName) {
       return "U Berliner Str. [Bus Bundesallee]"
     case "N7":
       return "U Berliner Str. [Bus Berliner Str.]"
-    default: return "U Berliner Str. [Bus]"
+    default: return "U Berliner Str. [Bus Bundesallee]"
   }
 }
 
@@ -159,6 +159,10 @@ export function getGrunewald(lineName) {
     default: 
       return "S Grunewald"
   }
+}
+
+export function getGüntzelstr() {
+  return "U Güntzelstr. [Bus Bundesallee]"
 }
 
 export function getHalemweg() {
