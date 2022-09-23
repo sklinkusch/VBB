@@ -167,3 +167,126 @@ export function getHbf(mode, lineName, direction, provenance) {
     }
   }
 }
+
+export function getPotsdamerPlatz(id, mode, lineName, direction, provenance) {
+  if (mode === 'arr') {
+    switch (id) {
+      case "900000005208":
+        switch (lineName) {
+          case "M41": return 2
+          case "M48":
+            if (provenance.includes("Mohrenstr")) return 2
+            return 1
+          case "M85":
+            if (provenance.includes("Hauptbahnhof")) return 2
+            return 1
+          case "200":
+            if (provenance.includes("Philharmonie")) return 1
+            if (provenance.includes("Hertzallee")) return 1
+            return 2
+          case "300":
+            if (provenance.includes("Philharmonie")) return 1
+            return 2
+          case "N2":
+            if (provenance.includes("Hertzallee")) return 1
+            if (provenance.includes("Ruhleben")) return 1
+            return 2
+          default: return null
+        }
+      case "900000100022":
+        switch (lineName) {
+          case "M41":
+          case "M85":
+            if (provenance.includes("Hauptbahnhof")) return 3
+            return 4
+          case "M48": return 4
+          default: return null
+        }
+      case "900000100721":
+        switch (lineName) {
+          case "M48": return 5
+          case "200":
+            if (provenance.includes("Hertzallee")) return 6
+            if (provenance.includes("Philharmonie")) return 6
+            return 5
+          case "300":
+            if (provenance.includes("Philharmonie")) return 6
+            return 5
+          case "N2":
+            if (provenance.includes("Hertzallee")) return 6
+            if (provenance.includes("Ruhleben")) return 6
+            return 5
+          default: return null
+        }
+      case "900000100722":
+        switch (lineName) {
+          case "M41":
+            if (provenance.includes("Philharmonie")) return 8
+            if (provenance.includes("Hauptbahnhof")) return 8
+            return 7
+          default: return null
+        }
+      default: return null
+    }
+  } else {
+    switch (id) {
+      case "900000005208":
+        switch (lineName) {
+          case "M41": return 2
+          case "M48":
+            if (direction.includes("Mohrenstr")) return 1
+            return 2
+          case "M85":
+            if (direction.includes("Hauptbahnhof")) return 1
+            return 2
+          case "200":
+            if (direction.includes("Philharmonie")) return 2
+            if (direction.includes("Zoo")) return 2
+            return 1
+          case "300":
+            if (direction.includes("Philharmonie")) return 2
+            return 1
+          case "N2":
+            if (direction.includes("Zoo")) return 2
+            if (direction.includes("Ruhleben")) return 2
+            return 1
+          default: return null
+        }
+      case "900000100022":
+        switch (lineName) {
+          case "M41":
+          case "M85":
+            if (direction.includes("Hauptbahnhof")) return 4
+            if (direction.includes("Fahrt")) return 4
+            return 3
+          case "M48": return 4
+          default: return null
+        }
+      case "900000100721":
+        switch (lineName) {
+          case "M48": return 5
+          case "200":
+            if (direction.includes("Zoo")) return 5
+            if (direction.includes("Philharmonie")) return 5
+            return 6
+          case "300":
+            if (direction.includes("Philharmonie")) return 5
+            return 6
+          case "N2":
+            if (direction.includes("Zoo")) return 5
+            if (direction.includes("Ruhleben")) return 5
+            return 6
+          default: return null
+        }
+      case "900000100722":
+        switch (lineName) {
+          case "M41":
+            if (direction.includes("Philharmonie")) return 7
+            if (direction.includes("Hauptbahnhof")) return 7
+            return 8
+          default: return null
+        }
+      default: return null
+    }
+  }
+}

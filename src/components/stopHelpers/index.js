@@ -2,7 +2,7 @@ import { getAdenauerplatz, getBerlinerStr, getBismarckstr, getBlissestr, getBund
 import { getWarschauerStr } from "./Friedrichshain-Kreuzberg"
 import { getLichtenberg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
-import { getAlex, getHbf } from "./Mitte"
+import { getAlex, getHbf, getPotsdamerPlatz } from "./Mitte"
 import { getPankow } from "./Pankow"
 import { getSpandau } from "./Spandau"
 import { getSteglitz, getWannsee } from "./Steglitz-Zehlendorf"
@@ -171,6 +171,14 @@ export function changeStopObject (mode, oldStopObject) {
         [newStopName, trackNo] = getPankow(id, mode, lineName, direction, provenance)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop, platform: trackNo }
+      case "900000005208":
+      case "900000100020":
+      case "900000100022":
+      case "900000100720":
+      case "900000100721":
+      case "900000100722":
+        trackNo = getPotsdamerPlatz(id, mode, lineName, direction, provenance)
+        return { ...oldStopObject, platform: trackNo }
       case "900000022202":
         newStopName = getRichardWagnerPlatz(lineName)
         newStop = { ...stop, name: newStopName }
