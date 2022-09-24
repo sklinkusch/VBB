@@ -1,3 +1,11 @@
+export function getAnhalterBahnhof(lineName) {
+  switch (lineName) {
+    case "M29": return "S Anhalter Bahnhof [Bus Schöneberger Str.]"
+    case "M41": return "S Anhalter Bahnhof [Bus Stresemannstr.]"
+    default: return "S Anhalter Bahnhof [Bus]"
+  }
+}
+
 export function getWarschauerStr(mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch (lineName) {

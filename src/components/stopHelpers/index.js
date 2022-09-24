@@ -1,5 +1,5 @@
 import { getAdenauerplatz, getBerlinerStr, getBismarckstr, getBlissestr, getBundesplatz, getCharlottenburg, getErnstReuterPlatz, getFehrbellinerPlatz, getGrunewald, getGüntzelstr, getHalemweg, getHalensee, getHeerstr, getHeidelbergerPlatz, getHohenzollerndamm, getHohenzollernplatz, getJakobKaiserPlatz, getJungfernheide, getKonstanzerStr, getKurfürstendamm, getMesseNord, getMesseSüd, getMierendorffplatz, getNeuWestend, getRichardWagnerPlatz, getRuhleben, getRüdesheimerPlatz, getSophieCharlottePlatz, getSpichernstr, getTheo, getUhlandstr, getWestend, getWestkreuz, getZooBusStops } from "./Charlottenburg-Wilmersdorf"
-import { getWarschauerStr } from "./Friedrichshain-Kreuzberg"
+import { getAnhalterBahnhof, getWarschauerStr } from "./Friedrichshain-Kreuzberg"
 import { getLichtenberg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
 import { getAlex, getHbf, getPotsdamerPlatz } from "./Mitte"
@@ -32,6 +32,10 @@ export function changeStopObject (mode, oldStopObject) {
         [newStopName, trackNo] = getAlex(id, mode, lineName, direction, provenance)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop, platform: trackNo }
+      case "900000012101":
+        newStopName = getAnhalterBahnhof(lineName)
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
       case "900000044201":
         newStopName = getBerlinerStr(lineName)
         newStop = { ...stop, name: newStopName }
