@@ -5,7 +5,7 @@ import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Helle
 import { getAlex, getHbf, getPotsdamerPlatz } from "./Mitte"
 import { getPankow } from "./Pankow"
 import { getSpandau } from "./Spandau"
-import { getBotanischerGarten, getLichterfeldeWest, getMexikoplatz, getNikolassee, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
+import { getBotanischerGarten, getFeuerbachstr, getLichterfeldeWest, getMexikoplatz, getNikolassee, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
 import { getSüdkreuz } from "./Tempelhof-Schöneberg"
 import { getAdlershof, getGrünau } from "./Treptow-Köpenick"
 
@@ -66,6 +66,10 @@ export function changeStopObject (mode, oldStopObject) {
         return { ...oldStopObject, stop: newStop }
       case "900000041101":
         newStopName = getFehrbellinerPlatz(lineName)
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000063101":
+        newStopName = getFeuerbachstr()
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000171002":

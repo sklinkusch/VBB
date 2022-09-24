@@ -2,6 +2,10 @@ export function getBotanischerGarten() {
   return "S Botanischer Garten [Bus Gardeschützenweg]"
 }
 
+export function getFeuerbachstr() {
+  return "S Feuerbachstr. [Bus Feuerbachstr.]"
+}
+
 export function getLichterfeldeWest() {
   return "S Lichterfelde West [Bus Drakestr.]"
 }
