@@ -74,6 +74,10 @@ export function getSteglitz(id, mode, lineName, direction, provenance) {
   }
 }
 
+export function getSundgauerStr() {
+  return "S Sundgauer Str. [Bus Sundgauer Str.]"
+}
+
 export function getWannsee(mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch (lineName) {
