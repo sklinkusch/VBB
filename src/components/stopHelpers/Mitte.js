@@ -101,6 +101,10 @@ export function getBrandenburgerTor() {
   return "S+U Brandenburger Tor [Bus Unter den Linden]"
 }
 
+export function getFriedrichstr() {
+  return "S+U Friedrichstr. [Tram Bus Friedrichstr.]"
+}
+
 export function getHbf(mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(lineName) {
