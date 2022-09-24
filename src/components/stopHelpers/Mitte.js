@@ -176,6 +176,10 @@ export function getHbf(mode, lineName, direction, provenance) {
   }
 }
 
+export function getOranienburgerStr() {
+  return "S Oranienburger Str. [Tram Oranienburger Str.]"
+}
+
 export function getPotsdamerPlatz(id, mode, lineName, direction, provenance) {
   if (mode === 'arr') {
     switch (id) {
