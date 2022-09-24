@@ -1,3 +1,7 @@
+export function getLichterfeldeWest() {
+  return "S Lichterfelde West [Bus Drakestr.]"
+}
+
 export function getMexikoplatz() {
   return "S Mexikoplatz [Bus Lindenthaler Allee]"
 }
