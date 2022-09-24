@@ -1,3 +1,7 @@
+export function getSchöneberg() {
+  return "S Schöneberg [Bus Dominicusstr.]"
+}
+
 export function getSüdkreuz(id, mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(id) {
