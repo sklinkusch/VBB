@@ -1,3 +1,7 @@
+export function getMexikoplatz() {
+  return "S Mexikoplatz [Bus Lindenthaler Allee]"
+}
+
 export function getNikolassee(lineName) {
   switch (lineName) {
     case "112": 

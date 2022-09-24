@@ -5,7 +5,7 @@ import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Helle
 import { getAlex, getHbf, getPotsdamerPlatz } from "./Mitte"
 import { getPankow } from "./Pankow"
 import { getSpandau } from "./Spandau"
-import { getNikolassee, getSteglitz, getWannsee } from "./Steglitz-Zehlendorf"
+import { getMexikoplatz, getNikolassee, getSteglitz, getWannsee } from "./Steglitz-Zehlendorf"
 import { getSüdkreuz } from "./Tempelhof-Schöneberg"
 import { getAdlershof, getGrünau } from "./Treptow-Köpenick"
 
@@ -156,6 +156,10 @@ export function changeStopObject (mode, oldStopObject) {
         return { ...oldStopObject, stop: newStop }
       case "900000025423":
         newStopName = getMesseSüd()
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000050301":
+        newStopName = getMexikoplatz()
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000019204":
