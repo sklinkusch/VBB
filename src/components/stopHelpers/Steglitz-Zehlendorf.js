@@ -120,3 +120,79 @@ export function getWannsee(mode, lineName, direction, provenance) {
     }
   }
 }
+
+export function getZehlendorf(mode, lineName, direction, provenance) {
+  if (mode === 'arr'){
+    switch (lineName) {
+      case "X10":
+        if (provenance.includes("Teltow")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
+        if (provenance.includes("Andréezeile")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "101":
+        if (provenance.includes("Sachtlebenstr")) return ["S Zehlendorf [Bus Teltower Damm]", 2]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "112":
+        if (provenance.includes("Nikolassee")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        if (provenance.includes("Zehlendorf Eiche")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 3]
+      case "115":
+        if (provenance.includes("Lissabonallee")) return ["S Zehlendorf [Bus Teltower Damm]", 2]
+        if (provenance.includes("Neuruppiner Str")) return ["S Zehlendorf [Bus Teltower Damm]", 2]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "285":
+        if (provenance.includes("Waldfriedhof")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        if (provenance.includes("Oskar-Helene-Heim")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 3]
+      case "623":
+        if (provenance.includes("Kleinmachnow")) return ["S Zehlendorf [Bus Teltower Damm]", 2]
+        if (provenance.includes("Stahnsdorf")) return ["S Zehlendorf [Bus Teltower Damm]", 2]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "N10":
+        if (provenance.includes("Hertzallee")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 2]
+      case "N12":
+        if (provenance.includes("Zehlendorf Eiche")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 2]
+      case "N84":
+        if (provenance.includes("Zehlendorf Eiche")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 3]
+      default: return ["S Zehlendorf [Bus]", null]
+    }
+  } else {
+    switch (lineName) {
+      case "X10":
+        if (direction.includes("Teltow")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        if (direction.includes("Andréezeile")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 3]
+      case "101":
+        if (direction.includes("Sachtlebenstr")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 2]
+      case "112":
+        if (direction.includes("Nikolassee")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
+        if (direction.includes("Zehlendorf Eiche")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "115":
+        if (direction.includes("Lissabonallee")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        if (direction.includes("Neuruppiner Str")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 2]
+      case "285":
+        if (direction.includes("Waldfriedhof")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
+        if (direction.includes("Oskar-Helene-Heim")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "623":
+        if (direction.includes("Kleinmachnow")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        if (direction.includes("Stahnsdorf")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
+        return ["S Zehlendorf [Bus Teltower Damm]", 2]
+      case "N10":
+        if (direction.includes("Zoo")) return ["S Zehlendorf [Bus Teltower Damm]", 2]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "N12":
+        if (direction.includes("Zehlendorf Eiche")) return ["S Zehlendorf [Bus Teltower Damm]", 2]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      case "N84":
+        if (direction.includes("Zehlendorf Eiche")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
+        return ["S Zehlendorf [Bus Teltower Damm]", 1]
+      default: return ["S Zehlendorf [Bus]", null]
+    }
+  }
+}
