@@ -6,7 +6,7 @@ import { getAlex, getHbf, getPotsdamerPlatz } from "./Mitte"
 import { getPankow } from "./Pankow"
 import { getSpandau } from "./Spandau"
 import { getBotanischerGarten, getFeuerbachstr, getLichterfeldeWest, getMexikoplatz, getNikolassee, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
-import { getSchöneberg, getSüdkreuz } from "./Tempelhof-Schöneberg"
+import { getJuliusLeberBrücke, getSchöneberg, getSüdkreuz } from "./Tempelhof-Schöneberg"
 import { getAdlershof, getGrünau } from "./Treptow-Köpenick"
 
 export function changeStopObject (mode, oldStopObject) {
@@ -120,6 +120,10 @@ export function changeStopObject (mode, oldStopObject) {
         return { ...oldStopObject, stop: newStop }
       case "900000018101":
         newStopName = getJakobKaiserPlatz(mode, lineName, direction, provenance)
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000057104":
+        newStopName = getJuliusLeberBrücke()
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000020201":
