@@ -1,3 +1,15 @@
+export function getNikolassee(lineName) {
+  switch (lineName) {
+    case "112": 
+      return "S Nikolassee [Bus Hohenzollernplatz]"
+    case "312":
+    case "N16":
+    case "N18":
+      return "S Nikolassee [Bus Borussenstr.]"
+    default: return "S Nikolassee [Bus]"
+  }
+}
+
 export function getSteglitz(id, mode, lineName, direction, provenance) {
   if (mode === 'arr') {
     switch (id) {
