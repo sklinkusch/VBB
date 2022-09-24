@@ -97,6 +97,10 @@ export function getAlex(id, mode, lineName, direction, provenance) {
   }
 }
 
+export function getBrandenburgerTor() {
+  return "S+U Brandenburger Tor [Bus Unter den Linden]"
+}
+
 export function getHbf(mode, lineName, direction, provenance) {
   if (mode === "arr") {
     switch(lineName) {

@@ -2,7 +2,7 @@ import { getAdenauerplatz, getBerlinerStr, getBismarckstr, getBlissestr, getBund
 import { getAnhalterBahnhof, getWarschauerStr } from "./Friedrichshain-Kreuzberg"
 import { getLichtenberg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
-import { getAlex, getHbf, getPotsdamerPlatz } from "./Mitte"
+import { getAlex, getBrandenburgerTor, getHbf, getPotsdamerPlatz } from "./Mitte"
 import { getPankow } from "./Pankow"
 import { getSpandau } from "./Spandau"
 import { getBotanischerGarten, getFeuerbachstr, getLichterfeldeWest, getMexikoplatz, getNikolassee, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
@@ -51,6 +51,10 @@ export function changeStopObject (mode, oldStopObject) {
         return { ...oldStopObject, stop: newStop }
       case "900000066102":
         newStopName = getBotanischerGarten()
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000100025":
+        newStopName = getBrandenburgerTor()
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000044202":
