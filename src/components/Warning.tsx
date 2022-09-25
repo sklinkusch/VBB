@@ -1,22 +1,36 @@
 /** @jsxImportSource theme-ui */
 
-const Warning = ({ remarks }) => {
-  const styles = { textAlign: "center", gridColumn: ["13 / span 6", "23 / span 1"]}
-  const formatTime = (timestamp) => {
+type Props = {
+  remarks: {
+    code: string,
+    type: string | null | undefined,
+    validFrom: string | null | undefined,
+    validUntil: string | null | undefined,
+    summary: string,
+    text: string
+  }[]
+}
+
+type Timestamp = string | null | undefined
+
+type Text = string
+
+const Warning = ({ remarks }: Props) => {
+  const formatTime = (timestamp: Timestamp) => {
     if (timestamp !== null && timestamp !== undefined) {
-      const dateArray = timestamp.substr(0, 10).split("-")
+      const dateArray = timestamp.substring(0, 10).split("-")
       const [year, month, day] = dateArray
-      const time = timestamp.substr(11, 5)
+      const time = timestamp.substring(11, 16)
       return `${day}.${month}.${year}, ${time}`
     }
     return null
   }
-  const formatText = (text) => {
+  const formatText = (text: Text) => {
     const textWithoutLinks = replaceLinks(text)
     const formattedText = includeSpecialChars(textWithoutLinks)
     return formattedText
   }
-  const replaceLinks = (item) => {
+  const replaceLinks = (item: Text) => {
     if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
       if (
         /<a.*href=".*" target="_blank" rel="noopener noreferrer[ ]*">.*<\/a>/.test(
@@ -40,7 +54,7 @@ const Warning = ({ remarks }) => {
     }
     return item
   }
-  const includeSpecialChars = (text) => {
+  const includeSpecialChars = (text: Text) => {
     let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
     let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
     textForm = textForm.replace(/&gt;/g, ">")
@@ -59,7 +73,7 @@ const Warning = ({ remarks }) => {
     })
     .join("\n")
   return (
-    <div className="warning" sx={{ ...styles }}>
+    <div className="warning" sx={{ textAlign: "center", gridColumn: ["13 / span 6", "23 / span 1"]}}>
       {warnings.length > 0 ? (
         <span
           className="fas fa-exclamation-triangle"
