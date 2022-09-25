@@ -1,6 +1,17 @@
 /** @jsxImportSource theme-ui */
 
-export default function Stattext(props) {
+type Props = {
+  remarks: {
+    code: string,
+    type: string | null | undefined,
+    validFrom: string | null | undefined,
+    validUntil: string | null | undefined,
+    summary: string,
+    text: string
+  }[]
+}
+
+export default function Stattext(props: Props) {
   const statuses = props.remarks.filter(remark => remark.type === "status");
   if (statuses.length > 0) {
     return (
