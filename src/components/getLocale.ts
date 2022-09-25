@@ -1,6 +1,6 @@
 import locales from "./locales.json"
 
-const getLocale = (element) => {
+const getLocale = (element: string) => {
   if(navigator.language.startsWith("de")) {
     return locales.de[element]
   }
