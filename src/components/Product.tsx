@@ -1,18 +1,28 @@
 /** @jsxImportSource theme-ui */
-import train from "../images/express.svg";
-import regional from "../images/regional.svg";
-import suburban from "../images/suburban.svg";
-import subway from "../images/subway.svg";
-import metrotram from "../images/metro-tram.svg";
-import tram from "../images/tram.svg";
-import metrobus from "../images/metro-bus.svg";
-import expressbus from "../images/express-bus.svg";
-import bus from "../images/bus.svg";
-import specialbus from "../images/special-bus.svg";
-import nightbus from "../images/night-bus.svg";
-import ferry from "../images/ferry.svg";
+const train = require("../images/express.svg");
+const regional = require("../images/regional.svg");
+const suburban = require("../images/suburban.svg");
+const subway = require("../images/subway.svg");
+const metrotram = require("../images/metro-tram.svg");
+const tram = require("../images/tram.svg");
+const metrobus = require("../images/metro-bus.svg");
+const expressbus = require("../images/express-bus.svg");
+const bus = require("../images/bus.svg");
+const specialbus = require("../images/special-bus.svg");
+const nightbus = require("../images/night-bus.svg");
+const ferry = require("../images/ferry.svg");
 
-const Product = props => {
+type Props = {
+  line: {
+    express: boolean,
+    metro: boolean,
+    name: string,
+    night: boolean,
+    product: string
+  }
+}
+
+const Product = (props: Props) => {
   const { line } = props;
   const { express, metro, name, night, product } = line;
   switch (product) {
