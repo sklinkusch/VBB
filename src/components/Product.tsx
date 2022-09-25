@@ -14,7 +14,14 @@ const ferry = require("../images/ferry.svg");
 
 type Props = {
   line: {
+    adminCode: string,
+    color: {
+      bg: string,
+      fg: string
+    },
     express: boolean,
+    fahrtNr: string,
+    id: string,
     metro: boolean,
     name: string,
     night: boolean,

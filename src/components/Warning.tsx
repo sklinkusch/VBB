@@ -1,19 +1,39 @@
 /** @jsxImportSource theme-ui */
 
+type Remarks = {
+  categories: number[] | undefined,
+  code: string | undefined,
+  company: string | undefined,
+  icon: {
+    title: string | null | undefined,
+    type: string | undefined
+  },
+  id: string | undefined,
+  modified: string | undefined,
+  priority: number | undefined | null,
+  products: {
+    bus: boolean | undefined,
+    express: boolean | undefined,
+    ferry: boolean | undefined,
+    regional: boolean | undefined,
+    suburban: boolean | undefined,
+    subway: boolean | undefined,
+    tram: boolean | undefined
+  },
+  summary: string | null | undefined,
+  text: string,
+  type: string,
+  validFrom: string | undefined,
+  validUntil: string | undefined
+}[]
+
 type Props = {
-  remarks: {
-    code: string,
-    type: string | null | undefined,
-    validFrom: string | null | undefined,
-    validUntil: string | null | undefined,
-    summary: string,
-    text: string
-  }[]
+  remarks: Remarks
 }
 
 type Timestamp = string | null | undefined
 
-type Text = string
+type Text = string | null | undefined
 
 const Warning = ({ remarks }: Props) => {
   const formatTime = (timestamp: Timestamp) => {
@@ -26,39 +46,48 @@ const Warning = ({ remarks }: Props) => {
     return null
   }
   const formatText = (text: Text) => {
-    const textWithoutLinks = replaceLinks(text)
-    const formattedText = includeSpecialChars(textWithoutLinks)
-    return formattedText
+    if (typeof text === 'string') {
+      const textWithoutLinks = replaceLinks(text)
+      const formattedText = includeSpecialChars(textWithoutLinks)
+      return formattedText
+    }
+    return ""
   }
   const replaceLinks = (item: Text) => {
-    if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
-      if (
-        /<a.*href=".*" target="_blank" rel="noopener noreferrer[ ]*">.*<\/a>/.test(
-          item
-        )
-      ) {
-        const pattern1 = /<a.*href="(.*)" target="_blank" rel="noopener noreferrer[ ]*">(.*)<\/a>/g
-        return item.replace(pattern1, "$2 ($1)")
-      } else if (
-        /<a.*href=".*" target="_blank" rel="noopener[ ]*">.*<\/a>/.test(item)
-      ) {
-        const pattern2 = /<a.*href="(.*)" target="_blank" rel="noopener[ ]*">(.*)<\/a>/g
-        return item.replace(pattern2, "$2 ($1)")
-      } else if (/<a.*href?".*" target="_blank">.*<\/a>/.test(item)) {
-        const pattern3 = /<a.*href="(.*)" target="_blank">(.*)<\/a>/g
-        return item.replace(pattern3, "$2 ($1)")
-      } else {
-        const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g
-        return item.replace(pattern, "$2 ($1)")
+    if (typeof item === 'string') {
+      if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
+        if (
+          /<a.*href=".*" target="_blank" rel="noopener noreferrer[ ]*">.*<\/a>/.test(
+            item
+            )
+          ) {
+            const pattern1 = /<a.*href="(.*)" target="_blank" rel="noopener noreferrer[ ]*">(.*)<\/a>/g
+            return item.replace(pattern1, "$2 ($1)")
+          } else if (
+            /<a.*href=".*" target="_blank" rel="noopener[ ]*">.*<\/a>/.test(item)
+            ) {
+            const pattern2 = /<a.*href="(.*)" target="_blank" rel="noopener[ ]*">(.*)<\/a>/g
+            return item.replace(pattern2, "$2 ($1)")
+          } else if (/<a.*href?".*" target="_blank">.*<\/a>/.test(item)) {
+            const pattern3 = /<a.*href="(.*)" target="_blank">(.*)<\/a>/g
+            return item.replace(pattern3, "$2 ($1)")
+          } else {
+            const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g
+            return item.replace(pattern, "$2 ($1)")
+          }
+        }
+        return item
       }
-    }
-    return item
+      return item
   }
   const includeSpecialChars = (text: Text) => {
-    let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
-    let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
-    textForm = textForm.replace(/&gt;/g, ">")
-    return textForm
+    if (typeof text === 'string') {
+      let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
+      let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
+      textForm = textForm.replace(/&gt;/g, ">")
+      return textForm
+    }
+    return text
   }
   const warnings = remarks.filter((remark) => remark.type === "warning")
   const formattedWarnings = warnings

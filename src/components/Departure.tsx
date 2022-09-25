@@ -9,8 +9,122 @@ const Status = lazy(() => import("./Status"));
 const Warntext = lazy(() => import("./Warntext"));
 const Stattext = lazy(() => import("./Stattext"));
 
-const Departure = props => {
-  const getDelay = (delay, cancelled) => {
+type Location = {
+  id: string,
+  latitude: number,
+  longitude: number,
+  type: string
+}
+
+type Remarks = {
+  categories: number[] | undefined,
+  code: string | undefined,
+  company: string | undefined,
+  icon: {
+    title: string | null | undefined,
+    type: string | undefined
+  },
+  id: string | undefined,
+  modified: string | undefined,
+  priority: number | undefined | null,
+  products: {
+    bus: boolean | undefined,
+    express: boolean | undefined,
+    ferry: boolean | undefined,
+    regional: boolean | undefined,
+    suburban: boolean | undefined,
+    subway: boolean | undefined,
+    tram: boolean | undefined
+  },
+  summary: string | null | undefined,
+  text: string,
+  type: string,
+  validFrom: string | undefined,
+  validUntil: string | undefined
+}[]
+
+type Props = {
+  dep: {
+    cancelled: boolean | undefined,
+    currentTripPosition: {
+      latitude: number,
+      longitude: number,
+      type: string
+    },
+    delay: number | null,
+    destination: {
+      id: string,
+      location: Location,
+      name: string,
+      products: {
+        bus: boolean,
+        express: boolean,
+        ferry: boolean,
+        regional: boolean,
+        suburban: boolean,
+        subway: boolean,
+        tram: boolean
+      },
+      stationDHID: string,
+      type: string
+    },
+    direction: string | null,
+    formerScheduledWhen: string | null | undefined,
+    line: {
+      adminCode: string,
+      color: {
+        bg: string,
+        fg: string
+      },
+      express: boolean,
+      fahrtNr: string,
+      id: string,
+      metro: boolean,
+      mode: string,
+      name: string,
+      night: boolean,
+      nr: number,
+      operator: {
+        id: string,
+        name: string,
+        type: string
+      },
+      product: string,
+      productName: string,
+      type: string
+    },
+    origin: string | null | undefined,
+    plannedPlatform: string | null | undefined,
+    plannedWhen: string | null | undefined,
+    platform: number | string | null | undefined,
+    prognosedPlatform: string | null | undefined,
+    prognosisType: string | null | undefined,
+    provenance: string | null | undefined,
+    remarks: Remarks,
+    scheduledWhen: string | null | undefined,
+    stop: {
+      id: string,
+      location: Location,
+      name: string,
+      products: {
+        bus: boolean,
+        express: boolean,
+        ferry: boolean,
+        regional: boolean,
+        suburban: boolean,
+        subway: boolean,
+        tram: boolean
+      },
+      stationDHID: string,
+      type: string
+    },
+    tripId: string,
+    when: string | null
+  }
+}
+
+const Departure = (props: Props) => {
+  const getDelay = (delay: number | null | undefined, cancelled: boolean | null | undefined) => {
     if (delay != null) {
       return Math.floor(delay / 60);
     } else if (cancelled) {
@@ -19,9 +133,9 @@ const Departure = props => {
       return "?";
     }
   };
-  const getPlanTime = (realtime, delay) => {
-    let hours = Number(realtime.substr(0, 2));
-    let minutes = Number(realtime.substr(3, 2));
+  const getPlanTime = (realtime: string, delay: number) => {
+    let hours = Number(realtime.substring(0, 2));
+    let minutes = Number(realtime.substring(3, 5));
     minutes -= delay;
     if (minutes < 0) {
       minutes += 60;
@@ -41,9 +155,9 @@ const Departure = props => {
     let minuteString = minutes < 10 ? `0${minutes}` : `${minutes}`;
     return `${hourString}:${minuteString}`;
   };
-  const getTime = timestamp => {
+  const getTime = (timestamp: string | undefined | null) => {
     if (timestamp != null) {
-      return timestamp.substr(11, 5);
+      return timestamp.substring(11, 16);
     } else {
       return "";
     }
@@ -57,7 +171,7 @@ const Departure = props => {
   let realtime = getTime(props.dep.when);
   let plantime;
   if (props.dep.when != null && props.dep.delay != null) {
-    plantime = getPlanTime(realtime, delayMin);
+    plantime = getPlanTime(realtime, Number(delayMin));
   } else if (props.dep.when != null && delayMin === "?") {
     plantime = realtime;
     realtime = "";

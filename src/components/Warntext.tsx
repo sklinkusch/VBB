@@ -1,15 +1,35 @@
 /** @jsxImportSource theme-ui */
 const getLocale = require("./getLocale")
 
+type Remarks = {
+  categories: number[] | undefined,
+  code: string | undefined,
+  company: string | undefined,
+  icon: {
+    title: string | null | undefined,
+    type: string | undefined
+  },
+  id: string | undefined,
+  modified: string | undefined,
+  priority: number | undefined | null,
+  products: {
+    bus: boolean | undefined,
+    express: boolean | undefined,
+    ferry: boolean | undefined,
+    regional: boolean | undefined,
+    suburban: boolean | undefined,
+    subway: boolean | undefined,
+    tram: boolean | undefined
+  },
+  summary: string | null | undefined,
+  text: string,
+  type: string,
+  validFrom: string | undefined,
+  validUntil: string | undefined
+}[]
+
 type Props = {
-  remarks: {
-    code: string,
-    type: string | null | undefined,
-    validFrom: string | null | undefined,
-    validUntil: string | null | undefined,
-    summary: string,
-    text: string
-  }[]
+  remarks: Remarks
 }
 
 type Timestamp = string | null | undefined
@@ -24,9 +44,12 @@ const Warntext = (props: Props) => {
     }
     return null
   }
-  const formatText = (text: string) => {
-    const formattedText = includeSpecialChars(text)
-    return formattedText
+  const formatText = (text: string | undefined | null) => {
+    if (typeof text === 'string') {
+      const formattedText = includeSpecialChars(text)
+      return formattedText
+    }
+    return ""
   }
   const includeSpecialChars = (text: string) => {
     let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
