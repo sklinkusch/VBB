@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./FF";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     // Berlin C
     stop.name.startsWith("Bredow,") ||
     stop.name.startsWith("Brieselang,") ||
@@ -153,7 +158,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zollchow (HVL)"
 );
 
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 // console.log(`after HVL: ${remainingStops.length}`);
 
 export { stops, remainingStops };
