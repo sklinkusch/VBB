@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./TF";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name === "Aalkasten" ||
     stop.name === "Ahlimbswalde" ||
     stop.name.startsWith("Ahrensdorf (UM)") ||
@@ -374,6 +379,6 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zützen (UM)")
 );
 
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 // console.log(`after UM: ${remainingStops.length}`);
 export { stops, remainingStops };
