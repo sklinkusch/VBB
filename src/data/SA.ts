@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./MV";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.startsWith("Angern-Rogätz,") ||
     stop.name.startsWith("Annaburg,") ||
     stop.name === "Bergwitz" ||
@@ -65,7 +70,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zörnigall,")
 );
 
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 
 // console.log(`after SA: ${remainingStops.length}`);
 // console.log(remainingStops);
