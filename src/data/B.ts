@@ -1,7 +1,12 @@
 import stopsUnsorted from "./unsorted";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stopsFilter = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.includes("(Berlin)") ||
     stop.name.includes("(Bln)") ||
     stop.name.startsWith("Berlin,") ||
@@ -10,7 +15,8 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name === "U Alexanderplatz [Bus]" ||
     stop.name === "S Rahnsdorf [Tram]"
 );
-const stopsRaw = stopsFilter.map(stop => {
+const stopsRaw = stopsFilter.map((stop: Stop) => {
+  console.log(stop)
   if (stop.name.startsWith("Berlin,")) {
     return { id: stop.id, name: stop.name.substr(8) };
   } else if (stop.name.endsWith("(Berlin)")) {
@@ -26,9 +32,9 @@ const stopsRaw = stopsFilter.map(stop => {
 });
 
 export const remainingStops = stopsUnsorted.filter(
-  stop => stopsFilter.indexOf(stop) === -1
+  (stop: Stop) => stopsFilter.indexOf(stop) === -1
 );
-const stops = stopsRaw.map(stop => {
+const stops = stopsRaw.map((stop: Stop) => {
   if (
     stop.name.includes("S+U Berlin Hauptbahnhof") ||
     stop.name.includes("S+U Zoologischer Garten")
