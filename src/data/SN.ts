@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./SA";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name === "Altenbach" ||
     stop.name.startsWith("Altmittweida,") ||
     stop.name.startsWith("Bad Muskau,") ||
@@ -107,7 +112,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zwethau,")
 );
 
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 // console.log(`after SN: ${remainingStops.length}`);
 // console.log(remainingStops);
 export { stops, remainingStops };
