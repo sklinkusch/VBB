@@ -1,17 +1,24 @@
 import { remainingStops as stopsUnsorted } from "./B";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stations = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.startsWith("S Röntgental") ||
     stop.name.startsWith("S Zepernick") ||
     stop.name.startsWith("S Bernau-Friedenstal") ||
     stop.name.startsWith("S Bernau")
 );
+
 const remainingAfterStations = stopsUnsorted.filter(
-  stop => stations.indexOf(stop) === -1
+  (stop: Stop) => stations.indexOf(stop) === -1
 );
+
 const stops = remainingAfterStations.filter(
-  stop =>
+  (stop: Stop) =>
     // Berlin C
     stop.name.startsWith("Ahrensfelde,") ||
     stop.name.startsWith("Albertshof (BAR)") ||
@@ -116,8 +123,9 @@ const stops = remainingAfterStations.filter(
     stop.name.startsWith("Werftpfuhl,") ||
     stop.name.startsWith("Zerpenschleuse,")
 );
+
 const remainingStops = remainingAfterStations.filter(
-  stop => stops.indexOf(stop) === -1
+  (stop: Stop) => stops.indexOf(stop) === -1
 );
 // console.log(`after BAR: ${remainingStops.length}`);
 export { stations, stops, remainingStops };
