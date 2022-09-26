@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./PR";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name === "Atterwasch" ||
     stop.name === "Auras" ||
     stop.name === "Babow" ||
@@ -172,7 +177,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zelz-Bahren" ||
     stop.name.startsWith("Zschorno,")
 );
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 // console.log(`after SPN: ${remainingStops.length}`);
 
 export { stops, remainingStops };
