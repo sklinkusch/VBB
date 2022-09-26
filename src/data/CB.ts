@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./BRB";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stopsRaw = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.startsWith("Cottbus,") ||
     stop.name.startsWith("Haasow,") ||
     stop.name.startsWith("Hänchen,") ||
@@ -10,11 +15,11 @@ const stopsRaw = stopsUnsorted.filter(
 );
 
 const remainingStops = stopsUnsorted.filter(
-  stop => stopsRaw.indexOf(stop) === -1
+  (stop: Stop) => stopsRaw.indexOf(stop) === -1
 );
 // console.log(`after CB: ${remainingStops.length}`);
 
-const stops = stopsRaw.map(stop => {
+const stops = stopsRaw.map((stop: Stop) => {
   return {
     id: stop.id,
     name: stop.name,
