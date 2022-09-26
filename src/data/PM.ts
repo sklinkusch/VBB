@@ -1,13 +1,18 @@
 import { remainingStops as stopsUnsorted } from "./P";
 
-const stations = stopsUnsorted.filter(stop =>
+type Stop = {
+  id: string,
+  name: string
+}
+
+const stations = stopsUnsorted.filter((stop: Stop) =>
   stop.name.includes("S Teltow Stadt")
 );
 const remainingAfterStations = stopsUnsorted.filter(
-  stop => stations.indexOf(stop) === -1
+  (stop: Stop) => stations.indexOf(stop) === -1
 );
 const stops = remainingAfterStations.filter(
-  stop =>
+  (stop: Stop) =>
     // Berlin C
     stop.name.startsWith("Bergholz-Rehbrücke,") ||
     stop.name.startsWith("Bliesendorf,") ||
@@ -271,7 +276,7 @@ const stops = remainingAfterStations.filter(
     stop.name === "Zixdorf"
 );
 const remainingStops = remainingAfterStations.filter(
-  stop => stops.indexOf(stop) === -1
+  (stop: Stop) => stops.indexOf(stop) === -1
 );
 // console.log(`after PM: ${remainingStops.length}`);
 export { stations, stops, remainingStops };
