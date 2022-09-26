@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./LOS";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stations = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.startsWith("S Birkenstein") ||
     stop.name.startsWith("S Hoppegarten") ||
     stop.name.startsWith("S Neuenhagen") ||
@@ -11,10 +16,10 @@ const stations = stopsUnsorted.filter(
     stop.name.startsWith("S Hegermühle")
 );
 const remainingAfterStations = stopsUnsorted.filter(
-  stop => stations.indexOf(stop) === -1
+  (stop: Stop) => stations.indexOf(stop) === -1
 );
 const stops = remainingAfterStations.filter(
-  stop =>
+  (stop: Stop) =>
     // Berlin C
     stop.name.startsWith("Altlandsberg,") ||
     stop.name.startsWith("Bruchmühle,") ||
@@ -241,7 +246,7 @@ const stops = remainingAfterStations.filter(
     stop.name === "Zinndorf"
 );
 const remainingStops = remainingAfterStations.filter(
-  stop => stops.indexOf(stop) === -1
+  (stop: Stop) => stops.indexOf(stop) === -1
 );
 // console.log(`after MOL: ${remainingStops.length}`);
 
