@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./HVL";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stations = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.includes("S Flughafen Berlin-Schönefeld") ||
     stop.name.includes("S Eichwalde") ||
     stop.name.includes("S Zeuthen") ||
@@ -12,10 +17,10 @@ const stations = stopsUnsorted.filter(
     stop.name.includes("S Waßmannsdorf")
 );
 const remainingAfterStations = stopsUnsorted.filter(
-  stop => stations.indexOf(stop) === -1
+  (stop: Stop) => stations.indexOf(stop) === -1
 );
 const stops = remainingAfterStations.filter(
-  stop =>
+  (stop: Stop) =>
     // Berlin C
     stop.name.startsWith("Boddinsfelde") ||
     stop.name.startsWith("Brusendorf,") ||
@@ -256,7 +261,7 @@ const stops = remainingAfterStations.filter(
 );
 
 const remainingStops = remainingAfterStations.filter(
-  stop => stops.indexOf(stop) === -1
+  (stop: Stop) => stops.indexOf(stop) === -1
 );
 // console.log(`after LDS: ${remainingStops.length}`);
 export { stations, stops, remainingStops };
