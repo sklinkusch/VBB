@@ -23,6 +23,12 @@ import { stations as stationsOHV, /*stops as stopsOHV*/ } from "./OHV";
 // import { stops as stopsPL } from "./PL";
 // import { stops as stopsOT } from "./OT";
 
+type Stop = {
+  id: string,
+  name: string,
+  type: string | undefined
+}
+
 const stopsBerlinUnsorted = [
   ...stopsB,
   ...stationsP,
@@ -67,17 +73,21 @@ const stopsBerlin = sortItems(stopsBerlinUnsorted);
 // const stopsOther = sortItems(stopsOtherUnsorted);
 // const stops = [...stopsBerlin, ...stopsBrandenburg, ...stopsOther];
 const stopsUnfiltered = [...stopsBerlin]
-const stopsObject = stopsUnfiltered.reduce((acc, curr) => {
-  const obj = { ...acc }
-  const { id, name, type } = curr
-  if(obj.hasOwnProperty(name) === false) obj[name] = { id, name, type }
-  return obj
-}, {})
-const stops = Object.values(stopsObject).sort((a,b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase(),"de",{ sensitivity: "base"}))
+// const stopsObject = stopsUnfiltered.reduce((acc, curr) => {
+//   const obj = { ...acc }
+//   const { id, name, type } = curr
+//   if(obj.hasOwnProperty(name) === false) obj[name] = { id, name, type }
+//   return obj
+// }, {})
+// const stops = Object.values(stopsObject).sort((a: Stop,b: Stop) =>
+// a.name.toLowerCase().localeCompare(b.name.toLowerCase(),"de",{ sensitivity:
+// "base"}))
+
+const stops = sortItems(stopsUnfiltered)
 
 export default stops;
 
-function sortItems(array) {
+function sortItems(array: Stop[]) {
   return array.sort((a, b) => {
     return a.name
       .toLowerCase()
