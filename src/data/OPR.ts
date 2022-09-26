@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./OHV";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name === "Ackerfelde" ||
     stop.name === "Albertinenhof" ||
     stop.name.startsWith("Alt Daber,") ||
@@ -262,7 +267,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zootzen (OPR)" ||
     stop.name === "Zühlen"
 );
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 // console.log(`after OPR: ${remainingStops.length}`);
 
 export { stops, remainingStops };
