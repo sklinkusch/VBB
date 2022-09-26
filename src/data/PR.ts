@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./PM";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.startsWith("Abbendorf,") ||
     stop.name === "Alt Krüssow" ||
     stop.name === "Alt Pinnow" ||
@@ -280,7 +285,7 @@ const stops = stopsUnsorted.filter(
     stop.name.startsWith("Zichtow,") ||
     stop.name === "Zwischendeich"
 );
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 // console.log(`after PR: ${remainingStops.length}`);
 
 export { stops, remainingStops };
