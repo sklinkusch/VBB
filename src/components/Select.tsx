@@ -2,7 +2,36 @@
 import { Fragment } from "react"
 import { useNavigate } from "react-router-dom"
 
-export default function Select(props) {
+type Location = {
+  id: string,
+  latitude: number,
+  longitude: number,
+  type: string
+}
+
+type Stop = {
+  id: string,
+  location: Location,
+  name: string,
+  products: {
+    bus: boolean,
+    express: boolean,
+    ferry: boolean,
+    regional: boolean,
+    suburban: boolean,
+    subway: boolean,
+    tram: boolean
+  }
+}
+
+type Props = {
+  handleChange: Function,
+  mode: string,
+  stop: Stop,
+  selection: Stop[]
+}
+
+export default function Select(props: Props) {
   const { handleChange, selection, stop, mode } = props
   const navigate = useNavigate()
   return (
