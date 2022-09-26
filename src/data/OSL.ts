@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./OPR";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stops = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.startsWith("Allmosen,") ||
     stop.name.startsWith("Altdöbern,") ||
     stop.name === "Amandusdorf" ||
@@ -160,7 +165,7 @@ const stops = stopsUnsorted.filter(
     stop.name === "Zinnitz" ||
     stop.name === "Zwietow"
 );
-const remainingStops = stopsUnsorted.filter(stop => stops.indexOf(stop) === -1);
+const remainingStops = stopsUnsorted.filter((stop: Stop) => stops.indexOf(stop) === -1);
 // console.log(`after OSL: ${remainingStops.length}`);
 
 export { stops, remainingStops };
