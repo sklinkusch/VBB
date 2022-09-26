@@ -16,7 +16,6 @@ const stopsFilter = stopsUnsorted.filter(
     stop.name === "S Rahnsdorf [Tram]"
 );
 const stopsRaw = stopsFilter.map((stop: Stop) => {
-  console.log(stop)
   if (stop.name.startsWith("Berlin,")) {
     return { id: stop.id, name: stop.name.substr(8) };
   } else if (stop.name.endsWith("(Berlin)")) {

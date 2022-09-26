@@ -1,7 +1,12 @@
 import { remainingStops as stopsUnsorted } from "./BAR";
 
+type Stop = {
+  id: string,
+  name: string
+}
+
 const stopsRaw = stopsUnsorted.filter(
-  stop =>
+  (stop: Stop) =>
     stop.name.startsWith("Brandenburg,") ||
     stop.name.startsWith("Gollwitz (bei Jeserig)") ||
     stop.name.startsWith("Göttin (Brandenburg)") ||
@@ -12,11 +17,11 @@ const stopsRaw = stopsUnsorted.filter(
 );
 
 const remainingStops = stopsUnsorted.filter(
-  stop => stopsRaw.indexOf(stop) === -1
+  (stop: Stop) => stopsRaw.indexOf(stop) === -1
 );
 // console.log(`after BRB: ${remainingStops.length}`);
 
-const stops = stopsRaw.map(stop => {
+const stops = stopsRaw.map((stop: Stop) => {
   return {
     id: stop.id,
     name: stop.name,
