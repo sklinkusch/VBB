@@ -1,15 +1,20 @@
 import { remainingStops as stopsUnsorted } from "./EE";
 
-const stopsRaw = stopsUnsorted.filter(stop =>
+type Stop = {
+  id: string,
+  name: string
+}
+
+const stopsRaw = stopsUnsorted.filter((stop: Stop) =>
   stop.name.startsWith("Frankfurt (Oder)")
 );
 
 const remainingStops = stopsUnsorted.filter(
-  stop => stopsRaw.indexOf(stop) === -1
+  (stop: Stop) => stopsRaw.indexOf(stop) === -1
 );
 // console.log(`after FF: ${remainingStops.length}`);
 
-const stops = stopsRaw.map(stop => {
+const stops = stopsRaw.map((stop: Stop) => {
   return {
     id: stop.id,
     name: stop.name,
