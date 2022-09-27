@@ -1,5 +1,7 @@
-export function getPankow(id, mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+type Dir = string | null
+
+export function getPankow(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch (id) {
       case "900000130002":
         switch (lineName) {
@@ -45,7 +47,7 @@ export function getPankow(id, mode, lineName, direction, provenance) {
           }
         default: return ["S+U Pankow", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (id) {
       case "900000130002":
         switch (lineName) {
