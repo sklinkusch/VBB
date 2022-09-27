@@ -1,5 +1,7 @@
-export function getAdenauerplatz(mode, lineName, direction, provenance) {
-  if (mode === 'arr') {
+type Dir = string | null
+
+export function getAdenauerplatz(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
     switch (lineName) {
       case "M19":
       case "M29":
@@ -19,7 +21,7 @@ export function getAdenauerplatz(mode, lineName, direction, provenance) {
         return "U Adenauerplatz [Bus Kurfürstendamm]"
       default: return "U Adenauerplatz [Bus]"
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "M19":
       case "M29":
@@ -43,7 +45,7 @@ export function getAdenauerplatz(mode, lineName, direction, provenance) {
   }
 }
 
-export function getBerlinerStr(lineName) {
+export function getBerlinerStr(lineName: string) {
   switch (lineName) {
     case "M43":
     case "143":
@@ -60,7 +62,7 @@ export function getBismarckstr() {
   return "U Bismarckstr. [Bus Bismarckstr.]"
 }
 
-export function getBlissestr(id, lineName) {
+export function getBlissestr(id: string, lineName: string) {
   switch (id) {
     case "900000041102":
       switch (lineName) {
@@ -92,8 +94,8 @@ export function getBundesplatz() {
   return "S+U Bundesplatz [Bus Bundesallee]"
 }
 
-export function getCharlottenburg(id, mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getCharlottenburg(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch (id) {
       case "900000024101":
         return ["S Charlottenburg [Bus Stuttgarter Platz]", 5]
@@ -111,7 +113,7 @@ export function getCharlottenburg(id, mode, lineName, direction, provenance) {
         return ["U Wilmersdorfer Str./S Charlottenburg", 3]
       default: return ["S Charlottenburg [Bus]", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (id) {
       case "900000024101":
         return ["S Charlottenburg [Bus Stuttgarter Platz]", 5]
@@ -134,7 +136,7 @@ export function getErnstReuterPlatz() {
   return "U Ernst-Reuter-Platz [Bus Hardenbergstr.]"
 }
 
-export function getFehrbellinerPlatz (lineName) {
+export function getFehrbellinerPlatz (lineName: string) {
   switch (lineName) {
     case "101": 
     case "143":
@@ -149,7 +151,7 @@ export function getFehrbellinerPlatz (lineName) {
   }
 }
 
-export function getGrunewald(lineName) {
+export function getGrunewald(lineName: string) {
   switch(lineName) {
     case "M19":
     case "186":
@@ -177,8 +179,8 @@ export function getHeerstr() {
   return "S Heerstr. [Bus Heerstr.]"
 }
 
-export function getHeidelbergerPlatz(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getHeidelbergerPlatz(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch (lineName) {
       case "249":
       case "310":
@@ -188,7 +190,7 @@ export function getHeidelbergerPlatz(mode, lineName, direction, provenance) {
         return "S+U Heidelberger Platz [Bus Rudolstädter Str.]"
       default: return "S+U Heidelberger Platz [Bus]"
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "249":
       case "310":
@@ -201,8 +203,8 @@ export function getHeidelbergerPlatz(mode, lineName, direction, provenance) {
   }
 }
 
-export function getHohenzollerndamm(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getHohenzollerndamm(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch(lineName) {
       case "115":
         if (provenance.includes("Barstr.")) return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 5]
@@ -215,7 +217,7 @@ export function getHohenzollerndamm(mode, lineName, direction, provenance) {
         return ["S Hohenzollerndamm [Bus Seesener Str.]", 4]
       default: return ["S Hohenzollerndamm [Bus]", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch(lineName) {
       case "115":
         if (direction.includes("Fehrbelliner Platz")) return ["S Hohenzollerndamm [Bus Hohenzollerndamm]", 2]
@@ -231,7 +233,7 @@ export function getHohenzollerndamm(mode, lineName, direction, provenance) {
   }
 }
 
-export function getHohenzollernplatz(lineName) {
+export function getHohenzollernplatz(lineName: string) {
   switch(lineName) {
     case "249": return "U Hohenzollernplatz [Bus Uhlandstr.]"
     case "N3": return "U Hohenzollernplatz [Bus Hohenzollerndamm]"
@@ -239,8 +241,8 @@ export function getHohenzollernplatz(lineName) {
   }
 }
 
-export function getJakobKaiserPlatz(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getJakobKaiserPlatz(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch (lineName) {
       case "M21":
       case "X21":
@@ -259,7 +261,7 @@ export function getJakobKaiserPlatz(mode, lineName, direction, provenance) {
         return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
       default: return "U Jakob-Kaiser-Platz [Bus]"
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "M21":
       case "X21":
@@ -281,8 +283,8 @@ export function getJakobKaiserPlatz(mode, lineName, direction, provenance) {
   }
 }
 
-export function getJungfernheide(id, mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getJungfernheide(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch(id) {
       case "900000020201":
         switch(lineName) {
@@ -310,7 +312,7 @@ export function getJungfernheide(id, mode, lineName, direction, provenance) {
         }
       default: return ["S+U Jungfernheide", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch(id) {
       case "900000020201":
         switch(lineName) {
@@ -347,8 +349,8 @@ export function getKonstanzerStr() {
   return "U Konstanzer Str. [Bus Brandenburgische Str.]"
 }
 
-export function getKurfürstendamm(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getKurfürstendamm(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch (lineName) {
       case "M19":
       case "M29":
@@ -374,7 +376,7 @@ export function getKurfürstendamm(mode, lineName, direction, provenance) {
         return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
       default: return "U Kurfürstendamm [Bus]"
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "M19":
       case "M29":
@@ -403,7 +405,7 @@ export function getKurfürstendamm(mode, lineName, direction, provenance) {
   }
 }
 
-export function getMesseNord(id, lineName) {
+export function getMesseNord(id: string, lineName: string) {
   switch(id) {
     case "900000026204": return "Messedamm/ZOB"
     case "900000024106": return "S Messe Nord/ICC [Bus Neue Kantstr.]"
@@ -418,19 +420,19 @@ export function getMesseSüd() {
   return "S Messe Süd [Bus Eichkampstr.]"
 }
 
-export function getMierendorffplatz(mode, lineName, direction, provenance) {
-  if (mode === 'arr') {
+export function getMierendorffplatz(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
     switch(lineName) {
       case "M27":
         if (provenance.includes("Jungfernheide")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
         return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
       case "N7":
-        if (direction.includes("Spandau")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
-        if (direction.includes("Galenstr")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+        if (provenance.includes("Spandau")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+        if (provenance.includes("Galenstr")) return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
         return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
       default: return "U Mierendorffplatz [Bus]"
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch(lineName) {
       case "M27":
         if (direction.includes("Jungfernheide")) return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
@@ -448,7 +450,7 @@ export function getNeuWestend() {
   return "U Neu-Westend [Bus Reichsstr.]"
 }
 
-export function getRichardWagnerPlatz(lineName) {
+export function getRichardWagnerPlatz(lineName: string) {
   switch (lineName) {
     case "M45": return "U Richard-Wagner-Platz [Bus O.-Suhr-Allee]"
     case "N7": return "U Richard-Wagner-Platz [Bus R.-Wagner-Str.]"
@@ -460,8 +462,8 @@ export function getRüdesheimerPlatz() {
   return "U Rüdesheimer Platz [Bus Wiesbadener Str.]"
 }
 
-export function getRuhleben(mode, lineName, direction, provenance) {
-  if (mode === 'arr') {
+export function getRuhleben(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
     switch (lineName) {
       case "M45":
         if (provenance.includes("Hertzallee")) return "U Ruhleben [Bus Hempelsteig]"
@@ -475,7 +477,7 @@ export function getRuhleben(mode, lineName, direction, provenance) {
         return "U Ruhleben [Bus]"
       default: return "U Ruhleben [Bus]"
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "M45":
         if (direction.includes("Zoologischer Garten")) return "U Ruhleben [Bus Charlottenburger Chaussee]"
@@ -493,8 +495,8 @@ export function getRuhleben(mode, lineName, direction, provenance) {
   }
 }
 
-export function getSophieCharlottePlatz (mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getSophieCharlottePlatz (mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch (lineName) {
       case "309":
         if (provenance.includes("Wilmersdorfer")) return "U Sophie-Charlotte-Platz [Bus Suarezstr.]"
@@ -503,7 +505,7 @@ export function getSophieCharlottePlatz (mode, lineName, direction, provenance) 
         return "U Sophie-Charlotte-Platz [Bus Kaiserdamm]"
       default: return "U Sophie-Charlotte-Platz [Bus]"
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "309":
         if (direction.includes("Wilmersdorfer")) return "U Sophie-Charlotte-Platz [Bus Schloßstr.]"
@@ -519,7 +521,7 @@ export function getSpichernstr() {
   return "U Spichernstr. [Bus Bundesallee]"
 }
 
-export function getTheo(id) {
+export function getTheo(id: string) {
   switch (id) {
     case "900000026201": return "U Theodor-Heuss-Platz [Bus Th.-Heuss-Pl. Nord]"
     case "900000026203": return "U Theodor-Heuss-Platz Süd"
@@ -532,7 +534,7 @@ export function getUhlandstr() {
   return "U Uhlandstr. [Bus Kurfürstendamm]"
 }
 
-export function getWestend(id) {
+export function getWestend(id: string) {
     switch(id) {
       case "900000026207": return "S Westend [Bus Spandauer Damm]"
       case "900000020204": return "Sophie-Charlotten-Str."
@@ -544,8 +546,8 @@ export function getWestkreuz() {
   return "S Westkreuz [Bus]"
 }
 
-export function getZooBusStops(id, mode, lineName, direction, provenance) {
-  if (mode === 'arr') {
+export function getZooBusStops(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
     switch(id) {
       case "900000023201":
         if(!provenance.includes("Hertzallee")) {
@@ -601,7 +603,7 @@ export function getZooBusStops(id, mode, lineName, direction, provenance) {
         }
       default: return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch(id) {
       case "900000023201":
         if(direction.includes("Hertzallee") || direction.includes("Fahrt endet hier")) {
