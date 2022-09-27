@@ -1,5 +1,7 @@
-export function getAlex(id, mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+type Direction = string | null
+
+export function getAlex(id: string, mode: string, lineName: string, direction: Direction, provenance: Direction) {
+  if (mode === "arr" && provenance !== null) {
     switch(id) {
       case "900000100712":
         return ["S+U Alexanderplatz/Grunerstr. [Alexanderstr.]", 18]
@@ -45,7 +47,7 @@ export function getAlex(id, mode, lineName, direction, provenance) {
         }
       default: return ["S+U Alexanderplatz", null]
     }
-  } else {
+  } else if (mode === "dep" && direction !== null) {
     switch(id) {
       case "900000100712":
         return ["S+U Alexanderplatz/Grunerstr. [Alexanderstr.]", 18]
@@ -105,8 +107,8 @@ export function getFriedrichstr() {
   return "S+U Friedrichstr. [Tram Bus Friedrichstr.]"
 }
 
-export function getHbf(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getHbf(mode: string, lineName: string, direction: Direction, provenance: Direction) {
+  if (mode === "arr" && provenance !== null) {
     switch(lineName) {
       case "M5":
       case "M8":
@@ -139,7 +141,7 @@ export function getHbf(mode, lineName, direction, provenance) {
         return ["S+U Berlin Hauptbahnhof [Bus Minna-Cauer-Str.]", 1]
       default: return ["S+U Berlin Hauptbahnhof", null]
     }
-  } else {
+  } else if (mode === "dep" && direction !== null) {
     switch(lineName) {
       case "M5":
       case "M8":
@@ -180,8 +182,8 @@ export function getOranienburgerStr() {
   return "S Oranienburger Str. [Tram Oranienburger Str.]"
 }
 
-export function getPotsdamerPlatz(id, mode, lineName, direction, provenance) {
-  if (mode === 'arr') {
+export function getPotsdamerPlatz(id: string, mode: string, lineName: string, direction: Direction, provenance: Direction) {
+  if (mode === 'arr' && provenance !== null) {
     switch (id) {
       case "900000005208":
         switch (lineName) {
@@ -240,7 +242,7 @@ export function getPotsdamerPlatz(id, mode, lineName, direction, provenance) {
         }
       default: return null
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (id) {
       case "900000005208":
         switch (lineName) {
