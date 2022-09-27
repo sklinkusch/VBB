@@ -1,5 +1,7 @@
-export function getAdlershof(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+type Dir = string | null
+
+export function getAdlershof(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch(lineName) {
       case "M17":
         return ["S Adlershof [Tram Wendeschleife]", 6]
@@ -29,7 +31,7 @@ export function getAdlershof(mode, lineName, direction, provenance) {
       default:
         return ["S Adlershof", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch(lineName) {
       case "M17":
         return ["S Adlershof [Tram Wendeschleife]", 5]
@@ -62,8 +64,8 @@ export function getAdlershof(mode, lineName, direction, provenance) {
   }
 }
 
-export function getGrünau(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getGrünau(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch(lineName) {
       case "68":
         if(provenance.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 8]
@@ -81,7 +83,7 @@ export function getGrünau(mode, lineName, direction, provenance) {
       default:
         return ["S Grünau", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch(lineName) {
       case "68":
         if(direction.includes("Schmöckwitz")) return ["S Grünau [Adlergestell]", 9]
