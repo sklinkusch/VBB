@@ -1,3 +1,5 @@
+type Dir = string | null
+
 export function getBotanischerGarten() {
   return "S Botanischer Garten [Bus Gardeschützenweg]"
 }
@@ -14,7 +16,7 @@ export function getMexikoplatz() {
   return "S Mexikoplatz [Bus Lindenthaler Allee]"
 }
 
-export function getNikolassee(lineName) {
+export function getNikolassee(lineName: string) {
   switch (lineName) {
     case "112": 
       return "S Nikolassee [Bus Hohenzollernplatz]"
@@ -26,8 +28,8 @@ export function getNikolassee(lineName) {
   }
 }
 
-export function getSteglitz(id, mode, lineName, direction, provenance) {
-  if (mode === 'arr') {
+export function getSteglitz(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
     switch (id) {
       case "900000062282":
         if(["285", "N88"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]",6]
@@ -55,7 +57,7 @@ export function getSteglitz(id, mode, lineName, direction, provenance) {
       default:
         return ["S+U Rathaus Steglitz",null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (id) {
       case "900000062282":
         if(["285", "N88"].includes(lineName)) return ["S+U Rathaus Steglitz [Busbahnhof]",6]
@@ -90,8 +92,8 @@ export function getSundgauerStr() {
   return "S Sundgauer Str. [Bus Sundgauer Str.]"
 }
 
-export function getWannsee(mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getWannsee(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch (lineName) {
       case "114":
       case "316":
@@ -112,7 +114,7 @@ export function getWannsee(mode, lineName, direction, provenance) {
         return ["S Wannsee [Bus]", 5]
       default: return ["S Wannsee [Bus]", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "114":
         return ["S Wannsee [Bus]", 2]
@@ -137,8 +139,8 @@ export function getWannsee(mode, lineName, direction, provenance) {
   }
 }
 
-export function getZehlendorf(mode, lineName, direction, provenance) {
-  if (mode === 'arr'){
+export function getZehlendorf(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null){
     switch (lineName) {
       case "X10":
         if (provenance.includes("Teltow")) return ["S Zehlendorf [Bus Teltower Damm]", 3]
@@ -174,7 +176,7 @@ export function getZehlendorf(mode, lineName, direction, provenance) {
         return ["S Zehlendorf [Bus Teltower Damm]", 3]
       default: return ["S Zehlendorf [Bus]", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch (lineName) {
       case "X10":
         if (direction.includes("Teltow")) return ["S Zehlendorf [Bus Teltower Damm]", 1]
