@@ -1,5 +1,7 @@
-export function getSpandau(id, mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+type Dir = string | null
+
+export function getSpandau(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch(id) {
       case "900000029302": 
         switch(lineName) {
@@ -30,7 +32,7 @@ export function getSpandau(id, mode, lineName, direction, provenance) {
             return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null]
           case "X37":
             if (provenance.includes("Falkensee")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5]
-            if (provenance.includes("Ruhleben")) return ("S+U Rathaus Spandau [Bus Altstädter Ring]", 6)
+            if (provenance.includes("Ruhleben")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 6]
             if (provenance.includes("Galenstr")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 6]
             return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null]
           case "134":
@@ -103,7 +105,7 @@ export function getSpandau(id, mode, lineName, direction, provenance) {
           }
       default: return ["S+U Rathaus Spandau", null]
     }
-  } else {
+  } else if (mode === 'dep' && direction !== null) {
     switch(id) {
       case "900000029302": 
         switch(lineName) {
@@ -134,7 +136,7 @@ export function getSpandau(id, mode, lineName, direction, provenance) {
             return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null]
           case "X37":
             if (direction.includes("Falkensee")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 6]
-            if (direction.includes("Ruhleben")) return ("S+U Rathaus Spandau [Bus Altstädter Ring]", 5)
+            if (direction.includes("Ruhleben")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5]
             if (direction.includes("Galenstr")) return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5]
             return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null]
           case "134":
