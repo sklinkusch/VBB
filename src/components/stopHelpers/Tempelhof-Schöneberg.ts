@@ -1,3 +1,5 @@
+type Dir = string | null
+
 export function getJuliusLeberBrücke() {
   return "S Julius-Leber-Brücke [Bus Kolonnenstr.]"
 }
@@ -6,8 +8,8 @@ export function getSchöneberg() {
   return "S Schöneberg [Bus Dominicusstr.]"
 }
 
-export function getSüdkreuz(id, mode, lineName, direction, provenance) {
-  if (mode === "arr") {
+export function getSüdkreuz(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === "arr" && provenance !== null) {
     switch(id) {
       case "900000058101":
         if (lineName === "M46") {
@@ -31,13 +33,13 @@ export function getSüdkreuz(id, mode, lineName, direction, provenance) {
           return ["S Südkreuz/Ostseite", 4]
         }
         if (lineName === "N42") {
-          if (direction.includes("Südkreuz")) return ["S Südkreuz/Ostseite", 5]
+          if (provenance.includes("Südkreuz")) return ["S Südkreuz/Ostseite", 5]
           return ["S Südkreuz/Ostseite", 4]
         }
         return ["S Südkreuz/Ostseite", null]
       default: return ["S Südkreuz", null]
     }
-  } else  {
+  } else if (mode === 'dep' && direction !== null) {
     switch(id) {
       case "900000058101":
         if (lineName === "M46") {
