@@ -178,6 +178,10 @@ export function getHbf(mode: string, lineName: string, direction: Direction, pro
   }
 }
 
+export function getHumboldthain() {
+  return "S Humboldthain [Bus Hochstr.]"
+}
+
 export function getNordbahnhof(id: string, mode: string, lineName: string, direction: Direction, provenance: Direction) {
   if (mode === 'arr' && provenance !== null) {
     switch (id) {
