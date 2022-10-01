@@ -83,9 +83,15 @@ const stopsUnfiltered = [...stopsBerlin]
 // a.name.toLowerCase().localeCompare(b.name.toLowerCase(),"de",{ sensitivity:
 // "base"}))
 
-const stops = sortItems(stopsUnfiltered)
+const stopsSorted = sortItems(stopsUnfiltered)
+const uniqueArray = stopsSorted.filter((stop, index) => {
+  const _stop = JSON.stringify(stop)
+  return index === stopsSorted.findIndex(obj => {
+    return JSON.stringify(obj) === _stop
+  })
+})
 
-export default stops;
+export default uniqueArray;
 
 function sortItems(array: Stop[]) {
   return array.sort((a, b) => {
