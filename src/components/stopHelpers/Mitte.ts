@@ -107,6 +107,18 @@ export function getFriedrichstr() {
   return "S+U Friedrichstr. [Tram Bus Friedrichstr.]"
 }
 
+export function getGesundbrunnen(mode: string, lineName: string, direction: Direction, provenance: Direction) {
+  if (mode === "arr" && provenance !== null) {
+    if (lineName === "N8" && provenance.includes("Wilhelmsruher")) return "S+U Gesundbrunnen [Bus Badstr.]"
+    if (lineName === "N8" && provenance.includes("Osloer")) return "S+U Gesundbrunnen [Bus Badstr.]"
+    return "S+U Gesundbrunnen [Bus H.-Sobek-Pl.]"
+  } else if (mode === "dep" && direction !== null) {
+    if (lineName === "N8" && direction.includes("Hermannplatz")) return "S+U Gesundbrunnen [Bus Badstr.]"
+    if (lineName === "N8" && direction.includes("Hermannstr")) return "S+U Gesundbrunnen [Bus Badstr.]"
+    return "S+U Gesundbrunnen [Bus H.-Sobek-Pl.]"
+  }
+}
+
 export function getHbf(mode: string, lineName: string, direction: Direction, provenance: Direction) {
   if (mode === "arr" && provenance !== null) {
     switch(lineName) {
