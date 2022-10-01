@@ -25,7 +25,7 @@ function App() {
               <Route path="/arrivals" element={<VBBArrivals />} />
               <Route path="/departures/:id" element={<VBBDepartures />} />
               <Route path="/departures" element={<VBBDepartures />} />
-              <Route path="" exact element={<VBBDepartures />} />
+              <Route path="" element={<VBBDepartures />} />
               <Route path="*" element={<VBBDepartures />} />
             </Routes>
           </Suspense>
