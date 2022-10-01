@@ -1,28 +1,11 @@
 /** @jsxImportSource theme-ui */
 import React from "react"
 
-type Location = {
-  id: string,
-  latitude: number,
-  longitude: number,
-  type: string
-}
-
 type Props = {
   element: string,
   stop: {
     id: string,
-    location: Location,
     name: string,
-    products: {
-      bus: boolean,
-      express: boolean,
-      ferry: boolean,
-      regional: boolean,
-      suburban: boolean,
-      subway: boolean,
-      tram: boolean
-    }
   }
 }
 
