@@ -1,5 +1,9 @@
 type Dir = string | null
 
+export function getBornholmerStr() {
+  return "S Bornholmer Str. [Tram Bornholmer Str.]"
+}
+
 export function getPankow(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === "arr" && provenance !== null) {
     switch (id) {
