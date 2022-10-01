@@ -7,9 +7,63 @@ import TableData from "./TableData"
 import { changeStopObject } from './stopHelpers'
 /* eslint-disable react-hooks/exhaustive-deps */
 
-export default function StopBody({ data, error, stop, mode = 'dep' }) {
-  const [newData, setNewData] = useDebugState("newData", null)
-  const sortData = (data) => {
+type Remarks = {
+  code: string | undefined,
+  summary: string | null | undefined,
+  text: string,
+  type: string,
+  validFrom: string | undefined,
+  validUntil: string | undefined
+}[]
+
+type Dataset = {
+  cancelled: boolean | undefined,
+  delay: number | null,
+  direction: string | null,
+  formerScheduledWhen?: string,
+  line: {
+    express: boolean,
+    metro: boolean,
+    mode: string,
+    name: string,
+    night: boolean,
+    product: string,
+    type: string
+  },
+  plannedPlatform?: string,
+  plannedWhen?: string,
+  platform?: number | string,
+  prognosedPlatform?: string,
+  prognosisType: string | null | undefined,
+  provenance: string | null,
+  remarks: Remarks,
+  scheduledWhen?: string,
+  stop: {
+    id: string,
+    name: string,
+  },
+  tripId: string,
+  when?: string
+}
+
+type Data = Dataset[]
+
+type Stop = {
+  id: string,
+  name: string,
+  type: string
+}
+
+type Props = {
+  data: Data,
+  error: string,
+  mode: string,
+  stop: Stop
+}
+
+export default function StopBody({ data, error, stop, mode = 'dep' }: Props) {
+  const [newData, setNewData] = useDebugState<Dataset[][]>("newData", [])
+  const sortData = (data: Data) => {
     if (data !== null && data !== undefined && data.length > 0) {
       const tempArray = data.map((element, index) => {
         const stopName = element.stop.name.toLowerCase()
@@ -32,9 +86,9 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
             return -1
           } else if (sortingArray.indexOf(bProduct) < sortingArray.indexOf(aProduct)) {
             return +1
-          } else if (aTime < bTime) {
+          } else if (aTime && bTime && aTime < bTime) {
             return -1
-          } else if (bTime < aTime) {
+          } else if (aTime && bTime && bTime < aTime) {
             return +1
           } else {
             return 0
@@ -46,15 +100,15 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
     }
     return undefined
   }
-  const splitArray = async (data) => {
-    if (data !== null && data !== undefined && data.length > 0) {
+  const splitArray = async (data: Data) => {
+    if (data !== undefined && data.length > 0) {
       const dataModified = await data.map(e => {
         const newStopObject = changeStopObject(mode, e)
         return newStopObject
       })
       const stopsRaw = await dataModified.map(e => e.stop.name)
       const stopsContracted = await stopsRaw.filter((val, ind, arr) => arr.indexOf(val) === ind).sort()
-      const resultArray = await dataModified.reduce((acc, curr) => {
+      const resultArray = await dataModified.reduce((acc: (Dataset[])[], curr: Dataset) => {
         const arr = [ ...acc ]
         const index = stopsContracted.indexOf(curr.stop.name)
         if(Array.isArray(arr[index])) {
@@ -72,7 +126,7 @@ export default function StopBody({ data, error, stop, mode = 'dep' }) {
   useEffect(() => {
     async function fetchData() {
       const sortedData = await sortData(data)
-      await splitArray(await sortedData)
+      if (typeof sortedData === 'object') await splitArray(await sortedData)
     }
     fetchData()
   },[data])
