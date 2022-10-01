@@ -1,9 +1,9 @@
 /** @jsxImportSource theme-ui */
-import { ChangeEventHandler, Fragment } from "react"
+import { Fragment } from "react"
 import getLocale from "./getLocale"
 
 type Props = {
-  filterStops: ChangeEventHandler,
+  filterStops: Function,
   inputField: React.Ref<HTMLInputElement>
 }
 

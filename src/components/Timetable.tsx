@@ -3,7 +3,7 @@ import { useRef, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useDebugState } from "use-named-state"
 import axios from "axios"
-import { getDuration } from "../components/helpers"
+import { getDuration } from "./helpers"
 import stops from "../data/stops"
 import Input from "./Input"
 import Select from "./Select"
@@ -17,12 +17,59 @@ import StopBody from "./StopBody"
 // const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
-export default function Timetable(props) {
-  const [selection, setSelection] = useDebugState("selection",stops)
-  const [stop, setStop] = useDebugState("stop",{})
-  const [data, setData] = useDebugState("data",[])
-  const [viewData, setViewData] = useDebugState("viewData",[])
-  const [error, setError] = useDebugState("error",null)
+type Remarks = {
+  code: string | undefined,
+  summary: string | null | undefined,
+  text: string,
+  type: string,
+  validFrom: string | undefined,
+  validUntil: string | undefined
+}[]
+
+type Dataset = {
+  cancelled: boolean | undefined,
+  delay: number | null,
+  direction: string | null,
+  formerScheduledWhen?: string,
+  line: {
+    express: boolean,
+    metro: boolean,
+    mode: string,
+    name: string,
+    night: boolean,
+    product: string,
+    type: string
+  },
+  plannedPlatform?: string,
+  plannedWhen?: string,
+  platform?: number | string,
+  prognosedPlatform?: string,
+  prognosisType: string | null | undefined,
+  provenance: string | null,
+  remarks: Remarks,
+  scheduledWhen?: string,
+  stop: {
+    id: string,
+    name: string,
+  },
+  tripId: string,
+  when?: string
+}
+
+type Stop = {
+  id: string,
+  name: string,
+  type?: string
+}
+
+type Data = Dataset[]
+
+export default function Timetable() {
+  const [selection, setSelection] = useDebugState<Stop[]>("selection",stops)
+  const [stop, setStop] = useDebugState<Stop>("stop", { id: "", name: "", type: ""})
+  const [data, setData] = useDebugState<Data>("data",[])
+  const [viewData, setViewData] = useDebugState<Data>("viewData",[])
+  const [error, setError] = useDebugState<any>("error",null)
   const params = useParams()
   const navigate = useNavigate()
   useEffect(() => {
@@ -50,14 +97,14 @@ export default function Timetable(props) {
       setSelection(stopSelection)
     }
   }, []) 
-  const inputField = useRef(null)
-  const filterField = useRef(null)
-  const filterSelector = useRef(null)
-  const filterData = (event) => {
-    const { current: fieldCurrent } = filterField
+  const inputField = useRef<HTMLInputElement>(null)
+  const filterField = useRef<HTMLInputElement>(null)
+  const filterSelector = useRef<HTMLSelectElement>(null)
+  const filterData = () => {
+    const fieldCurrent = filterField.current as HTMLInputElement
     const { value: fieldValue } = fieldCurrent
     const filterValues = fieldValue.split(" ")
-    const { current: selectorCurrent } = filterSelector
+    const selectorCurrent = filterSelector.current as HTMLSelectElement
     const { value: filterMode } = selectorCurrent
     if (filterValues.length > 0) {
       if (filterMode === "OR") {
@@ -69,42 +116,46 @@ export default function Timetable(props) {
       noFilters()
     }
   }
-  const filterOr = (filterValues) => {
+  const filterOr = (filterValues: string[]) => {
     const filteredData = data.filter((departure) => {
       let decider = false
-      for (let i = 0; i < filterValues.length; i++) {
-        if (
-          departure.line.name
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase()) ||
-          departure.direction
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase())
-        ) {
-          decider = true
-          break
+      if (departure.hasOwnProperty("direction") && departure.direction){
+        for (let i = 0; i < filterValues.length; i++) {
+          if (
+            departure.line.name
+              .toLowerCase()
+              .includes(filterValues[i].toLowerCase()) ||
+            departure.direction
+              .toLowerCase()
+              .includes(filterValues[i].toLowerCase())
+          ) {
+            decider = true
+            break
+          }
         }
       }
       return decider
     })
     setViewData(filteredData)
   }
-  const filterAnd = (filterValues) => {
+  const filterAnd = (filterValues: string[]) => {
     const filteredData = data.filter((departure) => {
       let decider = true
-      for (let i = 0; i < filterValues.length; i++) {
-        if (
-          departure.line.name
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase()) ||
-          departure.direction
-            .toLowerCase()
-            .includes(filterValues[i].toLowerCase())
-        ) {
-          continue
-        } else {
-          decider = false
-          break
+      if (departure.hasOwnProperty("direction") && departure.direction) {
+        for (let i = 0; i < filterValues.length; i++) {
+          if (
+            departure.line.name
+              .toLowerCase()
+              .includes(filterValues[i].toLowerCase()) ||
+            departure.direction
+              .toLowerCase()
+              .includes(filterValues[i].toLowerCase())
+          ) {
+            continue
+          } else {
+            decider = false
+            break
+          }
         }
       }
       return decider
@@ -114,7 +165,7 @@ export default function Timetable(props) {
   const noFilters = () => {
     setViewData(data)
   }
-  const filterStops = (filterValue) => {
+  const filterStops = (filterValue: string) => {
     const remainingStops = stops.filter(
       (currStop) =>
         currStop.id !== stop.id &&
@@ -123,16 +174,16 @@ export default function Timetable(props) {
     const newSelection = [stop, ...remainingStops]
     setSelection(newSelection)
   }
-  const doFilter = (event) => {
+  const doFilter = (event: { key: string, target: { value: string }}) => {
     // if (event.key === "Enter") {
     const filterValue = event.target.value
     filterStops(filterValue)
     // }
   }
-  const setCurrStop = (currStop) => {
+  const setCurrStop = (currStop: Stop) => {
     setStop(currStop)
   }
-  const getData = async (id) => {
+  const getData = async (id: string) => {
     const currentStopArray = stops.filter((stop) => stop.id === id)
     const [currentStop] = currentStopArray
     const { type = "BBG" } = currentStop
@@ -149,34 +200,41 @@ export default function Timetable(props) {
       setError(null)
     }
   }
-  const handleChange = (currentStop) => {
+  const handleChange = (currentStop: Stop) => {
     setCurrStop(currentStop)
     const { id: myStopId } = currentStop
     getData(myStopId)
-    inputField.current.value = ""
-    filterField.current.value = ""
-    filterSelector.current.value = "OR"
+    const inputCurrent = inputField.current as HTMLInputElement
+    inputCurrent.value = ""
+    const filterFieldCurrent = filterField.current as HTMLInputElement
+    filterFieldCurrent.value = ""
+    const filterSelectorCurrent = filterSelector.current as HTMLSelectElement
+    filterSelectorCurrent.value = "OR"
   }
   const handleSubmit = () => {
     getData(stop.id)
-    inputField.current.value = ""
-    filterField.current.value = ""
-    filterSelector.current.value = "OR"
+    const inputCurrent = inputField.current as HTMLInputElement
+    inputCurrent.value = ""
+    const filterFieldCurrent = filterField.current as HTMLInputElement
+    filterFieldCurrent.value = ""
+    const filterSelectorCurrent = filterSelector.current as HTMLSelectElement
+    filterSelectorCurrent.value = "OR"
   }
   // useEffect(() => {
   //   getData(stop);
   // }, []);
   return (
     <div className="timetable" sx={{ minHeight: "75vh" }}>
-      <Input filterStops={doFilter} inputField={inputField} />
+      {inputField && (<Input filterStops={doFilter} inputField={inputField} />)}
       <Select handleChange={handleChange} selection={selection} stop={stop} mode="dep" />
       <Button handleSubmit={handleSubmit} />
       <Filter
         filterField={filterField}
         filterSelector={filterSelector}
         filterData={filterData}
+        mode="dep"
       />
-      <StopBody stop={stop} data={viewData} error={error} />
+      <StopBody stop={stop} data={viewData} error={error} mode="dep" />
     </div>
   )
 }

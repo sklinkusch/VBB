@@ -2,26 +2,9 @@
 import { Fragment } from "react"
 import { useNavigate } from "react-router-dom"
 
-type Location = {
-  id: string,
-  latitude: number,
-  longitude: number,
-  type: string
-}
-
 type Stop = {
   id: string,
-  location: Location,
   name: string,
-  products: {
-    bus: boolean,
-    express: boolean,
-    ferry: boolean,
-    regional: boolean,
-    suburban: boolean,
-    subway: boolean,
-    tram: boolean
-  }
 }
 
 type Props = {

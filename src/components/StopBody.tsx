@@ -51,7 +51,7 @@ type Data = Dataset[]
 type Stop = {
   id: string,
   name: string,
-  type: string
+  type?: string
 }
 
 type Props = {
