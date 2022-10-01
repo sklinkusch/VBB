@@ -180,6 +180,31 @@ export function getHbf(mode: string, lineName: string, direction: Direction, pro
 
 export function getNordbahnhof(id: string, mode: string, lineName: string, direction: Direction, provenance: Direction) {
   if (mode === 'arr' && provenance !== null) {
+    switch (id) {
+      case "900000007104":
+        switch (lineName) {
+          case "M8":
+            if (provenance.includes("Clara-Jaschke")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+          case "M10":
+            if (provenance.includes("Clara-Jaschke")) return ["S Nordbahnhof [Tram E.-Schwarzhaupt-Pl.]", 3]
+            return ["S Nordbahnhof [Tram E.-Schwarzhaupt-Pl.]", 4]
+          case "12":
+            if (provenance.includes("Kupfergraben")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
+            if (provenance.includes("Hackescher")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+          case "247":
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+          case "N40":
+            if (provenance.includes("Blockdammweg")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
+          default: 
+            return ["S Nordbahnhof", null]
+        }
+      case "900000007108":
+        if (provenance.includes("S Nordbahnhof")) return ["S Nordbahnhof/Gartenstr.", 1]
+        return ["S Nordbahnhof/Gartenstr.", 2]
+    }
   } else if (mode === 'dep' && direction !== null) {
     switch (id) {
       case "900000007104":
@@ -192,6 +217,7 @@ export function getNordbahnhof(id: string, mode: string, lineName: string, direc
             return ["S Nordbahnhof [Tram E.-Schwarzhaupt-Pl.]", 3]
           case "12":
             if(direction.includes("Kupfergraben")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+            if(direction.includes("Hackescher")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
             return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
           case "247":
             return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
