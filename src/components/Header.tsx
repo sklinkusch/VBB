@@ -2,10 +2,11 @@
 import { useDebugState } from "use-named-state"
 import { Navbar, NavbarBrand, NavbarToggler, NavLink, Collapse, Nav, NavItem } from "reactstrap";
 import { NavLink as RRNavLink, useLocation } from "react-router-dom"
+import { LinkContainer } from "react-router-bootstrap"
 import getLocale from "./getLocale";
 
 const Header = () => {
-  const [isOpen, setOpen] = useDebugState("isOpen", false)
+  const [isOpen, setOpen] = useDebugState<boolean>("isOpen", false)
   const toggle = () => {
     setOpen(!isOpen)
   }
@@ -20,10 +21,14 @@ const Header = () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink to={id ? `/departures/${id}` : '/departures'} exact tag={RRNavLink} className={({isActive}) => isActive ? "active" : null}>{getLocale("Depart")}</NavLink>
+              <LinkContainer to={id ? `/departures/${id}` : '/departures'}>
+                <NavLink as={RRNavLink} active={false}>{getLocale("Depart")}</NavLink>
+              </LinkContainer>
             </NavItem>
             <NavItem>
-              <NavLink to={id ? `/arrivals/${id}` : '/arrivals'} tag={RRNavLink} className={({isActive}) => isActive ? "active" : null}>{getLocale("Arrive")}</NavLink>
+              <LinkContainer to={id ? `/arrivals/${id}` : '/arrivals'}>
+                <NavLink as={RRNavLink} active={false}>{getLocale("Arrive")}</NavLink>
+              </LinkContainer>
             </NavItem>
           </Nav>
         </Collapse>
