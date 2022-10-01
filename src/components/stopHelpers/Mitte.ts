@@ -178,6 +178,34 @@ export function getHbf(mode: string, lineName: string, direction: Direction, pro
   }
 }
 
+export function getNordbahnhof(id: string, mode: string, lineName: string, direction: Direction, provenance: Direction) {
+  if (mode === 'arr' && provenance !== null) {
+  } else if (mode === 'dep' && direction !== null) {
+    switch (id) {
+      case "900000007104":
+        switch (lineName) {
+          case "M8":
+            if (direction.includes("Hauptbahnhof")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
+          case "M10":
+            if(direction.includes("Hauptbahnhof")) return ["S Nordbahnhof [Tram E.-Schwarzhaupt-Pl.]", 4]
+            return ["S Nordbahnhof [Tram E.-Schwarzhaupt-Pl.]", 3]
+          case "12":
+            if(direction.includes("Kupfergraben")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
+          case "247":
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+          case "N40":
+            if(direction.includes("Turmstr")) return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 5]
+            return ["S Nordbahnhof [Tram Bus Invalidenstr.]", 6]
+          default: return ["S Nordbahnhof", null]
+        }
+      case "900000007108":
+        return ["S Nordbahnhof/Gartenstr.", "1/2"]
+    }
+  }
+}
+
 export function getOranienburgerStr() {
   return "S Oranienburger Str. [Tram Oranienburger Str.]"
 }
