@@ -73,7 +73,7 @@ Further, it uses the [VBB proxy](https://github.com/sklinkusch/VBB-micro-proxy).
 - station data: [vbb-stations](https://github.com/derhuerst/vbb-stations)
 - background image: [Unsplash](https://unsplash.com)
 - Proxy: [Zeit.co](https://zeit.co/)
-- Support to set up the proxy: [Leandro Frigerio](https://github.com/leandroDCI)
+- Support to set up the proxy: [Leandro Frigerio](https://github.com/leandroBerlin)
 
 ## Screenshot
 
