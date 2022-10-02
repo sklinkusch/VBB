@@ -1,5 +1,9 @@
 type Dir = string | null
 
+export function getBuckowerChaussee() {
+  return "S Buckower Chaussee [Bus Buckower Ch.]"
+}
+
 export function getJuliusLeberBrücke() {
   return "S Julius-Leber-Brücke [Bus Kolonnenstr.]"
 }
