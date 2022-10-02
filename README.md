@@ -54,13 +54,12 @@ The departures are sorted by
 ## Techniques
 
 - HTML5
-- SCSS/Sass
-- Bootstrap
+- theme-UI
+- bootstrap with reactstrap
 - React
 - React Router with static URLs (BrowserRouter)
 - React hooks
-  <!-- - Redux -->
-  <!-- - redux-saga -->
+- Typescript
 - axios
 
 Further, it uses the [VBB proxy](https://github.com/sklinkusch/VBB-micro-proxy).
