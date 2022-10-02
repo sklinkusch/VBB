@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-const getLocale = require("./getLocale")
+import getLocale from "./getLocale"
 
 type Remarks = {
   summary: string | null | undefined,
