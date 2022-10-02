@@ -4,7 +4,7 @@ import { getLichtenberg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
 import { getAlex, getBrandenburgerTor, getFriedrichstr, getGesundbrunnen, getHbf, getHumboldthain, getNordbahnhof, getOranienburgerStr, getPotsdamerPlatz } from "./Mitte"
 import { getBlankenburg, getBornholmerStr, getBuch, getKarow, getPankow, getPankowHeinersdorf, getWollankstr } from "./Pankow"
-import { getFrohnau, getHermsdorf, getSchönholz, getWaidmannslust, getWilhelmsruh } from "./Reinickendorf"
+import { getFrohnau, getHermsdorf, getKarlBonhoefferNervenklinik, getSchönholz, getWaidmannslust, getWilhelmsruh } from "./Reinickendorf"
 import { getSpandau } from "./Spandau"
 import { getBotanischerGarten, getFeuerbachstr, getLankwitz, getLichterfeldeOst, getLichterfeldeWest, getMexikoplatz, getNikolassee, getOsdorferStr, getSteglitz, getSundgauerStr, getSüdende, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
 import { getAttilastr, getBuckowerChaussee, getJuliusLeberBrücke, getMarienfelde, getPriesterweg, getSchöneberg, getSüdkreuz, getYorckstr } from "./Tempelhof-Schöneberg"
@@ -218,6 +218,10 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
       case "900000020201":
       case "900000020207":
         newStopName = getJungfernheide(id, mode, lineName, direction, provenance)
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000096458":
+        newStopName = getKarlBonhoefferNervenklinik()
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000143001":

@@ -68,6 +68,10 @@ export function getHermsdorf() {
   return "S Hermsdorf [Bus Bahnhofplatz]"
 }
 
+export function getKarlBonhoefferNervenklinik() {
+  return "S+U Karl-Bonhoeffer-Nervenklinik [Bus Oranienburger Str.]"
+}
+
 export function getSchönholz() {
   return "S Schönholz [Bus Provinzstr.]"
 }
