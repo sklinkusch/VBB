@@ -28,6 +28,40 @@ export function getNikolassee(lineName: string) {
   }
 }
 
+export function getOsdorferStr(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
+    switch (lineName) {
+      case "112":
+        if (provenance.includes("Nikolassee")) return "S Osdorfer Str. [Bus Osdorfer Str. 9]"
+        if (provenance.includes("Zehlendorf")) return "S Osdorfer Str. [Bus Osdorfer Str. 9]"
+        return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+      case "186":
+        if (provenance.includes("Grunewald")) return "S Osdorfer Str. [Bus Osdorfer Str. 17]"
+        if (provenance.includes("Roseneck")) return "S Osdorfer Str. [Bus Osdorfer Str. 17]"
+        return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+      case "N88":
+        if (provenance.includes("Steglitz")) return "S Osdorfer Str. [Bus Osdorfer Str. 17]"
+        return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+      default: return "S Osdorfer Str. [Bus]"
+    }
+  } else if (mode === 'dep' && direction !== null) {
+    switch (lineName) {
+      case "112":
+        if (direction.includes("Nikolassee")) return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+        if (direction.includes("Zehlendorf")) return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+        return "S Osdorfer Str. [Bus Osdorfer Str. 9]"
+      case "186":
+        if (direction.includes("Grunewald")) return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+        if (direction.includes("Roseneck")) return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+        return "S Osdorfer Str. [Bus Osdorfer Str. 17]"
+      case "N88":
+        if (direction.includes("Steglitz")) return "S Osdorfer Str. [Bus Osdorfer Str. 121]"
+        return "S Osdorfer Str. [Bus Osdorfer Str. 17]"
+      default: return "S Osdorfer Str. [Bus]"
+    }
+  }
+}
+
 export function getSteglitz(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === 'arr' && provenance !== null) {
     switch (id) {
