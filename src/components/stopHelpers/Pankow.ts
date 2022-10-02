@@ -99,3 +99,14 @@ export function getPankow(id: string, mode: string, lineName: string, direction:
     }
   }
 }
+
+export function getWollankstr(id: string) {
+  switch(id) {
+    case "900000130523":
+      return "Pradelstr."
+    case "900000130003":
+      return "S Wollankstr. [Bus Wollankstr.]"
+    default:
+      return "S Wollankstr. [Bus Wollankstr.]"
+  }
+}
