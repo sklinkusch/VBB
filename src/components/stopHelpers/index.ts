@@ -6,7 +6,7 @@ import { getAlex, getBrandenburgerTor, getFriedrichstr, getGesundbrunnen, getHbf
 import { getBlankenburg, getBornholmerStr, getBuch, getKarow, getPankow, getPankowHeinersdorf, getWollankstr } from "./Pankow"
 import { getFrohnau, getHermsdorf, getSchönholz, getWaidmannslust, getWilhelmsruh } from "./Reinickendorf"
 import { getSpandau } from "./Spandau"
-import { getBotanischerGarten, getFeuerbachstr, getLankwitz, getLichterfeldeOst, getLichterfeldeWest, getMexikoplatz, getNikolassee, getOsdorferStr, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
+import { getBotanischerGarten, getFeuerbachstr, getLankwitz, getLichterfeldeOst, getLichterfeldeWest, getMexikoplatz, getNikolassee, getOsdorferStr, getSteglitz, getSundgauerStr, getSüdende, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
 import { getAttilastr, getBuckowerChaussee, getJuliusLeberBrücke, getMarienfelde, getPriesterweg, getSchöneberg, getSüdkreuz, getYorckstr } from "./Tempelhof-Schöneberg"
 import { getAdlershof, getGrünau } from "./Treptow-Köpenick"
 
@@ -368,6 +368,10 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
         [newStopName, trackNo] = getSteglitz(id, mode, lineName, direction, provenance)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop, platform: trackNo }
+      case "900000063452":
+        newStopName = getSüdende()
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
       case "900000058100":
       case "900000058101":
         [newStopName, trackNo] = getSüdkreuz(id, mode, lineName, direction, provenance)

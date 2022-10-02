@@ -130,6 +130,10 @@ export function getSteglitz(id: string, mode: string, lineName: string, directio
   }
 }
 
+export function getSüdende() {
+  return "S Südende [Bus Steglitzer Damm]"
+}
+
 export function getSundgauerStr() {
   return "S Sundgauer Str. [Bus Sundgauer Str.]"
 }
