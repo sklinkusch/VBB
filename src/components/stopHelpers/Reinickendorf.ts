@@ -1,3 +1,7 @@
+export function getHermsdorf() {
+  return "S Hermsdorf [Bus Bahnhofplatz]"
+}
+
 export function getSchönholz() {
   return "S Schönholz [Bus Provinzstr.]"
 }
