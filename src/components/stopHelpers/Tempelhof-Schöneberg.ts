@@ -17,6 +17,10 @@ export function getMarienfelde() {
   return "S Marienfelde [Bus Bahnstr.]"
 }
 
+export function getPriesterweg() {
+  return "S Priesterweg [Bus Prellerweg]"
+}
+
 export function getSchöneberg() {
   return "S Schöneberg [Bus Dominicusstr.]"
 }
