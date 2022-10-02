@@ -102,6 +102,10 @@ export function getSchönholz() {
   return "S Schönholz [Bus Provinzstr.]"
 }
 
+export function getSchulzendorf() {
+  return "S Schulzendorf [Bus Ruppiner Chaussee]"
+}
+
 export function getTegel(mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === 'arr' && provenance !== null) {
     switch (lineName) {
