@@ -102,6 +102,28 @@ export function getSchönholz() {
   return "S Schönholz [Bus Provinzstr.]"
 }
 
+export function getTegel(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
+    switch (lineName) {
+      case "133":
+        if (provenance.includes("Heiligensee")) return "S Tegel [Bus Buddestr.]"
+        if (provenance.includes("Alt-Tegel")) return "S Tegel [Bus Buddestr.]"
+        return "S Tegel [Bus Grußdorfstr.]"
+      case "N25": return "S Tegel [Bus Grußdorfstr.]"
+      default: return "S Tegel [Bus]"
+    }
+  } else if (mode === 'dep' && direction !== null) {
+    switch (lineName) {
+      case "133":
+        if (direction.includes("Heiligensee")) return "S Tegel [Bus Grußdorfstr.]"
+        if (direction.includes("Alt-Tegel")) return "S Tegel [Bus Grußdorfstr.]"
+        return "S Tegel [Bus Buddestr.]"
+      case "N25": return "S Tegel [Bus Grußdorfstr.]"
+      default: return "S Tegel [Bus]"
+    }
+  }
+}
+
 export function getWaidmannslust(lineName: string) {
   switch (lineName) {
     case "222": return "S Waidmannslust [Bus Waidmannsluster Damm]"
