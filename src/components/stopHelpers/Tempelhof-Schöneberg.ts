@@ -1,5 +1,10 @@
 type Dir = string | null
 
+export function getAttilastr(lineName: string) {
+  if (lineName === "282") return "S Attilastr. [Bus Steglitzer Damm]"
+  return "S Attilastr. [Bus Attilastr.]"
+}
+
 export function getBuckowerChaussee() {
   return "S Buckower Chaussee [Bus Buckower Ch.]"
 }
