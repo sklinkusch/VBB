@@ -8,6 +8,26 @@ export function getBornholmerStr() {
   return "S Bornholmer Str. [Tram Bornholmer Str.]"
 }
 
+export function getBuch(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  switch(lineName) {
+    case "150":
+    case "158":
+    case "893":
+    case "N58":
+      return "S Buch [Wiltbergstr. Ost]"
+    case "259":
+      return "S Buch [Am Sandhaus]"
+    case "353":
+      if (mode === "dep" && direction !== null) {
+        if (direction.includes("Pölnitzweg")) return "S Buch [Am Sandhaus]"
+        return "S Buch [Wiltbergstr. Ost]"
+      }
+      return "S Buch [Bus]"
+    default:
+      return "S Buch [Bus]"
+  }
+}
+
 export function getKarow() {
   return "S Karow [Bus Hubertusdamm]"
 }
