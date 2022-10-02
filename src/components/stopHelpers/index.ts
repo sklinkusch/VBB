@@ -7,7 +7,7 @@ import { getBornholmerStr, getPankow, getWollankstr } from "./Pankow"
 import { getFrohnau, getHermsdorf, getSchönholz, getWaidmannslust, getWilhelmsruh } from "./Reinickendorf"
 import { getSpandau } from "./Spandau"
 import { getBotanischerGarten, getFeuerbachstr, getLichterfeldeWest, getMexikoplatz, getNikolassee, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
-import { getBuckowerChaussee, getJuliusLeberBrücke, getSchöneberg, getSüdkreuz } from "./Tempelhof-Schöneberg"
+import { getBuckowerChaussee, getJuliusLeberBrücke, getMarienfelde, getSchöneberg, getSüdkreuz } from "./Tempelhof-Schöneberg"
 import { getAdlershof, getGrünau } from "./Treptow-Köpenick"
 
 type Remarks = {
@@ -235,6 +235,10 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
         [newStopName, trackNo] = getMahlsdorf(id, mode, lineName, direction, provenance)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop, platform: trackNo }
+      case "900000073101":
+        newStopName = getMarienfelde()
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
       case "900000170001":
       case "900000170701":
       case "900000170702":

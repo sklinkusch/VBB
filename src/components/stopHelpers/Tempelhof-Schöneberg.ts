@@ -8,6 +8,10 @@ export function getJuliusLeberBrücke() {
   return "S Julius-Leber-Brücke [Bus Kolonnenstr.]"
 }
 
+export function getMarienfelde() {
+  return "S Marienfelde [Bus Bahnstr.]"
+}
+
 export function getSchöneberg() {
   return "S Schöneberg [Bus Dominicusstr.]"
 }
