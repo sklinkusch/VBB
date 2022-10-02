@@ -1,5 +1,31 @@
 type Dir = string | null
 
+export function getEichborndamm(mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
+    switch (lineName) {
+      case "221":
+        if (provenance.includes("Leopoldplatz")) return "S Eichborndamm [Bus Eichborndamm]"
+        if (provenance.includes("Schumacher")) return "S Eichborndamm [Bus Eichborndamm]"
+        return "S Eichborndamm [Bus Antonienstr.]"
+      case "322":
+        if (provenance.includes("Paracelsus")) return "S Eichborndamm [Bus Eichborndamm]"
+        return "S Eichborndamm [Bus Antonienstr.]"
+      default: return "S Eichborndamm [Bus]"
+    }
+  } else if (mode === 'dep' && direction !== null) {
+    switch (lineName) {
+      case "221":
+        if (direction.includes("Leopoldplatz")) return "S Eichborndamm [Bus Antonienstr.]"
+        if (direction.includes("Schumacher")) return "S Eichborndamm [Bus Antonienstr.]"
+        return "S Eichborndamm [Bus Eichborndamm]"
+      case "322":
+        if (direction.includes("Paracelsus")) return "S Eichborndamm [Bus Antonienstr.]"
+        return "S Eichborndamm [Bus Eichborndamm]"
+      default: return "S Eichborndamm [Bus]"
+    }
+  }
+}
+
 export function getFrohnau(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === 'arr' && provenance !== null) {
     switch (id) {
