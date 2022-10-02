@@ -188,7 +188,14 @@ export default function Timetable() {
     const [currentStop] = currentStopArray
     const { type = "BBG" } = currentStop
     const duration = getDuration(type)
-    const url = `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}`
+    let lang = 'de'
+    const browserLang = navigator.language
+    if (browserLang.startsWith('de')) {
+      lang = 'de'
+    } else {
+      lang = 'en'
+    }
+    const url = `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&language=${lang}`
     const response = await axios.get(url)
     const { data: resData, status } = await response
     if (status === 500 || status !== 200) {
