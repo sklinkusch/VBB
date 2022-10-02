@@ -90,6 +90,10 @@ export function getFrohnau(id: string, mode: string, lineName: string, direction
   }
 }
 
+export function getHeiligensee() {
+  return "S Heiligensee [Bus Ruppiner Ch.]"
+}
+
 export function getHermsdorf() {
   return "S Hermsdorf [Bus Bahnhofplatz]"
 }
