@@ -88,3 +88,14 @@ export function getSüdkreuz(id: string, mode: string, lineName: string, directi
     }
   }
 }
+
+export function getYorckstr(id: string) {
+  switch (id) {
+    case "900000057102":
+      return "S+U Yorckstr. (Großgörschenstr.) [Bus Yorckstr.]"
+    case "900000058103":
+      return "S+U Yorckstr. [Bus Yorckstr.]"
+    default:
+      return "S+U Yorckstr. [Bus Yorckstr.]"
+  }
+}

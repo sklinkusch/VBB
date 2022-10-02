@@ -7,7 +7,7 @@ import { getBornholmerStr, getPankow, getWollankstr } from "./Pankow"
 import { getFrohnau, getHermsdorf, getSchönholz, getWaidmannslust, getWilhelmsruh } from "./Reinickendorf"
 import { getSpandau } from "./Spandau"
 import { getBotanischerGarten, getFeuerbachstr, getLichterfeldeWest, getMexikoplatz, getNikolassee, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
-import { getAttilastr, getBuckowerChaussee, getJuliusLeberBrücke, getMarienfelde, getPriesterweg, getSchöneberg, getSüdkreuz } from "./Tempelhof-Schöneberg"
+import { getAttilastr, getBuckowerChaussee, getJuliusLeberBrücke, getMarienfelde, getPriesterweg, getSchöneberg, getSüdkreuz, getYorckstr } from "./Tempelhof-Schöneberg"
 import { getAdlershof, getGrünau } from "./Treptow-Köpenick"
 
 type Remarks = {
@@ -387,6 +387,11 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
       case "900000130003":
       case "900000130523":
         newStopName = getWollankstr(id)
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000057102":
+      case "900000058103":
+        newStopName = getYorckstr(id)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000049201":
