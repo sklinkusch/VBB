@@ -8,6 +8,10 @@ export function getFeuerbachstr() {
   return "S Feuerbachstr. [Bus Feuerbachstr.]"
 }
 
+export function getLankwitz() {
+  return "S Lankwitz [Bus Leonorenstr.]"
+}
+
 export function getLichterfeldeWest() {
   return "S Lichterfelde West [Bus Drakestr.]"
 }
