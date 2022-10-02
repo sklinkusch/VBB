@@ -100,6 +100,15 @@ export function getPankow(id: string, mode: string, lineName: string, direction:
   }
 }
 
+export function getPankowHeinersdorf(product: string) {
+  switch(product) {
+    case "tram":
+      return "S Pankow-Heinersdorf [Tram Pasewalker Str.]"
+    case "bus":
+      return "S Pankow-Heinersdorf [Bus Pasewalker Str.]"
+  }
+}
+
 export function getWollankstr(id: string) {
   switch(id) {
     case "900000130523":

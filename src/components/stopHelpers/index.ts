@@ -3,7 +3,7 @@ import { getAnhalterBahnhof, getWarschauerStr } from "./Friedrichshain-Kreuzberg
 import { getLichtenberg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
 import { getAlex, getBrandenburgerTor, getFriedrichstr, getGesundbrunnen, getHbf, getHumboldthain, getNordbahnhof, getOranienburgerStr, getPotsdamerPlatz } from "./Mitte"
-import { getBornholmerStr, getPankow, getWollankstr } from "./Pankow"
+import { getBornholmerStr, getPankow, getPankowHeinersdorf, getWollankstr } from "./Pankow"
 import { getFrohnau, getHermsdorf, getSchönholz, getWaidmannslust, getWilhelmsruh } from "./Reinickendorf"
 import { getSpandau } from "./Spandau"
 import { getBotanischerGarten, getFeuerbachstr, getLichterfeldeWest, getMexikoplatz, getNikolassee, getSteglitz, getSundgauerStr, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
@@ -289,6 +289,10 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
         [newStopName, trackNo] = getPankow(id, mode, lineName, direction, provenance)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop, platform: trackNo }
+      case "900000130001":
+        newStopName = getPankowHeinersdorf(product)
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
       case "900000005208":
       case "900000100020":
       case "900000100022":
