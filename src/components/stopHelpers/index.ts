@@ -8,7 +8,7 @@ import { getEichborndamm, getFrohnau, getHeiligensee, getHermsdorf, getKarlBonho
 import { getSpandau } from "./Spandau"
 import { getBotanischerGarten, getFeuerbachstr, getLankwitz, getLichterfeldeOst, getLichterfeldeWest, getMexikoplatz, getNikolassee, getOsdorferStr, getSteglitz, getSundgauerStr, getSüdende, getWannsee, getZehlendorf } from "./Steglitz-Zehlendorf"
 import { getAttilastr, getBuckowerChaussee, getJuliusLeberBrücke, getMarienfelde, getPriesterweg, getSchöneberg, getSüdkreuz, getYorckstr } from "./Tempelhof-Schöneberg"
-import { getAdlershof, getGrünau } from "./Treptow-Köpenick"
+import { getAdlershof, getGrünau, getWilhelmshagen } from "./Treptow-Köpenick"
 
 type Remarks = {
   code: string | undefined,
@@ -430,6 +430,10 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
         return { ...oldStopObject, stop: newStop }
       case "900000024102":
         newStopName = getWestkreuz()
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000183002":
+        newStopName = getWilhelmshagen()
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000084101":

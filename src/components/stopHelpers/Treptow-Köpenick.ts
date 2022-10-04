@@ -103,3 +103,7 @@ export function getGrünau(mode: string, lineName: string, direction: Dir, prove
     }
   }
 }
+
+export function getWilhelmshagen() {
+  return "S Wilhelmshagen [Bus Schönblicker Str.]"
+}
