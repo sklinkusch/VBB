@@ -109,6 +109,76 @@ export function getGrünau(mode: string, lineName: string, direction: Dir, prove
   }
 }
 
+export function getKöpenick(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
+    switch (id) {
+      case "900000180001":
+        switch (lineName) {
+          case "62":
+            if (provenance.includes("Wendenschloß")) return ["S Köpenick [Bahnhofstr.]", 4]
+            return ["S Köpenick [Mahlsdorfer Str.]", 2]
+          case "63":
+            if (provenance.includes("Johannisthal")) return ["S Köpenick [Bahnhofstr.]", 4]
+            return ["S Köpenick [Mahlsdorfer Str.]", 2]
+          case "68":
+            if (provenance.includes("Schmöckwitz")) return ["S Köpenick [Bahnhofstr.]", 4]
+            return ["S Köpenick [Mahlsdorfer Str.]", 2]
+          case "X69":
+          case "269":
+            if (provenance.includes("Müggelschlößchenweg")) return ["S Köpenick [Bahnhofstr.]", 5]
+            return ["S Köpenick [Mahlsdorfer Str.]", 1]
+          case "164":
+            if (provenance.includes("Kaulsdorfer Str.")) return ["S Köpenick [Mahlsdorfer Str.]", 1]
+            return ["S Köpenick [Bahnhofstr.]", 5]
+          case "169":
+            if (provenance.includes("Elsterwerdaer Platz")) return ["S Köpenick [Mahlsdorfer Str.]", 1]
+            if (provenance.includes("Kaulsdorfer Str.")) return ["S Köpenick [Mahlsdorfer Str.]", 1]
+            return ["S Köpenick [Bahnhofstr.]", 5]
+          case "N64":
+          case "N90":
+            if (provenance.includes("Adlershof")) return ["S Köpenick [Bahnhofstr.]", 5]
+            return ["S Köpenick [Mahlsdorfer Str.]", 1]
+          default: return ["S Köpenick [Tram Bus]", null]
+        }
+      case "900000180701":
+        return ["S Köpenick [Tram Stellingdamm]", 3]
+    }
+  } else if (mode === 'dep' && direction !== null) {
+    switch (id) {
+      case "900000180001":
+        switch (lineName) {
+          case "62":
+            if (direction.includes("Wendenschloß")) return ["S Köpenick [Mahlsdorfer Str.]", 2]
+            return ["S Köpenick [Bahnhofstr.]", 4]
+          case "63":
+            if (direction.includes("Johannisthal")) return ["S Köpenick [Mahlsdorfer Str.]", 2]
+            return ["S Köpenick [Bahnhofstr.]", 4]
+          case "68":
+            if (direction.includes("Schmöckwitz")) return ["S Köpenick [Mahlsdorfer Str.]", 2]
+            return ["S Köpenick [Bahnhofstr.]", 4]
+          case "X69":
+          case "269":
+            if (direction.includes("Müggelschlößchenweg")) return ["S Köpenick [Mahlsdorfer Str.]", 1]
+            return ["S Köpenick [Bahnhofstr.]", 5]
+          case "164":
+            if (direction.includes("Kaulsdorfer Str.")) return ["S Köpenick [Bahnhofstr.]", 5]
+            return ["S Köpenick [Mahlsdorfer Str.]", 1]
+          case "169":
+            if (direction.includes("Elsterwerdaer Platz")) return ["S Köpenick [Bahnhofstr.]", 5]
+            if (direction.includes("Kaulsdorfer Str.")) return ["S Köpenick [Bahnhofstr.]", 5]
+            return ["S Köpenick [Mahlsdorfer Str.]", 1]
+          case "N64":
+          case "N90":
+            if (direction.includes("Adlershof")) return ["S Köpenick [Mahlsdorfer Str.]", 1]
+            return ["S Köpenick [Bahnhofstr.]", 5]
+          default: return ["S Köpenick [Tram Bus]", null]
+        }
+      case "900000180701":
+        return ["S Köpenick [Tram Stellingdamm]", 3]
+    }
+  }
+}
+
 export function getRahnsdorf(product: string) {
   if (product === 'tram') return "S Rahnsdorf [Tram Str. nach Fichtenau]"
   return "S Rahnsdorf [Bus I.-Hunzinger-Str.]"
