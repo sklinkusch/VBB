@@ -1,6 +1,6 @@
 import { getAdenauerplatz, getBerlinerStr, getBismarckstr, getBlissestr, getBundesplatz, getCharlottenburg, getErnstReuterPlatz, getFehrbellinerPlatz, getGrunewald, getGüntzelstr, getHalemweg, getHalensee, getHeerstr, getHeidelbergerPlatz, getHohenzollerndamm, getHohenzollernplatz, getJakobKaiserPlatz, getJungfernheide, getKonstanzerStr, getKurfürstendamm, getMesseNord, getMesseSüd, getMierendorffplatz, getNeuWestend, getRichardWagnerPlatz, getRuhleben, getRüdesheimerPlatz, getSophieCharlottePlatz, getSpichernstr, getTheo, getUhlandstr, getWestend, getWestkreuz, getZooBusStops } from "./Charlottenburg-Wilmersdorf"
 import { getAnhalterBahnhof, getWarschauerStr } from "./Friedrichshain-Kreuzberg"
-import { getLichtenberg } from "./Lichtenberg"
+import { getKarlshorst, getLichtenberg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
 import { getAlex, getBrandenburgerTor, getFriedrichstr, getGesundbrunnen, getHbf, getHumboldthain, getNordbahnhof, getOranienburgerStr, getPotsdamerPlatz } from "./Mitte"
 import { getBlankenburg, getBornholmerStr, getBuch, getKarow, getPankow, getPankowHeinersdorf, getWollankstr } from "./Pankow"
@@ -235,6 +235,11 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
         return { ...oldStopObject, stop: newStop }
       case "900000096458":
         newStopName = getKarlBonhoefferNervenklinik()
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000162001":
+      case "900000162702":
+        newStopName = getKarlshorst(id, product, lineName)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000143001":

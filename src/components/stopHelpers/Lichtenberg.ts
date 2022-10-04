@@ -1,5 +1,16 @@
 type Dir = string | null
 
+export function getKarlshorst(id: string, product: string, lineName: string) {
+  switch (id) {
+    case "900000162001":
+      if (product === 'tram') return "S Karlshorst [Tram Treskowallee]"
+      if (product === 'bus' && /[23]96/.test(lineName)) return "S Karlshorst [Bus Stolzenfelsstr.]"
+      return "S Karlshorst [Bus]"
+    case "900000162702":
+      return "S Karlshorst [Bus Dönhoffstr.]"
+  }
+}
+
 export function getLichtenberg(lineName: string, direction: Dir) {
   if (direction !== null) {
     switch(lineName) {
