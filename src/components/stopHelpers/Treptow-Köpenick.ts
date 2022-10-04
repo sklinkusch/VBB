@@ -104,6 +104,11 @@ export function getGrünau(mode: string, lineName: string, direction: Dir, prove
   }
 }
 
+export function getRahnsdorf(product: string) {
+  if (product === 'tram') return "S Rahnsdorf [Tram Str. nach Fichtenau]"
+  return "S Rahnsdorf [Bus I.-Hunzinger-Str.]"
+}
+
 export function getWilhelmshagen() {
   return "S Wilhelmshagen [Bus Schönblicker Str.]"
 }
