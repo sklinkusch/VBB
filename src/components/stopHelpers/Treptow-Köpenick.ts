@@ -187,3 +187,7 @@ export function getRahnsdorf(product: string) {
 export function getWilhelmshagen() {
   return "S Wilhelmshagen [Bus Schönblicker Str.]"
 }
+
+export function getWuhlheide() {
+  return "S Wuhlheide [Bus Köpenicker Str.]"
+}
