@@ -64,6 +64,11 @@ export function getAdlershof(mode: string, lineName: string, direction: Dir, pro
   }
 }
 
+export function getFriedrichshagen(lineName: string) {
+  if (lineName === '88') return "S Friedrichshagen/Dahlwitzer Landstr."
+  return "S Friedrichshagen [Bus Tram Bölschestr.]"
+}
+
 export function getGrünau(mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === "arr" && provenance !== null) {
     switch(lineName) {
