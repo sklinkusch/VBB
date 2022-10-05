@@ -448,3 +448,7 @@ export function getPotsdamerPlatz(id: string, mode: string, lineName: string, di
     }
   }
 }
+
+export function getTiergarten() {
+  return "S Tiergarten [Bus Bachstr.]"
+}
