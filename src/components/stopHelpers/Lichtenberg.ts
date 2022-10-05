@@ -33,3 +33,19 @@ export function getLichtenberg(lineName: string, direction: Dir) {
     }
   }
 }
+
+export function getRummelsburg(product: string, lineName: string) {
+  if (product === 'tram') {
+    return "S Rummelsburg [Tram Hauptstr.]"
+  } else {
+    switch(lineName) {
+      case "194":
+      case "240":
+      case "N94":
+        return "S Rummelsburg [Bus Nöldnerstr.]"
+      case "N40":
+        return "S Rummelsburg [Bus Hauptstr.]"
+      default: return "S Rummelsburg [Bus]"
+    }
+  }
+}
