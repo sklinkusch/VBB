@@ -194,6 +194,42 @@ export function getHumboldthain() {
   return "S Humboldthain [Bus Hochstr.]"
 }
 
+export function getJannowitzbrücke(mode: string, lineName: string, direction: Direction, provenance: Direction) {
+  if(mode === 'arr' && provenance !== null) {
+    switch (lineName) {
+      case "300":
+        if (provenance.includes("Warschauer")) return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+        return "S+U Jannowitzbrücke [Bus Holzmarktstr.]"
+      case "N8":
+        return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+      case "N40":
+        if (provenance.includes("Blockdammweg")) return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+        return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+      case "N60":
+      case "N65":
+        return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+      default:
+        return "S+U Jannowitzbrücke [Bus]"
+    }
+  } else if (mode === 'dep' && direction !== null) {
+    switch (lineName) {
+      case "300":
+        if (direction.includes("Warschauer")) return "S+U Jannowitzbrücke [Bus Holzmarktstr.]"
+        return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+      case "N8":
+        return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+      case "N40":
+        if (direction.includes("Blockdammweg")) return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+        return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+      case "N60":
+      case "N65":
+        return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+      default:
+        return "S+U Jannowitzbrücke [Bus]"
+    }
+  }
+}
+
 export function getNordbahnhof(id: string, mode: string, lineName: string, direction: Direction, provenance: Direction) {
   if (mode === 'arr' && provenance !== null) {
     switch (id) {
