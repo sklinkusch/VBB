@@ -208,3 +208,12 @@ export function getSpandau(id: string, mode: string, lineName: string, direction
     }
   }
 }
+
+export function getStresow(id: string) {
+  switch (id) {
+    case "900000030202":
+      return "S Stresow [Freiheit]"
+    case "900000030272":
+      return "S Stresow [Vorplatz]"
+  }
+}
