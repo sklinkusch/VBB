@@ -119,6 +119,44 @@ export function getGesundbrunnen(mode: string, lineName: string, direction: Dire
   }
 }
 
+export function getHackescherMarkt(mode: string, lineName: string, direction: Direction, provenance: Direction) {
+  if (mode === 'arr' && provenance !== null) {
+    switch (lineName) {
+      case "M1":
+        if (provenance.includes("Kupfergraben")) return ["S Hackescher Markt [Tram H.-Herz-Pl.]", 3]
+        return ["S Hackescher Markt [Tram Rosenthaler Str.]", 1]
+      case "M4":
+      case "M6":
+        return ["S Hackescher Markt [Tram H.-Herz-Pl..]", 3]
+      case "M5":
+        if (provenance.includes("Lüneburger Str")) return ["S Hackescher Markt [Tram Garnisonkirchpl.]", 2]
+        return ["S Hackescher Markt [Tram H.-Herz-Pl.]", 3]
+      case "N42":
+        if (provenance.includes("Alexanderplatz")) return ["S Hackescher Markt [Bus An der Spandauer Brücke]", 4]
+        return ["S Hackescher Markt [Bus An der Spandauer Brücke]", 5]
+      default:
+        return ["S Hackescher Markt [Tram Bus]", null]
+    }
+  } else if (mode === 'dep' && direction !== null) {
+    switch (lineName) {
+      case "M1":
+        if (direction.includes("Kupfergraben")) return ["S Hackescher Markt [Tram Rosenthaler Str.]", 1]
+        return ["S Hackescher Markt [Tram H.-Herz-Pl.]", 3]
+      case "M4":
+      case "M6":
+        return ["S Hackescher Markt [Tram Garnisonkirchpl.]", 2]
+      case "M5":
+        if (direction.includes("Hauptbahnhof")) return ["S Hackescher Markt [Tram H.-Herz-Pl.]", 3]
+        return ["S Hackescher Markt [Tram Garnisonkirchpl.]", 2]
+      case "N42":
+        if (direction.includes("Alexanderplatz")) return ["S Hackescher Markt [Bus An der Spandauer Brücke]", 5]
+        return ["S Hackescher Markt [Bus An der Spandauer Brücke]", 4]
+      default:
+        return ["S Hackescher Markt [Tram Bus]", null]
+    }
+  }
+}
+
 export function getHbf(mode: string, lineName: string, direction: Direction, provenance: Direction) {
   if (mode === "arr" && provenance !== null) {
     switch(lineName) {
