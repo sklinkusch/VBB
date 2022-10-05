@@ -8,6 +8,18 @@ export function getAnhalterBahnhof(lineName: string) {
   }
 }
 
+export function getOstkreuz(lineName: string) {
+  switch(lineName) {
+    case "M43":
+    case "194":
+    case "347":
+    case "N94":
+      return "S Ostkreuz [Bus Hauptstr.]"
+    default:
+      return "S Ostkreuz [Bus]"
+  }
+}
+
 export function getWarschauerStr(mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === "arr" && provenance !== null) {
     switch (lineName) {
