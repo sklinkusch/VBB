@@ -8,6 +8,10 @@ export function getAnhalterBahnhof(lineName: string) {
   }
 }
 
+export function getOstbahnhof() {
+  return "S Ostbahnhof [Bus Am Ostbahnhof]"
+}
+
 export function getOstkreuz(lineName: string) {
   switch(lineName) {
     case "M43":
