@@ -137,6 +137,18 @@ export function getPankowHeinersdorf(product: string) {
   }
 }
 
+export function getPrenzlauerAllee(product: string, lineName: string) {
+  switch (product) {
+    case "tram":
+      return "S Prenzlauer Allee [Tram Prenzlauer Allee]"
+    case "bus":
+      switch (lineName) {
+        case "156": return "S Prenzlauer Allee [Bus Grellstr.]"
+        default: return "S Prenzlauer Allee [Bus Prenzlauer Allee]"
+      }
+  }
+}
+
 export function getSchönhauserAllee(product: string) {
   switch(product) {
     case "tram":
