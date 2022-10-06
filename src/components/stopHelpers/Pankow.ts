@@ -182,6 +182,10 @@ export function getSchönhauserAllee(product: string) {
   }
 }
 
+export function getStorkowerStr() {
+  return "S Storkower Str. [Bus Storkower Str.]"
+}
+
 export function getWollankstr(id: string) {
   switch(id) {
     case "900000130523":
