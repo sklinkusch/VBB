@@ -28,6 +28,18 @@ export function getBuch(mode: string, lineName: string, direction: Dir, provenan
   }
 }
 
+export function getGreifswalderStr(product: string, lineName: string) {
+  switch (product) {
+    case "tram":
+      return "S Greifswalder Str. [Tram Greifswalder Str.]"
+    case "bus":
+      switch (lineName) {
+        case "158": return "S Greifswalder Str. [Bus Storkower Str.]"
+        default: return "S Greifswalder Str. [Bus Greifswalder Str.]"
+      }
+  }
+}
+
 export function getKarow() {
   return "S Karow [Bus Hubertusdamm]"
 }
