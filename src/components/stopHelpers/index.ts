@@ -1,5 +1,5 @@
 import { getAdenauerplatz, getBerlinerStr, getBismarckstr, getBlissestr, getBundesplatz, getCharlottenburg, getErnstReuterPlatz, getFehrbellinerPlatz, getGrunewald, getGüntzelstr, getHalemweg, getHalensee, getHeerstr, getHeidelbergerPlatz, getHohenzollerndamm, getHohenzollernplatz, getJakobKaiserPlatz, getJungfernheide, getKonstanzerStr, getKurfürstendamm, getMesseNord, getMesseSüd, getMierendorffplatz, getNeuWestend, getRichardWagnerPlatz, getRuhleben, getRüdesheimerPlatz, getSophieCharlottePlatz, getSpichernstr, getTheo, getUhlandstr, getWestend, getWestkreuz, getZooBusStops } from "./Charlottenburg-Wilmersdorf"
-import { getAnhalterBahnhof, getOstbahnhof, getOstkreuz, getWarschauerStr } from "./Friedrichshain-Kreuzberg"
+import { getAnhalterBahnhof, getFrankfurterAllee, getOstbahnhof, getOstkreuz, getWarschauerStr } from "./Friedrichshain-Kreuzberg"
 import { getKarlshorst, getLichtenberg, getRummelsburg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
 import { getAlex, getBrandenburgerTor, getFriedrichstr, getGesundbrunnen, getHackescherMarkt, getHbf, getHumboldthain, getJannowitzbrücke, getNordbahnhof, getOranienburgerStr, getPotsdamerPlatz, getTiergarten } from "./Mitte"
@@ -142,6 +142,10 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
         return { ...oldStopObject, stop: newStop }
       case "900000063101":
         newStopName = getFeuerbachstr()
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop }
+      case "900000120001":
+        newStopName = getFrankfurterAllee(product, lineName)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
       case "900000171002":
