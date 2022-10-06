@@ -44,6 +44,18 @@ export function getKarow() {
   return "S Karow [Bus Hubertusdamm]"
 }
 
+export function getLandsbergerAllee(product: string, lineName: string) {
+  switch (product) {
+    case "tram":
+      return "S Landsberger Allee [Tram Landsberger Allee]"
+    case "bus":
+      switch (lineName) {
+        case "156": return "S Landsberger Allee [Bus Storkower Str.]"
+        default: return "S Landsberger Allee [Bus Landsberger Allee]"
+      }
+  }
+}
+
 export function getPankow(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === "arr" && provenance !== null) {
     switch (id) {
