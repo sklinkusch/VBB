@@ -137,6 +137,15 @@ export function getPankowHeinersdorf(product: string) {
   }
 }
 
+export function getSchönhauserAllee(product: string) {
+  switch(product) {
+    case "tram":
+      return "S+U Schönhauser Allee [Tram Schönhauser Allee]"
+    case "bus":
+      return "S+U Schönhauser Allee [Bus Schönhauser Allee]"
+  }
+}
+
 export function getWollankstr(id: string) {
   switch(id) {
     case "900000130523":
