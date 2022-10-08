@@ -1,11 +1,11 @@
 /** @jsxImportSource theme-ui */
 import { Suspense, lazy } from "react"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Header from "./Header"
-import Footer from "./Footer"
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 // import VBBDepartures from "../pages/VBBDepartures"
-const VBBDepartures = lazy(() => import("../pages/VBBDepartures"))
-const VBBArrivals = lazy(() => import("../pages/VBBArrivals"))
+const VBBDepartures = lazy(() => import("../../pages/VBBDepartures"))
+const VBBArrivals = lazy(() => import("../../pages/VBBArrivals"))
 
 function App() {
   // return (

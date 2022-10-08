@@ -1,7 +1,7 @@
 import React from "react"
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import LegendDep from "../components/LegendDep"
-import Timetable from "../components/Timetable"
+import LegendDep from "../components/LegendDep/LegendDep"
+import Timetable from "../components/Timetable/Timetable"
 // const LegendDep = lazy(() => import("../components/LegendDep"))
 // const Timetable = lazy(() => import("../components/Timetable"))
 

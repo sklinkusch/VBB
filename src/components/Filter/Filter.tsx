@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { ChangeEventHandler } from "react"
-import getLocale from "./getLocale"
+import getLocale from "../Locales/getLocale"
 
 type Props = {
   mode: string,

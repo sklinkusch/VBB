@@ -1,6 +1,6 @@
 import React, { lazy } from "react"
-const LegendArr = lazy(() => import("../components/LegendArr")) 
-const TimetableArr = lazy(() => import("../components/TimetableArr")) 
+const LegendArr = lazy(() => import("../components/LegendArr/LegendArr")) 
+const TimetableArr = lazy(() => import("../components/TimetableArr/TimetableArr")) 
 
 function VBBArrivals() {
   return (

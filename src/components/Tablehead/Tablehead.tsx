@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import getLocale from "./getLocale";
+import getLocale from "../Locales/getLocale";
 
 type Props = {
   mode: string

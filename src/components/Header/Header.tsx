@@ -3,7 +3,7 @@ import { useDebugState } from "use-named-state"
 import { Navbar, NavbarBrand, NavbarToggler, NavLink, Collapse, Nav, NavItem } from "reactstrap";
 import { NavLink as RRNavLink, useLocation } from "react-router-dom"
 import { LinkContainer } from "react-router-bootstrap"
-import getLocale from "./getLocale";
+import getLocale from "../Locales/getLocale";
 
 const Header = () => {
   const [isOpen, setOpen] = useDebugState<boolean>("isOpen", false)

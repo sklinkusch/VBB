@@ -2,13 +2,13 @@ import React, { useRef, useEffect, lazy } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useDebugState } from "use-named-state"
 import axios from "axios"
-import { getDuration } from "./helpers"
-import stops from "../data/stops"
-const Input = lazy(() => import("./Input"))
-const Select = lazy(() => import("./Select"))
-const Button = lazy(() => import("./Button"))
-const Filter = lazy(() => import("./Filter"))
-const StopBody = lazy(() => import("./StopBody"))
+import { getDuration } from "../helpers/helpers"
+import stops from "../../data/stops"
+const Input = lazy(() => import("../Input/Input"))
+const Select = lazy(() => import("../Select/Select"))
+const Button = lazy(() => import("../Button/Button"))
+const Filter = lazy(() => import("../Filter/Filter"))
+const StopBody = lazy(() => import("../StopBody/StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
 
 type Remarks = {

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Fragment } from "react"
-import getLocale from "./getLocale"
+import getLocale from "../Locales/getLocale"
 
 type Props = {
   filterStops: Function,

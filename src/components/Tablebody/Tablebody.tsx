@@ -1,6 +1,6 @@
 import React, { lazy } from "react";
-const Departure = lazy(() => import("./Departure"));
-const Arrival = lazy(() => import("./Arrival"));
+const Departure = lazy(() => import("../Departure/Departure"));
+const Arrival = lazy(() => import("../Arrival/Arrival"));
 
 type Remarks = {
   code: string | undefined,

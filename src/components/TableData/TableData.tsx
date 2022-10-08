@@ -1,7 +1,7 @@
 import React from 'react';
-import StopName from './StopName';
-import Tablehead from './Tablehead';
-import Tablebody from './Tablebody';
+import StopName from '../StopName/StopName';
+import Tablehead from '../Tablehead/Tablehead';
+import Tablebody from '../Tablebody/Tablebody';
 
 type Remarks = {
   code: string | undefined,

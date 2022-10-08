@@ -1,10 +1,10 @@
 import React, { Fragment, useEffect } from 'react'
 import { useDebugState } from 'use-named-state'
-import { getDuration } from "./helpers"
-import StopName from "./StopName"
-import Error from "./Error"
-import TableData from "./TableData"
-import { changeStopObject } from './stopHelpers'
+import { getDuration } from "../helpers/helpers"
+import StopName from "../StopName/StopName"
+import Error from "../Error/Error"
+import TableData from "../TableData/TableData"
+import { changeStopObject } from '../stopHelpers'
 /* eslint-disable react-hooks/exhaustive-deps */
 
 type Remarks = {

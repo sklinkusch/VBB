@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
-import Legendrow from "./Legendrow";
-import getLocale from "./getLocale";
+import Legendrow from "../Legendrow/Legendrow";
+import getLocale from "../Locales/getLocale";
 
 export default function LegendArr() {
   return (
