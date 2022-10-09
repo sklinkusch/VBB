@@ -16,60 +16,47 @@ type Timestamp = string | null | undefined
 
 type Text = string | null | undefined
 
+export const formatTime = (timestamp: Timestamp) => {
+  if (timestamp !== null && timestamp !== undefined) {
+    const dateArray = timestamp.substring(0, 10).split("-")
+    const [year, month, day] = dateArray
+    const time = timestamp.substring(11, 16)
+    return `${day}.${month}.${year}, ${time}`
+  }
+  return null
+}
+
+export const formatText = (text: Text) => {
+  if (typeof text === 'string') {
+    const textWithoutLinks = replaceLinks(text)
+    const formattedText = includeSpecialChars(textWithoutLinks)
+    return formattedText
+  }
+  return ""
+}
+
+export const replaceLinks = (item: Text) => {
+  if (typeof item === 'string') {
+    if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
+      const pattern = /<a.*href="([\w:/.]*)".*>(.*)<\/a>/g
+      return item.replace(pattern, "$2 ($1)")
+    }
+  return item
+  }
+return item
+}
+
+export const includeSpecialChars = (text: Text) => {
+  if (typeof text === 'string') {
+    let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
+    let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
+    textForm = textForm.replace(/&gt;/g, ">")
+    return textForm
+  }
+  return text
+}
+
 const Warning = ({ remarks }: Props) => {
-  const formatTime = (timestamp: Timestamp) => {
-    if (timestamp !== null && timestamp !== undefined) {
-      const dateArray = timestamp.substring(0, 10).split("-")
-      const [year, month, day] = dateArray
-      const time = timestamp.substring(11, 16)
-      return `${day}.${month}.${year}, ${time}`
-    }
-    return null
-  }
-  const formatText = (text: Text) => {
-    if (typeof text === 'string') {
-      const textWithoutLinks = replaceLinks(text)
-      const formattedText = includeSpecialChars(textWithoutLinks)
-      return formattedText
-    }
-    return ""
-  }
-  const replaceLinks = (item: Text) => {
-    if (typeof item === 'string') {
-      if (/<a.*href=".*".*>.*<\/a>/.test(item)) {
-        if (
-          /<a.*href=".*" target="_blank" rel="noopener noreferrer[ ]*">.*<\/a>/.test(
-            item
-            )
-          ) {
-            const pattern1 = /<a.*href="(.*)" target="_blank" rel="noopener noreferrer[ ]*">(.*)<\/a>/g
-            return item.replace(pattern1, "$2 ($1)")
-          } else if (
-            /<a.*href=".*" target="_blank" rel="noopener[ ]*">.*<\/a>/.test(item)
-            ) {
-            const pattern2 = /<a.*href="(.*)" target="_blank" rel="noopener[ ]*">(.*)<\/a>/g
-            return item.replace(pattern2, "$2 ($1)")
-          } else if (/<a.*href?".*" target="_blank">.*<\/a>/.test(item)) {
-            const pattern3 = /<a.*href="(.*)" target="_blank">(.*)<\/a>/g
-            return item.replace(pattern3, "$2 ($1)")
-          } else {
-            const pattern = /<a.*href="(.*)".*>(.*)<\/a>/g
-            return item.replace(pattern, "$2 ($1)")
-          }
-        }
-        return item
-      }
-      return item
-  }
-  const includeSpecialChars = (text: Text) => {
-    if (typeof text === 'string') {
-      let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
-      let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
-      textForm = textForm.replace(/&gt;/g, ">")
-      return textForm
-    }
-    return text
-  }
   const warnings = remarks.filter((remark) => remark.type === "warning")
   const formattedWarnings = warnings
     .map((warning) => {
