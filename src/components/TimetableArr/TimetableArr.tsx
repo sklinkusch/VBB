@@ -62,6 +62,7 @@ export default function TimetableArr() {
   const [selection, setSelection] = useDebugState<Stop[]>("selection",stops)
   const [stop, setStop] = useDebugState<Stop>("stop",{ id: "", name: "", type: ""})
   const [data, setData] = useDebugState<Data>("data",[])
+  const [date, setDate] = useDebugState<string>("date", "")
   const [viewData, setViewData] = useDebugState<Data>("viewData",[])
   const [error, setError] = useDebugState<any>("error",null)
   const params = useParams()
@@ -196,6 +197,8 @@ export default function TimetableArr() {
       setError(`HTTP status code: ${status}`)
       setData([])
     } else {
+      const myDate = (new Date()).toLocaleString('de-DE', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+      setDate(myDate)
       setData(resData)
       setViewData(resData)
       setError(null)
@@ -235,7 +238,7 @@ export default function TimetableArr() {
         filterData={filterData}
         mode="arr"
       />
-      <StopBody stop={stop} data={viewData} error={error} mode="arr" />
+      <StopBody stop={stop} data={viewData} error={error} date={date} mode="arr" />
     </div>
   )
 }

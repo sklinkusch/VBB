@@ -56,12 +56,13 @@ type Stop = {
 
 type Props = {
   data: Data,
+  date: string,
   error: string,
   mode: string,
   stop: Stop
 }
 
-export default function StopBody({ data, error, stop, mode = 'dep' }: Props) {
+export default function StopBody({ data, date, error, stop, mode = 'dep' }: Props) {
   const [newData, setNewData] = useDebugState<Dataset[][]>("newData", [])
   const sortData = (data: Data) => {
     if (data !== null && data !== undefined && data.length > 0) {
@@ -133,7 +134,7 @@ export default function StopBody({ data, error, stop, mode = 'dep' }: Props) {
   const text = `In the next ${getDuration(stop.type || 'BLN')} minutes, no ${mode === 'dep' ? 'departures' : 'arrivals'} are planned for the station or stop you have chosen`
   return (
     <Fragment>
-      {stop && <StopName stop={stop} element="h2" />}
+      {stop && <StopName stop={stop} date={date} element="h2" />}
       {error ? (<Error />) : (
         newData !== undefined && newData !== null && newData.length > 0 ? (newData.map((depset = [], index) => {
           if (depset.length > 0) {
