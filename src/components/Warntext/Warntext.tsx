@@ -15,29 +15,34 @@ type Props = {
 
 type Timestamp = string | null | undefined
 
+type Text = string | null | undefined
+
+export const formatTime = (timestamp: Timestamp) => {
+  if (timestamp !== null && timestamp !== undefined) {
+    const dateArray = timestamp.substring(0, 10).split("-")
+    const [year, month, day] = dateArray
+    const time = timestamp.substring(11, 16)
+    return `${day}.${month}.${year}, ${time}`
+  }
+  return null
+}
+
+export const formatText = (text: Text) => {
+  if (typeof text === 'string') {
+    const formattedText = includeSpecialChars(text)
+    return formattedText
+  }
+  return ""
+}
+
+export const includeSpecialChars = (text: string) => {
+  let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
+  let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
+  textForm = textForm.replace(/&gt;/g, ">")
+  return textForm
+}
+
 const Warntext = (props: Props) => {
-  const formatTime = (timestamp: Timestamp) => {
-    if (timestamp !== null && timestamp !== undefined) {
-      const dateArray = timestamp.substring(0, 10).split("-")
-      const [year, month, day] = dateArray
-      const time = timestamp.substring(11, 16)
-      return `${day}.${month}.${year}, ${time}`
-    }
-    return null
-  }
-  const formatText = (text: string | undefined | null) => {
-    if (typeof text === 'string') {
-      const formattedText = includeSpecialChars(text)
-      return formattedText
-    }
-    return ""
-  }
-  const includeSpecialChars = (text: string) => {
-    let textWODoubleBrs = text.replace(/(\[br\]*)/g, " ")
-    let textForm = textWODoubleBrs.replace(/&lt;/g, "<")
-    textForm = textForm.replace(/&gt;/g, ">")
-    return textForm
-  }
   const warnings = props.remarks.filter((remark) => remark.type === "warning")
   if (warnings.length > 0) {
     return (
