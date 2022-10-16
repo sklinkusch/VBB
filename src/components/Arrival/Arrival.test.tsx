@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from "@testing-library/react"
 import Arrival, { getDelay, getPlanTime, getTime } from './Arrival'
 
-describe('tests on Departure component', () => {
+describe('tests on Arrival component', () => {
   describe('tests on main component', () => {
     it('renders without crashing (real time)', () => {
         const remarks = [
