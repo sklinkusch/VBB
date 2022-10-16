@@ -1,8 +1,8 @@
 /** @jsxImportSource theme-ui */
 
 type Remarks = {
-  text: string,
-  type: string,
+  text: string | undefined,
+  type: string | undefined,
 }[]
 
 type Props = {

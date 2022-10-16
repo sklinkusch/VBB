@@ -3,8 +3,8 @@ import getLocale from "../Locales/getLocale"
 
 type Remarks = {
   summary: string | null | undefined,
-  text: string,
-  type: string,
+  text: string | undefined,
+  type: string | undefined,
   validFrom: string | undefined,
   validUntil: string | undefined
 }[]
