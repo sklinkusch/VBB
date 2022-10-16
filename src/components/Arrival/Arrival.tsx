@@ -12,8 +12,8 @@ const Stattext = lazy(() => import("../Stattext/Stattext"));
 type Remarks = {
   code: string | undefined,
   summary: string | null | undefined,
-  text: string,
-  type: string,
+  text: string | undefined,
+  type: string | undefined,
   validFrom: string | undefined,
   validUntil: string | undefined
 }[]
@@ -50,45 +50,48 @@ type Props = {
   }
 }
 
+export const getDelay = (delay: number | null | undefined, cancelled: boolean | null | undefined) => {
+  if (delay != null) {
+    return Math.floor(delay / 60);
+  } else if (cancelled) {
+    return "X";
+  } else {
+    return "?";
+  }
+};
+
+export const getPlanTime = (realtime: string, delay: number) => {
+  let hours = Number(realtime.substring(0, 2));
+  let minutes = Number(realtime.substring(3, 5));
+  minutes -= delay;
+  if (minutes < 0) {
+    minutes += 60;
+    hours -= 1;
+  }
+  if (minutes > 59) {
+    minutes -= 60;
+    hours += 1;
+  }
+  if (hours < 0) {
+    hours += 24;
+  }
+  if (hours > 23) {
+    hours -= 24;
+  }
+  let hourString = hours < 10 ? `0${hours}` : `${hours}`;
+  let minuteString = minutes < 10 ? `0${minutes}` : `${minutes}`;
+  return `${hourString}:${minuteString}`;
+};
+
+export const getTime = (timestamp: string | undefined | null) => {
+  if (timestamp != null) {
+    return timestamp.substring(11, 16);
+  } else {
+    return "";
+  }
+};
+
 const Arrival = (props: Props) => {
-  const getDelay = (delay: number | null | undefined, cancelled: boolean | null | undefined) => {
-    if (delay != null) {
-      return Math.floor(delay / 60);
-    } else if (cancelled) {
-      return "X";
-    } else {
-      return "?";
-    }
-  };
-  const getPlanTime = (realtime: string, delay: number) => {
-    let hours = Number(realtime.substring(0, 2));
-    let minutes = Number(realtime.substring(3, 5));
-    minutes -= delay;
-    if (minutes < 0) {
-      minutes += 60;
-      hours -= 1;
-    }
-    if (minutes > 59) {
-      minutes -= 60;
-      hours += 1;
-    }
-    if (hours < 0) {
-      hours += 24;
-    }
-    if (hours > 23) {
-      hours -= 24;
-    }
-    let hourString = hours < 10 ? `0${hours}` : `${hours}`;
-    let minuteString = minutes < 10 ? `0${minutes}` : `${minutes}`;
-    return `${hourString}:${minuteString}`;
-  };
-  const getTime = (timestamp: string | undefined | null) => {
-    if (timestamp != null) {
-      return timestamp.substring(11, 16);
-    } else {
-      return "";
-    }
-  };
   let delayMin;
   if (props.arr.cancelled) {
     delayMin = getDelay(props.arr.delay, props.arr.cancelled);
