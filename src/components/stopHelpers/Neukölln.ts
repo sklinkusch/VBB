@@ -1,5 +1,67 @@
 type Dir = string | null
 
+export function getHermannstr(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
+  if (mode === 'arr' && provenance !== null) {
+    switch (id) {
+      case "900000079221":
+        switch (lineName) {
+          case "M44":
+            if (provenance.includes("Buckow")) return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+          case "246":
+          case "277":
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+          case "377":
+            if (provenance.includes("Kranoldstr")) return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+          case "U8":
+          case "N8":
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+          case "N77":
+            if (provenance.includes("Mariendorf")) return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 2]
+          default:
+            return ["S+U Hermannstr. [Bus]", null]
+        }
+      case "900000079220":
+        switch (lineName) {
+          case "246":
+            if (/(Forsthaus|Grenz)/.test(provenance)) return ["S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]", 5]
+            return ["S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]", 4]
+        }
+    }
+  } else if (mode === 'dep' && direction !== null) {
+    switch (id) {
+      case "900000079221":
+        switch (lineName) {
+          case "M44":
+            if (direction.includes("Buckow")) return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+          case "246":
+          case "277":
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 2]
+          case "377":
+            if (direction.includes("Kranoldstr")) return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+          case "U8":
+          case "N8":
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+          case "N77":
+            if (direction.includes("Mariendorf")) return ["S+U Hermannstr. [Bus Hermannstr.]", 2]
+            return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+          default:
+            return ["S+U Hermannstr. [Bus]", null]
+        }
+      case "900000079220":
+        switch (lineName) {
+          case "246":
+            if (/(Forsthaus|Grenz)/.test(direction)) return ["S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]", 4]
+            return ["S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]", 5]
+        }
+    }
+  }
+}
+
 export function getNeukölln(id: string, mode: string, lineName: string, direction: Dir, provenance: Dir) {
   if (mode === 'arr' && provenance !== null) {
     switch (id) {
