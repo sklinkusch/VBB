@@ -3,7 +3,7 @@ import { getAnhalterBahnhof, getFrankfurterAllee, getOstbahnhof, getOstkreuz, ge
 import { getKarlshorst, getLichtenberg, getRummelsburg } from "./Lichtenberg"
 import { getFriedrichsfeldeOst, getMahlsdorf, getMarzahn } from "./Marzahn-Hellersdorf"
 import { getAlex, getBrandenburgerTor, getFriedrichstr, getGesundbrunnen, getHackescherMarkt, getHbf, getHumboldthain, getJannowitzbrücke, getNordbahnhof, getOranienburgerStr, getPotsdamerPlatz, getTiergarten } from "./Mitte"
-import { getSonnenallee } from "./Neukölln"
+import { getNeukölln, getSonnenallee } from "./Neukölln"
 import { getBlankenburg, getBornholmerStr, getBuch, getGreifswalderStr, getKarow, getLandsbergerAllee, getPankow, getPankowHeinersdorf, getPrenzlauerAllee, getSchönhauserAllee, getStorkowerStr, getWollankstr } from "./Pankow"
 import { getEichborndamm, getFrohnau, getHeiligensee, getHermsdorf, getKarlBonhoefferNervenklinik, getSchulzendorf, getSchönholz, getTegel, getWaidmannslust, getWilhelmsruh } from "./Reinickendorf"
 import { getSpandau, getStresow } from "./Spandau"
@@ -335,6 +335,11 @@ export function changeStopObject (mode: string, oldStopObject: Data) {
         newStopName = getMierendorffplatz(mode, lineName, direction, provenance)
         newStop = { ...stop, name: newStopName }
         return { ...oldStopObject, stop: newStop }
+      case "900000078201":
+      case "900000078271":
+        [newStopName, trackNo] = getNeukölln(id, mode, lineName, direction, provenance)
+        newStop = { ...stop, name: newStopName }
+        return { ...oldStopObject, stop: newStop, platform: trackNo }
       case "900000026101":
         newStopName = getNeuWestend()
         newStop = { ...stop, name: newStopName }
