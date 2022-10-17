@@ -575,6 +575,22 @@ export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
 
+export function getWedding(id: string, lineName: string) {
+	switch (id) {
+		case "900000009104":
+			return "S+U Wedding [Bus Müllerstr.]"
+		case "900000008103":
+			switch (lineName) {
+				case "M27":
+					return "Nettelbeckplatz/S Wedding [Bus Reinickendorfer Str.]"
+				case "247":
+					return "Nettelbeckplatz/S Wedding [Bus Gerichtstr.]"
+				default:
+					return "Nettelbeckplatz/S wedding"
+			}
+	}
+}
+
 export function getWesthafen() {
 	return "S+U Westhafen [Bus Putlitzbrücke]"
 }

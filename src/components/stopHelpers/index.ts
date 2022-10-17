@@ -61,6 +61,7 @@ import {
 	getOranienburgerStr,
 	getPotsdamerPlatz,
 	getTiergarten,
+	getWedding,
 	getWesthafen,
 } from "./Mitte"
 import { getHermannstr, getNeukölln, getSonnenallee } from "./Neukölln"
@@ -774,6 +775,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000008103":
+			case "900000009104":
+				newStopName = getWedding(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000020204":
 			case "900000026207":
 				newStopName = getWestend(id)
