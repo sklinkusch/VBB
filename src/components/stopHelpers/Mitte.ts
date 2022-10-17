@@ -574,3 +574,7 @@ export function getPotsdamerPlatz(
 export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
+
+export function getWesthafen() {
+	return "S+U Westhafen [Bus Putlitzbrücke]"
+}
