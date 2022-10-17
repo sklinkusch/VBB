@@ -387,9 +387,14 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000044101":
-				newStopName = getHohenzollerndamm(mode, lineName, direction, provenance)
+				;[newStopName, trackNo] = getHohenzollerndamm(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000043101":
 				newStopName = getHohenzollernplatz(lineName)
 				newStop = { ...stop, name: newStopName }
