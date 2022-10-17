@@ -45,6 +45,8 @@ export function getAdlershof(
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "M17":
+			case "27":
+			case "67":
 				return ["S Adlershof [Tram Wendeschleife]", 5]
 			case "61":
 				if (direction.includes("Schöneweide"))
