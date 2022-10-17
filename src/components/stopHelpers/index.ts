@@ -107,6 +107,7 @@ import {
 import {
 	getAttilastr,
 	getBuckowerChaussee,
+	getInnsbruckerPlatz,
 	getJuliusLeberBrücke,
 	getMarienfelde,
 	getPriesterweg,
@@ -395,6 +396,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000008101":
 				newStopName = getHumboldthain()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000054105":
+				newStopName = getInnsbruckerPlatz(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000018101":
