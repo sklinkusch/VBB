@@ -34,7 +34,7 @@ import {
 	getWestkreuz,
 	getZooBusStops,
 } from "./Charlottenburg-Wilmersdorf"
-import { getBERT1 } from "./Dahme-Spreewald"
+import { getBERT1, getWaßmannsdorf } from "./Dahme-Spreewald"
 import {
 	getAnhalterBahnhof,
 	getFrankfurterAllee,
@@ -778,6 +778,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					direction,
 					provenance
 				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000260080":
+				;[newStopName, trackNo] = getWaßmannsdorf(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000008103":
