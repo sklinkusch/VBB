@@ -34,6 +34,7 @@ import {
 	getWestkreuz,
 	getZooBusStops,
 } from "./Charlottenburg-Wilmersdorf"
+import { getBERT1 } from "./Dahme-Spreewald"
 import {
 	getAnhalterBahnhof,
 	getFrankfurterAllee,
@@ -211,6 +212,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getAttilastr(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000260009":
+				;[newStopName, trackNo] = getBERT1(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000044201":
 				newStopName = getBerlinerStr(lineName)
 				newStop = { ...stop, name: newStopName }
