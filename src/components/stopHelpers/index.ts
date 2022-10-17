@@ -122,6 +122,7 @@ import {
 } from "./Tempelhof-Schöneberg"
 import {
 	getAdlershof,
+	getAltglienicke,
 	getFriedrichshagen,
 	getGrünau,
 	getKöpenick,
@@ -204,6 +205,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000195510":
+			case "900000196514":
+				newStopName = getAltglienicke(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000012101":
 				newStopName = getAnhalterBahnhof(lineName)
 				newStop = { ...stop, name: newStopName }
