@@ -49,6 +49,7 @@ import {
 } from "./Marzahn-Hellersdorf"
 import {
 	getAlex,
+	getBeusselstr,
 	getBrandenburgerTor,
 	getFriedrichstr,
 	getGesundbrunnen,
@@ -210,6 +211,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000044201":
 				newStopName = getBerlinerStr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000020202":
+				newStopName = getBeusselstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000024201":
