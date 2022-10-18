@@ -65,7 +65,12 @@ import {
 	getWedding,
 	getWesthafen,
 } from "./Mitte"
-import { getHermannstr, getNeukölln, getSonnenallee } from "./Neukölln"
+import {
+	getHermannstr,
+	getKöllnischeHeide,
+	getNeukölln,
+	getSonnenallee,
+} from "./Neukölln"
 import {
 	getBlankenburg,
 	getBornholmerStr,
@@ -474,6 +479,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000143001":
 				newStopName = getKarow()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000077155":
+				newStopName = getKöllnischeHeide()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000041201":
