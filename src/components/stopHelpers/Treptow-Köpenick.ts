@@ -247,6 +247,58 @@ export function getRahnsdorf(product: string) {
 	return "S Rahnsdorf [Bus I.-Hunzinger-Str.]"
 }
 
+export function getSchöneweide(id: string, product: string, lineName: string) {
+	switch (id) {
+		case "900000192701":
+			switch (product) {
+				case "tram":
+					return "S Schöneweide [Tram M.-Brückner-Str.]"
+				case "bus":
+					switch (lineName) {
+						case "165":
+						case "N60":
+							return "S Schöneweide [Bus M.-Brückner-Str.]"
+						case "N65":
+							return "S Schöneweide [Bus Brückenstr.]"
+						default:
+							return "S Schöneweide [Bus M.-Brückner-Str.]"
+					}
+				default:
+					return "S Schöneweide"
+			}
+		case "900000194006":
+			switch (product) {
+				case "tram":
+					switch (lineName) {
+						case "M17":
+						case "60":
+							return "S Schöneweide/Sterndamm [Tram Sterndamm Ost]"
+						case "21":
+						case "37":
+						case "61":
+							// case "67":
+							return "S Schöneweide/Sterndamm [Tram Wendeschleife]"
+						default:
+							return "S Schöneweide/Sterndamm [Tram Sterndamm Ost]"
+					}
+				case "bus":
+					switch (lineName) {
+						case "163":
+						case "265":
+							return "S Schöneweide/Sterndamm [Bus Groß-Berliner-Damm]"
+						case "160":
+							return "S Schöneweide/Sterndamm [Bus Sterndamm Ost]"
+						case "M11":
+						case "X11":
+						case "166":
+							return "S Schöneweide/Sterndamm [Bus Sterndamm West]"
+						default:
+							return "S Schöneweide/Sterndamm"
+					}
+			}
+	}
+}
+
 export function getTreptowerPark(
 	id: string,
 	mode: string,

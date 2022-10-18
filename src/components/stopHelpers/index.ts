@@ -127,6 +127,7 @@ import {
 	getGrünau,
 	getKöpenick,
 	getRahnsdorf,
+	getSchöneweide,
 	getTreptowerPark,
 	getWilhelmshagen,
 	getWuhlheide,
@@ -654,6 +655,12 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000054104":
 				newStopName = getSchöneberg()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000192001":
+			case "900000192701":
+			case "900000194006":
+				newStopName = getSchöneweide(id, product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000110001":
