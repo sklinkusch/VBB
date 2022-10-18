@@ -92,6 +92,19 @@ export function getAltglienicke(id: string) {
 	}
 }
 
+export function getBaumschulenweg(lineName: string) {
+	switch (lineName) {
+		case "170":
+		case "265":
+		case "N70":
+			return "S Baumschulenweg [Bus Baumschulenstr.]"
+		case "365":
+			return "S Baumschulenweg [Bus Glanzstr.]"
+		default:
+			return "S Baumschulenweg [Bus]"
+	}
+}
+
 export function getFriedrichshagen(lineName: string) {
 	if (lineName === "88") return "S Friedrichshagen/Dahlwitzer Landstr."
 	return "S Friedrichshagen [Bus Tram Bölschestr.]"

@@ -123,6 +123,7 @@ import {
 import {
 	getAdlershof,
 	getAltglienicke,
+	getBaumschulenweg,
 	getFriedrichshagen,
 	getGrünau,
 	getKöpenick,
@@ -217,6 +218,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000068301":
 				newStopName = getAttilastr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000191001":
+				newStopName = getBaumschulenweg(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000260009":
