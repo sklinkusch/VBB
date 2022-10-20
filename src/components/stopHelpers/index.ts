@@ -127,6 +127,7 @@ import {
 	getWannsee,
 	getZehlendorf,
 } from "./Steglitz-Zehlendorf"
+import { getBlankenfelde } from "./Teltow-Fläming"
 import {
 	getAttilastr,
 	getBuckowerChaussee,
@@ -275,6 +276,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000142001":
 				newStopName = getBlankenburg()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000245027":
+				newStopName = getBlankenfelde(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000041102":
