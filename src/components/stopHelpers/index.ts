@@ -34,7 +34,12 @@ import {
 	getWestkreuz,
 	getZooBusStops,
 } from "./Charlottenburg-Wilmersdorf"
-import { getBERT1, getBERT5, getWaßmannsdorf } from "./Dahme-Spreewald"
+import {
+	getBERT1,
+	getBERT5,
+	getKönigsWusterhausen,
+	getWaßmannsdorf,
+} from "./Dahme-Spreewald"
 import {
 	getAnhalterBahnhof,
 	getFrankfurterAllee,
@@ -485,6 +490,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getKöllnischeHeide()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000260001":
+				;[newStopName, trackNo] = getKönigsWusterhausen(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000041201":
 				newStopName = getKonstanzerStr()
 				newStop = { ...stop, name: newStopName }

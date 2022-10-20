@@ -96,6 +96,77 @@ export function getBERT5(
 	}
 }
 
+export function getKönigsWusterhausen(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "724":
+			case "727":
+				return ["S Königs Wusterhausen [Bus Westausgang]", 1]
+			case "729":
+			case "730":
+				return ["S Königs Wusterhausen [Bus Westausgang]", 2]
+			case "728":
+			case "790":
+			case "N36":
+				return ["S Königs Wusterhausen [Bus Westausgang]", 4]
+			case "733":
+				return ["S Königs Wusterhausen [Bus Ostausgang]", 6]
+			case "722":
+				return ["S Königs Wusterhausen [Bus Ostausgang]", 7]
+			case "721":
+			case "723":
+				return ["S Königs Wusterhausen [Bus Ostausgang]", 8]
+			case "735":
+			case "736":
+			case "737":
+			case "739":
+				if (provenance.includes("Bettina-von-Arnim-Str"))
+					return ["S Königs Wusterhausen [Bus Westausgang]", 2]
+				if (provenance.includes("Schenkendorfer Flur"))
+					return ["S Königs Wusterhausen [Bus Westausgang]", 2]
+				return ["S Königs Wusterhausen [Bus Westausgang]", 4]
+			default:
+				return ["S Königs Wusterhausen [Bus]", null]
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "724":
+			case "727":
+				return ["S Königs Wusterhausen [Bus Westausgang]", 1]
+			case "729":
+			case "730":
+				return ["S Königs Wusterhausen [Bus Westausgang]", 2]
+			case "728":
+			case "790":
+			case "N36":
+				return ["S Königs Wusterhausen [Bus Westausgang]", 4]
+			case "733":
+				return ["S Königs Wusterhausen [Bus Ostausgang]", 6]
+			case "722":
+				return ["S Königs Wusterhausen [Bus Ostausgang]", 7]
+			case "721":
+			case "723":
+				return ["S Königs Wusterhausen [Bus Ostausgang]", 8]
+			case "735":
+			case "736":
+			case "737":
+			case "739":
+				if (direction.includes("Bettina-von-Arnim-Str"))
+					return ["S Königs Wusterhausen [Bus Westausgang]", 4]
+				if (direction.includes("Schenkendorfer Flur"))
+					return ["S Königs Wusterhausen [Bus Westausgang]", 4]
+				return ["S Königs Wusterhausen [Bus Westausgang]", 2]
+			default:
+				return ["S Königs Wusterhausen [Bus]", null]
+		}
+	}
+}
+
 export function getWaßmannsdorf(lineName: string) {
 	switch (lineName) {
 		case "600":
