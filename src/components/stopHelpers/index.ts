@@ -1,3 +1,4 @@
+import { getZepernick } from "./Barnim"
 import {
 	getAdenauerplatz,
 	getBerlinerStr,
@@ -926,6 +927,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000350163":
+				newStopName = getZepernick()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000260003":
 				newStopName = getZeuthen()
 				newStop = { ...stop, name: newStopName }
