@@ -79,7 +79,7 @@ import {
 	getNeukölln,
 	getSonnenallee,
 } from "./Neukölln"
-import { getBorgsdorf, getOranienburg } from "./Oberhavel"
+import { getBirkenwerder, getBorgsdorf, getOranienburg } from "./Oberhavel"
 import {
 	getBlankenburg,
 	getBornholmerStr,
@@ -258,6 +258,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000020202":
 				newStopName = getBeusselstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000200008":
+				newStopName = getBirkenwerder()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000024201":
