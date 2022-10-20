@@ -96,6 +96,10 @@ export function getBERT5(
 	}
 }
 
+export function getEichwalde() {
+	return "S Eichwalde [Bus H.-Heine-Allee]"
+}
+
 export function getKönigsWusterhausen(
 	mode: string,
 	lineName: string,

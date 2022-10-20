@@ -37,6 +37,7 @@ import {
 import {
 	getBERT1,
 	getBERT5,
+	getEichwalde,
 	getKönigsWusterhausen,
 	getWaßmannsdorf,
 	getWildau,
@@ -309,6 +310,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000096405":
 				newStopName = getEichborndamm(mode, lineName, direction, provenance)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000260004":
+				newStopName = getEichwalde()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000023101":
