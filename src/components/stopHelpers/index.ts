@@ -39,6 +39,7 @@ import {
 	getBERT5,
 	getKönigsWusterhausen,
 	getWaßmannsdorf,
+	getWildau,
 } from "./Dahme-Spreewald"
 import {
 	getAnhalterBahnhof,
@@ -850,6 +851,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000024102":
 				newStopName = getWestkreuz()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000260002":
+				newStopName = getWildau()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000183002":

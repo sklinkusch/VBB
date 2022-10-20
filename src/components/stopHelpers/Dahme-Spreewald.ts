@@ -179,3 +179,7 @@ export function getWaßmannsdorf(lineName: string) {
 			return ["S Waßmannsdorf [Bus A.-Kiekebusch-Str.]", null]
 	}
 }
+
+export function getWildau() {
+	return "S Wildau [Bus K.-Marx-Str.]"
+}
