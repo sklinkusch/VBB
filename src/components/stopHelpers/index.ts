@@ -142,6 +142,7 @@ import {
 	getKöpenick,
 	getRahnsdorf,
 	getSchöneweide,
+	getSpindlersfeld,
 	getTreptowerPark,
 	getWilhelmshagen,
 	getWuhlheide,
@@ -737,6 +738,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000042101":
 				newStopName = getSpichernstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000180003":
+				newStopName = getSpindlersfeld(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000062282":

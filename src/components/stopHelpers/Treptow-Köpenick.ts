@@ -312,6 +312,15 @@ export function getSchöneweide(id: string, product: string, lineName: string) {
 	}
 }
 
+export function getSpindlersfeld(product: string) {
+	switch (product) {
+		case "tram":
+			return "S Spindlersfeld [Tram O.-Geschke-Str.]"
+		case "bus":
+			return "S Spindlersfeld [Bus Oberspreestr.]"
+	}
+}
+
 export function getTreptowerPark(
 	id: string,
 	mode: string,
