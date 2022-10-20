@@ -183,3 +183,7 @@ export function getWaßmannsdorf(lineName: string) {
 export function getWildau() {
 	return "S Wildau [Bus K.-Marx-Str.]"
 }
+
+export function getZeuthen() {
+	return "S Zeuthen [Bus Goethestr.]"
+}

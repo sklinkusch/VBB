@@ -40,6 +40,7 @@ import {
 	getKönigsWusterhausen,
 	getWaßmannsdorf,
 	getWildau,
+	getZeuthen,
 } from "./Dahme-Spreewald"
 import {
 	getAnhalterBahnhof,
@@ -888,6 +889,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000260003":
+				newStopName = getZeuthen()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000023201":
 			case "900000023172":
 			case "900000023173":
