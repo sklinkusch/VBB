@@ -74,7 +74,11 @@ import {
 	getWedding,
 	getWesthafen,
 } from "./Mitte"
-import { getStrausbergNord, getStrausbergStadt } from "./Märkisch-Oderland"
+import {
+	getStrausberg,
+	getStrausbergNord,
+	getStrausbergStadt,
+} from "./Märkisch-Oderland"
 import {
 	getHermannstr,
 	getKöllnischeHeide,
@@ -798,6 +802,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000110012":
 				newStopName = getStorkowerStr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000320004":
+				newStopName = getStrausberg()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000320001":
