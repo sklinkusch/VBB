@@ -100,6 +100,7 @@ import {
 	getStorkowerStr,
 	getWollankstr,
 } from "./Pankow"
+import { getTeltowStadt } from "./Potsdam-Mittelmark"
 import {
 	getEichborndamm,
 	getFrohnau,
@@ -818,6 +819,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000089303":
 				newStopName = getTegel(mode, lineName, direction, provenance)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000220114":
+			case "900000220413":
+				newStopName = getTeltowStadt(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000068201":
