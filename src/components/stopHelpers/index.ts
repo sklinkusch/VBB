@@ -57,6 +57,7 @@ import {
 	getKaulsdorf,
 	getMahlsdorf,
 	getMarzahn,
+	getWuhletal,
 } from "./Marzahn-Hellersdorf"
 import {
 	getAlex,
@@ -971,6 +972,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000130003":
 			case "900000130523":
 				newStopName = getWollankstr(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000175001":
+				newStopName = getWuhletal()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000180002":

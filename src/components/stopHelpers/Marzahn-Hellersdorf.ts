@@ -128,3 +128,7 @@ export function getMarzahn(product: string, lineName: string, direction: Dir) {
 		}
 	}
 }
+
+export function getWuhletal() {
+	return "S+U Wuhletal [Bus Altentreptower Str.]"
+}
