@@ -387,7 +387,13 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000171002":
-				;[newStopName, trackNo] = getFriedrichsfeldeOst(lineName, direction)
+				;[newStopName, trackNo] = getFriedrichsfeldeOst(
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000182002":

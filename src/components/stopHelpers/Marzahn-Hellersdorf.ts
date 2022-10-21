@@ -9,19 +9,42 @@ export function getBiesdorf(id: string) {
 	}
 }
 
-export function getFriedrichsfeldeOst(lineName: string, direction: Dir) {
-	if (direction !== null) {
+export function getFriedrichsfeldeOst(
+	mode: string,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
 		switch (lineName) {
 			case "M17":
 			case "27":
 			case "37":
-				if (direction.includes("Falkenberg"))
-					return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
-				if (direction.includes("Gehrenseestr"))
-					return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
-				if (direction.includes("Pasedagplatz"))
-					return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
-				if (direction.includes("Lichtenberg"))
+				if (
+					/(Falkenberg|Gehrenseestr|Pasedagplatz|Lichtenberg)/.test(provenance)
+				)
+					return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 1]
+				return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
+			case "192":
+				return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 3]
+			case "194":
+				if (provenance.includes("Helene-Weigel-Platz"))
+					return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 4]
+				return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 5]
+			default:
+				if (product === "tram")
+					return ["S Friedrichsfelde Ost [Tram Rhinstr.]", null]
+				return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", null]
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "M17":
+			case "27":
+			case "37":
+				if (
+					/(Falkenberg|Gehrenseestr|Pasedagplatz|Lichtenberg)/.test(direction)
+				)
 					return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 2]
 				return ["S Friedrichsfelde Ost [Tram Rhinstr.]", 1]
 			case "192":
@@ -31,7 +54,9 @@ export function getFriedrichsfeldeOst(lineName: string, direction: Dir) {
 					return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 5]
 				return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", 4]
 			default:
-				return ["S Friedrichsfelde Ost", null]
+				if (product === "tram")
+					return ["S Friedrichsfelde Ost [Tram Rhinstr.]", null]
+				return ["S Friedrichsfelde Ost [Bus Seddiner Str.]", null]
 		}
 	}
 }
