@@ -75,6 +75,7 @@ import {
 	getWesthafen,
 } from "./Mitte"
 import {
+	getBirkenstein,
 	getFredersdorf,
 	getHoppegarten,
 	getNeuenhagen,
@@ -280,6 +281,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000020202":
 				newStopName = getBeusselstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000320026":
+				newStopName = getBirkenstein()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000200008":

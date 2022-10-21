@@ -1,3 +1,7 @@
+export function getBirkenstein() {
+	return "S Birkenstein [Bus Hönower Weg]"
+}
+
 export function getFredersdorf(id: string) {
 	switch (id) {
 		case "900000320006":
