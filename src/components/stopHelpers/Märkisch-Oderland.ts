@@ -1,3 +1,7 @@
+export function getPetershagenNord() {
+	return "S Petershagen Nord [Bus Lessingstr.]"
+}
+
 export function getStrausberg() {
 	return "S Strausberg [Bus R.-Egelhofer-Str.]"
 }
