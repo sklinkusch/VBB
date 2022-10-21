@@ -75,6 +75,7 @@ import {
 	getWesthafen,
 } from "./Mitte"
 import {
+	getFredersdorf,
 	getPetershagenNord,
 	getStrausberg,
 	getStrausbergNord,
@@ -363,6 +364,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000120001":
 				newStopName = getFrankfurterAllee(product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000320006":
+			case "900000320009":
+				newStopName = getFredersdorf(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000171002":

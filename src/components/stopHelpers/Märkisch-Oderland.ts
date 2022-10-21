@@ -1,3 +1,12 @@
+export function getFredersdorf(id: string) {
+	switch (id) {
+		case "900000320006":
+			return "S Fredersdorf [Bus Brückenstr.]"
+		case "900000320009":
+			return "S Fredersdorf/Nordseite"
+	}
+}
+
 export function getPetershagenNord() {
 	return "S Petershagen Nord [Bus Lessingstr.]"
 }
