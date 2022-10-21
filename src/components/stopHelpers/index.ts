@@ -83,6 +83,7 @@ import {
 import {
 	getBirkenwerder,
 	getBorgsdorf,
+	getHennigsdorf,
 	getHohenNeuendorf,
 	getOranienburg,
 } from "./Oberhavel"
@@ -445,6 +446,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000091203":
 				newStopName = getHeiligensee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000200000":
+			case "900000203376":
+				newStopName = getHennigsdorf(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000079220":
