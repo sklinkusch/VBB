@@ -53,6 +53,7 @@ import {
 } from "./Friedrichshain-Kreuzberg"
 import { getKarlshorst, getLichtenberg, getRummelsburg } from "./Lichtenberg"
 import {
+	getBiesdorf,
 	getFriedrichsfeldeOst,
 	getKaulsdorf,
 	getMahlsdorf,
@@ -283,6 +284,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000020202":
 				newStopName = getBeusselstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000171001":
+			case "900000171531":
+				newStopName = getBiesdorf(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000320026":

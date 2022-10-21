@@ -1,5 +1,14 @@
 type Dir = string | null
 
+export function getBiesdorf(id: string) {
+	switch (id) {
+		case "900000171001":
+			return "S Biesdorf [Bus Wuhlgartenweg]"
+		case "900000171531":
+			return "Oberfeldstr."
+	}
+}
+
 export function getFriedrichsfeldeOst(lineName: string, direction: Dir) {
 	if (direction !== null) {
 		switch (lineName) {
