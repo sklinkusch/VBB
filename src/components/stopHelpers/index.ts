@@ -54,6 +54,7 @@ import {
 import { getKarlshorst, getLichtenberg, getRummelsburg } from "./Lichtenberg"
 import {
 	getFriedrichsfeldeOst,
+	getKaulsdorf,
 	getMahlsdorf,
 	getMarzahn,
 } from "./Marzahn-Hellersdorf"
@@ -550,6 +551,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000143001":
 				newStopName = getKarow()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000175002":
+				newStopName = getKaulsdorf()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000077155":
