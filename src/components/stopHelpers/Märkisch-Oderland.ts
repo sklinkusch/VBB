@@ -7,6 +7,10 @@ export function getFredersdorf(id: string) {
 	}
 }
 
+export function getHoppegarten() {
+	return "S Hoppegarten [Bus Am Güterbahnhof]"
+}
+
 export function getNeuenhagen() {
 	return "S Neuenhagen [Bus Eisenbahnstr.]"
 }
