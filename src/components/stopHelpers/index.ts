@@ -58,6 +58,7 @@ import {
 	getRummelsburg,
 } from "./Lichtenberg"
 import {
+	getAhrensfelde,
 	getBiesdorf,
 	getFriedrichsfeldeOst,
 	getKaulsdorf,
@@ -235,6 +236,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000170004":
+				newStopName = getAhrensfelde()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000100024":
 			case "900000100026":
 			case "900000100031":

@@ -1,5 +1,9 @@
 type Dir = string | null
 
+export function getAhrensfelde() {
+	return "S Ahrensfelde [Bus Märkische Allee]"
+}
+
 export function getBiesdorf(id: string) {
 	switch (id) {
 		case "900000171001":
