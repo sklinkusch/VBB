@@ -64,6 +64,7 @@ import {
 	getKaulsdorf,
 	getMahlsdorf,
 	getMarzahn,
+	getMehrowerAllee,
 	getWuhletal,
 } from "./Marzahn-Hellersdorf"
 import {
@@ -664,6 +665,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				;[newStopName, trackNo] = getMarzahn(product, lineName, direction)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000170003":
+				newStopName = getMehrowerAllee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000024106":
 			case "900000026202":
 			case "900000026204":
