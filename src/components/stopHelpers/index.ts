@@ -65,6 +65,7 @@ import {
 	getMahlsdorf,
 	getMarzahn,
 	getMehrowerAllee,
+	getPoelchaustr,
 	getRaoulWallenbergStr,
 	getWuhletal,
 } from "./Marzahn-Hellersdorf"
@@ -770,6 +771,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000320005":
 				newStopName = getPetershagenNord()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000170005":
+				newStopName = getPoelchaustr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000005208":

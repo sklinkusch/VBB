@@ -195,6 +195,10 @@ export function getMehrowerAllee() {
 	return "S Mehrower Allee [Bus Mehrower Allee]"
 }
 
+export function getPoelchaustr() {
+	return "S Poelchaustr. [Bus Poelchaustr.]"
+}
+
 export function getRaoulWallenbergStr(
 	mode: string,
 	lineName: string,
