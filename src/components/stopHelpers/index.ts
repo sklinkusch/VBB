@@ -124,6 +124,7 @@ import {
 	getStorkowerStr,
 	getWollankstr,
 } from "./Pankow"
+import { getGriebnitzsee } from "./Potsdam"
 import { getTeltowStadt } from "./Potsdam-Mittelmark"
 import {
 	getEichborndamm,
@@ -436,6 +437,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000110003":
 				newStopName = getGreifswalderStr(product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000230003":
+				newStopName = getGriebnitzsee()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000186001":
