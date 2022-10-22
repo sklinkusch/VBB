@@ -97,3 +97,7 @@ export function getRummelsburg(product: string, lineName: string) {
 		}
 	}
 }
+
+export function getWartenberg() {
+	return "S Wartenberg [Bus E.-E.-Kisch-Str.]"
+}

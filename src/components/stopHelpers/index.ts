@@ -56,6 +56,7 @@ import {
 	getLichtenberg,
 	getNöldnerplatz,
 	getRummelsburg,
+	getWartenberg,
 } from "./Lichtenberg"
 import {
 	getAhrensfelde,
@@ -1007,6 +1008,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000151001":
+				newStopName = getWartenberg()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000260080":
 				;[newStopName, trackNo] = getWaßmannsdorf(lineName)
 				newStop = { ...stop, name: newStopName }
