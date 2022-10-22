@@ -52,6 +52,7 @@ import {
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
 import {
+	getHohenschönhausen,
 	getKarlshorst,
 	getLichtenberg,
 	getNöldnerplatz,
@@ -523,6 +524,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000200009":
 				newStopName = getHohenNeuendorf()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000152001":
+				newStopName = getHohenschönhausen()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000044101":

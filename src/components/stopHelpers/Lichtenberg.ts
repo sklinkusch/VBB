@@ -1,5 +1,9 @@
 type Dir = string | null
 
+export function getHohenschönhausen() {
+	return "S Hohenschönhausen [Tram Bus Falkenberger Chaussee]"
+}
+
 export function getKarlshorst(id: string, product: string, lineName: string) {
 	switch (id) {
 		case "900000162001":
