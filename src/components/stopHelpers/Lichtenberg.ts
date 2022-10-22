@@ -72,6 +72,15 @@ export function getLichtenberg(
 	}
 }
 
+export function getNöldnerplatz(id: string) {
+	switch (id) {
+		case "900000160003":
+			return "S Nöldnerplatz [Bus Lückstr.]"
+		case "900000160534":
+			return "S Nöldnerplatz/Schlichtallee [Bus Nöldnerstr.]"
+	}
+}
+
 export function getRummelsburg(product: string, lineName: string) {
 	if (product === "tram") {
 		return "S Rummelsburg [Tram Hauptstr.]"

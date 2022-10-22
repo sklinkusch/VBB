@@ -51,7 +51,12 @@ import {
 	getOstkreuz,
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
-import { getKarlshorst, getLichtenberg, getRummelsburg } from "./Lichtenberg"
+import {
+	getKarlshorst,
+	getLichtenberg,
+	getNöldnerplatz,
+	getRummelsburg,
+} from "./Lichtenberg"
 import {
 	getBiesdorf,
 	getFriedrichsfeldeOst,
@@ -693,6 +698,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000052201":
 				newStopName = getNikolassee(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000160003":
+			case "900000150534":
+				newStopName = getNöldnerplatz(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000007104":
