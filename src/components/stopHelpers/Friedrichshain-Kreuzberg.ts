@@ -29,6 +29,16 @@ export function getFrankfurterAllee(product: string, lineName: string) {
 	}
 }
 
+export function getGörlitzerBf(lineName: string) {
+	switch (lineName) {
+		case "U1":
+		case "N1":
+			return "U Görlitzer Bahnhof [Bus Skalitzer Str.]"
+		default:
+			return "U Görlitzer Bahnhof [Bus Wiener Str.]"
+	}
+}
+
 export function getOstbahnhof() {
 	return "S Ostbahnhof [Bus Am Ostbahnhof]"
 }
