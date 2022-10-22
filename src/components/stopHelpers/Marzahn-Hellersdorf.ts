@@ -171,6 +171,37 @@ export function getMehrowerAllee() {
 	return "S Mehrower Allee [Bus Mehrower Allee]"
 }
 
+export function getRaoulWallenbergStr(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "X54":
+				return "S Raoul-Wallenberg-Str. [Bus Märkische Allee]"
+			case "154":
+				if (provenance.includes("Elsterwerdaer Platz"))
+					return "S Raoul-Wallenberg-Str. [Bus Märkische Allee]"
+				return "S Raoul-Wallenberg-Str. [Bus R.-Wallenberg-Str.]"
+			default:
+				return "S Raoul-Wallenberg-Str. [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "X54":
+				return "S Raoul-Wallenberg-Str. [Bus Märkische Allee]"
+			case "154":
+				if (direction.includes("Elsterwerdaer Platz"))
+					return "S Raoul-Wallenberg-Str. [Bus R.-Wallenberg-Str.]"
+				return "S Raoul-Wallenberg-Str. [Bus Märkische Allee]"
+			default:
+				return "S Raoul-Wallenberg-Str. [Bus]"
+		}
+	}
+}
+
 export function getWuhletal() {
 	return "S+U Wuhletal [Bus Altentreptower Str.]"
 }
