@@ -230,6 +230,15 @@ export function getRaoulWallenbergStr(
 	}
 }
 
+export function getSpringpfuhl(product: string) {
+	switch (product) {
+		case "tram":
+			return "S Springpfuhl [Tram Allee der Kosmonauten]"
+		case "bus":
+			return "S Springpfuhl [Bus Allee der Kosmonauten]"
+	}
+}
+
 export function getWuhletal() {
 	return "S+U Wuhletal [Bus Altentreptower Str.]"
 }
