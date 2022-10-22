@@ -130,22 +130,24 @@ export function getMahlsdorf(
 	}
 }
 
-export function getMarzahn(product: string, lineName: string, direction: Dir) {
-	if (direction !== null) {
+export function getMarzahn(
+	mode: string,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
 		switch (lineName) {
 			case "M6":
 			case "16":
-				if (direction.includes("Riesaer Str"))
-					return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
-				if (direction.includes("Betriebshof Marzahn"))
-					return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
-				if (direction.includes("Ahrensfelde"))
-					return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
-				return ["S Marzahn [Tram Bus Marzahner Promenade]", 6]
+				if (/(Riesaer Str|Betriebshof Marzahn|Ahrensfelde)/.test(provenance))
+					return ["S Marzahn [Tram Marzahner Promenade]", 6]
+				return ["S Marzahn [Tram Marzahner Promenade]", 7]
 			case "X54":
-				if (direction.includes("Hellersdorf"))
-					return ["S Marzahn [Tram Bus Marzahner Promenade]", 5]
-				return ["S Marzahn [Tram Bus Marzahner Promenade]", 4]
+				if (provenance.includes("Nossener Str"))
+					return ["S Marzahn [Bus Marzahner Promenade]", 4]
+				return ["S Marzahn [Bus Marzahner Promenade]", 5]
 			case "191":
 			case "192":
 			case "195":
@@ -154,15 +156,37 @@ export function getMarzahn(product: string, lineName: string, direction: Dir) {
 				return ["S Marzahn [Bushafen]", 3]
 			default:
 				if (product === "tram") {
-					if (direction.includes("Riesaer Str"))
-						return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
-					if (direction.includes("Betriebshof Marzahn"))
-						return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
-					if (direction.includes("Ahrensfelde"))
-						return ["S Marzahn [Tram Bus Marzahner Promenade]", 7]
-					return ["S Marzahn [Tram Bus Marzahner Promenade]", 6]
+					if (/(Riesaer Str|Betriebshof Marzahn|Ahrensfelde)/.test(provenance))
+						return ["S Marzahn [Tram Marzahner Promenade]", 6]
+					return ["S Marzahn [Tram Marzahner Promenade]", 7]
 				}
-				return ["S Marzahn", null]
+				return ["S Marzahn [Bus]", null]
+		}
+	}
+	if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "M6":
+			case "16":
+				if (/(Riesaer Str|Betriebshof Marzahn|Ahrensfelde)/.test(direction))
+					return ["S Marzahn [Tram Marzahner Promenade]", 7]
+				return ["S Marzahn [Tram Marzahner Promenade]", 6]
+			case "X54":
+				if (direction.includes("Hellersdorf"))
+					return ["S Marzahn [Bus Marzahner Promenade]", 5]
+				return ["S Marzahn [Bus Marzahner Promenade]", 4]
+			case "191":
+			case "192":
+			case "195":
+				return ["S Marzahn [Bushafen]", 2]
+			case "291":
+				return ["S Marzahn [Bushafen]", 3]
+			default:
+				if (product === "tram") {
+					if (/(Riesaer Str|Betriebshof Marzahn|Ahrensfelde)/.test(direction))
+						return ["S Marzahn [Tram Marzahner Promenade]", 7]
+					return ["S Marzahn [Tram Marzahner Promenade]", 6]
+				}
+				return ["S Marzahn [Bus]", null]
 		}
 	}
 }

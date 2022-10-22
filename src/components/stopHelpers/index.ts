@@ -663,7 +663,13 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000170001":
 			case "900000170701":
 			case "900000170702":
-				;[newStopName, trackNo] = getMarzahn(product, lineName, direction)
+				;[newStopName, trackNo] = getMarzahn(
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000170003":
