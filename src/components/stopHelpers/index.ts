@@ -107,6 +107,7 @@ import {
 	getSonnenallee,
 } from "./Neukölln"
 import {
+	getBergfelde,
 	getBirkenwerder,
 	getBorgsdorf,
 	getHennigsdorf,
@@ -293,6 +294,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000200011":
+				newStopName = getBergfelde()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000044201":
 				newStopName = getBerlinerStr(lineName)
 				newStop = { ...stop, name: newStopName }

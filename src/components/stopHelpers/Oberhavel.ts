@@ -1,3 +1,7 @@
+export function getBergfelde() {
+	return "S Bergfelde [Bus Paulstr.]"
+}
+
 export function getBirkenwerder() {
 	return "S Birkenwerder [Bus C.-Zetkin-Str.]"
 }
