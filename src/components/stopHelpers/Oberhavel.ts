@@ -19,6 +19,10 @@ export function getHohenNeuendorf() {
 	return "S Hohen Neuendorf [Bus Schönfließer Str.]"
 }
 
+export function getMühlenbeckMönchmühle() {
+	return "S Mühlenbeck-Mönchmühle [Bus Kastanienallee]"
+}
+
 export function getOranienburg() {
 	return "S Oranienburg [Bus Stralsunder Str.]"
 }

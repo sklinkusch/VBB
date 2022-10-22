@@ -111,6 +111,7 @@ import {
 	getBorgsdorf,
 	getHennigsdorf,
 	getHohenNeuendorf,
+	getMühlenbeckMönchmühle,
 	getOranienburg,
 } from "./Oberhavel"
 import {
@@ -710,6 +711,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000019204":
 				newStopName = getMierendorffplatz(mode, lineName, direction, provenance)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000200013":
+				newStopName = getMühlenbeckMönchmühle()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000320007":
