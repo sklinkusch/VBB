@@ -52,6 +52,7 @@ import {
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
 import {
+	getGehrenseestr,
 	getHohenschönhausen,
 	getKarlshorst,
 	getLichtenberg,
@@ -433,6 +434,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000152002":
+				newStopName = getGehrenseestr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000007102":
 				newStopName = getGesundbrunnen(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }

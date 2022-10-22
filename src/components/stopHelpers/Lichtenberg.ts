@@ -1,5 +1,9 @@
 type Dir = string | null
 
+export function getGehrenseestr() {
+	return "S Gehrenseestr. [Bus Gehrenseestr.]"
+}
+
 export function getHohenschönhausen() {
 	return "S Hohenschönhausen [Tram Bus Falkenberger Chaussee]"
 }
