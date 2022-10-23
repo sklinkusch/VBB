@@ -6,6 +6,7 @@ import {
 	getBlissestr,
 	getBundesplatz,
 	getCharlottenburg,
+	getDeutscheOper,
 	getErnstReuterPlatz,
 	getFehrbellinerPlatz,
 	getGrunewald,
@@ -389,6 +390,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000022201":
+				newStopName = getDeutscheOper()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000096405":
 				newStopName = getEichborndamm(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }

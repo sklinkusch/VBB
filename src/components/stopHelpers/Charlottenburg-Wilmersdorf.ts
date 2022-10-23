@@ -170,6 +170,10 @@ export function getCharlottenburg(
 	}
 }
 
+export function getDeutscheOper() {
+	return "U Deutsche Oper [Bus Bismarckstr.]"
+}
+
 export function getErnstReuterPlatz() {
 	return "U Ernst-Reuter-Platz [Bus Hardenbergstr.]"
 }
