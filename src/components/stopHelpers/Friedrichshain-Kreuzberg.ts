@@ -88,6 +88,22 @@ export function getHalleschesTor(
 	}
 }
 
+export function getMöckernbrücke(
+	mode: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		if (provenance.includes("Helsingforser Platz"))
+			return "U Möckernbrücke [Bus Hallesches Ufer]"
+		return "U Möckernbrücke [Bus Tempelhofer Ufer]"
+	} else if (mode === "dep" && direction !== null) {
+		if (direction.includes("Warschauer Str"))
+			return "U Möckernbrücke [Bus Tempelhofer Ufer]"
+		return "U Möckernbrücke [Bus Hallesches Ufer]"
+	}
+}
+
 export function getOstbahnhof() {
 	return "S Ostbahnhof [Bus Am Ostbahnhof]"
 }
