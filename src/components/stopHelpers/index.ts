@@ -170,6 +170,7 @@ import {
 	getBuckowerChaussee,
 	getInnsbruckerPlatz,
 	getJuliusLeberBrücke,
+	getKurfürstenstr,
 	getMarienfelde,
 	getPriesterweg,
 	getSchöneberg,
@@ -649,6 +650,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000023203":
 				newStopName = getKurfürstendamm(mode, lineName, direction, provenance)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000005201":
+				newStopName = getKurfürstenstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000110004":
