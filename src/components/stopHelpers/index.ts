@@ -50,6 +50,7 @@ import {
 	getGörlitzerBf,
 	getOstbahnhof,
 	getOstkreuz,
+	getPrinzenstr,
 	getSchlesischesTor,
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
@@ -828,6 +829,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000058102":
 				newStopName = getPriesterweg()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000013103":
+				newStopName = getPrinzenstr(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000183001":

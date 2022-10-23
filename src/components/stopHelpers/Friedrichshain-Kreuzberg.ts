@@ -55,6 +55,16 @@ export function getOstkreuz(lineName: string) {
 	}
 }
 
+export function getPrinzenstr(lineName: string) {
+	switch (lineName) {
+		case "U1":
+		case "N1":
+			return "U Prinzenstr. [Bus Gitschiner Str.]"
+		default:
+			return "U Prinzenstr. [Bus Prinzenstr.]"
+	}
+}
+
 export function getSchlesischesTor(
 	mode: string,
 	lineName: string,
