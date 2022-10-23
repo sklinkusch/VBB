@@ -177,6 +177,7 @@ import {
 	getSchöneberg,
 	getSüdkreuz,
 	getTempelhof,
+	getWittenbergplatz,
 	getYorckstr,
 } from "./Tempelhof-Schöneberg"
 import {
@@ -1099,6 +1100,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000084101":
 				newStopName = getWilhelmsruh()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000056101":
+				newStopName = getWittenbergplatz(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000130003":

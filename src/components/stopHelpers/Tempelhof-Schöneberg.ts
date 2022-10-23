@@ -247,6 +247,83 @@ export function getTempelhof(
 	}
 }
 
+export function getWittenbergplatz(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "M19":
+				if (provenance.includes("Mehringdamm"))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Nord]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+			case "M29":
+				if (provenance.includes("Hermannplatz"))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Nord]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+			case "M46":
+				if (/(Hertzallee|Zoo)/.test(provenance))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Nord]"
+			case "U1":
+			case "N1":
+				if (provenance.includes("Helsingforser Platz"))
+					return "U Wittenbergplatz [Bus Wittenbergplatz Nord]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+			case "U2":
+			case "N2":
+				if (/(Hadlichstr|Alexanderpl)/.test(provenance))
+					return "U Wittenbergplatz [Bus Wittenbergplatz Nord]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+			case "U3":
+			case "N3":
+				return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+			case "N26":
+				if (provenance.includes("Hertzallee"))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+				return "U Wittenbergplatz [Bus Wittenbergplatz Nord]"
+			default:
+				return "U Wittenbergplatz [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "M19":
+				if (direction.includes("Mehringdamm"))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Nord]"
+			case "M29":
+				if (direction.includes("Hermannplatz"))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Nord]"
+			case "M46":
+				if (direction.includes("Zoo"))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Nord]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+			case "U1":
+			case "N1":
+				if (direction.includes("Warschauer Str"))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+				return "U Wittenbergplatz [Bus Wittenbergplatz Nord]"
+			case "U2":
+			case "N2":
+				if (/(Pankow|Alexanderpl)/.test(direction))
+					return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+				return "U Wittenbergplatz [Bus Wittenbergplatz Nord]"
+			case "U3":
+			case "N3":
+				return "U Wittenbergplatz [Bus Wittenbergplatz Nord]"
+			case "N26":
+				if (direction.includes("Zoo"))
+					return "U Wittenbergplatz [Bus Wittenbergplatz Nord]"
+				return "U Wittenbergplatz [Bus Tauentzienstr. Süd]"
+			default:
+				return "U Wittenbergplatz [Bus]"
+		}
+	}
+}
+
 export function getYorckstr(id: string) {
 	switch (id) {
 		case "900000057102":
