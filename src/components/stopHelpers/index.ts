@@ -48,6 +48,7 @@ import {
 	getAnhalterBahnhof,
 	getFrankfurterAllee,
 	getGörlitzerBf,
+	getHalleschesTor,
 	getOstbahnhof,
 	getOstkreuz,
 	getPrinzenstr,
@@ -497,6 +498,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000040101":
 				newStopName = getHalensee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000012103":
+				newStopName = getHalleschesTor(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000003201":

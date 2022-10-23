@@ -39,6 +39,55 @@ export function getGörlitzerBf(lineName: string) {
 	}
 }
 
+export function getHalleschesTor(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "M41":
+				if (/(Hauptbahnhof|Philharmonie)/.test(provenance))
+					return "U Hallesches Tor [Bus Waterloo-Ufer]"
+				return "U Hallesches Tor [Bus Hallesches Ufer]"
+			case "248":
+				return "U Hallesches Tor [Hallesche-Tor-Brücke]"
+			case "U1":
+			case "N1":
+				if (provenance.includes("Helsingforser Platz"))
+					return "U Hallesches Tor [Bus Hallesches Ufer]"
+				return "U Hallesches Tor [Bus Waterloo-Ufer]"
+			case "N42":
+				if (provenance.includes("Alexanderpl"))
+					return "U Hallesches Tor [Bus Hallesches Ufer]"
+				return "U Hallesches Tor [Bus Waterloo-Ufer]"
+			default:
+				return "U Hallesches Tor [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "M41":
+				if (/(Hauptbahnhof|Philharmonie)/.test(direction))
+					return "U Hallesches Tor [Bus Hallesches Ufer]"
+				return "U Hallesches Tor [Bus Waterloo-Ufer]"
+			case "248":
+				return "U Hallesches Tor [Hallesche-Tor-Brücke]"
+			case "U1":
+			case "N1":
+				if (direction.includes("Warschauer Str"))
+					return "U Hallesches Tor [Bus Waterloo-Ufer]"
+				return "U Hallesches Tor [Bus Hallesches Ufer]"
+			case "N42":
+				if (direction.includes("Alexanderpl"))
+					return "U Hallesches Tor [Bus Waterloo-Ufer]"
+				return "U Hallesches Tor [Bus Hallesches Ufer]"
+			default:
+				return "U Hallesches Tor [Bus]"
+		}
+	}
+}
+
 export function getOstbahnhof() {
 	return "S Ostbahnhof [Bus Am Ostbahnhof]"
 }
