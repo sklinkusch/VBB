@@ -152,6 +152,7 @@ import {
 import { getSpandau, getStresow } from "./Spandau"
 import {
 	getBotanischerGarten,
+	getBreitenbachplatz,
 	getFeuerbachstr,
 	getLankwitz,
 	getLichterfeldeOst,
@@ -363,6 +364,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000100025":
 				newStopName = getBrandenburgerTor()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000051202":
+				newStopName = getBreitenbachplatz(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000135001":
