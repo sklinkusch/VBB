@@ -18,6 +18,19 @@ export function getBreitenbachplatz(lineName: string) {
 	}
 }
 
+export function getDahlemDorf(mode: string, lineName: string) {
+	if (mode === "arr") {
+		switch (lineName) {
+			case "M11":
+				return "U Dahlem-Dorf [Bus Brümmerstr.]"
+			default:
+				return "U Dahlem-Dorf [Bus Königin-Luise-Str.]"
+		}
+	} else if (mode === "dep") {
+		return "U Dahlem-Dorf [Bus Königin-Luise-Str.]"
+	}
+}
+
 export function getFeuerbachstr() {
 	return "S Feuerbachstr. [Bus Feuerbachstr.]"
 }
