@@ -172,6 +172,7 @@ import {
 	getJuliusLeberBrücke,
 	getKurfürstenstr,
 	getMarienfelde,
+	getNollendorfplatz,
 	getPriesterweg,
 	getSchöneberg,
 	getSüdkreuz,
@@ -770,6 +771,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000160003":
 			case "900000150534":
 				newStopName = getNöldnerplatz(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000056102":
+				newStopName = getNollendorfplatz(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000007104":
