@@ -133,6 +133,7 @@ import {
 	getPrenzlauerAllee,
 	getSchönhauserAllee,
 	getStorkowerStr,
+	getVinetastr,
 	getWollankstr,
 } from "./Pankow"
 import { getGriebnitzsee, getPotsdamHbf } from "./Potsdam"
@@ -1070,6 +1071,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000023301":
 				newStopName = getUhlandstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000130011":
+				newStopName = getVinetastr(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000094101":
