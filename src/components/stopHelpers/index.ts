@@ -155,6 +155,7 @@ import {
 	getBreitenbachplatz,
 	getDahlemDorf,
 	getFeuerbachstr,
+	getFreieUniversität,
 	getLankwitz,
 	getLichterfeldeOst,
 	getLichterfeldeWest,
@@ -431,6 +432,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000320006":
 			case "900000320009":
 				newStopName = getFredersdorf(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000051201":
+				newStopName = getFreieUniversität(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000171002":

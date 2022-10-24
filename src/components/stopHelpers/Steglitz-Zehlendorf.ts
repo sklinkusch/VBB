@@ -35,6 +35,43 @@ export function getFeuerbachstr() {
 	return "S Feuerbachstr. [Bus Feuerbachstr.]"
 }
 
+export function getFreieUniversität(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "110":
+				if (provenance.includes("Hertzallee"))
+					return "U Freie Universität (Thielplatz) [Bus Löhleinstr.]"
+				return "U Freie Universität (Thielplatz) [Bus Brümmerstr.]"
+			case "U3":
+			case "N3":
+				if (provenance.includes("Mexikoplatz"))
+					return "U Freie Universität (Thielplatz) [Bus Brümmerstr.]"
+				return "U Freie Universität (Thielplatz) [Bus Löhleinstr.]"
+			default:
+				return "U Freie Universität (Thielplatz) [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "110":
+				if (direction.includes("Zoo"))
+					return "U Freie Universität (Thielplatz) [Bus Brümmerstr.]"
+				return "U Freie Universität (Thielplatz) [Bus Löhleinstr.]"
+			case "U3":
+			case "N3":
+				if (direction.includes("Wittenbergplatz"))
+					return "U Freie Universität (Thielplatz) [Bus Brümmerstr.]"
+				return "U Freie Universität (Thielplatz) [Bus Löhleinstr.]"
+			default:
+				return "U Freie Universität (Thielplatz) [Bus]"
+		}
+	}
+}
+
 export function getLankwitz() {
 	return "S Lankwitz [Bus Leonorenstr.]"
 }
