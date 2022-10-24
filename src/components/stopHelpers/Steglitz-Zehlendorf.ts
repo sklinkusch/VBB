@@ -101,6 +101,10 @@ export function getNikolassee(lineName: string) {
 	}
 }
 
+export function getOnkelTomsHütte() {
+	return "U Onkel Toms Hütte [Bus Riemeisterstr.]"
+}
+
 export function getOsdorferStr(
 	mode: string,
 	lineName: string,

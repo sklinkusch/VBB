@@ -161,6 +161,7 @@ import {
 	getLichterfeldeWest,
 	getMexikoplatz,
 	getNikolassee,
+	getOnkelTomsHütte,
 	getOsdorferStr,
 	getSteglitz,
 	getSundgauerStr,
@@ -809,6 +810,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000050282":
+				newStopName = getOnkelTomsHütte()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000200005":
 				newStopName = getOranienburg()
 				newStop = { ...stop, name: newStopName }
