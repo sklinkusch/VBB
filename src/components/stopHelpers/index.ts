@@ -156,6 +156,7 @@ import {
 	getDahlemDorf,
 	getFeuerbachstr,
 	getFreieUniversität,
+	getKrummeLanke,
 	getLankwitz,
 	getLichterfeldeOst,
 	getLichterfeldeWest,
@@ -671,6 +672,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000050201":
+				newStopName = getKrummeLanke(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000023203":
 				newStopName = getKurfürstendamm(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }

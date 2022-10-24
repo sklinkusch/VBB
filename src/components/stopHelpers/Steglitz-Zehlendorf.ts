@@ -72,6 +72,15 @@ export function getFreieUniversität(
 	}
 }
 
+export function getKrummeLanke(lineName: string) {
+	switch (lineName) {
+		case "X11":
+			return "U Krumme Lanke [Bus Fischerhüttenstr.]"
+		default:
+			return "U Krumme Lanke [Bus Argentinische Allee]"
+	}
+}
+
 export function getLankwitz() {
 	return "S Lankwitz [Bus Leonorenstr.]"
 }
