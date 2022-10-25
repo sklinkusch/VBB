@@ -92,6 +92,7 @@ import {
 	getNordbahnhof,
 	getOranienburgerStr,
 	getPotsdamerPlatz,
+	getRosaLuxemburgPlatz,
 	getTiergarten,
 	getWedding,
 	getWesthafen,
@@ -909,6 +910,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000022202":
 				newStopName = getRichardWagnerPlatz(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000100016":
+				newStopName = getRosaLuxemburgPlatz(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000045101":

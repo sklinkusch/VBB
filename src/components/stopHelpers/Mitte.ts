@@ -571,6 +571,23 @@ export function getPotsdamerPlatz(
 	}
 }
 
+export function getRosaLuxemburgPlatz(product: string, lineName: string) {
+	switch (product) {
+		case "tram":
+			return "U Rosa-Luxemburg-Platz [Tram Torstr.]"
+		case "bus":
+			switch (lineName) {
+				case "142":
+					return "U Rosa-Luxemburg-Platz [Bus Torstr.]"
+				case "U2":
+				case "N2":
+					return "U Rosa-Luxemburg-Platz [Bus R.-Luxemburg-Str.]"
+				default:
+					return "U Rosa-Luxemburg-Platz [Bus]"
+			}
+	}
+}
+
 export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
