@@ -33,6 +33,29 @@ export function getBuch(
 	}
 }
 
+export function getEberswalderStr(product: string, lineName: string) {
+	switch (product) {
+		case "tram":
+			switch (lineName) {
+				case "M1":
+				case "12":
+					return "U Eberswalder Str. [Tram Kastanienallee]"
+				case "M10":
+					return "U Eberswalder Str. [Tram Eberswalder Str.]"
+				default:
+					return "U Eberswalder Str. [Tram]"
+			}
+		case "bus":
+			switch (lineName) {
+				case "U2":
+				case "N2":
+					return "U Eberswalder Str. [Bus Schönhauser Allee]"
+				default:
+					return "U Eberswalder Str. [Bus]"
+			}
+	}
+}
+
 export function getGreifswalderStr(product: string, lineName: string) {
 	switch (product) {
 		case "tram":

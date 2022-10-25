@@ -125,6 +125,7 @@ import {
 	getBlankenburg,
 	getBornholmerStr,
 	getBuch,
+	getEberswalderStr,
 	getGreifswalderStr,
 	getKarow,
 	getLandsbergerAllee,
@@ -406,6 +407,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000022201":
 				newStopName = getDeutscheOper()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000110006":
+				newStopName = getEberswalderStr(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000096405":
