@@ -1,11 +1,11 @@
-type Direction = string | null
+type Dir = string | null
 
 export function getAlex(
 	id: string,
 	mode: string,
 	lineName: string,
-	direction: Direction,
-	provenance: Direction
+	direction: Dir,
+	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
 		switch (id) {
@@ -139,8 +139,8 @@ export function getFriedrichstr() {
 export function getGesundbrunnen(
 	mode: string,
 	lineName: string,
-	direction: Direction,
-	provenance: Direction
+	direction: Dir,
+	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
 		if (lineName === "N8" && provenance.includes("Wilhelmsruher"))
@@ -160,8 +160,8 @@ export function getGesundbrunnen(
 export function getHackescherMarkt(
 	mode: string,
 	lineName: string,
-	direction: Direction,
-	provenance: Direction
+	direction: Dir,
+	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
 		switch (lineName) {
@@ -209,8 +209,8 @@ export function getHackescherMarkt(
 export function getHbf(
 	mode: string,
 	lineName: string,
-	direction: Direction,
-	provenance: Direction
+	direction: Dir,
+	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
 		switch (lineName) {
@@ -308,8 +308,8 @@ export function getHumboldthain() {
 export function getJannowitzbrücke(
 	mode: string,
 	lineName: string,
-	direction: Direction,
-	provenance: Direction
+	direction: Dir,
+	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
 		switch (lineName) {
@@ -350,12 +350,21 @@ export function getJannowitzbrücke(
 	}
 }
 
+export function getMärkischesMuseum(id: string) {
+	switch (id) {
+		case "900000100014":
+			return "U Märkisches Museum [Bus Neue Roßstr.]"
+		case "900000100516":
+			return "U Märkisches Museum/Inselstr. [Bus Wallstr.]"
+	}
+}
+
 export function getNordbahnhof(
 	id: string,
 	mode: string,
 	lineName: string,
-	direction: Direction,
-	provenance: Direction
+	direction: Dir,
+	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
 		switch (id) {
@@ -430,8 +439,8 @@ export function getPotsdamerPlatz(
 	id: string,
 	mode: string,
 	lineName: string,
-	direction: Direction,
-	provenance: Direction
+	direction: Dir,
+	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
 		switch (id) {
