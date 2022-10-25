@@ -133,6 +133,7 @@ import {
 	getPankowHeinersdorf,
 	getPrenzlauerAllee,
 	getSchönhauserAllee,
+	getSenefelderplatz,
 	getStorkowerStr,
 	getVinetastr,
 	getWollankstr,
@@ -946,6 +947,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000091205":
 				newStopName = getSchulzendorf()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000110005":
+				newStopName = getSenefelderplatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000077106":

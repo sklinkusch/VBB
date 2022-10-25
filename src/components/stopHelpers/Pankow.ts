@@ -254,6 +254,10 @@ export function getSchönhauserAllee(product: string) {
 	}
 }
 
+export function getSenefelderplatz() {
+	return "U Senefelderplatz [Bus Schönhauser Allee]"
+}
+
 export function getStorkowerStr() {
 	return "S Storkower Str. [Bus Storkower Str.]"
 }
