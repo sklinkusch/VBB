@@ -94,6 +94,7 @@ import {
 	getOranienburgerStr,
 	getPotsdamerPlatz,
 	getRosaLuxemburgPlatz,
+	getSpittelmarkt,
 	getTiergarten,
 	getWedding,
 	getWesthafen,
@@ -995,6 +996,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000180003":
 				newStopName = getSpindlersfeld(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000100013":
+				newStopName = getSpittelmarkt(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000171003":

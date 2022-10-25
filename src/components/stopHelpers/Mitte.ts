@@ -597,6 +597,61 @@ export function getRosaLuxemburgPlatz(product: string, lineName: string) {
 	}
 }
 
+export function getSpittelmarkt(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "200":
+				if (provenance.includes("Michelangelostr"))
+					return "U Spittelmarkt [Bus Leipziger Str.]"
+				return "U Spittelmarkt [Bus Spittelmarkt]"
+			case "248":
+			case "N42":
+				if (/(Alexanderpl)/.test(provenance))
+					return "U Spittelmarkt [Bus A.-Springer-Str.]"
+				return "U Spittelmarkt [Bus Spittelmarkt]"
+			case "265":
+				if (provenance.includes("Stadtmitte"))
+					return "U Spittelmarkt [Bus Spittelmarkt]"
+				return "U Spittelmarkt [Bus Leipziger Str.]"
+			case "U2":
+			case "N2":
+				if (/(Hadlichstr|Alexanderpl)/.test(provenance))
+					return "U Spittelmarkt [Bus Leipziger Str.]"
+				return "U Spittelmarkt [Bus Spittelmarkt]"
+			default:
+				return "U Spittelmarkt [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "200":
+				if (direction.includes("Zoo"))
+					return "U Spittelmarkt [Bus Leipziger Str.]"
+				return "U Spittelmarkt [Bus Spittelmarkt]"
+			case "248":
+			case "N42":
+				if (/(Südkreuz|Breitenbachplatz)/.test(direction))
+					return "U Spittelmarkt [Bus A.-Springer-Str.]"
+				return "U Spittelmarkt [Bus Spittelmarkt]"
+			case "265":
+				if (direction.includes("Stadtmitte"))
+					return "U Spittelmarkt [Bus Leipziger Str.]"
+				return "U Spittelmarkt [Bus Spittelmarkt]"
+			case "U2":
+			case "N2":
+				if (/(Zoo|Ruhleben)/.test(direction))
+					return "U Spittelmarkt [Bus Leipziger Str.]"
+				return "U Spittelmarkt [Bus Spittelmarkt]"
+			default:
+				return "U Spittelmarkt [Bus]"
+		}
+	}
+}
+
 export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
