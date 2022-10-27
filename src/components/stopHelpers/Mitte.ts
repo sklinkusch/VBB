@@ -359,6 +359,10 @@ export function getMärkischesMuseum(id: string) {
 	}
 }
 
+export function getMohrenstr() {
+	return "U Mohrenstr. [Bus Wilhelmstr.]"
+}
+
 export function getNordbahnhof(
 	id: string,
 	mode: string,
