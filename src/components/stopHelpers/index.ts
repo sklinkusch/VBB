@@ -95,6 +95,7 @@ import {
 	getPotsdamerPlatz,
 	getRosaLuxemburgPlatz,
 	getSpittelmarkt,
+	getStadtmitte,
 	getTiergarten,
 	getWedding,
 	getWesthafen,
@@ -1006,6 +1007,12 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getSpringpfuhl(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000100011":
+			case "900000100018":
+			case "900000100528":
+				;[newStopName, trackNo] = getStadtmitte(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000062282":
 			case "900000062782":
 			case "900000062784":

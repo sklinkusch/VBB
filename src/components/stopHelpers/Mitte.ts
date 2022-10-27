@@ -652,6 +652,19 @@ export function getSpittelmarkt(
 	}
 }
 
+export function getStadtmitte(id: string) {
+	switch (id) {
+		case "900000100011":
+			return ["U Stadtmitte [Bus]", null]
+		case "900000100528":
+			return ["U Stadtmitte [Bus Leipziger Str.]", "3-4"]
+		case "900000100018":
+			return ["U Stadtmitte [Bus Krausenstr.]", "5"]
+		default:
+			return ["U Stadtmitte [Bus]", null]
+	}
+}
+
 export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
