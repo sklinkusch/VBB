@@ -359,6 +359,43 @@ export function getMärkischesMuseum(id: string) {
 	}
 }
 
+export function getMendelssohnBartholdyPark(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "M29":
+				if (provenance.includes("Hermannplatz"))
+					return "U Mendelssohn-Bartholdy-Park [Bus Reichpietschufer]"
+				return "U Mendelssohn-Bartholdy-Park [Bus Schöneberger Ufer]"
+			case "U1":
+			case "N1":
+				if (/(Warschauer Str|Helsingforser Pl)/.test(provenance))
+					return "U Mendelssohn-Bartholdy-Park [Bus Reichpietschufer]"
+				return "U Mendelssohn-Bartholdy-Park [Bus Schöneberger Ufer]"
+			default:
+				return "U Mendelssohn-Bartholdy-Park [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "M29":
+				if (direction.includes("Hermannplatz"))
+					return "U Mendelssohn-Bartholdy-Park [Bus Schöneberger Ufer]"
+				return "U Mendelssohn-Bartholdy-Park [Bus Reichpietschufer]"
+			case "U1":
+			case "N1":
+				if (direction.includes("Warschauer Str"))
+					return "U Mendelssohn-Bartholdy-Park [Bus Schöneberger Ufer]"
+				return "U Mendelssohn-Bartholdy-Park [Bus Reichpietschufer]"
+			default:
+				return "U Mendelssohn-Bartholdy-Park [Bus]"
+		}
+	}
+}
+
 export function getMohrenstr() {
 	return "U Mohrenstr. [Bus Wilhelmstr.]"
 }

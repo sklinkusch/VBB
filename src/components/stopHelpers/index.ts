@@ -89,6 +89,7 @@ import {
 	getHbf,
 	getHumboldthain,
 	getJannowitzbrücke,
+	getMendelssohnBartholdyPark,
 	getMohrenstr,
 	getMärkischesMuseum,
 	getNordbahnhof,
@@ -761,6 +762,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000170003":
 				newStopName = getMehrowerAllee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000005252":
+				newStopName = getMendelssohnBartholdyPark(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000024106":
