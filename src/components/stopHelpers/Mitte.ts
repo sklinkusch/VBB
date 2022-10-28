@@ -642,6 +642,17 @@ export function getRosaLuxemburgPlatz(product: string, lineName: string) {
 	}
 }
 
+export function getRotesRathaus(id: string) {
+	switch (id) {
+		case "900000100045":
+			return "U Rotes Rathaus [Bus Spandauer Str.]"
+		case "900000100539":
+			return "Nikolaiviertel [Bus Mühlendamm]"
+		default:
+			return "U Rotes Rathaus [Bus]"
+	}
+}
+
 export function getSpittelmarkt(
 	mode: string,
 	lineName: string,
