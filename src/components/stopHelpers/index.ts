@@ -183,6 +183,7 @@ import { getBlankenfelde } from "./Teltow-Fläming"
 import {
 	getAttilastr,
 	getBuckowerChaussee,
+	getBülowstr,
 	getInnsbruckerPlatz,
 	getJuliusLeberBrücke,
 	getKurfürstenstr,
@@ -389,6 +390,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000072101":
 				newStopName = getBuckowerChaussee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000056104":
+				newStopName = getBülowstr(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000044202":

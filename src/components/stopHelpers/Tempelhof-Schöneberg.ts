@@ -9,6 +9,69 @@ export function getBuckowerChaussee() {
 	return "S Buckower Chaussee [Bus Buckower Ch.]"
 }
 
+export function getBülowstr(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "M19":
+				return "U Bülowstr. [Bus Bülowstr.]"
+			case "M48":
+			case "M85":
+				return "U Bülowstr. [Bus Potsdamer Str.]"
+			case "106":
+				if (provenance.includes("Seestr"))
+					return "U Bülowstr. [Bus Potsdamer Str.]"
+				return "U Bülowstr. [Bus Bülowstr.]"
+			case "187":
+				if (provenance.includes("Moabit"))
+					return "U Bülowstr. [Bus Potsdamer Str.]"
+				return "U Bülowstr. [Bus Bülowstr.]"
+			case "U1":
+			case "N1":
+				if (/(Warschauer Str|Helsingforser Pl)/.test(provenance))
+					return "U Bülowstr. [Bus Bülowstr.]"
+				return "U Bülowstr. [Bus Potsdamer Str.]"
+			case "U2":
+			case "N2":
+				if (/(Alexanderpl|Hadlichstr)/.test(provenance))
+					return "U Bülowstr. [Bus Bülowstr.]"
+				return "U Bülowstr. [Bus Potsdamer Str.]"
+			default:
+				return "U Bülowstr. [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "M19":
+				return "U Bülowstr. [Bus Bülowstr.]"
+			case "M48":
+			case "M85":
+				return "U Bülowstr. [Bus Potsdamer Str.]"
+			case "106":
+				if (direction.includes("Seestr")) return "U Bülowstr. [Bus Bülowstr.]"
+				return "U Bülowstr. [Bus Potsdamer Str.]"
+			case "187":
+				if (direction.includes("Turmstr")) return "U Bülowstr. [Bus Bülowstr.]"
+				return "U Bülowstr. [Bus Potsdamer Str.]"
+			case "U1":
+			case "N1":
+				if (direction.includes("Warschauer Str"))
+					return "U Bülowstr. [Bus Potsdamer Str.]"
+				return "U Bülowstr. [Bus Bülowstr.]"
+			case "U2":
+			case "N2":
+				if (/(Alexanderpl|Pankow)/.test(direction))
+					return "U Bülowstr. [Bus Potsdamer Str.]"
+				return "U Bülowstr. [Bus Bülowstr.]"
+			default:
+				return "U Bülowstr. [Bus]"
+		}
+	}
+}
+
 export function getInnsbruckerPlatz(lineName: string) {
 	switch (lineName) {
 		case "M48":
