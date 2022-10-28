@@ -57,6 +57,7 @@ import {
 	getSchlesischesTor,
 	getStrausbergerPlatz,
 	getWarschauerStr,
+	getWeberwiese,
 } from "./Friedrichshain-Kreuzberg"
 import {
 	getGehrenseestr,
@@ -1197,6 +1198,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				;[newStopName, trackNo] = getWaßmannsdorf(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000120025":
+				newStopName = getWeberwiese(mode, lineName, direction, provenance)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000008103":
 			case "900000009104":
 				newStopName = getWedding(id, lineName)

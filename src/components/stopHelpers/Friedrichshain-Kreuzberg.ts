@@ -205,3 +205,36 @@ export function getWarschauerStr(
 		}
 	}
 }
+
+export function getWeberwiese(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "347":
+				if (provenance.includes("Ostbahnhof"))
+					return "U Weberwiese [Bus H.-Jadamowitz-Str.]"
+				return "U Weberwiese [Bus Marchlewskistr.]"
+			case "U5":
+			case "N5":
+				return "U Weberwiese [Bus K.-Marx-Str.]"
+			default:
+				return "U Weberwiese [Bus]"
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "347":
+				if (direction.includes("Ostbahnhof"))
+					return "U Weberwiese [Bus Marchlewskistr.]"
+				return "U Weberwiese [Bus H.-Jadamowitz-Str.]"
+			case "U5":
+			case "N5":
+				return "U Weberwiese [Bus K.-Marx-Str.]"
+			default:
+				return "U Weberwiese [Bus]"
+		}
+	}
+}
