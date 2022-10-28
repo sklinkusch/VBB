@@ -159,6 +159,18 @@ export function getSchlesischesTor(
 	}
 }
 
+export function getStrausbergerPlatz(lineName: string) {
+	switch (lineName) {
+		case "142":
+			return "U Strausberger Platz [Bus Lebuser Str.]"
+		case "U5":
+		case "N5":
+			return "U Strausberger Platz [Bus K.-Marx-Str.]"
+		default:
+			return "U Strausberger Platz [Bus]"
+	}
+}
+
 export function getWarschauerStr(
 	mode: string,
 	lineName: string,
