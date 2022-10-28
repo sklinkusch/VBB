@@ -99,6 +99,7 @@ import {
 	getSpittelmarkt,
 	getStadtmitte,
 	getTiergarten,
+	getUnterDenLinden,
 	getWedding,
 	getWesthafen,
 } from "./Mitte"
@@ -1135,6 +1136,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000023301":
 				newStopName = getUhlandstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000100513":
+				newStopName = getUnterDenLinden(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000130011":

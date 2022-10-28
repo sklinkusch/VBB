@@ -726,6 +726,22 @@ export function getWedding(id: string, lineName: string) {
 	}
 }
 
+export function getUnterDenLinden(lineName: string) {
+	switch (lineName) {
+		case "100":
+		case "300":
+		case "U5":
+		case "N5":
+			return "U Unter den Linden [Bus Unter den Linden]"
+		case "147":
+		case "U6":
+		case "N6":
+			return "U Unter den Linden [Bus Friedrichstr.]"
+		default:
+			return "U Unter den Linden [Bus]"
+	}
+}
+
 export function getWesthafen() {
 	return "S+U Westhafen [Bus Putlitzbrücke]"
 }
