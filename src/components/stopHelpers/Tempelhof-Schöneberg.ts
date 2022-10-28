@@ -5,6 +5,10 @@ export function getAttilastr(lineName: string) {
 	return "S Attilastr. [Bus Attilastr.]"
 }
 
+export function getBayerischerPlatz() {
+	return "U Bayerischer Platz [Bus Grunewaldstr.]"
+}
+
 export function getBuckowerChaussee() {
 	return "S Buckower Chaussee [Bus Buckower Ch.]"
 }
