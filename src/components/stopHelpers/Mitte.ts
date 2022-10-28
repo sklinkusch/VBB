@@ -400,6 +400,10 @@ export function getMohrenstr() {
 	return "U Mohrenstr. [Bus Wilhelmstr.]"
 }
 
+export function getMuseumsinsel() {
+	return "U Museumsinsel [Bus Schloßplatz]"
+}
+
 export function getNordbahnhof(
 	id: string,
 	mode: string,
