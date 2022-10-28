@@ -653,6 +653,10 @@ export function getRotesRathaus(id: string) {
 	}
 }
 
+export function getSchillingstr() {
+	return "U Schillingstr. [Bus K.-Marx-Allee]"
+}
+
 export function getSpittelmarkt(
 	mode: string,
 	lineName: string,

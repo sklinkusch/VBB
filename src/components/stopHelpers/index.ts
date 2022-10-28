@@ -98,6 +98,7 @@ import {
 	getPotsdamerPlatz,
 	getRosaLuxemburgPlatz,
 	getRotesRathaus,
+	getSchillingstr,
 	getSpittelmarkt,
 	getStadtmitte,
 	getTiergarten,
@@ -977,6 +978,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000160001":
 				newStopName = getRummelsburg(product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000100017":
+				newStopName = getSchillingstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000014102":
