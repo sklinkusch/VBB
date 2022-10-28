@@ -191,6 +191,7 @@ import {
 	getMarienfelde,
 	getNollendorfplatz,
 	getPriesterweg,
+	getRathausSchöneberg,
 	getSchöneberg,
 	getSüdkreuz,
 	getTempelhof,
@@ -939,6 +940,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					direction,
 					provenance
 				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000054101":
+			case "900000054106":
+				newStopName = getRathausSchöneberg(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000022202":

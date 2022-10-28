@@ -177,6 +177,15 @@ export function getPriesterweg() {
 	return "S Priesterweg [Bus Prellerweg]"
 }
 
+export function getRathausSchöneberg(id: string) {
+	switch (id) {
+		case "900000054106":
+			return "Rathaus Schöneberg [Bus M.-Luther-Str.]"
+		default:
+			return "U Rathaus Schöneberg [Bus]"
+	}
+}
+
 export function getSchöneberg() {
 	return "S Schöneberg [Bus Dominicusstr.]"
 }
