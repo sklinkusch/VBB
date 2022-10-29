@@ -27,13 +27,13 @@ export function getHalleschesTor(lineName: string) {
 export function getKottbusserTor(lineName: string) {
 	switch (lineName) {
 		case "U8":
-			return "U Kottbusser Tor [unten, U8]"
+			return ["U Kottbusser Tor [unten, U8]", 2]
 		case "U1":
 		case "U12":
 		case "U3":
-			return "U Kottbusser Tor [oben, U1]"
+			return ["U Kottbusser Tor [oben, U1]", 1]
 		default:
-			return "U Kottbusser Tor"
+			return ["U Kottbusser Tor [U-Bahn]", 3]
 	}
 }
 
