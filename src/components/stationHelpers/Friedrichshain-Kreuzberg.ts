@@ -1,3 +1,16 @@
+export function getGleisdreieck(lineName: string) {
+	switch (lineName) {
+		case "U2":
+			return "U Gleisdreieck [unten, U2]"
+		case "U1":
+		case "U12":
+		case "U3":
+			return "U Gleisdreieck [oben, U1]"
+		default:
+			return "U Gleisdreieck"
+	}
+}
+
 export function getHalleschesTor(lineName: string) {
 	switch (lineName) {
 		case "U6":

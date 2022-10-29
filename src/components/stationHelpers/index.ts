@@ -1,4 +1,5 @@
 import {
+	getGleisdreieck,
 	getHalleschesTor,
 	getKottbusserTor,
 	getMöckernbrücke,
@@ -50,6 +51,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 	const { product, name: lineName } = line
 	if (["express", "regional", "suburban", "subway"].includes(product)) {
 		switch (id) {
+			case "900000017103":
+				newStopName = getGleisdreieck(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000012103":
 				newStopName = getHalleschesTor(lineName)
 				newStop = { ...stop, name: newStopName }
