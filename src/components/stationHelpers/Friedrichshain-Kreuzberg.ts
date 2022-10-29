@@ -40,13 +40,13 @@ export function getKottbusserTor(lineName: string) {
 export function getMöckernbrücke(lineName: string) {
 	switch (lineName) {
 		case "U7":
-			return "U Möckernbrücke [unten, U7]"
+			return ["U Möckernbrücke [unten, U7]", 2]
 		case "U1":
 		case "U12":
 		case "U3":
-			return "U Möckernbrücke [oben, U1]"
+			return ["U Möckernbrücke [oben, U1]", 1]
 		default:
-			return "U Möckernbrücke"
+			return ["U Möckernbrücke", 3]
 	}
 }
 
