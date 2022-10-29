@@ -173,35 +173,56 @@ export function getStrausbergerPlatz(lineName: string) {
 
 export function getWarschauerStr(
 	mode: string,
+	product: string,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
-		switch (lineName) {
-			case "M10":
-				return ["S+U Warschauer Str. [Warschauer Str.]", 4]
-			case "300":
-				return ["S+U Warschauer Str. [Tamara-Danz-Str.]", 8]
-			case "347":
-				if (provenance.includes("Tunnelstr"))
-					return ["S+U Warschauer Str. [Warschauer Str.]", 6]
-				return ["S+U Warschauer Str. [Warschauer Str.]", 3]
+		switch (product) {
+			case "tram":
+				switch (lineName) {
+					case "M10":
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 3]
+					default:
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 3]
+				}
+			case "bus":
+				switch (lineName) {
+					case "300":
+						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 8, 5]
+					case "347":
+						if (provenance.includes("Tunnelstr"))
+							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 4]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 4]
+					default:
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 4]
+				}
 			default:
-				return ["S+U Warschauer Str.", null]
+				return ["S+U Warschauer Str.", null, 6]
 		}
 	} else if (mode === "dep" && direction !== null) {
-		switch (lineName) {
-			case "M10":
-				return ["S+U Warschauer Str. [Warschauer Str.]", 5]
-			case "300":
-				return ["S+U Warschauer Str. [Tamara-Danz-Str.]", 7]
-			case "347":
-				if (direction.includes("Tunnelstr"))
-					return ["S+U Warschauer Str. [Warschauer Str.]", 3]
-				return ["S+U Warschauer Str. [Warschauer Str.]", 6]
+		switch (product) {
+			case "tram":
+				switch (lineName) {
+					case "M10":
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 3]
+					default:
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 3]
+				}
+			case "bus":
+				switch (lineName) {
+					case "300":
+						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 7, 5]
+					case "347":
+						if (direction.includes("Tunnelstr"))
+							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 4]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 4]
+					default:
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 4]
+				}
 			default:
-				return ["S+U Warschauer Str.", null]
+				return ["S+U Warschauer Str.", null, 6]
 		}
 	}
 }

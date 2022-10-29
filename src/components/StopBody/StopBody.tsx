@@ -5,7 +5,6 @@ import StopName from "../StopName/StopName"
 import Error from "../Error/Error"
 import TableData from "../TableData/TableData"
 import { changeStopObject } from "../stopHelpers"
-import { changeStationObject } from "../stationHelpers"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 type Remarks = {
@@ -31,6 +30,7 @@ type Dataset = {
 		product: string
 		type: string
 	}
+	order?: number
 	plannedPlatform?: string
 	plannedWhen?: string
 	platform?: number | string
@@ -118,13 +118,12 @@ export default function StopBody({
 			const sortedDataArray = sortedTempArray.map((e) => data[e.index])
 			return sortedDataArray
 		}
-		return undefined
+		return []
 	}
 	const splitArray = async (data: Data) => {
 		if (data !== undefined && data.length > 0) {
-			const dataModified = await data.map((e) => {
-				const newStationObject = changeStationObject(mode, e)
-				const newStopObject = changeStopObject(mode, newStationObject)
+			const dataModified = data.map((e) => {
+				const newStopObject = changeStopObject(mode, e)
 				return newStopObject
 			})
 			const stopsRaw = await dataModified.map((e) => e.stop.name)
@@ -132,7 +131,7 @@ export default function StopBody({
 				.filter((val, ind, arr) => arr.indexOf(val) === ind)
 				.sort()
 			const resultArray = await dataModified.reduce(
-				(acc: Dataset[][], curr: Dataset) => {
+				(acc: Dataset[][], curr: any) => {
 					const arr = [...acc]
 					const index = stopsContracted.indexOf(curr.stop.name)
 					if (Array.isArray(arr[index])) {
@@ -145,14 +144,45 @@ export default function StopBody({
 				[]
 			)
 			if ((await resultArray.length) > 0) {
-				await setNewData(await resultArray)
+				return await resultArray
 			}
 		}
+	}
+	const sortCompressedArray = (compressedData: Data[]) => {
+		return compressedData.sort((a, b) => {
+			const aOrder = a[0].order || undefined
+			const bOrder = b[0].order || undefined
+			const aStop = a[0].stop.name.toLowerCase()
+			const bStop = b[0].stop.name.toLowerCase()
+			if (typeof aOrder === "number" && typeof bOrder === "undefined") {
+				return -1
+			} else if (typeof aOrder === "undefined" && typeof bOrder === "number") {
+				return +1
+			} else if (typeof aOrder === "number" && typeof bOrder === "number") {
+				return aOrder - bOrder
+			} else if (aStop < bStop) {
+				return -1
+			} else if (bStop < aStop) {
+				return +1
+			} else {
+				return 0
+			}
+		})
 	}
 	useEffect(() => {
 		async function fetchData() {
 			const sortedData = await sortData(data)
-			if (typeof sortedData === "object") await splitArray(await sortedData)
+			const compressedData =
+				sortedData && typeof sortedData === "object"
+					? await splitArray(await sortedData)
+					: []
+			const sortedCompressedData =
+				typeof compressedData === "object" &&
+				Array.isArray(compressedData) &&
+				(await compressedData.length) >= 1
+					? await sortCompressedArray(await compressedData)
+					: []
+			await setNewData(await sortedCompressedData)
 		}
 		fetchData()
 	}, [data])

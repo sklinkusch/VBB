@@ -112,63 +112,63 @@ export function getNollendorfplatz(
 		switch (lineName) {
 			case "M19":
 				if (provenance.includes("Mehringdamm"))
-					return "U Nollendorfplatz [Bus Kleiststr.]"
-				return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
+					return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
+				return ["U Nollendorfplatz [Bus Nollendorfplatz Süd", 6]
 			case "106":
 				if (provenance.includes("Seestr"))
-					return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
-				return "U Nollendorfplatz [Bus Kleiststr.]"
+					return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
+				return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
 			case "187":
 				if (provenance.includes("Alt-Moabit"))
-					return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
-				return "U Nollendorfplatz [Bus Kleiststr.]"
+					return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
+				return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
 			case "U1":
 			case "N1":
 				if (provenance.includes("Helsingforser Platz"))
-					return "U Nollendorfplatz [Bus Kleiststr.]"
-				return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
+					return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
+				return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
 			case "U2":
 			case "N2":
 				if (/(Hadlichstr|Alexanderpl)/.test(provenance))
-					return "U Nollendorfplatz [Bus Kleiststr.]"
-				return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
+					return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
+				return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
 			case "N26":
 				if (provenance.includes("Seestr"))
-					return "U Nollendorfplatz [Bus Kleiststr.]"
-				return "U Nollendorfplatz [Bus Nollendorfplatz Ost]"
+					return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
+				return ["U Nollendorfplatz [Bus Nollendorfplatz Ost]", 5]
 			default:
-				return "U Nollendorfplatz [Bus]"
+				return ["U Nollendorfplatz [Bus]", 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "M19":
 				if (direction.includes("Mehringdamm"))
-					return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
-				return "U Nollendorfplatz [Bus Kleiststr.]"
+					return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
+				return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
 			case "106":
 				if (direction.includes("Seestr"))
-					return "U Nollendorfplatz [Bus Kleiststr.]"
-				return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
+					return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
+				return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
 			case "187":
 				if (direction.includes("Turmstr"))
-					return "U Nollendorfplatz [Bus Kleiststr.]"
-				return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
+					return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
+				return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
 			case "U1":
 			case "N1":
 				if (direction.includes("Warschauer Str"))
-					return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
-				return "U Nollendorfplatz [Bus Kleiststr.]"
+					return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
+				return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
 			case "U2":
 			case "N2":
 				if (/(Pankow|Alexanderpl)/.test(direction))
-					return "U Nollendorfplatz [Bus Nollendorfplatz Süd]"
-				return "U Nollendorfplatz [Bus Kleiststr.]"
+					return ["U Nollendorfplatz [Bus Nollendorfplatz Süd]", 6]
+				return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
 			case "N26":
 				if (direction.includes("Seestr"))
-					return "U Nollendorfplatz [Bus Nollendorfplatz Ost]"
-				return "U Nollendorfplatz [Bus Kleiststr.]"
+					return ["U Nollendorfplatz [Bus Nollendorfplatz Ost]", 5]
+				return ["U Nollendorfplatz [Bus Kleiststr.]", 4]
 			default:
-				return "U Nollendorfplatz [Bus]"
+				return ["U Nollendorfplatz [Bus]", 7]
 		}
 	}
 }

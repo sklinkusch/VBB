@@ -49,3 +49,14 @@ export function getMöckernbrücke(lineName: string) {
 			return "U Möckernbrücke"
 	}
 }
+
+export function getWarschauerStr(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S+U Warschauer Str. [S-Bahn]", 1]
+		case "subway":
+			return ["S+U Warschauer Str. [U-Bahn]", 2]
+		default:
+			return ["S+U Warschauer Str.", undefined]
+	}
+}

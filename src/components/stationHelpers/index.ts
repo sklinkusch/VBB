@@ -3,7 +3,9 @@ import {
 	getHalleschesTor,
 	getKottbusserTor,
 	getMöckernbrücke,
+	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
+import { getNollendorfplatz } from "./Tempelhof-Schöneberg"
 
 type Remarks = {
 	code: string | undefined
@@ -28,6 +30,7 @@ type Data = {
 		product: string
 		type: string
 	}
+	order?: number
 	plannedPlatform?: string
 	plannedWhen?: string
 	platform?: number | string
@@ -45,8 +48,8 @@ type Data = {
 }
 
 export function changeStationObject(mode: string, oldStopObject: Data) {
-	let newStopName, newStop
-	const { stop, line } = oldStopObject
+	let newStopName, newStop, order
+	const { stop, line, direction, provenance } = oldStopObject
 	const { id } = stop
 	const { product, name: lineName } = line
 	if (["express", "regional", "suburban", "subway"].includes(product)) {
@@ -67,6 +70,19 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				newStopName = getMöckernbrücke(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000056102":
+				;[newStopName, order] = getNollendorfplatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000120004":
+				;[newStopName, order] = getWarschauerStr(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			default:
 				return oldStopObject
 		}
