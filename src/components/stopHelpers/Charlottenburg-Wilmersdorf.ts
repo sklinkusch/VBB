@@ -467,6 +467,7 @@ export function getKurfürstendamm(
 			case "X10":
 			case "109":
 			case "110":
+			case "U1":
 			case "N1":
 			case "N10":
 			case "N26":
@@ -476,6 +477,7 @@ export function getKurfürstendamm(
 			case "204":
 			case "249":
 			case "N7X":
+			case "U9":
 			case "N9":
 				return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
 			case "N2":
@@ -497,6 +499,7 @@ export function getKurfürstendamm(
 			case "X10":
 			case "109":
 			case "110":
+			case "U1":
 			case "N1":
 			case "N10":
 			case "N26":
@@ -507,6 +510,7 @@ export function getKurfürstendamm(
 				return "U Kurfürstendamm [Bus Kurfürstendamm]"
 			case "204":
 			case "249":
+			case "U9":
 			case "N9":
 				return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
 			case "N2":
