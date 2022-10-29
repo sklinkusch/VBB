@@ -1,3 +1,4 @@
+import { getKurfürstendamm } from "./Charlottenburg-Wilmersdorf"
 import {
 	getGleisdreieck,
 	getHalleschesTor,
@@ -60,6 +61,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000012103":
 				;[newStopName, order] = getHalleschesTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000023203":
+				;[newStopName, order] = getKurfürstendamm(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000013102":
