@@ -6,6 +6,7 @@ import {
 	getMöckernbrücke,
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
+import { getPankow } from "./Pankow"
 import { getNollendorfplatz } from "./Tempelhof-Schöneberg"
 
 type Remarks = {
@@ -82,6 +83,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 					direction,
 					provenance
 				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000130002":
+				;[newStopName, order] = getPankow(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000120004":

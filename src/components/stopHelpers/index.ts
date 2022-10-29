@@ -904,9 +904,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000130002":
 			case "900000130500":
-				;[newStopName, trackNo] = getPankow(
+				;[newStopName, trackNo, order] = getPankow(
 					id,
 					mode,
+					product,
 					lineName,
 					direction,
 					provenance
