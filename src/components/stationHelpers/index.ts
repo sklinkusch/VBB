@@ -59,9 +59,9 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000012103":
-				newStopName = getHalleschesTor(lineName)
+				;[newStopName, order] = getHalleschesTor(lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000013102":
 				;[newStopName, order] = getKottbusserTor(lineName)
 				newStop = { ...stop, name: newStopName }
