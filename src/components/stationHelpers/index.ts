@@ -1,4 +1,8 @@
-import { getHalleschesTor, getKottbusserTor } from "./Friedrichshain-Kreuzberg"
+import {
+	getHalleschesTor,
+	getKottbusserTor,
+	getMöckernbrücke,
+} from "./Friedrichshain-Kreuzberg"
 
 type Remarks = {
 	code: string | undefined
@@ -52,6 +56,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000013102":
 				newStopName = getKottbusserTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000017104":
+				newStopName = getMöckernbrücke(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			default:

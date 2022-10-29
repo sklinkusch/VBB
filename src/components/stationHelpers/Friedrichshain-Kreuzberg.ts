@@ -23,3 +23,16 @@ export function getKottbusserTor(lineName: string) {
 			return "U Kottbusser Tor"
 	}
 }
+
+export function getMöckernbrücke(lineName: string) {
+	switch (lineName) {
+		case "U7":
+			return "U Möckernbrücke [unten, U7]"
+		case "U1":
+		case "U12":
+		case "U3":
+			return "U Möckernbrücke [oben, U1]"
+		default:
+			return "U Möckernbrücke"
+	}
+}
