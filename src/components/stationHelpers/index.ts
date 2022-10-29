@@ -1,4 +1,4 @@
-import { getKottbusserTor } from "./Friedrichshain-Kreuzberg"
+import { getHalleschesTor, getKottbusserTor } from "./Friedrichshain-Kreuzberg"
 
 type Remarks = {
 	code: string | undefined
@@ -41,11 +41,15 @@ type Data = {
 
 export function changeStationObject(mode: string, oldStopObject: Data) {
 	let newStopName, newStop
-	const { stop, line, direction, provenance } = oldStopObject
+	const { stop, line } = oldStopObject
 	const { id } = stop
 	const { product, name: lineName } = line
 	if (["express", "regional", "suburban", "subway"].includes(product)) {
 		switch (id) {
+			case "900000012103":
+				newStopName = getHalleschesTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
 			case "900000013102":
 				newStopName = getKottbusserTor(lineName)
 				newStop = { ...stop, name: newStopName }
