@@ -1,4 +1,7 @@
-import { getKurfürstendamm } from "./Charlottenburg-Wilmersdorf"
+import {
+	getKurfürstendamm,
+	getZoologischerGarten,
+} from "./Charlottenburg-Wilmersdorf"
 import {
 	getGleisdreieck,
 	getHalleschesTor,
@@ -112,6 +115,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000120004":
 				;[newStopName, order] = getWarschauerStr(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000023201":
+				;[newStopName, order] = getZoologischerGarten(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			default:

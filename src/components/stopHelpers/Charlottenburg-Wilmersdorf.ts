@@ -724,7 +724,7 @@ export function getZooBusStops(
 		switch (id) {
 			case "900000023201":
 				if (!provenance.includes("Hertzallee")) {
-					return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10]
+					return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10, 7]
 				}
 				switch (lineName) {
 					case "X10":
@@ -732,33 +732,33 @@ export function getZooBusStops(
 					case "110":
 					case "N7X":
 					case "N10":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4, 7]
 					case "M49":
 					case "X34":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5, 7]
 					case "N9":
 						if (provenance.includes("Osloer"))
-							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5, 7]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5, 7]
 					case "M45":
 					case "245":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6, 7]
 					case "100":
 					case "200":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7, 7]
 					case "N2":
 						if (provenance.includes("Ruhleben"))
-							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7, 7]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7, 7]
 					case "M46":
 					case "204":
 					case "N1":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8, 7]
 					case "249":
 					case "N26":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9, 7]
 					default:
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null, 7]
 				}
 			case "900000023172":
 				switch (lineName) {
@@ -768,19 +768,21 @@ export function getZooBusStops(
 							!provenance.includes("S+U Zoologischer Garten") &&
 							!provenance.includes("Hertzallee")
 						) {
-							return ["S+U Zoologischer Garten/Jebensstr.", 1]
+							return ["S+U Zoologischer Garten/Jebensstr.", 1, 8]
 						}
-						return ["S+U Zoologischer Garten/Jebensstr.", 2]
+						return ["S+U Zoologischer Garten/Jebensstr.", 2, 8]
 					case "100":
 					case "200":
+					case "U2":
 					case "N2":
+					case "U9":
 					case "N9":
-						return ["S+U Zoologischer Garten/Jebensstr.", 3]
+						return ["S+U Zoologischer Garten/Jebensstr.", 3, 8]
 					default:
-						return ["S+U Zoologischer Garten/Jebensstr.", null]
+						return ["S+U Zoologischer Garten/Jebensstr.", null, 8]
 				}
 			default:
-				return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+				return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null, 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (id) {
@@ -789,7 +791,7 @@ export function getZooBusStops(
 					direction.includes("Hertzallee") ||
 					direction.includes("Fahrt endet hier")
 				) {
-					return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10]
+					return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 10, 7]
 				}
 				switch (lineName) {
 					case "X10":
@@ -797,35 +799,37 @@ export function getZooBusStops(
 					case "110":
 					case "N7X":
 					case "N10":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 4, 7]
 					case "M49":
 					case "X34":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5, 7]
+					case "U9":
 					case "N9":
 						if (direction.includes("Steglitz"))
-							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5]
+							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5, 7]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 5, 7]
 					case "M45":
 					case "245":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 6, 7]
 					case "100":
 					case "200":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7, 7]
+					case "U2":
 					case "N2":
 						if (direction.includes("Pankow"))
-							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7, 7]
 						if (direction.includes("Alexanderplatz"))
-							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7]
+							return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7, 7]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 7, 7]
 					case "M46":
 					case "204":
 					case "N1":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 8, 7]
 					case "249":
 					case "N26":
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", 9, 7]
 					default:
-						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+						return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null, 7]
 				}
 			case "900000023172":
 				switch (lineName) {
@@ -835,19 +839,21 @@ export function getZooBusStops(
 							direction.includes("S+U Zoologischer Garten") ||
 							direction.includes("Hertzallee")
 						) {
-							return ["S+U Zoologischer Garten/Jebensstr.", 1]
+							return ["S+U Zoologischer Garten/Jebensstr.", 1, 8]
 						}
-						return ["S+U Zoologischer Garten/Jebensstr.", 2]
+						return ["S+U Zoologischer Garten/Jebensstr.", 2, 8]
 					case "100":
 					case "200":
+					case "U2":
 					case "N2":
+					case "U9":
 					case "N9":
-						return ["S+U Zoologischer Garten/Jebensstr.", 3]
+						return ["S+U Zoologischer Garten/Jebensstr.", 3, 8]
 					default:
-						return ["S+U Zoologischer Garten/Jebensstr.", null]
+						return ["S+U Zoologischer Garten/Jebensstr.", null, 8]
 				}
 			default:
-				return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null]
+				return ["S+U Zoologischer Garten [Bus Hardenbergplatz]", null, 7]
 		}
 	}
 }

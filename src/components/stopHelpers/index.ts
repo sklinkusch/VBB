@@ -1294,7 +1294,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000023201":
 			case "900000023172":
 			case "900000023173":
-				;[newStopName, trackNo] = getZooBusStops(
+				;[newStopName, trackNo, order] = getZooBusStops(
 					id,
 					mode,
 					lineName,
@@ -1302,7 +1302,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			default:
 				return oldStopObject
 		}
