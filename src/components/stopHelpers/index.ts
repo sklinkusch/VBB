@@ -1072,9 +1072,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000100011":
 			case "900000100018":
 			case "900000100528":
-				;[newStopName, trackNo] = getStadtmitte(id)
+				;[newStopName, trackNo, order] = getStadtmitte(id)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000062282":
 			case "900000062782":
 			case "900000062784":

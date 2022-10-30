@@ -20,3 +20,14 @@ export function getAlex(id: string, product: string, lineName: string) {
 			return ["S+U Alexanderplatz", 7]
 	}
 }
+
+export function getStadtmitte(lineName: string) {
+	switch (lineName) {
+		case "U2":
+			return ["U Stadtmitte [U2]", 1]
+		case "U6":
+			return ["U Stadtmitte [U6]", 2]
+		default:
+			return ["U Stadtmitte [U-Bahn]", 3]
+	}
+}
