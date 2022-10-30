@@ -21,6 +21,25 @@ export function getAlex(id: string, product: string, lineName: string) {
 	}
 }
 
+export function getPotsdamerPlatz(id: string, product: string) {
+	switch (id) {
+		case "900000100020":
+			switch (product) {
+				case "express":
+				case "regional":
+					return ["S+U Potsdamer Platz [Regionalbahn]", 1]
+				case "suburban":
+					return ["S+U Potsdamer Platz [S-Bahn]", 2]
+				default:
+					return ["S+U Potsdamer Platz [Bahnhof]", 3]
+			}
+		case "900000100720":
+			return ["S+U Potsdamer Platz [U2]", 4]
+		default:
+			return ["S+U Potsdamer Platz", 5]
+	}
+}
+
 export function getStadtmitte(lineName: string) {
 	switch (lineName) {
 		case "U2":

@@ -492,135 +492,166 @@ export function getPotsdamerPlatz(
 			case "900000005208":
 				switch (lineName) {
 					case "M41":
-						return 2
+						return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
 					case "M48":
-						if (provenance.includes("Mohrenstr")) return 2
-						return 1
+						if (provenance.includes("Mohrenstr"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
 					case "M85":
-						if (provenance.includes("Hauptbahnhof")) return 2
-						return 1
+						if (provenance.includes("Hauptbahnhof"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
 					case "200":
-						if (provenance.includes("Philharmonie")) return 1
-						if (provenance.includes("Hertzallee")) return 1
-						return 2
+						if (provenance.includes("Philharmonie"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
+						if (provenance.includes("Hertzallee"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
 					case "300":
-						if (provenance.includes("Philharmonie")) return 1
-						return 2
+						if (provenance.includes("Philharmonie"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
 					case "N2":
-						if (provenance.includes("Hertzallee")) return 1
-						if (provenance.includes("Ruhleben")) return 1
-						return 2
+						if (provenance.includes("Hertzallee"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
+						if (provenance.includes("Ruhleben"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
 					default:
-						return null
+						return ["Varian-Fry-Str./Potsdamer Platz", null, 9]
 				}
 			case "900000100022":
 				switch (lineName) {
 					case "M41":
 					case "M85":
-						if (provenance.includes("Hauptbahnhof")) return 3
-						return 4
+						if (provenance.includes("Hauptbahnhof"))
+							return ["S Potsdamer Platz/Voßstr.", 3, 8]
+						return ["S Potsdamer Platz/Voßstr.", 4, 8]
 					case "M48":
-						return 4
+						return ["S Potsdamer Platz/Voßstr.", 4, 8]
 					default:
-						return null
+						return ["S Potsdamer Platz/Voßstr.", null, 8]
 				}
 			case "900000100721":
 				switch (lineName) {
 					case "M48":
-						return 5
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
 					case "200":
-						if (provenance.includes("Hertzallee")) return 6
-						if (provenance.includes("Philharmonie")) return 6
-						return 5
+						if (provenance.includes("Hertzallee"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
+						if (provenance.includes("Philharmonie"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
 					case "300":
-						if (provenance.includes("Philharmonie")) return 6
-						return 5
+						if (provenance.includes("Philharmonie"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
 					case "N2":
-						if (provenance.includes("Hertzallee")) return 6
-						if (provenance.includes("Ruhleben")) return 6
-						return 5
+						if (provenance.includes("Hertzallee"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
+						if (provenance.includes("Ruhleben"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
 					default:
-						return null
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", null, 6]
 				}
 			case "900000100722":
 				switch (lineName) {
 					case "M41":
-						if (provenance.includes("Philharmonie")) return 8
-						if (provenance.includes("Hauptbahnhof")) return 8
-						return 7
+						if (provenance.includes("Philharmonie"))
+							return ["S+U Potsdamer Platz [Bus Stresemannstr.]", 8, 7]
+						if (provenance.includes("Hauptbahnhof"))
+							return ["S+U Potsdamer Platz [Bus Stresemannstr.]", 8, 7]
+						return ["S+U Potsdamer Platz [Bus Stresemannstr.]", 7, 7]
 					default:
-						return null
+						return ["S+U Potsdamer Platz [Bus Stresemannstr.]", null, 7]
 				}
 			default:
-				return null
+				return ["S+U Potsdamer Platz", null, 10]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (id) {
 			case "900000005208":
 				switch (lineName) {
 					case "M41":
-						return 2
+						return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
 					case "M48":
-						if (direction.includes("Mohrenstr")) return 1
-						return 2
+						if (direction.includes("Mohrenstr"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
 					case "M85":
-						if (direction.includes("Hauptbahnhof")) return 1
-						return 2
+						if (direction.includes("Hauptbahnhof"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
 					case "200":
-						if (direction.includes("Philharmonie")) return 2
-						if (direction.includes("Zoo")) return 2
-						return 1
+						if (direction.includes("Philharmonie"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
+						if (direction.includes("Zoo"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
 					case "300":
-						if (direction.includes("Philharmonie")) return 2
-						return 1
+						if (direction.includes("Philharmonie"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
 					case "N2":
-						if (direction.includes("Zoo")) return 2
-						if (direction.includes("Ruhleben")) return 2
-						return 1
+						if (direction.includes("Zoo"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
+						if (direction.includes("Ruhleben"))
+							return ["Varian-Fry-Str./Potsdamer Platz", 2, 9]
+						return ["Varian-Fry-Str./Potsdamer Platz", 1, 9]
 					default:
-						return null
+						return ["Varian-Fry-Str./Potsdamer Platz", null, 9]
 				}
 			case "900000100022":
 				switch (lineName) {
 					case "M41":
 					case "M85":
-						if (direction.includes("Hauptbahnhof")) return 4
-						if (direction.includes("Fahrt")) return 4
-						return 3
+						if (direction.includes("Hauptbahnhof"))
+							return ["S Potsdamer Platz/Voßstr.", 4, 8]
+						if (direction.includes("Fahrt"))
+							return ["S Potsdamer Platz/Voßstr.", 4, 8]
+						return ["S Potsdamer Platz/Voßstr.", 3, 8]
 					case "M48":
-						return 4
+						return ["S Potsdamer Platz/Voßstr.", 4, 8]
 					default:
-						return null
+						return ["S Potsdamer Platz/Voßstr.", null, 8]
 				}
 			case "900000100721":
 				switch (lineName) {
 					case "M48":
-						return 5
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
 					case "200":
-						if (direction.includes("Zoo")) return 5
-						if (direction.includes("Philharmonie")) return 5
-						return 6
+						if (direction.includes("Zoo"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
+						if (direction.includes("Philharmonie"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
 					case "300":
-						if (direction.includes("Philharmonie")) return 5
-						return 6
+						if (direction.includes("Philharmonie"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
 					case "N2":
-						if (direction.includes("Zoo")) return 5
-						if (direction.includes("Ruhleben")) return 5
-						return 6
+						if (direction.includes("Zoo"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
+						if (direction.includes("Ruhleben"))
+							return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 5, 6]
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", 6, 6]
 					default:
-						return null
+						return ["S+U Potsdamer Platz [Bus Leipziger Str.]", null, 6]
 				}
 			case "900000100722":
 				switch (lineName) {
 					case "M41":
-						if (direction.includes("Philharmonie")) return 7
-						if (direction.includes("Hauptbahnhof")) return 7
-						return 8
+						if (direction.includes("Philharmonie"))
+							return ["S+U Potsdamer Platz [Bus Stresemannstr.]", 7, 7]
+						if (direction.includes("Hauptbahnhof"))
+							return ["S+U Potsdamer Platz [Bus Stresemannstr.]", 7, 7]
+						return ["S+U Potsdamer Platz [Bus Stresemannstr.]", 8, 7]
 					default:
-						return null
+						return ["S+U Potsdamer Platz [Bus Stresemannstr.]", null, 7]
 				}
 			default:
-				return null
+				return ["S+U Potsdamer Platz", null, 10]
 		}
 	}
 }
