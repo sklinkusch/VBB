@@ -10,55 +10,55 @@ export function getAlex(
 	if (mode === "arr" && provenance !== null) {
 		switch (id) {
 			case "900000100712":
-				return ["S+U Alexanderplatz/Grunerstr. [Alexanderstr.]", 18]
+				return ["S+U Alexanderplatz/Grunerstr. [Alexanderstr.]", 18, 12]
 			case "900000100711":
-				return ["S+U Alexanderplatz/Grunerstr. [Grunerstr.]", 17]
+				return ["S+U Alexanderplatz/Grunerstr. [Grunerstr.]", 17, 11]
 			case "900000100024":
-				return ["S+U Alexanderplatz/Dircksenstr.", "13/14"]
+				return ["S+U Alexanderplatz/Dircksenstr.", "13/14", 9]
 			case "900000100026":
 				switch (provenance) {
 					case "Clara-Jaschke-Str.":
 					case "S Hackescher Markt":
-						return ["S+U Alexanderplatz/Gontardstr.", 16]
+						return ["S+U Alexanderplatz/Gontardstr.", 16, 10]
 					default:
-						return ["S+U Alexanderplatz/Gontardstr.", 15]
+						return ["S+U Alexanderplatz/Gontardstr.", 15, 10]
 				}
 			case "900000100031":
 				switch (lineName) {
 					case "100":
 					case "200":
 						if (provenance.includes("Hertzallee"))
-							return ["S+U Alexanderplatz/Memhardstr.", 24]
-						return ["S+U Alexanderplatz/Memhardstr.", 1]
+							return ["S+U Alexanderplatz/Memhardstr.", 24, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 1, 8]
 					case "N2":
 						if (provenance.includes("Ruhleben"))
-							return ["S+U Alexanderplatz/Memhardstr.", 25]
+							return ["S+U Alexanderplatz/Memhardstr.", 25, 8]
 						if (provenance.includes("Zoologischer Garten"))
-							return ["S+U Alexanderplatz/Memhardstr.", 25]
-						return ["S+U Alexanderplatz/Memhardstr.", 21]
+							return ["S+U Alexanderplatz/Memhardstr.", 25, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 21, 8]
 					case "N5":
 						if (provenance.includes("Riesaer Str"))
-							return ["S+U Alexanderplatz/Memhardstr.", 21]
+							return ["S+U Alexanderplatz/Memhardstr.", 21, 8]
 						if (provenance.includes("Wuhletal"))
-							return ["S+U Alexanderplatz/Memhardstr.", 21]
-						return ["S+U Alexanderplatz/Memhardstr.", 24]
+							return ["S+U Alexanderplatz/Memhardstr.", 21, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 24, 8]
 					case "N8":
 						if (provenance.includes("Hermannstr"))
-							return ["S+U Alexanderplatz/Memhardstr.", 26]
+							return ["S+U Alexanderplatz/Memhardstr.", 26, 8]
 						if (provenance.includes("Hermannplatz"))
-							return ["S+U Alexanderplatz/Memhardstr.", 26]
-						return ["S+U Alexanderplatz/Memhardstr.", 22]
+							return ["S+U Alexanderplatz/Memhardstr.", 26, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 22, 8]
 					case "N40":
 						if (provenance.includes("Turmstr"))
-							return ["S+U Alexanderplatz/Memhardstr.", 22]
-						return ["S+U Alexanderplatz/Memhardstr.", 25]
+							return ["S+U Alexanderplatz/Memhardstr.", 22, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 25, 8]
 					case "N42":
-						return ["S+U Alexanderplatz/Memhardstr.", 23]
+						return ["S+U Alexanderplatz/Memhardstr.", 23, 8]
 					case "N60":
 					case "N65":
-						return ["S+U Alexanderplatz/Memhardstr.", 20]
+						return ["S+U Alexanderplatz/Memhardstr.", 20, 8]
 					default:
-						return ["S+U Alexanderplatz/Memhardstr.", null]
+						return ["S+U Alexanderplatz/Memhardstr.", null, 8]
 				}
 			default:
 				return ["S+U Alexanderplatz", null]
@@ -66,57 +66,57 @@ export function getAlex(
 	} else if (mode === "dep" && direction !== null) {
 		switch (id) {
 			case "900000100712":
-				return ["S+U Alexanderplatz/Grunerstr. [Alexanderstr.]", 18]
+				return ["S+U Alexanderplatz/Grunerstr. [Alexanderstr.]", 18, 12]
 			case "900000100711":
-				return ["S+U Alexanderplatz/Grunerstr. [Grunerstr.]", 17]
+				return ["S+U Alexanderplatz/Grunerstr. [Grunerstr.]", 17, 11]
 			case "900000100024":
-				return ["S+U Alexanderplatz/Dircksenstr.", "13/14"]
+				return ["S+U Alexanderplatz/Dircksenstr.", "13/14", 9]
 			case "900000100026":
 				switch (direction) {
 					case "S+U Hauptbahnhof":
 					case "S Hackescher Markt":
-						return ["S+U Alexanderplatz/Gontardstr.", 15]
+						return ["S+U Alexanderplatz/Gontardstr.", 15, 10]
 					default:
-						return ["S+U Alexanderplatz/Gontardstr.", 16]
+						return ["S+U Alexanderplatz/Gontardstr.", 16, 10]
 				}
 			case "900000100031":
 				switch (lineName) {
 					case "100":
 					case "200":
 						if (direction.includes("Michelangelostr"))
-							return ["S+U Alexanderplatz/Memhardstr.", 24]
+							return ["S+U Alexanderplatz/Memhardstr.", 24, 8]
 						if (direction.includes("Memhardstr"))
-							return ["S+U Alexanderplatz/Memhardstr.", 24]
-						return ["S+U Alexanderplatz/Memhardstr.", 1]
+							return ["S+U Alexanderplatz/Memhardstr.", 24, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 1, 8]
 					case "N2":
 						if (direction.includes("Ruhleben"))
-							return ["S+U Alexanderplatz/Memhardstr.", 21]
+							return ["S+U Alexanderplatz/Memhardstr.", 21, 8]
 						if (direction.includes("Zoologischer Garten"))
-							return ["S+U Alexanderplatz/Memhardstr.", 21]
-						return ["S+U Alexanderplatz/Memhardstr.", 25]
+							return ["S+U Alexanderplatz/Memhardstr.", 21, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 25, 8]
 					case "N5":
 						if (direction.includes("Riesaer Str"))
-							return ["S+U Alexanderplatz/Memhardstr.", 24]
+							return ["S+U Alexanderplatz/Memhardstr.", 24, 8]
 						if (direction.includes("Wuhletal"))
-							return ["S+U Alexanderplatz/Memhardstr.", 24]
-						return ["S+U Alexanderplatz/Memhardstr.", 21]
+							return ["S+U Alexanderplatz/Memhardstr.", 24, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 21, 8]
 					case "N8":
 						if (direction.includes("Hermannstr"))
-							return ["S+U Alexanderplatz/Memhardstr.", 22]
+							return ["S+U Alexanderplatz/Memhardstr.", 22, 8]
 						if (direction.includes("Hermannplatz"))
-							return ["S+U Alexanderplatz/Memhardstr.", 22]
-						return ["S+U Alexanderplatz/Memhardstr.", 26]
+							return ["S+U Alexanderplatz/Memhardstr.", 22, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 26, 8]
 					case "N40":
 						if (direction.includes("Turmstr"))
-							return ["S+U Alexanderplatz/Memhardstr.", 25]
-						return ["S+U Alexanderplatz/Memhardstr.", 22]
+							return ["S+U Alexanderplatz/Memhardstr.", 25, 8]
+						return ["S+U Alexanderplatz/Memhardstr.", 22, 8]
 					case "N42":
-						return ["S+U Alexanderplatz/Memhardstr.", 23]
+						return ["S+U Alexanderplatz/Memhardstr.", 23, 8]
 					case "N60":
 					case "N65":
-						return ["S+U Alexanderplatz/Memhardstr.", 20]
+						return ["S+U Alexanderplatz/Memhardstr.", 20, 8]
 					default:
-						return ["S+U Alexanderplatz/Memhardstr.]", null]
+						return ["S+U Alexanderplatz/Memhardstr.]", null, 8]
 				}
 			default:
 				return ["S+U Alexanderplatz", null]

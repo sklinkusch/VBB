@@ -293,7 +293,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000100031":
 			case "900000100711":
 			case "900000100712":
-				;[newStopName, trackNo] = getAlex(
+				;[newStopName, trackNo, order] = getAlex(
 					id,
 					mode,
 					lineName,
@@ -301,7 +301,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000195510":
 			case "900000196514":
 				newStopName = getAltglienicke(id)
