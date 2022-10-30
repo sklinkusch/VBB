@@ -271,9 +271,11 @@ export function getPrenzlauerAllee(product: string, lineName: string) {
 export function getSchönhauserAllee(product: string) {
 	switch (product) {
 		case "tram":
-			return "S+U Schönhauser Allee [Tram Schönhauser Allee]"
+			return ["S+U Schönhauser Allee [Tram Schönhauser Allee]", 4]
 		case "bus":
-			return "S+U Schönhauser Allee [Bus Schönhauser Allee]"
+			return ["S+U Schönhauser Allee [Bus Schönhauser Allee]", 5]
+		default:
+			return ["S+U Schönhauser Allee", undefined]
 	}
 }
 
