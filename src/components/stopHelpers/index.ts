@@ -456,9 +456,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000041101":
-				newStopName = getFehrbellinerPlatz(lineName)
+				;[newStopName, order] = getFehrbellinerPlatz(lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000063101":
 				newStopName = getFeuerbachstr()
 				newStop = { ...stop, name: newStopName }

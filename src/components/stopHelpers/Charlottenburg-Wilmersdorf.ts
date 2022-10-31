@@ -182,14 +182,16 @@ export function getFehrbellinerPlatz(lineName: string) {
 	switch (lineName) {
 		case "101":
 		case "143":
+		case "U7":
 		case "N7":
 		case "N43":
-			return "U Fehrbelliner Platz [Bus Brandenburgische Str.]"
+			return ["U Fehrbelliner Platz [Bus Brandenburgische Str.]", 4]
 		case "115":
+		case "U3":
 		case "N3":
-			return "U Fehrbelliner Platz [Bus Hohenzollerndamm]"
+			return ["U Fehrbelliner Platz [Bus Hohenzollerndamm]", 5]
 		default:
-			return "U Fehrbelliner Platz [Bus]"
+			return ["U Fehrbelliner Platz [Bus]", 6]
 	}
 }
 

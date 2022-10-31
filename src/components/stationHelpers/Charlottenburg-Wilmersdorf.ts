@@ -1,3 +1,17 @@
+export function getFehrbellinerPlatz(lineName: string) {
+	switch (lineName) {
+		case "U1":
+		case "U2":
+		case "U3":
+		case "U12":
+			return ["U Fehrbelliner Platz [U3]", 1]
+		case "U7":
+			return ["U Fehrbelliner Platz [U7]", 2]
+		default:
+			return ["U Fehrbelliner Platz [U-Bahn]", 3]
+	}
+}
+
 export function getKurfürstendamm(lineName: string) {
 	switch (lineName) {
 		case "U1":
