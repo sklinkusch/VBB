@@ -233,25 +233,25 @@ export function getHeidelbergerPlatz(
 		switch (lineName) {
 			case "249":
 			case "310":
-				return "S+U Heidelberger Platz [Bus Mecklenburgische Str.]"
+				return ["S+U Heidelberger Platz [Bus Mecklenburgische Str.]", 4]
 			case "N3":
 				if (provenance.includes("Mexikoplatz"))
-					return "S+U Heidelberger Platz [Bus Detmolder Str.]"
-				return "S+U Heidelberger Platz [Bus Rudolstädter Str.]"
+					return ["S+U Heidelberger Platz [Bus Detmolder Str.]", 5]
+				return ["S+U Heidelberger Platz [Bus Rudolstädter Str.]", 6]
 			default:
-				return "S+U Heidelberger Platz [Bus]"
+				return ["S+U Heidelberger Platz [Bus]", 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "249":
 			case "310":
-				return "S+U Heidelberger Platz [Bus Mecklenburgische Str.]"
+				return ["S+U Heidelberger Platz [Bus Mecklenburgische Str.]", 4]
 			case "N3":
 				if (direction.includes("Mexikoplatz"))
-					return "S+U Heidelberger Platz [Bus Rudolstädter Str.]"
-				return "S+U Heidelberger Platz [Bus Detmolder Str.]"
+					return ["S+U Heidelberger Platz [Bus Rudolstädter Str.]", 6]
+				return ["S+U Heidelberger Platz [Bus Detmolder Str.]", 5]
 			default:
-				return "S+U Heidelberger Platz [Bus]"
+				return ["S+U Heidelberger Platz [Bus]", 7]
 		}
 	}
 }

@@ -1,5 +1,6 @@
 import {
 	getFehrbellinerPlatz,
+	getHeidelbergerPlatz,
 	getKurfürstendamm,
 	getSpichernstr,
 	getZoologischerGarten,
@@ -79,6 +80,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000012103":
 				;[newStopName, order] = getHalleschesTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000045102":
+				;[newStopName, order] = getHeidelbergerPlatz(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023203":

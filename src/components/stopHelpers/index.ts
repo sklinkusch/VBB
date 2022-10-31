@@ -575,14 +575,14 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000045102":
-				newStopName = getHeidelbergerPlatz(
+				;[newStopName, order] = getHeidelbergerPlatz(
 					mode,
 					lineName,
 					direction,
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000091203":
 				newStopName = getHeiligensee()
 				newStop = { ...stop, name: newStopName }

@@ -12,6 +12,17 @@ export function getFehrbellinerPlatz(lineName: string) {
 	}
 }
 
+export function getHeidelbergerPlatz(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S+U Heidelberger Platz [S-Bahn]", 1]
+		case "subway":
+			return ["S+U Heidelberger Platz [U-Bahn]", 2]
+		default:
+			return ["S+U Heidelberger Platz [Bahnhof]", 3]
+	}
+}
+
 export function getKurfürstendamm(lineName: string) {
 	switch (lineName) {
 		case "U1":
