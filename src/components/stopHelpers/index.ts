@@ -1061,9 +1061,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000042101":
-				newStopName = getSpichernstr()
+				;[newStopName, order] = getSpichernstr()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000180003":
 				newStopName = getSpindlersfeld(product)
 				newStop = { ...stop, name: newStopName }

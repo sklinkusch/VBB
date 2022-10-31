@@ -1,5 +1,6 @@
 import {
 	getKurfürstendamm,
+	getSpichernstr,
 	getZoologischerGarten,
 } from "./Charlottenburg-Wilmersdorf"
 import {
@@ -107,6 +108,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000110001":
 				;[newStopName, order] = getSchönhauserAllee(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000042101":
+				;[newStopName, order] = getSpichernstr(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100011":

@@ -9,6 +9,20 @@ export function getKurfürstendamm(lineName: string) {
 	}
 }
 
+export function getSpichernstr(lineName: string) {
+	switch (lineName) {
+		case "U1":
+		case "U2":
+		case "U3":
+		case "U12":
+			return ["U Spichernstr. [U3]", 1]
+		case "U9":
+			return ["U Spichernstr. [U9]", 2]
+		default:
+			return ["U Spichernstr. [U-Bahn]", 3]
+	}
+}
+
 export function getZoologischerGarten(product: string, lineName: string) {
 	switch (product) {
 		case "express":

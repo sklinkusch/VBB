@@ -678,7 +678,7 @@ export function getSophieCharlottePlatz(
 }
 
 export function getSpichernstr() {
-	return "U Spichernstr. [Bus Bundesallee]"
+	return ["U Spichernstr. [Bus Bundesallee]", 4]
 }
 
 export function getTheo(id: string) {
