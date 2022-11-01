@@ -733,14 +733,14 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000160701":
 			case "900000160702":
 			case "900000160704":
-				;[newStopName, trackNo] = getLichtenberg(
+				;[newStopName, trackNo, order] = getLichtenberg(
 					mode,
 					lineName,
 					direction,
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000064301":
 				newStopName = getLichterfeldeOst()
 				newStop = { ...stop, name: newStopName }

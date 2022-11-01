@@ -30,52 +30,52 @@ export function getLichtenberg(
 		switch (lineName) {
 			case "21":
 			case "37":
-				return ["S+U Lichtenberg/Siegfriedstr.", 2]
+				return ["S+U Lichtenberg/Siegfriedstr.", 2, 7]
 			case "240":
 				if (provenance.includes("Ostbahnhof"))
-					return ["S+U Lichtenberg [Bus Weitlingstr.]", 11]
-				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
+					return ["S+U Lichtenberg [Bus Weitlingstr.]", 11, 5]
+				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8, 5]
 			case "256":
 				if (provenance.includes("Zentralfriedhof"))
-					return ["S+U Lichtenberg/Siegfriedstr.", 2]
-				return ["S+U Lichtenberg/Siegfriedstr.", 1]
+					return ["S+U Lichtenberg/Siegfriedstr.", 2, 7]
+				return ["S+U Lichtenberg/Siegfriedstr.", 1, 7]
 			case "108":
 			case "296":
-				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
+				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8, 5]
 			case "N50":
-				return ["S+U Lichtenberg [Bus Einbecker Str.]", 12]
+				return ["S+U Lichtenberg [Bus Einbecker Str.]", 12, 6]
 			case "N94":
 				if (provenance.includes("Magdalenenstr"))
-					return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
-				return ["S+U Lichtenberg [Bus Weitlingstr.]", 11]
+					return ["S+U Lichtenberg [Bus Weitlingstr.]", 8, 5]
+				return ["S+U Lichtenberg [Bus Weitlingstr.]", 11, 5]
 			default:
-				return ["S+U Lichtenberg", null]
+				return ["S+U Lichtenberg", null, 8]
 		}
 	}
 	if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "21":
 			case "37":
-				return ["S+U Lichtenberg/Siegfriedstr.", 2]
+				return ["S+U Lichtenberg/Siegfriedstr.", 2, 7]
 			case "240":
 				if (direction.includes("Ostbahnhof"))
-					return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
-				return ["S+U Lichtenberg [Bus Weitlingstr.]", 11]
+					return ["S+U Lichtenberg [Bus Weitlingstr.]", 8, 5]
+				return ["S+U Lichtenberg [Bus Weitlingstr.]", 11, 5]
 			case "256":
 				if (direction.includes("Zentralfriedhof"))
-					return ["S+U Lichtenberg/Siegfriedstr.", 1]
-				return ["S+U Lichtenberg/Siegfriedstr.", 2]
+					return ["S+U Lichtenberg/Siegfriedstr.", 1, 7]
+				return ["S+U Lichtenberg/Siegfriedstr.", 2, 7]
 			case "108":
 			case "296":
-				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
+				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8, 5]
 			case "N50":
-				return ["S+U Lichtenberg [Bus Einbecker Str.]", 12]
+				return ["S+U Lichtenberg [Bus Einbecker Str.]", 12, 6]
 			case "N94":
 				if (direction.includes("Magdalenenstr"))
-					return ["S+U Lichtenberg [Bus Weitlingstr.]", 11]
-				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8]
+					return ["S+U Lichtenberg [Bus Weitlingstr.]", 11, 5]
+				return ["S+U Lichtenberg [Bus Weitlingstr.]", 8, 5]
 			default:
-				return ["S+U Lichtenberg", null]
+				return ["S+U Lichtenberg", null, 8]
 		}
 	}
 }
