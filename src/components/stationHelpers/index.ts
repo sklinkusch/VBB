@@ -14,7 +14,7 @@ import {
 } from "./Friedrichshain-Kreuzberg"
 import { getAlex, getPotsdamerPlatz, getStadtmitte } from "./Mitte"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
-import { getNollendorfplatz } from "./Tempelhof-Schöneberg"
+import { getBayerischerPlatz, getNollendorfplatz } from "./Tempelhof-Schöneberg"
 
 type Remarks = {
 	code: string | undefined
@@ -68,6 +68,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 			case "900000100704":
 			case "900000100705":
 				;[newStopName, order] = getAlex(id, product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000055102":
+				;[newStopName, order] = getBayerischerPlatz(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041101":

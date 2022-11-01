@@ -320,9 +320,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000055102":
-				newStopName = getBayerischerPlatz()
+				;[newStopName, order] = getBayerischerPlatz()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000260009":
 				;[newStopName, trackNo] = getBERT1(lineName)
 				newStop = { ...stop, name: newStopName }

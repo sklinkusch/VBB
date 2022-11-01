@@ -6,7 +6,7 @@ export function getAttilastr(lineName: string) {
 }
 
 export function getBayerischerPlatz() {
-	return "U Bayerischer Platz [Bus Grunewaldstr.]"
+	return ["U Bayerischer Platz [Bus Grunewaldstr.]", 4]
 }
 
 export function getBuckowerChaussee() {

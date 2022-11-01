@@ -1,5 +1,16 @@
 type Dir = string | null
 
+export function getBayerischerPlatz(lineName: string) {
+	switch (lineName) {
+		case "U4":
+			return ["U Bayerischer Platz [U4]", 1]
+		case "U7":
+			return ["U Bayerischer Platz [U7]", 2]
+		default:
+			return ["U Bayerischer Platz [U-Bahn]", 3]
+	}
+}
+
 export function getNollendorfplatz(
 	mode: string,
 	lineName: string,
