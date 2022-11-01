@@ -240,5 +240,5 @@ export function getSpringpfuhl(product: string) {
 }
 
 export function getWuhletal() {
-	return "S+U Wuhletal [Bus Altentreptower Str.]"
+	return ["S+U Wuhletal [Bus Altentreptower Str.]", 4]
 }

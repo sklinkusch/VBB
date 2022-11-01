@@ -12,6 +12,7 @@ import {
 	getMöckernbrücke,
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
+import { getWuhletal } from "./Marzahn-Hellersdorf"
 import { getAlex, getPotsdamerPlatz, getStadtmitte } from "./Mitte"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
 import {
@@ -142,6 +143,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000120004":
 				;[newStopName, order] = getWarschauerStr(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000175001":
+				;[newStopName, order] = getWuhletal(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023201":

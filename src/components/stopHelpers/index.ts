@@ -1262,9 +1262,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000175001":
-				newStopName = getWuhletal()
+				;[newStopName, order] = getWuhletal()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000180002":
 				newStopName = getWuhlheide()
 				newStop = { ...stop, name: newStopName }
