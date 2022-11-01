@@ -82,11 +82,11 @@ export function getInnsbruckerPlatz(lineName: string) {
 		case "M85":
 		case "143":
 		case "187":
-			return "S+U Innsbrucker Platz [Bus Hauptstr.]"
+			return ["S+U Innsbrucker Platz [Bus Hauptstr.]", 4]
 		case "248":
-			return "S+U Innsbrucker Platz [Bus Wexstr.]"
+			return ["S+U Innsbrucker Platz [Bus Wexstr.]", 5]
 		default:
-			return "S+U Innsbrucker Platz [Bus]"
+			return ["S+U Innsbrucker Platz [Bus]", 6]
 	}
 }
 

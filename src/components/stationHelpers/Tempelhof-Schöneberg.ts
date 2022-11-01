@@ -11,6 +11,17 @@ export function getBayerischerPlatz(lineName: string) {
 	}
 }
 
+export function getInnsbruckerPlatz(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S+U Innsbrucker Platz [S-Bahn]", 1]
+		case "subway":
+			return ["S+U Innsbrucker Platz [U4]", 2]
+		default:
+			return ["S+U Innsbrucker Platz [Bahnhof]", 3]
+	}
+}
+
 export function getNollendorfplatz(
 	mode: string,
 	lineName: string,
