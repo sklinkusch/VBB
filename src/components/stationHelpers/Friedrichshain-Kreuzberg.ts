@@ -1,3 +1,14 @@
+export function getFrankfurterAllee(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S+U Frankfurter Allee [S-Bahn]", 1]
+		case "subway":
+			return ["S+U Frankfurter Allee [U5]", 2]
+		default:
+			return ["S+U Frankfurter Allee [Bahnhof]", 3]
+	}
+}
+
 export function getGleisdreieck(lineName: string) {
 	switch (lineName) {
 		case "U2":

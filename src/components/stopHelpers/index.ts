@@ -464,9 +464,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000120001":
-				newStopName = getFrankfurterAllee(product, lineName)
+				;[newStopName, order] = getFrankfurterAllee(product, lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000320006":
 			case "900000320009":
 				newStopName = getFredersdorf(id)

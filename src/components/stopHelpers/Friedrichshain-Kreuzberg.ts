@@ -14,17 +14,17 @@ export function getAnhalterBahnhof(lineName: string) {
 export function getFrankfurterAllee(product: string, lineName: string) {
 	switch (product) {
 		case "tram":
-			return "S+U Frankfurter Allee [Tram Möllendorffstr.]"
+			return ["S+U Frankfurter Allee [Tram Möllendorffstr.]", 4]
 		case "bus":
 			switch (lineName) {
 				case "U5":
 				case "N5":
-					return "S+U Frankfurter Allee [Bus Frankfurter Allee]"
+					return ["S+U Frankfurter Allee [Bus Frankfurter Allee]", 5]
 				case "M13":
 				case "16":
-					return "S+U Frankfurter Allee [Bus Möllendorffstr.]"
+					return ["S+U Frankfurter Allee [Bus Möllendorffstr.]", 6]
 				default:
-					return "S+U Frankfurter Allee [Bus]"
+					return ["S+U Frankfurter Allee [Bus]", 7]
 			}
 	}
 }

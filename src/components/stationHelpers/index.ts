@@ -6,6 +6,7 @@ import {
 	getZoologischerGarten,
 } from "./Charlottenburg-Wilmersdorf"
 import {
+	getFrankfurterAllee,
 	getGleisdreieck,
 	getHalleschesTor,
 	getKottbusserTor,
@@ -82,6 +83,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041101":
 				;[newStopName, order] = getFehrbellinerPlatz(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000120001":
+				;[newStopName, order] = getFrankfurterAllee(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000017103":
