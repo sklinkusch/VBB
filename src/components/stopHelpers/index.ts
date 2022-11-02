@@ -92,6 +92,7 @@ import {
 	getHbf,
 	getHumboldthain,
 	getJannowitzbrücke,
+	getLeopoldplatz,
 	getMendelssohnBartholdyPark,
 	getMohrenstr,
 	getMuseumsinsel,
@@ -728,6 +729,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getLankwitz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000009102":
+				;[newStopName, order] = getLeopoldplatz(mode, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000160004":
 			case "900000160020":
 			case "900000160701":

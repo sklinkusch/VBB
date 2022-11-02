@@ -350,6 +350,46 @@ export function getJannowitzbrücke(
 	}
 }
 
+export function getLeopoldplatz(mode: string, lineName: string) {
+	if (mode === "arr") {
+		switch (lineName) {
+			case "120":
+			case "142":
+			case "147":
+			case "221":
+			case "247":
+			case "327":
+			case "U6":
+			case "N6":
+			case "N20":
+				return ["U Leopoldplatz [Bus Müllerstr.]", 4]
+			case "U9":
+			case "N9":
+				return ["U Leopoldplatz [Bus Schulstr.]", 5]
+			default:
+				return ["U Leopoldplatz", undefined]
+		}
+	} else if (mode === "dep") {
+		switch (lineName) {
+			case "120":
+			case "U6":
+			case "N6":
+			case "N20":
+				return ["U Leopoldplatz [Bus Müllerstr.]", 4]
+			case "142":
+			case "147":
+			case "221":
+			case "247":
+			case "327":
+			case "U9":
+			case "N9":
+				return ["U Leopoldplatz [Bus Schulstr.]", 5]
+			default:
+				return ["U Leopoldplatz", undefined]
+		}
+	}
+}
+
 export function getMärkischesMuseum(id: string) {
 	switch (id) {
 		case "900000100014":

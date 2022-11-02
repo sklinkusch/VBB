@@ -15,7 +15,12 @@ import {
 } from "./Friedrichshain-Kreuzberg"
 import { getLichtenberg } from "./Lichtenberg"
 import { getWuhletal } from "./Marzahn-Hellersdorf"
-import { getAlex, getPotsdamerPlatz, getStadtmitte } from "./Mitte"
+import {
+	getAlex,
+	getLeopoldplatz,
+	getPotsdamerPlatz,
+	getStadtmitte,
+} from "./Mitte"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
 import {
 	getBayerischerPlatz,
@@ -111,6 +116,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000013102":
 				;[newStopName, order] = getKottbusserTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000009102":
+				;[newStopName, order] = getLeopoldplatz(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000160004":

@@ -21,6 +21,17 @@ export function getAlex(id: string, product: string, lineName: string) {
 	}
 }
 
+export function getLeopoldplatz(lineName: string) {
+	switch (lineName) {
+		case "U6":
+			return ["U Leopoldplatz [U6]", 1]
+		case "U9":
+			return ["U Leopoldplatz [U9]", 2]
+		default:
+			return ["U Leopoldplatz [U-Bahn]", 3]
+	}
+}
+
 export function getPotsdamerPlatz(id: string, product: string) {
 	switch (id) {
 		case "900000100020":
