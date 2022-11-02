@@ -493,9 +493,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000100001":
-				newStopName = getFriedrichstr()
+				;[newStopName, order] = getFriedrichstr(product)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000092201":
 			case "900000092282":
 				;[newStopName, trackNo] = getFrohnau(

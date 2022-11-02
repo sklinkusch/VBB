@@ -132,8 +132,15 @@ export function getBrandenburgerTor() {
 	return "S+U Brandenburger Tor [Bus Unter den Linden]"
 }
 
-export function getFriedrichstr() {
-	return "S+U Friedrichstr. [Tram Bus Friedrichstr.]"
+export function getFriedrichstr(product: string) {
+	switch (product) {
+		case "tram":
+			return ["S+U Friedrichstr. [Tram Friedrichstr.]", 7]
+		case "bus":
+			return ["S+U Friedrichstr. [Bus Friedrichstr.]", 8]
+		default:
+			return ["S+U Friedrichstr.", 9]
+	}
 }
 
 export function getGesundbrunnen(

@@ -21,6 +21,34 @@ export function getAlex(id: string, product: string, lineName: string) {
 	}
 }
 
+export function getFriedrichstr(product: string, lineName: string) {
+	switch (product) {
+		case "express":
+		case "regional":
+			return ["S+U Friedrichstr. [Regionalbahn]", 1]
+		case "suburban":
+			switch (lineName) {
+				case "S3":
+				case "S5":
+				case "S7":
+				case "S75":
+				case "S9":
+					return ["S+U Friedrichstr. [Stadtbahn]", 2]
+				case "S1":
+				case "S2":
+				case "S25":
+				case "S26":
+					return ["S+U Friedrichstr. [Nordsüdbahn]", 3]
+				default:
+					return ["S+U Friedrichstr. [S-Bahn]", 4]
+			}
+		case "subway":
+			return ["S+U Friedrichstr. [U6]", 5]
+		default:
+			return ["S+U Friedrichstr. [Bahnhof]", 6]
+	}
+}
+
 export function getLeopoldplatz(lineName: string) {
 	switch (lineName) {
 		case "U6":
