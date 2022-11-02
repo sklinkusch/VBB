@@ -800,22 +800,6 @@ export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
 
-export function getWedding(id: string, lineName: string) {
-	switch (id) {
-		case "900000009104":
-			return "S+U Wedding [Bus Müllerstr.]"
-		case "900000008103":
-			switch (lineName) {
-				case "M27":
-					return "Nettelbeckplatz/S Wedding [Bus Reinickendorfer Str.]"
-				case "247":
-					return "Nettelbeckplatz/S Wedding [Bus Gerichtstr.]"
-				default:
-					return "Nettelbeckplatz/S wedding"
-			}
-	}
-}
-
 export function getUnterDenLinden(lineName: string) {
 	switch (lineName) {
 		case "100":
@@ -829,6 +813,22 @@ export function getUnterDenLinden(lineName: string) {
 			return "U Unter den Linden [Bus Friedrichstr.]"
 		default:
 			return "U Unter den Linden [Bus]"
+	}
+}
+
+export function getWedding(id: string, lineName: string) {
+	switch (id) {
+		case "900000009104":
+			return ["S+U Wedding [Bus Müllerstr.]", 4]
+		case "900000008103":
+			switch (lineName) {
+				case "M27":
+					return ["Nettelbeckplatz/S Wedding [Bus Reinickendorfer Str.]", 5]
+				case "247":
+					return ["Nettelbeckplatz/S Wedding [Bus Gerichtstr.]", 6]
+				default:
+					return ["Nettelbeckplatz/S wedding", 7]
+			}
 	}
 }
 

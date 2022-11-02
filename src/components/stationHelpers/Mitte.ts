@@ -61,3 +61,14 @@ export function getStadtmitte(lineName: string) {
 			return ["U Stadtmitte [U-Bahn]", 3]
 	}
 }
+
+export function getWedding(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S+U Wedding [S-Bahn]", 1]
+		case "subway":
+			return ["S+U Wedding [U6]", 2]
+		default:
+			return ["S+U Wedding [Bahnhof]", 3]
+	}
+}

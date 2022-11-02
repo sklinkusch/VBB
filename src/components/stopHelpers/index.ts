@@ -1229,9 +1229,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000008103":
 			case "900000009104":
-				newStopName = getWedding(id, lineName)
+				;[newStopName, order] = getWedding(id, lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000020204":
 			case "900000026207":
 				newStopName = getWestend(id)
