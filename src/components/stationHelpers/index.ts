@@ -26,7 +26,7 @@ import {
 	getWedding,
 } from "./Mitte"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
-import { getAltstadtSpandau, getRathausSpandau } from "./Spandau"
+import { getAltstadtSpandau, getRathausSpandau, getZitadelle } from "./Spandau"
 import {
 	getBayerischerPlatz,
 	getInnsbruckerPlatz,
@@ -203,6 +203,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000175001":
 				;[newStopName, order] = getWuhletal(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000033101":
+				;[newStopName, order] = getZitadelle()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023201":

@@ -15,3 +15,7 @@ export function getRathausSpandau(product: string) {
 			return ["S+U Rathaus Spandau [Bahnhof]", 4]
 	}
 }
+
+export function getZitadelle() {
+	return ["U Zitadelle [U7]", 1]
+}

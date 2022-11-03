@@ -167,7 +167,12 @@ import {
 	getWaidmannslust,
 	getWilhelmsruh,
 } from "./Reinickendorf"
-import { getAltstadtSpandau, getSpandau, getStresow } from "./Spandau"
+import {
+	getAltstadtSpandau,
+	getSpandau,
+	getStresow,
+	getZitadelle,
+} from "./Spandau"
 import {
 	getBotanischerGarten,
 	getBreitenbachplatz,
@@ -1306,6 +1311,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getZeuthen()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000033101":
+				;[newStopName, order] = getZitadelle()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000023201":
 			case "900000023172":
 			case "900000023173":

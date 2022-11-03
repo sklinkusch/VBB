@@ -320,3 +320,7 @@ export function getStresow(id: string) {
 			return "S Stresow [Vorplatz]"
 	}
 }
+
+export function getZitadelle() {
+	return ["U Zitadelle [Bus Am Juliusturm]", 2]
+}
