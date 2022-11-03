@@ -21,6 +21,7 @@ import {
 	getLeopoldplatz,
 	getPotsdamerPlatz,
 	getStadtmitte,
+	getUnterDenLinden,
 	getWedding,
 } from "./Mitte"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
@@ -165,6 +166,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100011":
 				;[newStopName, order] = getStadtmitte(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000100513":
+				;[newStopName, order] = getUnterDenLinden(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000120004":

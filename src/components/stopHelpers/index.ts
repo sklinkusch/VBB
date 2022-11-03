@@ -1185,9 +1185,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000100513":
-				newStopName = getUnterDenLinden(lineName)
+				;[newStopName, order] = getUnterDenLinden(lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000130011":
 				newStopName = getVinetastr(product, lineName)
 				newStop = { ...stop, name: newStopName }

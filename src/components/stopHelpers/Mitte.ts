@@ -813,13 +813,13 @@ export function getUnterDenLinden(lineName: string) {
 		case "300":
 		case "U5":
 		case "N5":
-			return "U Unter den Linden [Bus Unter den Linden]"
+			return ["U Unter den Linden [Bus Unter den Linden]", 4]
 		case "147":
 		case "U6":
 		case "N6":
-			return "U Unter den Linden [Bus Friedrichstr.]"
+			return ["U Unter den Linden [Bus Friedrichstr.]", 5]
 		default:
-			return "U Unter den Linden [Bus]"
+			return ["U Unter den Linden [Bus]", 6]
 	}
 }
 

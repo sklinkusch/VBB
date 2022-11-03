@@ -90,6 +90,17 @@ export function getStadtmitte(lineName: string) {
 	}
 }
 
+export function getUnterDenLinden(lineName: string) {
+	switch (lineName) {
+		case "U5":
+			return ["U Unter den Linden [U5]", 1]
+		case "U6":
+			return ["U Unter den Linden [U6]", 2]
+		default:
+			return ["U Unter den Linden [U-Bahn]", 3]
+	}
+}
+
 export function getWedding(product: string) {
 	switch (product) {
 		case "suburban":
