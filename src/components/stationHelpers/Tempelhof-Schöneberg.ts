@@ -60,3 +60,14 @@ export function getNollendorfplatz(
 	}
 	return "U Nollendorfplatz"
 }
+
+export function getTempelhof(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S+U Tempelhof [S-Bahn]", 1]
+		case "subway":
+			return ["S+U Tempelhof [U6]", 2]
+		default:
+			return ["S+U Tempelhof [Bahnhof]", 3]
+	}
+}

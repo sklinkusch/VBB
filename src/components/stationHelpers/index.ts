@@ -30,6 +30,7 @@ import {
 	getBayerischerPlatz,
 	getInnsbruckerPlatz,
 	getNollendorfplatz,
+	getTempelhof,
 } from "./Tempelhof-Schöneberg"
 
 type Remarks = {
@@ -171,6 +172,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100011":
 				;[newStopName, order] = getStadtmitte(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000068201":
+				;[newStopName, order] = getTempelhof(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100513":

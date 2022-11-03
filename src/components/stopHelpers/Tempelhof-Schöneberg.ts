@@ -290,16 +290,16 @@ export function getTempelhof(
 					case "N6":
 					case "140":
 					case "N84":
-						return "S+U Tempelhof [Bus Tempelhofer Damm]"
+						return ["S+U Tempelhof [Bus Tempelhofer Damm]", 4]
 					case "184":
 						if (/(Südkreuz)/.test(provenance))
-							return "S+U Tempelhof [Bus Tempelhofer Damm]"
-						return "S+U Tempelhof [Bus Hoeppnerstr.]"
+							return ["S+U Tempelhof [Bus Tempelhofer Damm]", 4]
+						return ["S+U Tempelhof [Bus Hoeppnerstr.]", 5]
 					default:
-						return "S+U Tempelhof [Bus]"
+						return ["S+U Tempelhof [Bus]", 6]
 				}
 			case "900000068272":
-				return "U Tempelhof/Ringbahnstr. [Bus Tempelhofer Damm]"
+				return ["U Tempelhof/Ringbahnstr. [Bus Tempelhofer Damm]", 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (id) {
@@ -309,16 +309,16 @@ export function getTempelhof(
 					case "N6":
 					case "140":
 					case "N84":
-						return "S+U Tempelhof [Bus Tempelhofer Damm]"
+						return ["S+U Tempelhof [Bus Tempelhofer Damm]", 4]
 					case "184":
 						if (direction.includes("Südkreuz"))
-							return "S+U Tempelhof [Bus Hoeppnerstr.]"
-						return "S+U Tempelhof [Bus Tempelhofer Damm]"
+							return ["S+U Tempelhof [Bus Hoeppnerstr.]", 5]
+						return ["S+U Tempelhof [Bus Tempelhofer Damm]", 4]
 					default:
-						return "S+U Tempelhof [Bus]"
+						return ["S+U Tempelhof [Bus]", 6]
 				}
 			case "900000068272":
-				return "U Tempelhof/Ringbahnstr. [Bus Tempelhofer Damm]"
+				return ["U Tempelhof/Ringbahnstr. [Bus Tempelhofer Damm]", 7]
 		}
 	}
 }
