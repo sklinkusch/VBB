@@ -48,6 +48,10 @@ export function getKottbusserTor(lineName: string) {
 	}
 }
 
+export function getMehringdamm() {
+	return ["U Mehringdamm [U6/U7]", 1]
+}
+
 export function getMöckernbrücke(lineName: string) {
 	switch (lineName) {
 		case "U7":

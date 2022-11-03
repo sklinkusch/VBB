@@ -51,6 +51,7 @@ import {
 	getFrankfurterAllee,
 	getGörlitzerBf,
 	getHalleschesTor,
+	getMehringdamm,
 	getMöckernbrücke,
 	getOstbahnhof,
 	getOstkreuz,
@@ -788,6 +789,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000017101":
+			case "900000017171":
+				;[newStopName, order] = getMehringdamm(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000170003":
 				newStopName = getMehrowerAllee()
 				newStop = { ...stop, name: newStopName }

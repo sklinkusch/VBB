@@ -88,6 +88,24 @@ export function getHalleschesTor(
 	}
 }
 
+export function getMehringdamm(id: string, lineName: string) {
+	switch (id) {
+		case "900000017101":
+			switch (lineName) {
+				case "U6":
+				case "N6":
+				case "N42":
+					return ["U Mehringdamm [Bus Mehringdamm]", 3]
+				default:
+					return ["U Mehringdamm [Bus Yorckstr.]", 2]
+			}
+		case "900000017171":
+			return ["U Mehringdamm [Bus Gneisenaustr.]", 4]
+		default:
+			return ["U Mehringdamm [Bus]", 5]
+	}
+}
+
 export function getMöckernbrücke(
 	mode: string,
 	direction: Dir,

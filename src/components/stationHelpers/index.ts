@@ -10,6 +10,7 @@ import {
 	getGleisdreieck,
 	getHalleschesTor,
 	getKottbusserTor,
+	getMehringdamm,
 	getMöckernbrücke,
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
@@ -132,6 +133,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 			case "900000160004":
 			case "900000160701":
 				;[newStopName, order] = getLichtenberg(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000017101":
+				;[newStopName, order] = getMehringdamm()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000017104":
