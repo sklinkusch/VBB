@@ -1062,7 +1062,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000029302":
 			case "900000029371":
-				;[newStopName, trackNo] = getSpandau(
+				;[newStopName, trackNo, order] = getSpandau(
 					id,
 					mode,
 					lineName,
@@ -1070,7 +1070,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000042101":
 				;[newStopName, order] = getSpichernstr()
 				newStop = { ...stop, name: newStopName }
