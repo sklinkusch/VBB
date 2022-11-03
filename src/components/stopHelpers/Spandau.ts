@@ -1,5 +1,9 @@
 type Dir = string | null
 
+export function getAltstadtSpandau() {
+	return ["U Altstadt Spandau [Bus Am Juliusturm]", 2]
+}
+
 export function getSpandau(
 	id: string,
 	mode: string,

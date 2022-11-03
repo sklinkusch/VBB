@@ -1,3 +1,7 @@
+export function getAltstadtSpandau() {
+	return ["U Altstadt Spandau [U7]", 1]
+}
+
 export function getRathausSpandau(product: string) {
 	switch (product) {
 		case "express":

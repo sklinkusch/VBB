@@ -167,7 +167,7 @@ import {
 	getWaidmannslust,
 	getWilhelmsruh,
 } from "./Reinickendorf"
-import { getSpandau, getStresow } from "./Spandau"
+import { getAltstadtSpandau, getSpandau, getStresow } from "./Spandau"
 import {
 	getBotanischerGarten,
 	getBreitenbachplatz,
@@ -309,6 +309,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getAltglienicke(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000029301":
+				;[newStopName, order] = getAltstadtSpandau()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000012101":
 				newStopName = getAnhalterBahnhof(lineName)
 				newStop = { ...stop, name: newStopName }
