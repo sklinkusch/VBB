@@ -169,6 +169,7 @@ import {
 } from "./Reinickendorf"
 import {
 	getAltstadtSpandau,
+	getHaselhorst,
 	getSpandau,
 	getStresow,
 	getZitadelle,
@@ -577,6 +578,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getHalleschesTor(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000034102":
+			case "900000034170":
+				;[newStopName, order] = getHaselhorst(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000003201":
 				;[newStopName, trackNo] = getHbf(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }

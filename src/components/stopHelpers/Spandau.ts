@@ -4,6 +4,28 @@ export function getAltstadtSpandau() {
 	return ["U Altstadt Spandau [Bus Am Juliusturm]", 2]
 }
 
+export function getHaselhorst(id: string, lineName: string) {
+	switch (id) {
+		case "900000034102":
+			switch (lineName) {
+				case "M36":
+				case "133":
+				case "N33":
+					return ["U Haselhorst [Bus F.-Friedensburg-Platz]", 2]
+				case "X33":
+				case "U7":
+				case "N7":
+					return ["U Haselhorst [Bus Am Juliusturm]", 3]
+				default:
+					return ["U Haselhorst [Bus]", 5]
+			}
+		case "900000034170":
+			return ["U Haselhorst/Daumstr. [Bus Daumstr.]", 4]
+		default:
+			return ["U Haselhorst [Bus]", 5]
+	}
+}
+
 export function getSpandau(
 	id: string,
 	mode: string,

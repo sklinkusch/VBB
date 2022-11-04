@@ -26,7 +26,12 @@ import {
 	getWedding,
 } from "./Mitte"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
-import { getAltstadtSpandau, getRathausSpandau, getZitadelle } from "./Spandau"
+import {
+	getAltstadtSpandau,
+	getHaselhorst,
+	getRathausSpandau,
+	getZitadelle,
+} from "./Spandau"
 import {
 	getBayerischerPlatz,
 	getInnsbruckerPlatz,
@@ -114,6 +119,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000012103":
 				;[newStopName, order] = getHalleschesTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000034102":
+				;[newStopName, order] = getHaselhorst()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000045102":
