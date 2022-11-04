@@ -6,6 +6,10 @@ export function getHaselhorst() {
 	return ["U Haselhorst [U7]", 1]
 }
 
+export function getPaulsternstr() {
+	return ["U Paulsternstr. [U7]", 1]
+}
+
 export function getRathausSpandau(product: string) {
 	switch (product) {
 		case "express":

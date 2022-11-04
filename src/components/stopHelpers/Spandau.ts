@@ -26,6 +26,10 @@ export function getHaselhorst(id: string, lineName: string) {
 	}
 }
 
+export function getPaulsternstr() {
+	return ["U Paulsternstr. [Bus Nonnendammallee]", 2]
+}
+
 export function getSpandau(
 	id: string,
 	mode: string,

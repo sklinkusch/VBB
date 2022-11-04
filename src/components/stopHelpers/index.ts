@@ -170,6 +170,7 @@ import {
 import {
 	getAltstadtSpandau,
 	getHaselhorst,
+	getPaulsternstr,
 	getSpandau,
 	getStresow,
 	getZitadelle,
@@ -944,6 +945,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getPankowHeinersdorf(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000034101":
+				;[newStopName, order] = getPaulsternstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000320005":
 				newStopName = getPetershagenNord()
 				newStop = { ...stop, name: newStopName }
