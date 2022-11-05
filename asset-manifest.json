@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/VBB/static/css/main.4df880b5.css",
-    "main.js": "/VBB/static/js/main.0bf9bdd6.js",
-    "static/js/964.7df002c3.chunk.js": "/VBB/static/js/964.7df002c3.chunk.js",
+    "main.js": "/VBB/static/js/main.aef58dae.js",
+    "static/js/964.abc2d08c.chunk.js": "/VBB/static/js/964.abc2d08c.chunk.js",
     "static/js/113.78d6de44.chunk.js": "/VBB/static/js/113.78d6de44.chunk.js",
     "static/js/787.43a9d60c.chunk.js": "/VBB/static/js/787.43a9d60c.chunk.js",
     "static/js/207.72ca6e96.chunk.js": "/VBB/static/js/207.72ca6e96.chunk.js",
     "static/js/522.d6350251.chunk.js": "/VBB/static/js/522.d6350251.chunk.js",
     "static/js/282.2b2816a4.chunk.js": "/VBB/static/js/282.2b2816a4.chunk.js",
-    "static/js/985.8f3ed600.chunk.js": "/VBB/static/js/985.8f3ed600.chunk.js",
+    "static/js/985.0a2ec33e.chunk.js": "/VBB/static/js/985.0a2ec33e.chunk.js",
     "static/js/272.a66deeeb.chunk.js": "/VBB/static/js/272.a66deeeb.chunk.js",
     "static/js/48.93b4dadc.chunk.js": "/VBB/static/js/48.93b4dadc.chunk.js",
     "static/js/302.13d3c5e9.chunk.js": "/VBB/static/js/302.13d3c5e9.chunk.js",
@@ -21,7 +21,7 @@
     "static/js/313.6433839e.chunk.js": "/VBB/static/js/313.6433839e.chunk.js",
     "static/js/90.6f8c03e7.chunk.js": "/VBB/static/js/90.6f8c03e7.chunk.js",
     "static/js/953.1fb11146.chunk.js": "/VBB/static/js/953.1fb11146.chunk.js",
-    "static/js/761.b49d18f6.chunk.js": "/VBB/static/js/761.b49d18f6.chunk.js",
+    "static/js/868.37abb470.chunk.js": "/VBB/static/js/868.37abb470.chunk.js",
     "static/js/44.68c5e1b4.chunk.js": "/VBB/static/js/44.68c5e1b4.chunk.js",
     "static/js/957.1f93e983.chunk.js": "/VBB/static/js/957.1f93e983.chunk.js",
     "static/media/soroush-karimi-192112-unsplash.min.jpg": "/VBB/static/media/soroush-karimi-192112-unsplash.min.aa96651cf4239c279504.jpg",
@@ -39,14 +39,14 @@
     "static/media/subway.svg": "/VBB/static/media/subway.e00cb078c48eaddfde2a412432846c32.svg",
     "static/media/metro-tram.svg": "/VBB/static/media/metro-tram.4777a6b064a33b4a3ea8b5002429f52e.svg",
     "main.4df880b5.css.map": "/VBB/static/css/main.4df880b5.css.map",
-    "main.0bf9bdd6.js.map": "/VBB/static/js/main.0bf9bdd6.js.map",
-    "964.7df002c3.chunk.js.map": "/VBB/static/js/964.7df002c3.chunk.js.map",
+    "main.aef58dae.js.map": "/VBB/static/js/main.aef58dae.js.map",
+    "964.abc2d08c.chunk.js.map": "/VBB/static/js/964.abc2d08c.chunk.js.map",
     "113.78d6de44.chunk.js.map": "/VBB/static/js/113.78d6de44.chunk.js.map",
     "787.43a9d60c.chunk.js.map": "/VBB/static/js/787.43a9d60c.chunk.js.map",
     "207.72ca6e96.chunk.js.map": "/VBB/static/js/207.72ca6e96.chunk.js.map",
     "522.d6350251.chunk.js.map": "/VBB/static/js/522.d6350251.chunk.js.map",
     "282.2b2816a4.chunk.js.map": "/VBB/static/js/282.2b2816a4.chunk.js.map",
-    "985.8f3ed600.chunk.js.map": "/VBB/static/js/985.8f3ed600.chunk.js.map",
+    "985.0a2ec33e.chunk.js.map": "/VBB/static/js/985.0a2ec33e.chunk.js.map",
     "272.a66deeeb.chunk.js.map": "/VBB/static/js/272.a66deeeb.chunk.js.map",
     "48.93b4dadc.chunk.js.map": "/VBB/static/js/48.93b4dadc.chunk.js.map",
     "302.13d3c5e9.chunk.js.map": "/VBB/static/js/302.13d3c5e9.chunk.js.map",
@@ -59,12 +59,12 @@
     "313.6433839e.chunk.js.map": "/VBB/static/js/313.6433839e.chunk.js.map",
     "90.6f8c03e7.chunk.js.map": "/VBB/static/js/90.6f8c03e7.chunk.js.map",
     "953.1fb11146.chunk.js.map": "/VBB/static/js/953.1fb11146.chunk.js.map",
-    "761.b49d18f6.chunk.js.map": "/VBB/static/js/761.b49d18f6.chunk.js.map",
+    "868.37abb470.chunk.js.map": "/VBB/static/js/868.37abb470.chunk.js.map",
     "44.68c5e1b4.chunk.js.map": "/VBB/static/js/44.68c5e1b4.chunk.js.map",
     "957.1f93e983.chunk.js.map": "/VBB/static/js/957.1f93e983.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4df880b5.css",
-    "static/js/main.0bf9bdd6.js"
+    "static/js/main.aef58dae.js"
   ]
 }
