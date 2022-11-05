@@ -31,6 +31,20 @@ export function getJakobKaiserPlatz() {
 	return ["U Jakob-Kaiser-Platz [U7]", 1]
 }
 
+export function getJungfernheide(product: string) {
+	switch (product) {
+		case "express":
+		case "regional":
+			return ["S+U Jungfernheide [Regionalbahn]", 1]
+		case "suburban":
+			return ["S+U Jungfernheide [S-Bahn]", 2]
+		case "subway":
+			return ["S+U Jungfernheide [U7]", 3]
+		default:
+			return ["S+U Jungfernheide [Bahnhof]", 4]
+	}
+}
+
 export function getKurfürstendamm(lineName: string) {
 	switch (lineName) {
 		case "U1":

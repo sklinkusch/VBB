@@ -377,30 +377,30 @@ export function getJungfernheide(
 					case "M21":
 					case "X21":
 						if (provenance.includes("Goerdelersteg"))
-							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3]
-						return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
+							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3, 4]
+						return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5, 4]
 					case "M27":
 					case "N7":
 						if (provenance.includes("Galenstr"))
-							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-						return ["S+U Jungfernheide [Bus Olbersstr.]", 6]
+							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5, 4]
+						return ["S+U Jungfernheide [Bus Olbersstr.]", 6, 5]
 					default:
-						return ["S+U Jungfernheide", null]
+						return ["S+U Jungfernheide [Bus]", null, 7]
 				}
 			case "900000020207":
 				switch (lineName) {
 					case "M27":
 					case "N7":
-						return ["Tegeler Weg/S Jungfernheide", 2]
+						return ["Tegeler Weg/S Jungfernheide", 2, 6]
 					case "109":
 						if (provenance.includes("Hertzallee"))
-							return ["Tegeler Weg/S Jungfernheide", 2]
-						return ["Tegeler Weg/S Jungfernheide", 1]
+							return ["Tegeler Weg/S Jungfernheide", 2, 6]
+						return ["Tegeler Weg/S Jungfernheide", 1, 6]
 					default:
-						return ["Tegeler Weg/S Jungfernheide", 2]
+						return ["Tegeler Weg/S Jungfernheide", 2, 6]
 				}
 			default:
-				return ["S+U Jungfernheide", null]
+				return ["S+U Jungfernheide [Bus]", null, 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (id) {

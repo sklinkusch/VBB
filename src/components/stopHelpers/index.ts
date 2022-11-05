@@ -679,7 +679,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000020201":
 			case "900000020207":
-				;[newStopName, trackNo] = getJungfernheide(
+				;[newStopName, trackNo, order] = getJungfernheide(
 					id,
 					mode,
 					lineName,
@@ -687,7 +687,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000096458":
 				newStopName = getKarlBonhoefferNervenklinik()
 				newStop = { ...stop, name: newStopName }
