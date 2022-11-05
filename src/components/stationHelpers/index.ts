@@ -32,6 +32,7 @@ import {
 	getPaulsternstr,
 	getRathausSpandau,
 	getRohrdamm,
+	getSiemensdamm,
 	getZitadelle,
 } from "./Spandau"
 import {
@@ -194,6 +195,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000110001":
 				;[newStopName, order] = getSchönhauserAllee(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000035101":
+				;[newStopName, order] = getSiemensdamm()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000042101":

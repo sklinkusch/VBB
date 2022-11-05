@@ -41,7 +41,20 @@ export function getRohrdamm(lineName: string) {
 		case "N7":
 			return ["U Rohrdamm [Bus Nonnendammallee]", 2]
 		default:
-			return ["U Rohrdamm [Bus]", undefined]
+			return ["U Rohrdamm [Bus]", 4]
+	}
+}
+
+export function getSiemensdamm(lineName: string) {
+	switch (lineName) {
+		case "123":
+		case "U7":
+		case "N7":
+			return ["U Siemensdamm [Bus Popitzweg]", 2]
+		case "139":
+			return ["U Siemensdamm [Bus Siemensdamm]", 3]
+		default:
+			return ["U Siemensdamm [Bus]", 4]
 	}
 }
 

@@ -28,6 +28,10 @@ export function getRohrdamm() {
 	return ["U Rohrdamm [U7]", 1]
 }
 
+export function getSiemensdamm() {
+	return ["U Siemensdamm [U7]", 1]
+}
+
 export function getZitadelle() {
 	return ["U Zitadelle [U7]", 1]
 }

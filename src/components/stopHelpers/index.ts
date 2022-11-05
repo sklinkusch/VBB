@@ -172,6 +172,7 @@ import {
 	getHaselhorst,
 	getPaulsternstr,
 	getRohrdamm,
+	getSiemensdamm,
 	getSpandau,
 	getStresow,
 	getZitadelle,
@@ -1071,6 +1072,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getSenefelderplatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000035101":
+				;[newStopName, order] = getSiemensdamm(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000077106":
 			case "900000077110":
 				newStopName = getSonnenallee(id, lineName)
