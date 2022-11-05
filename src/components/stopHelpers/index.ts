@@ -171,6 +171,7 @@ import {
 	getAltstadtSpandau,
 	getHaselhorst,
 	getPaulsternstr,
+	getRohrdamm,
 	getSpandau,
 	getStresow,
 	getZitadelle,
@@ -1009,6 +1010,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000022202":
 				newStopName = getRichardWagnerPlatz(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000036101":
+				;[newStopName, order] = getRohrdamm(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000100016":

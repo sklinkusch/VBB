@@ -24,6 +24,10 @@ export function getRathausSpandau(product: string) {
 	}
 }
 
+export function getRohrdamm() {
+	return ["U Rohrdamm [U7]", 1]
+}
+
 export function getZitadelle() {
 	return ["U Zitadelle [U7]", 1]
 }

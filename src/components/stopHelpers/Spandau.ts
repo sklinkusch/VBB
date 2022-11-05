@@ -30,6 +30,21 @@ export function getPaulsternstr() {
 	return ["U Paulsternstr. [Bus Nonnendammallee]", 2]
 }
 
+export function getRohrdamm(lineName: string) {
+	switch (lineName) {
+		case "123":
+		case "N23":
+			return ["U Rohrdamm [Bus Rohrdamm]", 3]
+		case "139":
+		case "N39":
+		case "U7":
+		case "N7":
+			return ["U Rohrdamm [Bus Nonnendammallee]", 2]
+		default:
+			return ["U Rohrdamm [Bus]", undefined]
+	}
+}
+
 export function getSpandau(
 	id: string,
 	mode: string,
