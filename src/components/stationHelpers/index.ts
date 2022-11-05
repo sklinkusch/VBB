@@ -1,5 +1,6 @@
 import {
 	getFehrbellinerPlatz,
+	getHalemweg,
 	getHeidelbergerPlatz,
 	getKurfürstendamm,
 	getSpichernstr,
@@ -120,6 +121,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				newStopName = getGleisdreieck(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000018102":
+				;[newStopName, order] = getHalemweg()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000012103":
 				;[newStopName, order] = getHalleschesTor(lineName)
 				newStop = { ...stop, name: newStopName }

@@ -212,7 +212,7 @@ export function getGüntzelstr() {
 }
 
 export function getHalemweg() {
-	return "U Halemweg [Bus Halemweg]"
+	return ["U Halemweg [Bus Halemweg]", 2]
 }
 
 export function getHalensee() {

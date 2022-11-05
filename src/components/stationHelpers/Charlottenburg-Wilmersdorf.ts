@@ -12,6 +12,10 @@ export function getFehrbellinerPlatz(lineName: string) {
 	}
 }
 
+export function getHalemweg() {
+	return ["U Halemweg [U7]", 1]
+}
+
 export function getHeidelbergerPlatz(product: string) {
 	switch (product) {
 		case "suburban":
