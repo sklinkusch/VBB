@@ -27,6 +27,10 @@ export function getHeidelbergerPlatz(product: string) {
 	}
 }
 
+export function getJakobKaiserPlatz() {
+	return ["U Jakob-Kaiser-Platz [U7]", 1]
+}
+
 export function getKurfürstendamm(lineName: string) {
 	switch (lineName) {
 		case "U1":

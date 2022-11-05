@@ -321,52 +321,44 @@ export function getJakobKaiserPlatz(
 			case "M21":
 			case "X21":
 				if (provenance.includes("Goerdelersteg"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
 			case "109":
 				if (provenance.includes("Tegel"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
 			case "123":
-				if (provenance.includes("Hauptbahnhof"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
-				if (provenance.includes("Turmstr"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+				if (/(Hauptbahnhof|Turmstr)/.test(provenance))
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
 			case "N7":
-				if (provenance.includes("Spandau"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
-				if (provenance.includes("Galenstr"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+				if (/(Spandau|Galenstr)/.test(provenance))
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
 			default:
-				return "U Jakob-Kaiser-Platz [Bus]"
+				return ["U Jakob-Kaiser-Platz [Bus]", 4]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "M21":
 			case "X21":
 				if (direction.includes("Jungfernheide"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
 			case "109":
 				if (direction.includes("Tegel"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
 			case "123":
-				if (direction.includes("Hauptbahnhof"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
-				if (direction.includes("Turmstr"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
+				if (/(Hauptbahnhof|Turmstr)/.test(direction))
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
 			case "N7":
-				if (direction.includes("Spandau"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
-				if (direction.includes("Galenstr"))
-					return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]"
-				return "U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]"
+				if (/(Spandau|Galenstr)/.test(direction))
+					return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm Ost]", 2]
+				return ["U Jakob-Kaiser-Platz [Bus K.-Schumacher-Damm West]", 3]
 			default:
-				return "U Jakob-Kaiser-Platz [Bus]"
+				return ["U Jakob-Kaiser-Platz [Bus]", 4]
 		}
 	}
 }
