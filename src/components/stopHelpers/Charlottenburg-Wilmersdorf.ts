@@ -380,8 +380,9 @@ export function getJungfernheide(
 							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3, 4]
 						return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5, 4]
 					case "M27":
+					case "U7":
 					case "N7":
-						if (provenance.includes("Galenstr"))
+						if (/(Spandau|Galenstr)/.test(provenance))
 							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5, 4]
 						return ["S+U Jungfernheide [Bus Olbersstr.]", 6, 5]
 					default:
@@ -390,6 +391,7 @@ export function getJungfernheide(
 			case "900000020207":
 				switch (lineName) {
 					case "M27":
+					case "U7":
 					case "N7":
 						return ["Tegeler Weg/S Jungfernheide", 2, 6]
 					case "109":
@@ -409,34 +411,32 @@ export function getJungfernheide(
 					case "M21":
 					case "X21":
 						if (direction.includes("Goerdelersteg"))
-							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-						return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3]
+							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5, 4]
+						return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 3, 4]
 					case "M27":
+					case "U7":
 					case "N7":
-						if (direction.includes("Flughafen"))
-							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-						if (direction.includes("Rudow"))
-							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-						if (direction.includes("Pankow"))
-							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5]
-						return ["S+U Jungfernheide [Bus Olbersstr.]", 6]
+						if (/(Flughafen|Rudow|Pankow)/.test(direction))
+							return ["S+U Jungfernheide [Bus Max-Dohrn-Str.]", 5, 4]
+						return ["S+U Jungfernheide [Bus Olbersstr.]", 6, 5]
 					default:
-						return ["S+U Jungfernheide", null]
+						return ["S+U Jungfernheide [Bus]", null, 7]
 				}
 			case "900000020207":
 				switch (lineName) {
 					case "M27":
+					case "U7":
 					case "N7":
-						return ["Tegeler Weg/S Jungfernheide", 2]
+						return ["Tegeler Weg/S Jungfernheide", 2, 6]
 					case "109":
 						if (direction.includes("Zoologischer Garten"))
-							return ["Tegeler Weg/S Jungfernheide", 1]
-						return ["Tegeler Weg/S Jungfernheide", 2]
+							return ["Tegeler Weg/S Jungfernheide", 1, 6]
+						return ["Tegeler Weg/S Jungfernheide", 2, 6]
 					default:
-						return ["Tegeler Weg/S Jungfernheide", 2]
+						return ["Tegeler Weg/S Jungfernheide", 2, 6]
 				}
 			default:
-				return ["S+U Jungfernheide", null]
+				return ["S+U Jungfernheide [Bus]", null, 7]
 		}
 	}
 }
