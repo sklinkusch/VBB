@@ -547,31 +547,27 @@ export function getMierendorffplatz(
 		switch (lineName) {
 			case "M27":
 				if (provenance.includes("Jungfernheide"))
-					return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
-				return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
+					return ["U Mierendorffplatz [Bus Mierendorffplatz Ost]", 2]
+				return ["U Mierendorffplatz [Bus Mierendorffplatz Süd]", 3]
 			case "N7":
-				if (provenance.includes("Spandau"))
-					return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
-				if (provenance.includes("Galenstr"))
-					return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
-				return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
+				if (/(Spandau|Galenstr)/.test(provenance))
+					return ["U Mierendorffplatz [Bus Mierendorffplatz Ost]", 2]
+				return ["U Mierendorffplatz [Bus Mierendorffplatz Süd]", 3]
 			default:
-				return "U Mierendorffplatz [Bus]"
+				return ["U Mierendorffplatz [Bus]", 4]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "M27":
 				if (direction.includes("Jungfernheide"))
-					return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
-				return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+					return ["U Mierendorffplatz [Bus Mierendorffplatz Süd]", 3]
+				return ["U Mierendorffplatz [Bus Mierendorffplatz Ost]", 2]
 			case "N7":
-				if (direction.includes("Spandau"))
-					return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
-				if (direction.includes("Galenstr"))
-					return "U Mierendorffplatz [Bus Mierendorffplatz Süd]"
-				return "U Mierendorffplatz [Bus Mierendorffplatz Ost]"
+				if (/(Spandau|Galenstr)/.test(direction))
+					return ["U Mierendorffplatz [Bus Mierendorffplatz Süd]", 3]
+				return ["U Mierendorffplatz [Bus Mierendorffplatz Ost]", 2]
 			default:
-				return "U Mierendorffplatz [Bus]"
+				return ["U Mierendorffplatz [Bus]", 4]
 		}
 	}
 }
