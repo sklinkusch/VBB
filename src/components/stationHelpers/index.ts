@@ -1,4 +1,5 @@
 import {
+	getAdenauerplatz,
 	getBismarckstr,
 	getCharlottenburg,
 	getFehrbellinerPlatz,
@@ -96,6 +97,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 	const { product, name: lineName } = line
 	if (["express", "regional", "suburban", "subway"].includes(product)) {
 		switch (id) {
+			case "900000023302":
+				;[newStopName, order] = getAdenauerplatz()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100003":
 			case "900000100703":
 			case "900000100704":

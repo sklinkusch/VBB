@@ -12,24 +12,23 @@ export function getAdenauerplatz(
 			case "M29":
 			case "X10":
 			case "N10":
-				return "U Adenauerplatz [Bus Kurfürstendamm]"
+				return ["U Adenauerplatz [Bus Kurfürstendamm]", 2]
 			case "310":
+			case "U7":
 			case "N7":
-				if (provenance.includes("Charlottenburg"))
-					return "U Adenauerplatz [Bus Brandenburgische Str.]"
-				if (provenance.includes("Galenstr"))
-					return "U Adenauerplatz [Bus Brandenburgische Str.]"
-				return "U Adenauerplatz [Bus Lewishamstr.]"
+				if (/(Charlottenburg|Galenstr|Spandau)/.test(provenance))
+					return ["U Adenauerplatz [Bus Brandenburgische Str.]", 4]
+				return ["U Adenauerplatz [Bus Lewishamstr.]", 3]
 			case "109":
 				if (provenance.includes("Hertzallee"))
-					return "U Adenauerplatz [Bus Lewishamstr.]"
-				return "U Adenauerplatz [Bus Kurfürstendamm]"
+					return ["U Adenauerplatz [Bus Lewishamstr.]", 3]
+				return ["U Adenauerplatz [Bus Kurfürstendamm]", 2]
 			case "110":
 				if (provenance.includes("Hertzallee"))
-					return "U Adenauerplatz [Bus Brandenburgische Str.]"
-				return "U Adenauerplatz [Bus Kurfürstendamm]"
+					return ["U Adenauerplatz [Bus Brandenburgische Str.]", 4]
+				return ["U Adenauerplatz [Bus Kurfürstendamm]", 2]
 			default:
-				return "U Adenauerplatz [Bus]"
+				return ["U Adenauerplatz [Bus]", 5]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
@@ -37,26 +36,23 @@ export function getAdenauerplatz(
 			case "M29":
 			case "X10":
 			case "N10":
-				return "U Adenauerplatz [Bus Kurfürstendamm]"
+				return ["U Adenauerplatz [Bus Kurfürstendamm]", 2]
 			case "310":
+			case "U7":
 			case "N7":
-				if (direction.includes("Charlottenburg"))
-					return "U Adenauerplatz [Bus Lewishamstr.]"
-				if (direction.includes("Spandau"))
-					return "U Adenauerplatz [Bus Lewishamstr.]"
-				if (direction.includes("Galenstr"))
-					return "U Adenauerplatz [Bus Lewishamstr.]"
-				return "U Adenauerplatz [Bus Brandenburgische Str.]"
+				if (/(Charlottenburg|Spandau|Galenstr)/.test(direction))
+					return ["U Adenauerplatz [Bus Lewishamstr.]", 3]
+				return ["U Adenauerplatz [Bus Brandenburgische Str.]", 4]
 			case "109":
 				if (direction.includes("Zoo"))
-					return "U Adenauerplatz [Bus Kurfürstendamm]"
-				return "U Adenauerplatz [Bus Lewishamstr.]"
+					return ["U Adenauerplatz [Bus Kurfürstendamm]", 2]
+				return ["U Adenauerplatz [Bus Lewishamstr.]", 3]
 			case "110":
 				if (direction.includes("Zoo"))
-					return "U Adenauerplatz [Bus Kurfürstendamm]"
-				return "U Adenauerplatz [Bus Brandenburgische Str.]"
+					return ["U Adenauerplatz [Bus Kurfürstendamm]", 2]
+				return ["U Adenauerplatz [Bus Brandenburgische Str.]", 4]
 			default:
-				return "U Adenauerplatz [Bus]"
+				return ["U Adenauerplatz [Bus]", 5]
 		}
 	}
 }

@@ -1,3 +1,7 @@
+export function getAdenauerplatz() {
+	return ["U Adenauerplatz [U7]", 1]
+}
+
 export function getBismarckstr(lineName: string) {
 	switch (lineName) {
 		case "U2":

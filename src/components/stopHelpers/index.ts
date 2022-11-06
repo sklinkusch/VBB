@@ -283,9 +283,14 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 	if (["tram", "bus", "ferry"].includes(product)) {
 		switch (id) {
 			case "900000023302":
-				newStopName = getAdenauerplatz(mode, lineName, direction, provenance)
+				;[newStopName, order] = getAdenauerplatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000193002":
 				;[newStopName, trackNo] = getAdlershof(
 					mode,
