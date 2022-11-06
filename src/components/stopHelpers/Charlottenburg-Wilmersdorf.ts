@@ -124,48 +124,44 @@ export function getCharlottenburg(
 	if (mode === "arr" && provenance !== null) {
 		switch (id) {
 			case "900000024101":
-				return ["S Charlottenburg [Bus Stuttgarter Platz]", 5]
+				return ["S Charlottenburg [Bus Stuttgarter Platz]", 5, 7]
 			case "900000024103":
 				if (provenance.includes("Hertzallee"))
-					return ["S Charlottenburg/Gervinusstr.", 7]
+					return ["S Charlottenburg/Gervinusstr.", 7, 8]
 				if (provenance.includes("Blissestr"))
-					return ["S Charlottenburg/Gervinusstr.", 7]
-				return ["S Charlottenburg/Gervinusstr.", 6]
+					return ["S Charlottenburg/Gervinusstr.", 7, 8]
+				return ["S Charlottenburg/Gervinusstr.", 6, 8]
 			case "900000024202":
-				if (provenance.includes("Hertzallee"))
-					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
-				if (provenance.includes("Savignyplatz"))
-					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
+				if (/(Hertzallee|Savignyplatz)/.test(provenance))
+					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2, 5]
 				if (["X49", "309"].includes(lineName))
-					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
-				return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1]
+					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2, 5]
+				return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1, 5]
 			case "900000024205":
 				if (["309", "310"].includes(lineName))
-					return ["U Wilmersdorfer Str./S Charlottenburg", 4]
-				return ["U Wilmersdorfer Str./S Charlottenburg", 3]
+					return ["U Wilmersdorfer Str./S Charlottenburg", 4, 6]
+				return ["U Wilmersdorfer Str./S Charlottenburg", 3, 6]
 			default:
-				return ["S Charlottenburg [Bus]", null]
+				return ["S Charlottenburg [Bus]", null, 9]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (id) {
 			case "900000024101":
-				return ["S Charlottenburg [Bus Stuttgarter Platz]", 5]
+				return ["S Charlottenburg [Bus Stuttgarter Platz]", 5, 7]
 			case "900000024103":
 				if (direction.includes("Zoo"))
-					return ["S Charlottenburg/Gervinusstr.", 6]
-				return ["S Charlottenburg/Gervinusstr.", 7]
+					return ["S Charlottenburg/Gervinusstr.", 6, 8]
+				return ["S Charlottenburg/Gervinusstr.", 7, 8]
 			case "900000024202":
-				if (direction.includes("Zoo"))
-					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1]
-				if (direction.includes("Savignyplatz"))
-					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1]
-				return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2]
+				if (/(Zoo|Savignyplatz)/.test(direction))
+					return ["U Wilmersdorfer Str. [Bus Kantstr.]", 1, 5]
+				return ["U Wilmersdorfer Str. [Bus Kantstr.]", 2, 5]
 			case "900000024205":
 				if (lineName === "X49")
-					return ["U Wilmersdorfer Str./S Charlottenburg", 3]
-				return ["U Wilmersdorfer Str./S Charlottenburg", 4]
+					return ["U Wilmersdorfer Str./S Charlottenburg", 3, 6]
+				return ["U Wilmersdorfer Str./S Charlottenburg", 4, 6]
 			default:
-				return ["S Charlottenburg [Bus]", null]
+				return ["S Charlottenburg [Bus]", null, 9]
 		}
 	}
 }

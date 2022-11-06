@@ -10,6 +10,20 @@ export function getBismarckstr(lineName: string) {
 	}
 }
 
+export function getCharlottenburg(product: string) {
+	switch (product) {
+		case "express":
+		case "regional":
+			return ["S Charlottenburg [Regionalbahn]", 1]
+		case "suburban":
+			return ["S Charlottenburg [S-Bahn]", 2]
+		case "subway":
+			return ["U Wilmersdorfer Str. [U7]", 3]
+		default:
+			return ["S Charlottenburg/U Wilmersdorfer Str.", 4]
+	}
+}
+
 export function getFehrbellinerPlatz(lineName: string) {
 	switch (lineName) {
 		case "U1":
