@@ -6,6 +6,7 @@ import {
 	getJungfernheide,
 	getKurfürstendamm,
 	getMierendorffplatz,
+	getRichardWagnerPlatz,
 	getSpichernstr,
 	getZoologischerGarten,
 } from "./Charlottenburg-Wilmersdorf"
@@ -201,6 +202,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 			case "900000100020":
 			case "900000100720":
 				;[newStopName, order] = getPotsdamerPlatz(id, product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000022202":
+				;[newStopName, order] = getRichardWagnerPlatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000029101":

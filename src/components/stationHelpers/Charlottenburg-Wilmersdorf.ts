@@ -60,6 +60,10 @@ export function getMierendorffplatz() {
 	return ["U Mierendorffplatz [U7]", 1]
 }
 
+export function getRichardWagnerPlatz() {
+	return ["U Richard-Wagner-Platz [U7]", 1]
+}
+
 export function getSpichernstr(lineName: string) {
 	switch (lineName) {
 		case "U1":

@@ -579,11 +579,12 @@ export function getNeuWestend() {
 export function getRichardWagnerPlatz(lineName: string) {
 	switch (lineName) {
 		case "M45":
-			return "U Richard-Wagner-Platz [Bus O.-Suhr-Allee]"
+			return ["U Richard-Wagner-Platz [Bus O.-Suhr-Allee]", 2]
+		case "U7":
 		case "N7":
-			return "U Richard-Wagner-Platz [Bus R.-Wagner-Str.]"
+			return ["U Richard-Wagner-Platz [Bus R.-Wagner-Str.]", 3]
 		default:
-			return "U Richard-Wagner-Platz [Bus]"
+			return ["U Richard-Wagner-Platz [Bus]", 4]
 	}
 }
 
