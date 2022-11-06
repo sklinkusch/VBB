@@ -1,3 +1,15 @@
+export function getBismarckstr(lineName: string) {
+	switch (lineName) {
+		case "U2":
+		case "U12":
+			return ["U Bismarckstr. [U2]", 1]
+		case "U7":
+			return ["U Bismarckstr. [U7]", 2]
+		default:
+			return ["U Bismarckstr. [U-Bahn]", 3]
+	}
+}
+
 export function getFehrbellinerPlatz(lineName: string) {
 	switch (lineName) {
 		case "U1":

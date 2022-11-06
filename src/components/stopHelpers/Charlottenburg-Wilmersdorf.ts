@@ -76,7 +76,7 @@ export function getBerlinerStr(lineName: string) {
 }
 
 export function getBismarckstr() {
-	return "U Bismarckstr. [Bus Bismarckstr.]"
+	return ["U Bismarckstr. [Bus Bismarckstr.]", 4]
 }
 
 export function getBlissestr(id: string, lineName: string) {

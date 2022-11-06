@@ -1,4 +1,5 @@
 import {
+	getBismarckstr,
 	getFehrbellinerPlatz,
 	getHalemweg,
 	getHeidelbergerPlatz,
@@ -107,6 +108,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000055102":
 				;[newStopName, order] = getBayerischerPlatz(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000024201":
+				;[newStopName, order] = getBismarckstr(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041101":
