@@ -724,9 +724,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000041201":
-				newStopName = getKonstanzerStr()
+				;[newStopName, order] = getKonstanzerStr()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000180001":
 			case "900000180701":
 				;[newStopName, trackNo] = getKöpenick(

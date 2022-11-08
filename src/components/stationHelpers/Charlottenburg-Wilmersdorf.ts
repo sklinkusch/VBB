@@ -75,6 +75,10 @@ export function getJungfernheide(product: string) {
 	}
 }
 
+export function getKonstanzerStr() {
+	return ["U Konstanzer Str. [U7]", 1]
+}
+
 export function getKurfürstendamm(lineName: string) {
 	switch (lineName) {
 		case "U1":

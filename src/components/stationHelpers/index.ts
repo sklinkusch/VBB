@@ -7,6 +7,7 @@ import {
 	getHeidelbergerPlatz,
 	getJakobKaiserPlatz,
 	getJungfernheide,
+	getKonstanzerStr,
 	getKurfürstendamm,
 	getMierendorffplatz,
 	getRichardWagnerPlatz,
@@ -169,6 +170,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000020201":
 				;[newStopName, order] = getJungfernheide(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000041201":
+				;[newStopName, order] = getKonstanzerStr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023203":

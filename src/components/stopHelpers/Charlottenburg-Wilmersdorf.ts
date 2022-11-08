@@ -434,7 +434,7 @@ export function getJungfernheide(
 }
 
 export function getKonstanzerStr() {
-	return "U Konstanzer Str. [Bus Brandenburgische Str.]"
+	return ["U Konstanzer Str. [Bus Brandenburgische Str.]", 2]
 }
 
 export function getKurfürstendamm(
