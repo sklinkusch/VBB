@@ -125,8 +125,13 @@ const Departure = (props: Props) => {
 	} else {
 		delayMin = getDelay(props.dep.delay, false)
 	}
-	const sign = delayMin < 0 ? "–" : delayMin > 0 ? "+" : "±"
-	const delay = `${sign}${delayMin}`
+	let delay
+	if (typeof delayMin === "number") {
+		const sign = delayMin < 0 ? "–" : delayMin > 0 ? "+" : "±"
+		delay = `${sign}${delayMin}`
+	} else {
+		delay = delayMin
+	}
 	let realtime = getTime(props.dep.when)
 	let plantime
 	if (props.dep.when != null && props.dep.delay != null) {
