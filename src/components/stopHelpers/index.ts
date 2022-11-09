@@ -399,9 +399,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000041102":
 			case "900000043172":
-				newStopName = getBlissestr(id, lineName)
+				;[newStopName, order] = getBlissestr(id, lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000200007":
 				newStopName = getBorgsdorf()
 				newStop = { ...stop, name: newStopName }

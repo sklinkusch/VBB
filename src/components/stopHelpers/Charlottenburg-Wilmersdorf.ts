@@ -81,25 +81,25 @@ export function getBlissestr(id: string, lineName: string) {
 			switch (lineName) {
 				case "101":
 				case "310":
-					return "U Blissestr. [Bus Blissestr.]"
+					return ["U Blissestr. [Bus Blissestr.]", 2]
 				case "143":
 				case "N7":
 				case "N43":
-					return "U Blissestr. [Bus Brandenburgische Str.]"
+					return ["U Blissestr. [Bus Brandenburgische Str.]", 5]
 				default:
-					return "U Blissestr. [Bus]"
+					return ["U Blissestr. [Bus]", 6]
 			}
 		case "900000043172":
 			switch (lineName) {
 				case "249":
 				case "310":
-					return "U Blissestr./Uhlandstr. [Bus Uhlandstr.]"
+					return ["U Blissestr./Uhlandstr. [Bus Uhlandstr.]", 3]
 				case "143":
 				case "N7":
 				case "N43":
-					return "U Blissestr./Uhlandstr. [Bus Berliner Str.]"
+					return ["U Blissestr./Uhlandstr. [Bus Berliner Str.]", 4]
 				default:
-					return "U Blissestr./Uhlandstr."
+					return ["U Blissestr./Uhlandstr.", 7]
 			}
 		default:
 			return "U Blissestr. [Bus]"

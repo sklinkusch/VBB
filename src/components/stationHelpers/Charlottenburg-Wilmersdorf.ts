@@ -14,6 +14,10 @@ export function getBismarckstr(lineName: string) {
 	}
 }
 
+export function getBlissestr() {
+	return ["U Blissestr. [U7]", 1]
+}
+
 export function getCharlottenburg(product: string) {
 	switch (product) {
 		case "express":
