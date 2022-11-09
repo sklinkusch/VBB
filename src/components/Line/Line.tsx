@@ -41,8 +41,9 @@ const Line = ({ line }: Props) => {
 			case "regional":
 			case "suburban":
 			case "subway":
-				const { color } = line
+				const { color, name } = line
 				const { bg, fg } = color
+				if (name === "U3") return { backgroundColor: "#00694C", color: "white" }
 				return { backgroundColor: bg, color: fg }
 			case "tram":
 				if (metro) {
