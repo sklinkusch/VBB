@@ -11,6 +11,10 @@ export function getBayerischerPlatz(lineName: string) {
 	}
 }
 
+export function getEisenacherStr() {
+	return ["U Eisenacher Str. [U7]", 1]
+}
+
 export function getInnsbruckerPlatz(product: string) {
 	switch (product) {
 		case "suburban":

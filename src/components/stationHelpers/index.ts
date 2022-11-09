@@ -48,6 +48,7 @@ import {
 } from "./Spandau"
 import {
 	getBayerischerPlatz,
+	getEisenacherStr,
 	getInnsbruckerPlatz,
 	getNollendorfplatz,
 	getTempelhof,
@@ -136,6 +137,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 			case "900000024202":
 			case "900000024205":
 				;[newStopName, order] = getCharlottenburg(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000054103":
+				;[newStopName, order] = getEisenacherStr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041101":

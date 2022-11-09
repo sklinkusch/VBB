@@ -76,6 +76,10 @@ export function getBülowstr(
 	}
 }
 
+export function getEisenacherStr() {
+	return ["U Eisenacher Str. [Bus Grunewaldstr.]", 2]
+}
+
 export function getInnsbruckerPlatz(lineName: string) {
 	switch (lineName) {
 		case "M48":
