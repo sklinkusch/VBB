@@ -2,6 +2,17 @@ export function getAdenauerplatz() {
 	return ["U Adenauerplatz [U7]", 1]
 }
 
+export function getBerlinerStr(lineName: string) {
+	switch (lineName) {
+		case "U7":
+			return ["U Berliner Str. [U7]", 2]
+		case "U9":
+			return ["U Berliner Str. [U9]", 1]
+		default:
+			return ["U Berliner Str. [U-Bahn]", 3]
+	}
+}
+
 export function getBismarckstr(lineName: string) {
 	switch (lineName) {
 		case "U2":

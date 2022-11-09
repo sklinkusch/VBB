@@ -361,9 +361,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000044201":
-				newStopName = getBerlinerStr(lineName)
+				;[newStopName, order] = getBerlinerStr(lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000350160":
 				newStopName = getBernau()
 				newStop = { ...stop, name: newStopName }

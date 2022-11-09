@@ -63,11 +63,11 @@ export function getBerlinerStr(lineName: string) {
 		case "143":
 		case "N7X":
 		case "N9":
-			return "U Berliner Str. [Bus Bundesallee]"
+			return ["U Berliner Str. [Bus Bundesallee]", 4]
 		case "N7":
-			return "U Berliner Str. [Bus Berliner Str.]"
+			return ["U Berliner Str. [Bus Berliner Str.]", 5]
 		default:
-			return "U Berliner Str. [Bus Bundesallee]"
+			return ["U Berliner Str. [Bus Bundesallee]", 4]
 	}
 }
 
