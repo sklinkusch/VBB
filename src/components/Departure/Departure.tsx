@@ -76,7 +76,10 @@ export const getDelay = (
 	cancelled: boolean | null | undefined
 ) => {
 	if (delay != null) {
-		return Math.floor(delay / 60)
+		const valueRaw = Math.abs(delay / 60)
+		const value = Math.round(valueRaw)
+		return value
+		// return `${sign}${value}`
 	} else if (cancelled) {
 		return "X"
 	} else {
@@ -122,6 +125,8 @@ const Departure = (props: Props) => {
 	} else {
 		delayMin = getDelay(props.dep.delay, false)
 	}
+	const sign = delayMin < 0 ? "–" : delayMin > 0 ? "+" : "±"
+	const delay = `${sign}${delayMin}`
 	let realtime = getTime(props.dep.when)
 	let plantime
 	if (props.dep.when != null && props.dep.delay != null) {
@@ -162,7 +167,7 @@ const Departure = (props: Props) => {
 						gridColumn: ["17 / span 8", "5 / span 2"],
 					}}
 				>
-					{delayMin}
+					{delay}
 				</div>
 				<Product line={line} />
 				<Line line={line} />
