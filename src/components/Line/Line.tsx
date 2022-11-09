@@ -43,6 +43,12 @@ const Line = ({ line }: Props) => {
 			case "subway":
 				const { color, name } = line
 				const { bg, fg } = color
+				if (name === "U12")
+					return {
+						backgroundImage:
+							"linear-gradient(to right bottom, #61993B 0 50%, #C63927 50% 100%)",
+						color: "white",
+					}
 				if (name === "U3") return { backgroundColor: "#00694C", color: "white" }
 				return { backgroundColor: bg, color: fg }
 			case "tram":
