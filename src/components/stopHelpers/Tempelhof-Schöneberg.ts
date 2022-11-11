@@ -98,6 +98,10 @@ export function getJuliusLeberBrücke() {
 	return "S Julius-Leber-Brücke [Bus Kolonnenstr.]"
 }
 
+export function getKleistpark() {
+	return ["U Kleistpark [Bus Potsdamer Str.]", 2]
+}
+
 export function getKurfürstenstr() {
 	return "U Kurfürstenstr. [Bus Potsdamer Str.]"
 }

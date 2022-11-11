@@ -26,6 +26,10 @@ export function getInnsbruckerPlatz(product: string) {
 	}
 }
 
+export function getKleistpark() {
+	return ["U Kleistpark [U7]", 1]
+}
+
 export function getNollendorfplatz(
 	mode: string,
 	lineName: string,

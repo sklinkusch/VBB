@@ -50,6 +50,7 @@ import {
 	getBayerischerPlatz,
 	getEisenacherStr,
 	getInnsbruckerPlatz,
+	getKleistpark,
 	getNollendorfplatz,
 	getTempelhof,
 } from "./Tempelhof-Schöneberg"
@@ -185,6 +186,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000020201":
 				;[newStopName, order] = getJungfernheide(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000054102":
+				;[newStopName, order] = getKleistpark()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041201":

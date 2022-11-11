@@ -206,6 +206,7 @@ import {
 	getEisenacherStr,
 	getInnsbruckerPlatz,
 	getJuliusLeberBrücke,
+	getKleistpark,
 	getKurfürstenstr,
 	getMarienfelde,
 	getNollendorfplatz,
@@ -715,6 +716,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getKaulsdorf()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000054102":
+				;[newStopName, order] = getKleistpark()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000077155":
 				newStopName = getKöllnischeHeide()
 				newStop = { ...stop, name: newStopName }
