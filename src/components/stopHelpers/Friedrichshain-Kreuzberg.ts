@@ -113,12 +113,12 @@ export function getMöckernbrücke(
 ) {
 	if (mode === "arr" && provenance !== null) {
 		if (provenance.includes("Helsingforser Platz"))
-			return "U Möckernbrücke [Bus Hallesches Ufer]"
-		return "U Möckernbrücke [Bus Tempelhofer Ufer]"
+			return ["U Möckernbrücke [Bus Hallesches Ufer]", 4]
+		return ["U Möckernbrücke [Bus Tempelhofer Ufer]", 5]
 	} else if (mode === "dep" && direction !== null) {
 		if (direction.includes("Warschauer Str"))
-			return "U Möckernbrücke [Bus Tempelhofer Ufer]"
-		return "U Möckernbrücke [Bus Hallesches Ufer]"
+			return ["U Möckernbrücke [Bus Tempelhofer Ufer]", 5]
+		return ["U Möckernbrücke [Bus Hallesches Ufer]", 4]
 	}
 }
 
