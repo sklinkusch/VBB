@@ -411,10 +411,10 @@ export function getWittenbergplatz(
 export function getYorckstr(id: string) {
 	switch (id) {
 		case "900000057102":
-			return "S+U Yorckstr. (Großgörschenstr.) [Bus Yorckstr.]"
+			return ["S+U Yorckstr. (Großgörschenstr.) [Bus Yorckstr.]", 6]
 		case "900000058103":
-			return "S+U Yorckstr. [Bus Yorckstr.]"
+			return ["S+U Yorckstr. [Bus Yorckstr.]", 5]
 		default:
-			return "S+U Yorckstr. [Bus Yorckstr.]"
+			return ["S+U Yorckstr. [Bus Yorckstr.]", 5]
 	}
 }

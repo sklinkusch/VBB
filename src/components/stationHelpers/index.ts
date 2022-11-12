@@ -53,6 +53,7 @@ import {
 	getKleistpark,
 	getNollendorfplatz,
 	getTempelhof,
+	getYorckstr,
 } from "./Tempelhof-Schöneberg"
 
 type Remarks = {
@@ -299,6 +300,11 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000033101":
 				;[newStopName, order] = getZitadelle()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000057102":
+			case "900000058103":
+				;[newStopName, order] = getYorckstr(id, product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023201":

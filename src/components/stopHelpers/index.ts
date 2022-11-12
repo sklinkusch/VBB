@@ -1337,9 +1337,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000057102":
 			case "900000058103":
-				newStopName = getYorckstr(id)
+				;[newStopName, order] = getYorckstr(id)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000049201":
 				;[newStopName, trackNo] = getZehlendorf(
 					mode,

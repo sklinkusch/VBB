@@ -79,3 +79,21 @@ export function getTempelhof(product: string) {
 			return ["S+U Tempelhof [Bahnhof]", 3]
 	}
 }
+
+export function getYorckstr(id: string, product: string) {
+	switch (id) {
+		case "900000057102":
+			return ["S+U Yorckstr. (Großgörschenstr.) [S1]", 3]
+		case "900000058103":
+			switch (product) {
+				case "suburban":
+					return ["S+U Yorckstr. [S-Bahn]", 1]
+				case "subway":
+					return ["S+U Yorckstr. [U7]", 2]
+				default:
+					return ["S+U Yorckstr. [Bahnhof]", 4]
+			}
+		default:
+			return ["S+U Yorckstr. [Bahnhof]", 4]
+	}
+}
