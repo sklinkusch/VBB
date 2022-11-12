@@ -112,6 +112,9 @@ export default function Timetable() {
 			const remainingStops = stops.filter(
 				(stop) => stop.name !== selectedStop.name
 			)
+			document.title = navigator.language.startsWith("de")
+				? `Abfahrten ab ${selectedStop.name}`
+				: `Departures from ${selectedStop.name}`
 			const stopSelection = [selectedStop, ...remainingStops]
 			setSelection(stopSelection)
 		} else {
@@ -126,6 +129,9 @@ export default function Timetable() {
 			const remainingStops = stops.filter(
 				(stop) => stop.name !== initialStop.name
 			)
+			document.title = navigator.language.startsWith("de")
+				? `Abfahrten ab U Stadtmitte`
+				: `Departures from U Stadtmitte`
 			const stopSelection = [initialStop, ...remainingStops]
 			setSelection(stopSelection)
 		}
@@ -243,6 +249,10 @@ export default function Timetable() {
 				minute: "2-digit",
 				timeZone: "Europe/Berlin",
 			})
+			document.title =
+				lang === "de"
+					? `Abfahrten ab ${currentStop.name}`
+					: `Departures from ${currentStop.name}`
 			setDate(myDate)
 			setData(resData)
 			setViewData(resData)

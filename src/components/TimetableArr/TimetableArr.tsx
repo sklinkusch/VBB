@@ -106,6 +106,9 @@ export default function TimetableArr() {
 			const remainingStops = stops.filter(
 				(stop) => stop.name !== selectedStop.name
 			)
+			document.title = navigator.language.startsWith("de")
+				? `Ankünfte an ${selectedStop.name}`
+				: `Arrivals at ${selectedStop.name}`
 			const stopSelection = [selectedStop, ...remainingStops]
 			setSelection(stopSelection)
 		} else {
@@ -120,6 +123,9 @@ export default function TimetableArr() {
 			const remainingStops = stops.filter(
 				(stop) => stop.name !== initialStop.name
 			)
+			document.title = navigator.language.startsWith("de")
+				? `Ankünfte an U Stadtmitte`
+				: `Arrivals at U Stadtmitte`
 			const stopSelection = [initialStop, ...remainingStops]
 			setSelection(stopSelection)
 		}
@@ -237,6 +243,10 @@ export default function TimetableArr() {
 				minute: "2-digit",
 				timeZone: "Europe/Berlin",
 			})
+			document.title =
+				lang === "de"
+					? `Ankünfte an ${currentStop.name}`
+					: `Arrivals at ${currentStop.name}`
 			setDate(myDate)
 			setData(resData)
 			setViewData(resData)
