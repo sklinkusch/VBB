@@ -22,6 +22,10 @@ export function getGleisdreieck(lineName: string) {
 	}
 }
 
+export function getGneisenaustr() {
+	return ["U Gneisenaustr. [U7]", 1]
+}
+
 export function getHalleschesTor(lineName: string) {
 	switch (lineName) {
 		case "U6":

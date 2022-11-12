@@ -29,6 +29,19 @@ export function getFrankfurterAllee(product: string, lineName: string) {
 	}
 }
 
+export function getGneisenaustr(lineName: string) {
+	switch (lineName) {
+		case "140":
+		case "U7":
+		case "N7":
+			return ["U Gneisenaustr. [Bus Gneisenaustr.]", 2]
+		case "248":
+			return ["U Gneisenaustr. [Bus Zossener Str.]", 3]
+		default:
+			return ["U Gneisenaustr. [Bus]", 4]
+	}
+}
+
 export function getGörlitzerBf(lineName: string) {
 	switch (lineName) {
 		case "U1":

@@ -19,6 +19,7 @@ import {
 import {
 	getFrankfurterAllee,
 	getGleisdreieck,
+	getGneisenaustr,
 	getHalleschesTor,
 	getKottbusserTor,
 	getMehringdamm,
@@ -161,6 +162,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				newStopName = getGleisdreieck(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000016101":
+				;[newStopName, order] = getGneisenaustr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000018102":
 				;[newStopName, order] = getHalemweg()
 				newStop = { ...stop, name: newStopName }
