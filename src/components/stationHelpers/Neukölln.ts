@@ -13,6 +13,17 @@ export function getKarlMarxStr() {
 	return ["U Karl-Marx-Str.", 1]
 }
 
+export function getNeukölln(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S Neukölln ⬆️", 1]
+		case "subway":
+			return ["U Neukölln ⬇️", 2]
+		default:
+			return ["S+U Neukölln", 3]
+	}
+}
+
 export function getRathausNeukölln() {
 	return ["U Rathaus Neukölln", 1]
 }

@@ -120,23 +120,23 @@ export function getNeukölln(
 				switch (lineName) {
 					case "171":
 						if (provenance.includes("Rudow"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
 						if (provenance.includes("Flughafen"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
-						return ["S+U Neukölln [Bus Saalestr.]", 1]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
+						return ["S+U Neukölln [Bus Saalestr.]", 1, 5]
 					case "U7":
 					case "N7":
 						if (provenance.includes("Rudow"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
 						if (provenance.includes("Flughafen"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
-						return ["S+U Neukölln [Bus K.-Marx-Str.]", 2]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
+						return ["S+U Neukölln [Bus K.-Marx-Str.]", 2, 4]
 					case "N77":
 						if (provenance.includes("Mariendorf"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 2]
-						return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 2, 4]
+						return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
 					default:
-						return ["S+U Neukölln [Bus]", null]
+						return ["S+U Neukölln [Bus]", null, 6]
 				}
 			case "900000078271":
 				switch (lineName) {
@@ -144,18 +144,18 @@ export function getNeukölln(
 					case "U7":
 					case "N7":
 						if (/(Rudow|Flughafen)/.test(provenance))
-							return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 6]
-						return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 7]
+							return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 6, 7]
+						return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 7, 7]
 					case "246":
 						if (provenance.includes("Forsthausallee"))
-							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4]
-						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5]
+							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4, 8]
+						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5, 8]
 					case "377":
 						if (provenance.includes("Plänterwald"))
-							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4]
-						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5]
+							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4, 8]
+						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5, 8]
 					default:
-						return ["Lahnstr./U Neukölln [Bus]", null]
+						return ["Lahnstr./U Neukölln [Bus]", null, 9]
 				}
 		}
 	} else if (mode === "dep" && direction !== null) {
@@ -164,23 +164,23 @@ export function getNeukölln(
 				switch (lineName) {
 					case "171":
 						if (direction.includes("Rudow"))
-							return ["S+U Neukölln [Bus Saalestr.]", 1]
+							return ["S+U Neukölln [Bus Saalestr.]", 1, 5]
 						if (direction.includes("Flughafen"))
-							return ["S+U Neukölln [Bus Saalestr.]", 1]
-						return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
+							return ["S+U Neukölln [Bus Saalestr.]", 1, 5]
+						return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
 					case "U7":
 					case "N7":
 						if (direction.includes("Rudow"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 2]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 2, 4]
 						if (direction.includes("Flughafen"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 2]
-						return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 2, 4]
+						return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
 					case "N77":
 						if (direction.includes("Mariendorf"))
-							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3]
-						return ["S+U Neukölln [Bus K.-Marx-Str.]", 2]
+							return ["S+U Neukölln [Bus K.-Marx-Str.]", 3, 4]
+						return ["S+U Neukölln [Bus K.-Marx-Str.]", 2, 4]
 					default:
-						return ["S+U Neukölln [Bus]", null]
+						return ["S+U Neukölln [Bus]", null, 6]
 				}
 			case "900000078271":
 				switch (lineName) {
@@ -188,18 +188,18 @@ export function getNeukölln(
 					case "U7":
 					case "N7":
 						if (/(Rudow|Flughafen)/.test(direction))
-							return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 7]
-						return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 6]
+							return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 7, 7]
+						return ["Lahnstr./U Neukölln [Bus K.-Marx-Str.]", 6, 7]
 					case "246":
 						if (direction.includes("Forsthausallee"))
-							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5]
-						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4]
+							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5, 8]
+						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4, 8]
 					case "377":
 						if (direction.includes("Plänterwald"))
-							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5]
-						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4]
+							return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 5, 8]
+						return ["Lahnstr./U Neukölln [Bus Lahnstr.]", 4, 8]
 					default:
-						return ["Lahnstr./U Neukölln [Bus]", null]
+						return ["Lahnstr./U Neukölln [Bus]", null, 9]
 				}
 		}
 	}

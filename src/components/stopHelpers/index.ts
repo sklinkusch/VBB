@@ -912,7 +912,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000078201":
 			case "900000078271":
-				;[newStopName, trackNo] = getNeukölln(
+				;[newStopName, trackNo, order] = getNeukölln(
 					id,
 					mode,
 					lineName,
@@ -920,7 +920,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000026101":
 				newStopName = getNeuWestend()
 				newStop = { ...stop, name: newStopName }
