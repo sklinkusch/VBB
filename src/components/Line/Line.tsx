@@ -75,7 +75,12 @@ const Line = ({ line }: Props) => {
 	return (
 		<div
 			className="line"
-			sx={{ textAlign: "left", gridColumn: ["2 / span 6", "8 / span 3"] }}
+			sx={{
+				textAlign: "left",
+				gridColumn: ["2 / span 6", "8 / span 3"],
+				display: "inline-block",
+				marginInline: "2px",
+			}}
 		>
 			{styles ? (
 				<span
