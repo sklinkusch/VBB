@@ -1,5 +1,22 @@
 type Dir = string | null
 
+export function getHermannplatz(id: string) {
+	switch (id) {
+		case "900000078170":
+			return ["U Hermannplatz [Bus Ostseite]", 4]
+		case "900000078171":
+			return ["U Hermannplatz [Bus Westseite]", 5]
+		case "900000078104":
+			return ["U Hermannplatz/Urbanstr.", 8]
+		case "900000078105":
+			return ["U Hermannplatz/Sonnenallee", 6]
+		case "900000078106":
+			return ["U Hermannplatz/Karl-Marx-Str.", 7]
+		default:
+			return ["U Hermannplatz", 9]
+	}
+}
+
 export function getHermannstr(
 	id: string,
 	mode: string,

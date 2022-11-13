@@ -124,6 +124,7 @@ import {
 	getStrausbergStadt,
 } from "./Märkisch-Oderland"
 import {
+	getHermannplatz,
 	getHermannstr,
 	getKöllnischeHeide,
 	getNeukölln,
@@ -629,6 +630,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getHennigsdorf(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000078101":
+			case "900000078104":
+			case "900000078105":
+			case "900000078106":
+			case "900000078170":
+			case "900000078171":
+				;[newStopName, order] = getHermannplatz(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000079220":
 			case "900000079221":
 				;[newStopName, trackNo] = getHermannstr(
