@@ -201,6 +201,50 @@ export function getNeukölln(
 	}
 }
 
+export function getRathausNeukölln(
+	id: string,
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (id) {
+		case "900000078102":
+			if (mode === "arr" && provenance !== null) {
+				switch (lineName) {
+					case "M43":
+					case "166":
+						if (/(Weisestr|Berliner Str)/.test(provenance))
+							return ["U Rathaus Neukölln [Bus K.-Marx-Str.]", 2]
+						return ["U Rathaus Neukölln [Bus Erkstr.]", 3]
+					case "U7":
+					case "N7":
+						return ["U Rathaus Neukölln [Bus K.-Marx-Str.]", 2]
+					default:
+						return ["U Rathaus Neukölln [Bus]", 5]
+				}
+			} else if (mode === "dep" && direction !== null) {
+				switch (lineName) {
+					case "M43":
+					case "166":
+						if (/(Puschkinallee|Tunnelstr|Schöneweide)/.test(direction))
+							return ["U Rathaus Neukölln [Bus K.-Marx-Str.]", 2]
+						return ["U Rathaus Neukölln [Bus Erkstr.]", 3]
+					case "U7":
+					case "N7":
+						return ["U Rathaus Neukölln [Bus K.-Marx-Str.]", 2]
+					default:
+						return ["U Rathaus Neukölln [Bus]", 5]
+				}
+			}
+			return ["U Rathaus Neukölln [Bus]", 5]
+		case "900000078151":
+			return ["U Rathaus Neukölln/Alfred-Scholz-Platz", 4]
+		default:
+			return ["U Rathaus Neukölln [Bus]", 5]
+	}
+}
+
 export function getSonnenallee(id: string, lineName: string) {
 	switch (id) {
 		case "900000077106":

@@ -8,3 +8,7 @@ export function getHermannplatz(lineName: string) {
 			return ["U Hermannplatz [U-Bahn]", 3]
 	}
 }
+
+export function getRathausNeukölln() {
+	return ["U Rathaus Neukölln", 1]
+}

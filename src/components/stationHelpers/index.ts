@@ -38,7 +38,7 @@ import {
 	getUnterDenLinden,
 	getWedding,
 } from "./Mitte"
-import { getHermannplatz } from "./Neukölln"
+import { getHermannplatz, getRathausNeukölln } from "./Neukölln"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
 import {
 	getAltstadtSpandau,
@@ -261,6 +261,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000022202":
 				;[newStopName, order] = getRichardWagnerPlatz()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000078102":
+				;[newStopName, order] = getRathausNeukölln()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000029101":
