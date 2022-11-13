@@ -69,6 +69,10 @@ export function getMöckernbrücke(lineName: string) {
 	}
 }
 
+export function getSüdstern() {
+	return ["U Südstern", 1]
+}
+
 export function getWarschauerStr(product: string) {
 	switch (product) {
 		case "suburban":

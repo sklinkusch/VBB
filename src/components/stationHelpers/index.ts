@@ -24,6 +24,7 @@ import {
 	getKottbusserTor,
 	getMehringdamm,
 	getMöckernbrücke,
+	getSüdstern,
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
 import { getLichtenberg } from "./Lichtenberg"
@@ -281,6 +282,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100011":
 				;[newStopName, order] = getStadtmitte(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000016202":
+				;[newStopName, order] = getSüdstern()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000068201":

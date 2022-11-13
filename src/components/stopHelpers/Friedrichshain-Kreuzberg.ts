@@ -202,6 +202,10 @@ export function getStrausbergerPlatz(lineName: string) {
 	}
 }
 
+export function getSüdstern() {
+	return ["U Südstern [Bus Hasenheide]", 2]
+}
+
 export function getWarschauerStr(
 	mode: string,
 	product: string,
