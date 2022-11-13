@@ -126,6 +126,7 @@ import {
 import {
 	getHermannplatz,
 	getHermannstr,
+	getKarlMarxStr,
 	getKöllnischeHeide,
 	getNeukölln,
 	getRathausNeukölln,
@@ -720,6 +721,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getKarlBonhoefferNervenklinik()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000078103":
+				;[newStopName, order] = getKarlMarxStr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000162001":
 			case "900000162702":
 				newStopName = getKarlshorst(id, product, lineName)

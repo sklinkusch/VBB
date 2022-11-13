@@ -9,6 +9,10 @@ export function getHermannplatz(lineName: string) {
 	}
 }
 
+export function getKarlMarxStr() {
+	return ["U Karl-Marx-Str.", 1]
+}
+
 export function getRathausNeukölln() {
 	return ["U Rathaus Neukölln", 1]
 }

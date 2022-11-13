@@ -99,6 +99,10 @@ export function getHermannstr(
 	}
 }
 
+export function getKarlMarxStr() {
+	return ["U Karl-Marx-Str. [Bus K.-Marx-Str.]", 2]
+}
+
 export function getKöllnischeHeide() {
 	return "S Köllnische Heide [Bus Sonnenallee]"
 }
