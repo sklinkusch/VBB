@@ -218,46 +218,46 @@ export function getWarschauerStr(
 			case "tram":
 				switch (lineName) {
 					case "M10":
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 4]
 					default:
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 4]
 				}
 			case "bus":
 				switch (lineName) {
 					case "300":
-						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 8, 5]
+						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 8, 6]
 					case "347":
 						if (provenance.includes("Tunnelstr"))
-							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 4]
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 4]
+							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 5]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 5]
 					default:
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 4]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 5]
 				}
 			default:
-				return ["S+U Warschauer Str.", null, 6]
+				return ["S+U Warschauer Str.", null, 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (product) {
 			case "tram":
 				switch (lineName) {
 					case "M10":
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 4]
 					default:
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 4]
 				}
 			case "bus":
 				switch (lineName) {
 					case "300":
-						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 7, 5]
+						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 7, 6]
 					case "347":
 						if (direction.includes("Tunnelstr"))
-							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 4]
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 4]
+							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 5]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 5]
 					default:
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 4]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 5]
 				}
 			default:
-				return ["S+U Warschauer Str.", null, 6]
+				return ["S+U Warschauer Str.", null, 7]
 		}
 	}
 }

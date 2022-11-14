@@ -4,20 +4,20 @@ export function getAlex(id: string, product: string, lineName: string) {
 			switch (product) {
 				case "express":
 				case "regional":
-					return ["S+U Alexanderplatz [Regionalbahn]", 1]
+					return ["S Alexanderplatz", 1]
 				case "suburban":
-					return ["S+U Alexanderpöatz [S-Bahn]", 2]
+					return ["S Alexanderpöatz", 2]
 				default:
-					return ["S+U Alexanderplatz [Bahnhof]", 3]
+					return ["S Alexanderplatz", 3]
 			}
 		case "900000100703":
-			return ["S+U Alexanderplatz [U2]", 4]
+			return ["U Alexanderplatz", 4]
 		case "900000100704":
-			return ["S+U Alexanderplatz [U5]", 5]
+			return ["U Alexanderplatz", 5]
 		case "900000100705":
-			return ["S+U Alexanderplatz [U8]", 6]
+			return ["U Alexanderplatz", 6]
 		default:
-			return ["S+U Alexanderplatz", 7]
+			return ["U Alexanderplatz", 7]
 	}
 }
 
@@ -25,7 +25,7 @@ export function getFriedrichstr(product: string, lineName: string) {
 	switch (product) {
 		case "express":
 		case "regional":
-			return ["S+U Friedrichstr. [Regionalbahn]", 1]
+			return ["S Friedrichstr.", 1]
 		case "suburban":
 			switch (lineName) {
 				case "S3":
@@ -33,28 +33,28 @@ export function getFriedrichstr(product: string, lineName: string) {
 				case "S7":
 				case "S75":
 				case "S9":
-					return ["S+U Friedrichstr. [Stadtbahn]", 2]
+					return ["S Friedrichstr.", 2]
 				case "S1":
 				case "S2":
 				case "S25":
 				case "S26":
-					return ["S+U Friedrichstr. [Nordsüdbahn]", 3]
+					return ["S Friedrichstr.", 3]
 				default:
-					return ["S+U Friedrichstr. [S-Bahn]", 4]
+					return ["S Friedrichstr.", 4]
 			}
 		case "subway":
-			return ["S+U Friedrichstr. [U6]", 5]
+			return ["U Friedrichstr.", 5]
 		default:
-			return ["S+U Friedrichstr. [Bahnhof]", 6]
+			return ["S+U Friedrichstr.", 6]
 	}
 }
 
 export function getLeopoldplatz(lineName: string) {
 	switch (lineName) {
 		case "U6":
-			return ["U Leopoldplatz [U6]", 1]
+			return ["U Leopoldplatz", 1]
 		case "U9":
-			return ["U Leopoldplatz [U9]", 2]
+			return ["U Leopoldplatz", 2]
 		default:
 			return ["U Leopoldplatz [U-Bahn]", 3]
 	}

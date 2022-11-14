@@ -53,7 +53,7 @@ function StopName(props: Props) {
 					{stop.name}
 					{lines &&
 						Array.isArray(lines) &&
-						lines.map((line) => <Line line={line} />)}
+						lines.map((line) => <Line line={line} key={line.name} />)}
 				</h3>
 			)}
 			{element === "h2" && (

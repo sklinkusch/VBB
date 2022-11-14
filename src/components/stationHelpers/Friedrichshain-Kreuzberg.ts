@@ -1,39 +1,39 @@
 export function getFrankfurterAllee(product: string) {
 	switch (product) {
 		case "suburban":
-			return ["S+U Frankfurter Allee [S-Bahn]", 1]
+			return ["S Frankfurter Allee", 1]
 		case "subway":
-			return ["S+U Frankfurter Allee [U5]", 2]
+			return ["U Frankfurter Allee", 2]
 		default:
-			return ["S+U Frankfurter Allee [Bahnhof]", 3]
+			return ["S+U Frankfurter Allee", 3]
 	}
 }
 
 export function getGleisdreieck(lineName: string) {
 	switch (lineName) {
 		case "U2":
-			return "U Gleisdreieck [unten, U2]"
+			return "U Gleisdreieck ⬇️"
 		case "U1":
 		case "U12":
 		case "U3":
-			return "U Gleisdreieck [oben, U1]"
+			return "U Gleisdreieck ⬆️"
 		default:
 			return "U Gleisdreieck"
 	}
 }
 
 export function getGneisenaustr() {
-	return ["U Gneisenaustr. [U7]", 1]
+	return ["U Gneisenaustr.", 1]
 }
 
 export function getHalleschesTor(lineName: string) {
 	switch (lineName) {
 		case "U6":
-			return ["U Hallesches Tor [unten, U6]", 2]
+			return ["U Hallesches Tor ⬇️", 2]
 		case "U1":
 		case "U12":
 		case "U3":
-			return ["U Hallesches Tor [oben, U1]", 1]
+			return ["U Hallesches Tor ⬆️", 1]
 		default:
 			return ["U Hallesches Tor", 3]
 	}
@@ -42,30 +42,30 @@ export function getHalleschesTor(lineName: string) {
 export function getKottbusserTor(lineName: string) {
 	switch (lineName) {
 		case "U8":
-			return ["U Kottbusser Tor [unten, U8]", 2]
+			return ["U Kottbusser Tor ⬇️", 2]
 		case "U1":
 		case "U12":
 		case "U3":
-			return ["U Kottbusser Tor [oben, U1]", 1]
+			return ["U Kottbusser Tor ⬆️", 1]
 		default:
-			return ["U Kottbusser Tor [U-Bahn]", 3]
+			return ["U Kottbusser Tor", 3]
 	}
 }
 
 export function getMehringdamm() {
-	return ["U Mehringdamm [U6/U7]", 1]
+	return ["U Mehringdamm", 1]
 }
 
 export function getMöckernbrücke(lineName: string) {
 	switch (lineName) {
 		case "U7":
-			return ["U Möckernbrücke [⬇️, U7]", 2]
+			return ["U Möckernbrücke ⬇️", 2]
 		case "U1":
 		case "U12":
 		case "U3":
-			return ["U Möckernbrücke [⬆️, U1]", 1]
+			return ["U Möckernbrücke ⬆️", 1]
 		default:
-			return ["U Möckernbrücke [U-Bahn]", 3]
+			return ["U Möckernbrücke", 3]
 	}
 }
 
@@ -76,10 +76,10 @@ export function getSüdstern() {
 export function getWarschauerStr(product: string) {
 	switch (product) {
 		case "suburban":
-			return ["S+U Warschauer Str. [S-Bahn]", 1]
+			return ["S Warschauer Str.", 1]
 		case "subway":
-			return ["S+U Warschauer Str. [U-Bahn]", 2]
+			return ["U Warschauer Str.", 2]
 		default:
-			return ["S+U Warschauer Str.", undefined]
+			return ["S+U Warschauer Str.", 3]
 	}
 }
