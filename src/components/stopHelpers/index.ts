@@ -124,6 +124,7 @@ import {
 	getStrausbergStadt,
 } from "./Märkisch-Oderland"
 import {
+	getGrenzallee,
 	getHermannplatz,
 	getHermannstr,
 	getKarlMarxStr,
@@ -557,6 +558,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getGreifswalderStr(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000080202":
+			case "900000080204":
+				;[newStopName, order] = getGrenzallee(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000230003":
 				newStopName = getGriebnitzsee()
 				newStop = { ...stop, name: newStopName }

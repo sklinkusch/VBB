@@ -1,5 +1,16 @@
 type Dir = string | null
 
+export function getGrenzallee(id: string) {
+	switch (id) {
+		case "900000080202":
+			return ["U Grenzallee [Bus K.-Marx-Str.]", 2]
+		case "900000080204":
+			return ["U Grenzallee/Jahnstr. [Bus Buschkrugallee]", 3]
+		default:
+			return ["U Grenzallee [Bus]", 4]
+	}
+}
+
 export function getHermannplatz(id: string) {
 	switch (id) {
 		case "900000078170":

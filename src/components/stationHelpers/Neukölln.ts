@@ -1,3 +1,7 @@
+export function getGrenzallee() {
+	return ["U Grenzallee", 1]
+}
+
 export function getHermannplatz(lineName: string) {
 	switch (lineName) {
 		case "U7":
@@ -5,7 +9,7 @@ export function getHermannplatz(lineName: string) {
 		case "U8":
 			return ["U Hermannplatz ⬆️", 1]
 		default:
-			return ["U Hermannplatz [U-Bahn]", 3]
+			return ["U Hermannplatz", 3]
 	}
 }
 
@@ -16,9 +20,9 @@ export function getKarlMarxStr() {
 export function getNeukölln(product: string) {
 	switch (product) {
 		case "suburban":
-			return ["S Neukölln ⬆️", 1]
+			return ["S Neukölln", 1]
 		case "subway":
-			return ["U Neukölln ⬇️", 2]
+			return ["U Neukölln", 2]
 		default:
 			return ["S+U Neukölln", 3]
 	}
