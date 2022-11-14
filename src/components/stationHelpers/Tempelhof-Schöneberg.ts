@@ -46,20 +46,20 @@ export function getNollendorfplatz(
 						provenance
 					)
 				) {
-					return ["U Nollendorfplatz ⬇️1️⃣", 2]
+					return ["U Nollendorfplatz ⬇️", 2]
 				}
-				return ["U Nollendorfplatz ⬇️2️⃣", 3]
+				return ["U Nollendorfplatz ⬇️", 3]
 			case "U3":
 				if (
 					/(Wittenbergpl|Spichernstr|Fehrbelliner Pl|Breitenbachpl|Krumme Lanke)/.test(
 						provenance
 					)
 				) {
-					return ["U Nollendorfplatz ⬇️1️⃣", 2]
+					return ["U Nollendorfplatz ⬇️", 2]
 				}
-				return ["U Nollendorfplatz ⬇️2️⃣", 3]
+				return ["U Nollendorfplatz ⬇️", 3]
 			case "U4":
-				return ["U Nollendorfplatz ⬇️1️⃣", 2]
+				return ["U Nollendorfplatz ⬇️", 2]
 			default:
 				return ["U Nollendorfplatz", 4]
 		}
@@ -73,20 +73,20 @@ export function getNollendorfplatz(
 						direction
 					)
 				) {
-					return ["U Nollendorfplatz ⬇️2️⃣", 3]
+					return ["U Nollendorfplatz ⬇️", 3]
 				}
-				return ["U Nollendorfplatz ⬇️1️⃣", 2]
+				return ["U Nollendorfplatz ⬇️", 2]
 			case "U3":
 				if (
 					/(Wittenbergpl|Spichernstr|Fehrbelliner Pl|Breitenbachpl|Krumme Lanke)/.test(
 						direction
 					)
 				) {
-					return ["U Nollendorfplatz ⬇️2️⃣", 3]
+					return ["U Nollendorfplatz ⬇️", 3]
 				}
-				return ["U Nollendorfplatz ⬇️1️⃣", 2]
+				return ["U Nollendorfplatz ⬇️", 2]
 			case "U4":
-				return ["U Nollendorfplatz ⬇️1️⃣", 2]
+				return ["U Nollendorfplatz ⬇️", 2]
 			default:
 				return ["U Nollendorfplatz", 4]
 		}
