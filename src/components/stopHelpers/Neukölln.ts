@@ -4,6 +4,15 @@ export function getBlaschkoallee() {
 	return ["U Blaschkoallee [Bus Blaschkoallee]", 2]
 }
 
+export function getBritzSüd(id: string) {
+	switch (id) {
+		case "900000080402":
+			return ["U Britz-Süd [Bus Gutschmidtstr.]", 2]
+		case "900000080455":
+			return ["Grüner Weg/Gutschmidtstr.", 3]
+	}
+}
+
 export function getGrenzallee(id: string) {
 	switch (id) {
 		case "900000080202":
