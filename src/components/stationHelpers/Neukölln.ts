@@ -32,6 +32,10 @@ export function getNeukölln(product: string) {
 	}
 }
 
+export function getParchimerAllee() {
+	return ["U Parchimer Allee", 1]
+}
+
 export function getRathausNeukölln() {
 	return ["U Rathaus Neukölln", 1]
 }

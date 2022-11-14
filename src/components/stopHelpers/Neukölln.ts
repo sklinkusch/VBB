@@ -220,6 +220,10 @@ export function getNeukölln(
 	}
 }
 
+export function getParchimerAllee() {
+	return ["U Parchimer Allee [Bus Parchimer Allee]", 2]
+}
+
 export function getRathausNeukölln(
 	id: string,
 	mode: string,

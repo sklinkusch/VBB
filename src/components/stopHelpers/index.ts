@@ -131,6 +131,7 @@ import {
 	getKarlMarxStr,
 	getKöllnischeHeide,
 	getNeukölln,
+	getParchimerAllee,
 	getRathausNeukölln,
 	getSonnenallee,
 } from "./Neukölln"
@@ -1005,6 +1006,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getPankowHeinersdorf(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000080401":
+				;[newStopName, order] = getParchimerAllee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000034101":
 				;[newStopName, order] = getPaulsternstr()
 				newStop = { ...stop, name: newStopName }

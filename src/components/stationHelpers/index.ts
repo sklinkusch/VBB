@@ -44,6 +44,7 @@ import {
 	getHermannplatz,
 	getKarlMarxStr,
 	getNeukölln,
+	getParchimerAllee,
 	getRathausNeukölln,
 } from "./Neukölln"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
@@ -271,6 +272,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000130002":
 				;[newStopName, order] = getPankow(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000080401":
+				;[newStopName, order] = getParchimerAllee()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000034101":
