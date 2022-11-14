@@ -129,6 +129,7 @@ import {
 	getGrenzallee,
 	getHermannplatz,
 	getHermannstr,
+	getJohannisthalerChaussee,
 	getKarlMarxStr,
 	getKöllnischeHeide,
 	getNeukölln,
@@ -720,6 +721,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getJannowitzbrücke(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000082202":
+				;[newStopName, order] = getJohannisthalerChaussee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000057104":
 				newStopName = getJuliusLeberBrücke()
 				newStop = { ...stop, name: newStopName }

@@ -123,6 +123,10 @@ export function getHermannstr(
 	}
 }
 
+export function getJohannisthalerChaussee() {
+	return ["U Johannisthaler Chaussee [Bus Johannisthaler Ch.]", 2]
+}
+
 export function getKarlMarxStr() {
 	return ["U Karl-Marx-Str. [Bus K.-Marx-Str.]", 2]
 }

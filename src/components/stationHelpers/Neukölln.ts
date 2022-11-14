@@ -21,6 +21,10 @@ export function getHermannplatz(lineName: string) {
 	}
 }
 
+export function getJohannisthalerChaussee() {
+	return ["U Johannisthaler Chaussee", 1]
+}
+
 export function getKarlMarxStr() {
 	return ["U Karl-Marx-Str.", 1]
 }
