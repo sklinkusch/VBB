@@ -1,5 +1,9 @@
 type Dir = string | null
 
+export function getBlaschkoallee() {
+	return ["U Blaschkoallee [Bus Blaschkoallee]", 2]
+}
+
 export function getGrenzallee(id: string) {
 	switch (id) {
 		case "900000080202":

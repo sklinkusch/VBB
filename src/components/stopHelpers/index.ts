@@ -124,6 +124,7 @@ import {
 	getStrausbergStadt,
 } from "./Märkisch-Oderland"
 import {
+	getBlaschkoallee,
 	getGrenzallee,
 	getHermannplatz,
 	getHermannstr,
@@ -405,6 +406,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getBlankenfelde(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000080201":
+				;[newStopName, order] = getBlaschkoallee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000041102":
 			case "900000043172":
 				;[newStopName, order] = getBlissestr(id, lineName)

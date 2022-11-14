@@ -39,6 +39,7 @@ import {
 	getWedding,
 } from "./Mitte"
 import {
+	getBlaschkoallee,
 	getGrenzallee,
 	getHermannplatz,
 	getKarlMarxStr,
@@ -137,6 +138,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000024201":
 				;[newStopName, order] = getBismarckstr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000080201":
+				;[newStopName, order] = getBlaschkoallee()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041102":

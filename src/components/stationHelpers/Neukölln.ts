@@ -1,3 +1,7 @@
+export function getBlaschkoallee() {
+	return ["U Blaschkoallee", 1]
+}
+
 export function getGrenzallee() {
 	return ["U Grenzallee", 1]
 }
