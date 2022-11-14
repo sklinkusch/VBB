@@ -85,6 +85,11 @@ type Props = {
 	stop: Stop
 }
 
+type Intermediate = {
+	name: string
+	order: number | null | undefined
+}
+
 export default function StopBody({
 	data,
 	date,
@@ -148,14 +153,46 @@ export default function StopBody({
 				const newStopObject = changeStopObject(mode, e)
 				return newStopObject
 			})
-			const stopsRaw = await dataModified.map((e) => e.stop.name)
-			const stopsContracted = await stopsRaw
-				.filter((val, ind, arr) => arr.indexOf(val) === ind)
-				.sort()
+			const stopsRaw = await dataModified.map((e) => ({
+				name: e.stop.name,
+				order: e.order,
+			}))
+			const intermediateArray = await stopsRaw.reduce(
+				(acc: Intermediate[], item: Intermediate) => {
+					const arr = acc.slice()
+					const i = arr.findIndex(
+						(x) => x.name === item.name && x.order === item.order
+					)
+					if (i <= -1) arr.push(item)
+					return arr
+				},
+				[]
+			)
+			const stopsContracted = await intermediateArray.sort((a, b) => {
+				const { name: aName, order: aOrder } = a
+				const { name: bName, order: bOrder } = b
+				if (
+					typeof aOrder === "number" &&
+					typeof bOrder === "number" &&
+					aOrder < bOrder
+				)
+					return -1
+				if (
+					typeof aOrder === "number" &&
+					typeof bOrder === "number" &&
+					bOrder < aOrder
+				)
+					return +1
+				if (aName.toLowerCase() < bName.toLowerCase()) return -1
+				if (bName.toLowerCase() < aName.toLowerCase()) return +1
+				return 0
+			})
 			const resultArray = await dataModified.reduce(
 				(acc: Dataset[][], curr: any) => {
 					const arr = [...acc]
-					const index = stopsContracted.indexOf(curr.stop.name)
+					const index = stopsContracted.findIndex(
+						(x) => x.name === curr.stop.name && x.order === curr.order
+					)
 					if (Array.isArray(arr[index])) {
 						arr[index].push(curr)
 					} else {
