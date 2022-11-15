@@ -136,6 +136,7 @@ import {
 	getNeukölln,
 	getParchimerAllee,
 	getRathausNeukölln,
+	getRudow,
 	getSonnenallee,
 	getZwickauerDamm,
 } from "./Neukölln"
@@ -1121,6 +1122,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getRüdesheimerPlatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000083201":
+				;[newStopName, trackNo, order] = getRudow(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000025202":
 				newStopName = getRuhleben(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }

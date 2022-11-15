@@ -285,6 +285,79 @@ export function getRathausNeukölln(
 	}
 }
 
+export function getRudow(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	if (mode === "arr" && provenance !== null) {
+		switch (lineName) {
+			case "X7":
+			case "X71":
+			case "171":
+			case "N7":
+			case "U7":
+				if (provenance.includes("BER"))
+					return ["U Rudow [Bus Neuköllner Str.]", 5, 2]
+				return ["U Rudow [Bus Neuköllner Str.]", 1, 2]
+			case "744":
+				if (provenance.includes("BER"))
+					return ["U Rudow [Bus Gr.-Ziethener Ch.]", 4, 3]
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", null, 3]
+			case "260":
+				if (provenance.includes("Adlershof"))
+					return ["U Rudow [Bus Neuköllner Str.]", 5, 2]
+				return ["U Rudow [Bus Neuköllner Str.]", 1, 2]
+			case "371":
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", 5, 2]
+			case "162":
+			case "172":
+			case "372":
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", 2, 3]
+			case "271":
+				if (provenance.includes("Zittauer Str"))
+					return ["U Rudow [Bus Gr.-Ziethener Ch.]", 2, 3]
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", 3, 3]
+			default:
+				return ["U Rudow [Bus]", null, 4]
+		}
+	} else if (mode === "dep" && direction !== null) {
+		switch (lineName) {
+			case "X7":
+			case "X71":
+			case "171":
+			case "N7":
+			case "U7":
+				if (direction.includes("BER"))
+					return ["U Rudow [Bus Neuköllner Str.]", 1, 2]
+				return ["U Rudow [Bus Neuköllner Str.]", 5, 2]
+			case "744":
+				if (direction.includes("BER"))
+					return ["U Rudow [Bus Gr.-Ziethener Ch.]", null, 3]
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", 4, 3]
+			case "260":
+				if (direction.includes("Adlershof"))
+					return ["U Rudow [Bus Neuköllner Str.]", 1, 2]
+				return ["U Rudow [Bus Neuköllner Str.]", 5, 2]
+			case "371":
+				if (direction.includes("Hanffgraben"))
+					return ["U Rudow [Bus Neuköllner Str.]", 5, 2]
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", 2, 3]
+			case "162":
+			case "172":
+			case "372":
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", 3, 3]
+			case "271":
+				if (direction.includes("Zittauer Str"))
+					return ["U Rudow [Bus Gr.-Ziethener Ch.]", 3, 3]
+				return ["U Rudow [Bus Gr.-Ziethener Ch.]", 2, 3]
+			default:
+				return ["U Rudow [Bus]", null, 4]
+		}
+	}
+}
+
 export function getSonnenallee(id: string, lineName: string) {
 	switch (id) {
 		case "900000077106":

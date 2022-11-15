@@ -52,6 +52,10 @@ export function getRathausNeukölln() {
 	return ["U Rathaus Neukölln", 1]
 }
 
+export function getRudow() {
+	return ["U Rudow", 1]
+}
+
 export function getZwickauerDamm() {
 	return ["U Zwickauer Damm", 1]
 }

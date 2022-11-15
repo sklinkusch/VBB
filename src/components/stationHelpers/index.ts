@@ -49,6 +49,7 @@ import {
 	getNeukölln,
 	getParchimerAllee,
 	getRathausNeukölln,
+	getRudow,
 	getZwickauerDamm,
 } from "./Neukölln"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
@@ -319,6 +320,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000036101":
 				;[newStopName, order] = getRohrdamm()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000083201":
+				;[newStopName, order] = getRudow()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000110001":
