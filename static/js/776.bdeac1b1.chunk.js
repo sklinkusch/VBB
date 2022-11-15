@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkvbb=self.webpackChunkvbb||[]).push([[776],{7776:function(t,s,e){e.r(s);var a=e(9922);s.default=function(t){for(var s=t.remarks,e=0;e<s.length;e++){var n=s[e],r=n.type,u=n.text;if("status"===r)return(0,a.tZ)("div",{className:"status",sx:{textAlign:"center",gridColumn:["19 / span 6","24 / span 1"]},children:(0,a.tZ)("span",{className:"fas fa-times",title:u})})}return(0,a.tZ)("div",{className:"status",sx:{textAlign:"center",gridColumn:["19 / span 6","24 / span 1"]}})}}}]);
-//# sourceMappingURL=776.bdeac1b1.chunk.js.map
