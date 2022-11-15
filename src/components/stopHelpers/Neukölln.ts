@@ -135,6 +135,10 @@ export function getKöllnischeHeide() {
 	return "S Köllnische Heide [Bus Sonnenallee]"
 }
 
+export function getLipschitzallee() {
+	return ["U Lipschitzallee [Bus Lipschitzallee]", 2]
+}
+
 export function getNeukölln(
 	id: string,
 	mode: string,

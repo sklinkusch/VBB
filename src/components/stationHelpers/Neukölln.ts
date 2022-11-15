@@ -29,6 +29,10 @@ export function getKarlMarxStr() {
 	return ["U Karl-Marx-Str.", 1]
 }
 
+export function getLipschitzallee() {
+	return ["U Lipschitzallee", 1]
+}
+
 export function getNeukölln(product: string) {
 	switch (product) {
 		case "suburban":

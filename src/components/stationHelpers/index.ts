@@ -45,6 +45,7 @@ import {
 	getHermannplatz,
 	getJohannisthalerChaussee,
 	getKarlMarxStr,
+	getLipschitzallee,
 	getNeukölln,
 	getParchimerAllee,
 	getRathausNeukölln,
@@ -253,6 +254,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 			case "900000160004":
 			case "900000160701":
 				;[newStopName, order] = getLichtenberg(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000082201":
+				;[newStopName, order] = getLipschitzallee()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000017101":
