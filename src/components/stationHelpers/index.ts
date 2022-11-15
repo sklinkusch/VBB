@@ -49,6 +49,7 @@ import {
 	getNeukölln,
 	getParchimerAllee,
 	getRathausNeukölln,
+	getZwickauerDamm,
 } from "./Neukölln"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
 import {
@@ -371,6 +372,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023201":
 				;[newStopName, order] = getZoologischerGarten(product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000083101":
+				;[newStopName, order] = getZwickauerDamm()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			default:

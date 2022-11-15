@@ -137,6 +137,7 @@ import {
 	getParchimerAllee,
 	getRathausNeukölln,
 	getSonnenallee,
+	getZwickauerDamm,
 } from "./Neukölln"
 import {
 	getBergfelde,
@@ -1442,6 +1443,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
+			case "900000083101":
+				;[newStopName, order] = getZwickauerDamm()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			default:
 				return oldStopObject
 		}

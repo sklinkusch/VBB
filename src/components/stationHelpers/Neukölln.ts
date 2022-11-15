@@ -51,3 +51,7 @@ export function getParchimerAllee() {
 export function getRathausNeukölln() {
 	return ["U Rathaus Neukölln", 1]
 }
+
+export function getZwickauerDamm() {
+	return ["U Zwickauer Damm", 1]
+}

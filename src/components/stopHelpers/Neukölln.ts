@@ -301,3 +301,7 @@ export function getSonnenallee(id: string, lineName: string) {
 			return "S Sonnenallee/Saalestr. [Bus Saalestr.]"
 	}
 }
+
+export function getZwickauerDamm() {
+	return ["U Zwickauer Damm [Bus Zwickauer Damm]", 2]
+}
