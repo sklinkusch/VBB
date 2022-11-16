@@ -132,6 +132,7 @@ import {
 	getJohannisthalerChaussee,
 	getKarlMarxStr,
 	getKöllnischeHeide,
+	getLeinestr,
 	getLipschitzallee,
 	getNeukölln,
 	getParchimerAllee,
@@ -726,6 +727,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000082202":
 				;[newStopName, order] = getJohannisthalerChaussee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000079201":
+				;[newStopName, order] = getLeinestr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000057104":

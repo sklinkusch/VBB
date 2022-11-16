@@ -40,6 +40,10 @@ export function getKarlMarxStr() {
 	return ["U Karl-Marx-Str.", 1]
 }
 
+export function getLeinestr() {
+	return ["U Leinestr.", 1]
+}
+
 export function getLipschitzallee() {
 	return ["U Lipschitzallee", 1]
 }

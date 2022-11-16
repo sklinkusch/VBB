@@ -145,6 +145,10 @@ export function getKöllnischeHeide() {
 	return "S Köllnische Heide [Bus Sonnenallee]"
 }
 
+export function getLeinestr() {
+	return ["U Leinestr. [Bus Hermannstr.]", 2]
+}
+
 export function getLipschitzallee() {
 	return ["U Lipschitzallee [Bus Lipschitzallee]", 2]
 }

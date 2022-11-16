@@ -46,6 +46,7 @@ import {
 	getHermannstr,
 	getJohannisthalerChaussee,
 	getKarlMarxStr,
+	getLeinestr,
 	getLipschitzallee,
 	getNeukölln,
 	getParchimerAllee,
@@ -252,6 +253,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000013102":
 				;[newStopName, order] = getKottbusserTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000079201":
+				;[newStopName, order] = getLeinestr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000009102":
