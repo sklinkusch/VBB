@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import { Fragment, lazy } from "react"
+import { Distance } from "../Distance/Distance"
 const Time = lazy(() => import("../Time/Time"))
 const Product = lazy(() => import("../Product/Product"))
 const Line = lazy(() => import("../Line/Line"))
@@ -9,6 +10,12 @@ const Warning = lazy(() => import("../Warning/Warning"))
 const Status = lazy(() => import("../Status/Status"))
 const Warntext = lazy(() => import("../Warntext/Warntext"))
 const Stattext = lazy(() => import("../Stattext/Stattext"))
+
+type Location = {
+	type: "location"
+	latitude: number
+	longitude: number
+}
 
 type Remarks = {
 	code: string | undefined
@@ -49,28 +56,32 @@ type LINE_B = {
 	type: string
 }
 
-type Props = {
-	arr: {
-		cancelled: boolean | undefined
-		delay: number | null
-		direction: string | null
-		formerScheduledWhen?: string
-		line: LINE_A | LINE_B
-		plannedPlatform?: string
-		plannedWhen?: string
-		platform?: number | string
-		prognosedPlatform?: string
-		prognosisType: string | null | undefined
-		provenance: string | null
-		remarks: Remarks
-		scheduledWhen?: string
-		stop: {
-			id: string
-			name: string
-		}
-		tripId: string
-		when?: string
+type Arr = {
+	cancelled: boolean | undefined
+	currentTripPosition: Location
+	delay: number | null
+	direction: string | null
+	formerScheduledWhen?: string
+	line: LINE_A | LINE_B
+	plannedPlatform?: string
+	plannedWhen?: string
+	platform?: number | string
+	prognosedPlatform?: string
+	prognosisType: string | null | undefined
+	provenance: string | null
+	remarks: Remarks
+	scheduledWhen?: string
+	stop: {
+		id: string
+		name: string
+		location: Location
 	}
+	tripId: string
+	when?: string
+}
+
+type Props = {
+	arr: Arr
 }
 
 export const getDelay = (
@@ -120,7 +131,33 @@ export const getTime = (timestamp: string | undefined | null) => {
 	}
 }
 
+const getDistance = (arr: Arr) => {
+	const pi = 4 * Math.atan(1)
+	const { currentTripPosition, stop } = arr
+	if (currentTripPosition) {
+		const { latitude: currLat, longitude: currLng } = currentTripPosition
+		console.log(currLat, currLng)
+		const { location } = stop
+		const { latitude: stopLat, longitude: stopLng } = location
+		console.log(stopLat, stopLng)
+		const rCurrLat = (pi * currLat) / 180
+		const rStopLat = (pi * stopLat) / 180
+		const theta = currLng - stopLng
+		const rTheta = (pi * theta) / 180
+		const cosDist =
+			Math.sin(rCurrLat) * Math.sin(rStopLat) +
+			Math.cos(rCurrLat) * Math.cos(rStopLat) * Math.cos(rTheta)
+		const radDist = Math.acos(cosDist)
+		const degDist = (radDist * 180) / pi
+		const dist = degDist * 60 * 1.1515
+		return dist
+	} else {
+		return null
+	}
+}
+
 const Arrival = (props: Props) => {
+	const distance = getDistance(props.arr)
 	let delayMin
 	if (props.arr.cancelled) {
 		delayMin = getDelay(props.arr.delay, props.arr.cancelled)
@@ -197,6 +234,7 @@ const Arrival = (props: Props) => {
 					borderBottom: ["1px solid #ccc", "1px solid #ccc", "none"],
 				}}
 			>
+				<Distance distance={distance} />
 				<Warntext remarks={remarks} />
 				<Stattext remarks={remarks} />
 			</div>

@@ -2,6 +2,12 @@ import React, { lazy } from "react"
 const Departure = lazy(() => import("../Departure/Departure"))
 const Arrival = lazy(() => import("../Arrival/Arrival"))
 
+type Location = {
+	type: "location"
+	latitude: number
+	longitude: number
+}
+
 type Remarks = {
 	code: string | undefined
 	summary: string | null | undefined
@@ -44,6 +50,7 @@ type LINE_B = {
 type Props = {
 	data: {
 		cancelled: boolean | undefined
+		currentTripPosition: Location
 		delay: number | null
 		direction: string | null
 		formerScheduledWhen?: string
@@ -59,6 +66,7 @@ type Props = {
 		stop: {
 			id: string
 			name: string
+			location: Location
 		}
 		tripId: string
 		when?: string

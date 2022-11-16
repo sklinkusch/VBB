@@ -3,6 +3,12 @@ import StopName from "../StopName/StopName"
 import Tablehead from "../Tablehead/Tablehead"
 import Tablebody from "../Tablebody/Tablebody"
 
+type Location = {
+	type: "location"
+	latitude: number
+	longitude: number
+}
+
 type Remarks = {
 	code: string | undefined
 	summary: string | null | undefined
@@ -44,6 +50,7 @@ type LINE_B = {
 
 type Dataset = {
 	cancelled: boolean | undefined
+	currentTripPosition: Location
 	delay: number | null
 	direction: string | null
 	formerScheduledWhen?: string
@@ -59,6 +66,7 @@ type Dataset = {
 	stop: {
 		id: string
 		name: string
+		location: Location
 	}
 	tripId: string
 	when?: string

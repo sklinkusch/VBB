@@ -7,6 +7,12 @@ import TableData from "../TableData/TableData"
 import { changeStopObject } from "../stopHelpers"
 /* eslint-disable react-hooks/exhaustive-deps */
 
+type Location = {
+	type: "location"
+	latitude: number
+	longitude: number
+}
+
 type Remarks = {
 	code: string | undefined
 	summary: string | null | undefined
@@ -48,6 +54,7 @@ type LINE_B = {
 
 type Dataset = {
 	cancelled: boolean | undefined
+	currentTripPosition: Location
 	delay: number | null
 	direction: string | null
 	formerScheduledWhen?: string
@@ -64,6 +71,7 @@ type Dataset = {
 	stop: {
 		id: string
 		name: string
+		location: Location
 	}
 	tripId: string
 	when?: string
