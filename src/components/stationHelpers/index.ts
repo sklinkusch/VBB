@@ -40,6 +40,7 @@ import {
 } from "./Mitte"
 import {
 	getBlaschkoallee,
+	getBoddinstr,
 	getBritzSüd,
 	getGrenzallee,
 	getHermannplatz,
@@ -154,6 +155,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041102":
 				;[newStopName, order] = getBlissestr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000079202":
+				;[newStopName, order] = getBoddinstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000080402":

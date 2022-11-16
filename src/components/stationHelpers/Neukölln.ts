@@ -2,6 +2,10 @@ export function getBlaschkoallee() {
 	return ["U Blaschkoallee", 1]
 }
 
+export function getBoddinstr() {
+	return ["U Boddinstr.", 1]
+}
+
 export function getBritzSüd() {
 	return ["U Britz-Süd", 1]
 }

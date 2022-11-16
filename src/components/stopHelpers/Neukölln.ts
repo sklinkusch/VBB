@@ -4,6 +4,10 @@ export function getBlaschkoallee() {
 	return ["U Blaschkoallee [Bus Blaschkoallee]", 2]
 }
 
+export function getBoddinstr() {
+	return ["U Boddinstr. [Bus Hermannstr.]", 2]
+}
+
 export function getBritzSüd(id: string) {
 	switch (id) {
 		case "900000080402":
