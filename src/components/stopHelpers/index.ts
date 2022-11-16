@@ -665,7 +665,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000079220":
 			case "900000079221":
-				;[newStopName, trackNo] = getHermannstr(
+				;[newStopName, trackNo, order] = getHermannstr(
 					id,
 					mode,
 					lineName,
@@ -673,7 +673,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000093201":
 				newStopName = getHermsdorf()
 				newStop = { ...stop, name: newStopName }

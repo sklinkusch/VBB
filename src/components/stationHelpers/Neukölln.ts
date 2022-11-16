@@ -21,6 +21,17 @@ export function getHermannplatz(lineName: string) {
 	}
 }
 
+export function getHermannstr(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S Hermannstr.", 1]
+		case "subway":
+			return ["U Hermannstr.", 2]
+		default:
+			return ["S+U Hermannstr.", 3]
+	}
+}
+
 export function getJohannisthalerChaussee() {
 	return ["U Johannisthaler Chaussee", 1]
 }

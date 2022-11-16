@@ -43,6 +43,7 @@ import {
 	getBritzSüd,
 	getGrenzallee,
 	getHermannplatz,
+	getHermannstr,
 	getJohannisthalerChaussee,
 	getKarlMarxStr,
 	getLipschitzallee,
@@ -211,6 +212,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000078101":
 				;[newStopName, order] = getHermannplatz(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000079221":
+				;[newStopName, order] = getHermannstr(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000054105":

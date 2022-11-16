@@ -54,24 +54,24 @@ export function getHermannstr(
 				switch (lineName) {
 					case "M44":
 						if (provenance.includes("Buckow"))
-							return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+							return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 1, 4]
 					case "246":
 					case "277":
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
 					case "377":
 						if (provenance.includes("Kranoldstr"))
-							return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+							return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 1, 4]
 					case "U8":
 					case "N8":
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 1, 4]
 					case "N77":
 						if (provenance.includes("Mariendorf"))
-							return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 2]
+							return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 2, 4]
 					default:
-						return ["S+U Hermannstr. [Bus]", null]
+						return ["S+U Hermannstr. [Bus]", null, 5]
 				}
 			case "900000079220":
 				switch (lineName) {
@@ -80,8 +80,13 @@ export function getHermannstr(
 							return [
 								"S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]",
 								5,
+								6,
 							]
-						return ["S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]", 4]
+						return [
+							"S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]",
+							4,
+							6,
+						]
 				}
 		}
 	} else if (mode === "dep" && direction !== null) {
@@ -90,24 +95,24 @@ export function getHermannstr(
 				switch (lineName) {
 					case "M44":
 						if (direction.includes("Buckow"))
-							return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+							return ["S+U Hermannstr. [Bus Hermannstr.]", 1, 4]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
 					case "246":
 					case "277":
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 2]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 2, 4]
 					case "377":
 						if (direction.includes("Kranoldstr"))
-							return ["S+U Hermannstr. [Bus Hermannstr.]", 1]
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+							return ["S+U Hermannstr. [Bus Hermannstr.]", 1, 4]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
 					case "U8":
 					case "N8":
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
 					case "N77":
 						if (direction.includes("Mariendorf"))
-							return ["S+U Hermannstr. [Bus Hermannstr.]", 2]
-						return ["S+U Hermannstr. [Bus Hermannstr.]", 3]
+							return ["S+U Hermannstr. [Bus Hermannstr.]", 2, 4]
+						return ["S+U Hermannstr. [Bus Hermannstr.]", 3, 4]
 					default:
-						return ["S+U Hermannstr. [Bus]", null]
+						return ["S+U Hermannstr. [Bus]", null, 5]
 				}
 			case "900000079220":
 				switch (lineName) {
@@ -116,8 +121,13 @@ export function getHermannstr(
 							return [
 								"S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]",
 								4,
+								6,
 							]
-						return ["S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]", 5]
+						return [
+							"S+U Hermannstr./Silbersteinstr. [Bus Silbersteinstr.]",
+							5,
+							6,
+						]
 				}
 		}
 	}
