@@ -69,6 +69,10 @@ export function getMöckernbrücke(lineName: string) {
 	}
 }
 
+export function getSchönleinstr() {
+	return ["U Schönleinstr.", 1]
+}
+
 export function getSüdstern() {
 	return ["U Südstern", 1]
 }

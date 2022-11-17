@@ -58,6 +58,7 @@ import {
 	getOstkreuz,
 	getPrinzenstr,
 	getSchlesischesTor,
+	getSchönleinstr,
 	getStrausbergerPlatz,
 	getSüdstern,
 	getWarschauerStr,
@@ -1173,6 +1174,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000085201":
 				newStopName = getSchönholz()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000016201":
+				;[newStopName, order] = getSchönleinstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000091205":

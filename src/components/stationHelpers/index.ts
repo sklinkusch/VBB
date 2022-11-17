@@ -24,6 +24,7 @@ import {
 	getKottbusserTor,
 	getMehringdamm,
 	getMöckernbrücke,
+	getSchönleinstr,
 	getSüdstern,
 	getWarschauerStr,
 } from "./Friedrichshain-Kreuzberg"
@@ -343,6 +344,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000110001":
 				;[newStopName, order] = getSchönhauserAllee(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000016201":
+				;[newStopName, order] = getSchönleinstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000035101":

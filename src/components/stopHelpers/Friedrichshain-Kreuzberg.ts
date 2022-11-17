@@ -190,6 +190,10 @@ export function getSchlesischesTor(
 	}
 }
 
+export function getSchönleinstr() {
+	return ["U Schönleinstr. [Bus Kottbusser Damm]", 2]
+}
+
 export function getStrausbergerPlatz(lineName: string) {
 	switch (lineName) {
 		case "142":
