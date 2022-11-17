@@ -23,6 +23,7 @@ import {
 	getHalleschesTor,
 	getKottbusserTor,
 	getMehringdamm,
+	getMoritzplatz,
 	getMöckernbrücke,
 	getSchönleinstr,
 	getSüdstern,
@@ -288,6 +289,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000017104":
 				;[newStopName, order] = getMöckernbrücke(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000013101":
+				;[newStopName, order] = getMoritzplatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000078201":

@@ -135,6 +135,10 @@ export function getMöckernbrücke(
 	}
 }
 
+export function getMoritzplatz() {
+	return ["U Moritzplatz [Bus Oranienstr.]", 2]
+}
+
 export function getOstbahnhof() {
 	return "S Ostbahnhof [Bus Am Ostbahnhof]"
 }

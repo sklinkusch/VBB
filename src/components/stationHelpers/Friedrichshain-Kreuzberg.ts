@@ -69,6 +69,10 @@ export function getMöckernbrücke(lineName: string) {
 	}
 }
 
+export function getMoritzplatz() {
+	return ["U Moritzplatz", 1]
+}
+
 export function getSchönleinstr() {
 	return ["U Schönleinstr.", 1]
 }

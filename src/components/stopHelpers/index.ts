@@ -53,6 +53,7 @@ import {
 	getGörlitzerBf,
 	getHalleschesTor,
 	getMehringdamm,
+	getMoritzplatz,
 	getMöckernbrücke,
 	getOstbahnhof,
 	getOstkreuz,
@@ -937,6 +938,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100010":
 				newStopName = getMohrenstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000013101":
+				;[newStopName, order] = getMoritzplatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000100537":
