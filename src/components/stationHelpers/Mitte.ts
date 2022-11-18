@@ -53,6 +53,17 @@ export function getHeinrichHeineStr() {
 	return ["U Heinrich-Heine-Str.", 1]
 }
 
+export function getJannowitzbrücke(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S Jannowitzbrücke", 1]
+		case "subway":
+			return ["U Jannowitzbrücke", 2]
+		default:
+			return ["S+U Jannowitzbrücke", 3]
+	}
+}
+
 export function getLeopoldplatz(lineName: string) {
 	switch (lineName) {
 		case "U6":

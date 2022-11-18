@@ -332,37 +332,39 @@ export function getJannowitzbrücke(
 		switch (lineName) {
 			case "300":
 				if (provenance.includes("Warschauer"))
-					return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
-				return "S+U Jannowitzbrücke [Bus Holzmarktstr.]"
+					return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
+				return ["S+U Jannowitzbrücke [Bus Holzmarktstr.]", 5]
+			case "U8":
 			case "N8":
-				return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+				return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
 			case "N40":
 				if (provenance.includes("Blockdammweg"))
-					return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
-				return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+					return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
+				return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
 			case "N60":
 			case "N65":
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
 			default:
-				return "S+U Jannowitzbrücke [Bus]"
+				return ["S+U Jannowitzbrücke [Bus]", 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "300":
 				if (direction.includes("Warschauer"))
-					return "S+U Jannowitzbrücke [Bus Holzmarktstr.]"
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+					return ["S+U Jannowitzbrücke [Bus Holzmarktstr.]", 5]
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
+			case "U8":
 			case "N8":
-				return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+				return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
 			case "N40":
 				if (direction.includes("Blockdammweg"))
-					return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+					return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
 			case "N60":
 			case "N65":
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
 			default:
-				return "S+U Jannowitzbrücke [Bus]"
+				return ["S+U Jannowitzbrücke [Bus]", 7]
 		}
 	}
 }
