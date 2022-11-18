@@ -95,6 +95,7 @@ import {
 	getGesundbrunnen,
 	getHackescherMarkt,
 	getHbf,
+	getHeinrichHeineStr,
 	getHumboldthain,
 	getJannowitzbrücke,
 	getLeopoldplatz,
@@ -657,6 +658,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getHeiligensee()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000100008":
+				;[newStopName, order] = getHeinrichHeineStr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000200000":
 			case "900000203376":
 				newStopName = getHennigsdorf(id)

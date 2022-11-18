@@ -308,6 +308,16 @@ export function getHbf(
 	}
 }
 
+export function getHeinrichHeineStr(lineName: string) {
+	switch (lineName) {
+		case "U8":
+		case "N8":
+			return ["U Heinrich-Heine-Str. [Bus H.-Heine-Str.]", 3]
+		default:
+			return ["U Heinrich-Heine-Str. [Bus Köpenicker Str.]", 2]
+	}
+}
+
 export function getHumboldthain() {
 	return "S Humboldthain [Bus Hochstr.]"
 }

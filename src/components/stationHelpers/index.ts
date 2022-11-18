@@ -34,6 +34,7 @@ import { getWuhletal } from "./Marzahn-Hellersdorf"
 import {
 	getAlex,
 	getFriedrichstr,
+	getHeinrichHeineStr,
 	getLeopoldplatz,
 	getPotsdamerPlatz,
 	getStadtmitte,
@@ -216,6 +217,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000045102":
 				;[newStopName, order] = getHeidelbergerPlatz(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000100008":
+				;[newStopName, order] = getHeinrichHeineStr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000078101":

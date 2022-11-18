@@ -49,6 +49,10 @@ export function getFriedrichstr(product: string, lineName: string) {
 	}
 }
 
+export function getHeinrichHeineStr() {
+	return ["U Heinrich-Heine-Str.", 1]
+}
+
 export function getLeopoldplatz(lineName: string) {
 	switch (lineName) {
 		case "U6":
