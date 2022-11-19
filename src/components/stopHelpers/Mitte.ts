@@ -851,6 +851,66 @@ export function getWedding(id: string, lineName: string) {
 	}
 }
 
+export function getWeinmeisterstr(
+	id: string,
+	mode: string,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (id) {
+		case "900000100051":
+			switch (product) {
+				case "tram":
+					return ["U Weinmeisterstr. [Tram Alte Schönhauser Str.]", 2]
+				default:
+					return ["U Weinmeisterstr. [Bus Neue Schönhauser Str.]", 3]
+			}
+		case "900000100080":
+			switch (product) {
+				case "tram":
+					return ["U Weinmeisterstr./Gipsstr. [Tram Rosenthaler Str.]", 4]
+				default:
+					if (mode === "arr" && provenance !== null) {
+						switch (lineName) {
+							case "U8":
+							case "N8":
+								if (provenance.includes("Hermannstr"))
+									return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]", 5]
+							case "N40":
+								if (provenance.includes("Blockdammweg"))
+									return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]", 5]
+							default:
+								return ["U Weinmeisterstr./Gipsstr. [Bus]", 7]
+						}
+					} else if (mode === "dep" && direction !== null) {
+						switch (lineName) {
+							case "U8":
+							case "N8":
+								if (direction.includes("Hermannstr"))
+									return [
+										"U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]",
+										5,
+									]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+							case "N40":
+								if (direction.includes("Blockdammweg"))
+									return [
+										"U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]",
+										5,
+									]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+							default:
+								return ["U Weinmeisterstr./Gipsstr. [Bus]", 7]
+						}
+					}
+			}
+	}
+}
+
 export function getWesthafen() {
 	return "S+U Westhafen [Bus Putlitzbrücke]"
 }

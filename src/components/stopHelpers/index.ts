@@ -114,6 +114,7 @@ import {
 	getTiergarten,
 	getUnterDenLinden,
 	getWedding,
+	getWeinmeisterstr,
 	getWesthafen,
 } from "./Mitte"
 import {
@@ -1401,6 +1402,18 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000008103":
 			case "900000009104":
 				;[newStopName, order] = getWedding(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000100051":
+			case "900000100080":
+				;[newStopName, order] = getWeinmeisterstr(
+					id,
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000020204":

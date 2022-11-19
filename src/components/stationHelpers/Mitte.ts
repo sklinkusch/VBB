@@ -126,3 +126,7 @@ export function getWedding(product: string) {
 			return ["S+U Wedding", 3]
 	}
 }
+
+export function getWeinmeisterstr() {
+	return ["U Weinmeisterstr.", 1]
+}
