@@ -38,6 +38,7 @@ import {
 	getJannowitzbrücke,
 	getLeopoldplatz,
 	getPotsdamerPlatz,
+	getRosenthalerPlatz,
 	getStadtmitte,
 	getUnterDenLinden,
 	getWedding,
@@ -352,6 +353,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000036101":
 				;[newStopName, order] = getRohrdamm()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000100023":
+				;[newStopName, order] = getRosenthalerPlatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000083201":

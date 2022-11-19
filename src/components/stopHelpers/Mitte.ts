@@ -732,6 +732,52 @@ export function getRosaLuxemburgPlatz(product: string, lineName: string) {
 	}
 }
 
+export function getRosenthalerPlatz(
+	mode: string,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (product) {
+		case "tram":
+			switch (lineName) {
+				case "M1":
+				case "12":
+					return ["U Rosenthaler Platz [Tram Weinbergsweg]", 3]
+				default:
+					return ["U Rosenthaler Platz [Tram Torstr.]", 2]
+			}
+		default:
+			switch (lineName) {
+				case "U8":
+				case "N8":
+					if (mode === "arr" && provenance !== null) {
+						if (provenance.includes("Hermannstr"))
+							return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+						return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+					} else if (mode === "dep" && direction !== null) {
+						if (direction.includes("Hermannstr"))
+							return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+						return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+					}
+					return null
+				case "N40":
+					if (mode === "arr" && provenance?.includes("Blockdammweg"))
+						return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+					if (mode === "arr")
+						return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+					if (mode === "dep" && direction?.includes("Blockdammweg"))
+						return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+					return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+				case "142":
+					return ["U Rosenthaler Platz [Bus Torstr.]", 4]
+				default:
+					return ["U Rosenthaler Platz [Bus]", 7]
+			}
+	}
+}
+
 export function getRotesRathaus(id: string) {
 	switch (id) {
 		case "900000100045":

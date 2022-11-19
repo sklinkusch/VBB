@@ -94,6 +94,10 @@ export function getPotsdamerPlatz(id: string, product: string) {
 	}
 }
 
+export function getRosenthalerPlatz() {
+	return ["U Rosenthaler Platz", 1]
+}
+
 export function getStadtmitte(lineName: string) {
 	switch (lineName) {
 		case "U2":

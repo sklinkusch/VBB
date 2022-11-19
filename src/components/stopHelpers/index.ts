@@ -107,6 +107,7 @@ import {
 	getOranienburgerStr,
 	getPotsdamerPlatz,
 	getRosaLuxemburgPlatz,
+	getRosenthalerPlatz,
 	getRotesRathaus,
 	getSchillingstr,
 	getSpittelmarkt,
@@ -1140,6 +1141,16 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getRosaLuxemburgPlatz(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000100023":
+				;[newStopName, order] = getRosenthalerPlatz(
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100045":
 			case "900000100539":
 				newStopName = getRotesRathaus(id)
