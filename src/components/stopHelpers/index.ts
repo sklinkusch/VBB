@@ -89,6 +89,7 @@ import {
 } from "./Marzahn-Hellersdorf"
 import {
 	getAlex,
+	getBernauerStr,
 	getBeusselstr,
 	getBrandenburgerTor,
 	getFriedrichstr,
@@ -390,6 +391,18 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getBernau()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000007110":
+			case "900000007170":
+				;[newStopName, order] = getBernauerStr(
+					id,
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000020202":
 				newStopName = getBeusselstr()
 				newStop = { ...stop, name: newStopName }

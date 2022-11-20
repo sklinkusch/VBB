@@ -33,6 +33,7 @@ import { getLichtenberg } from "./Lichtenberg"
 import { getWuhletal } from "./Marzahn-Hellersdorf"
 import {
 	getAlex,
+	getBernauerStr,
 	getFriedrichstr,
 	getHeinrichHeineStr,
 	getJannowitzbrücke,
@@ -149,6 +150,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000044201":
 				;[newStopName, order] = getBerlinerStr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000007110":
+				;[newStopName, order] = getBernauerStr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000024201":

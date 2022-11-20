@@ -124,6 +124,43 @@ export function getAlex(
 	}
 }
 
+export function getBernauerStr(
+	id: string,
+	mode: string,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (id) {
+		case "900000007110":
+			switch (product) {
+				case "tram":
+					return ["U Bernauer Str. [Tram Bernauer Str.]", 2]
+				default:
+					switch (lineName) {
+						case "U8":
+						case "N8":
+							return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
+						case "247":
+							if (mode === "arr" && provenance?.includes("Leopoldplatz"))
+								return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+							if (mode === "arr")
+								return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
+							if (mode === "dep" && direction?.includes("Leopoldplatz"))
+								return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
+							return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+						case "M10":
+							return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+						default:
+							return ["U Bernauer Str. [Bus]", 5]
+					}
+			}
+		case "900000007170":
+			return ["U Bernauer Str./Schönholzer Str. [Bus Schönholzer Str.]", 6]
+	}
+}
+
 export function getBeusselstr() {
 	return "S Beusselstr. [Bus Beusselstr.]"
 }
