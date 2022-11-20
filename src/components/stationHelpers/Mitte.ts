@@ -53,6 +53,20 @@ export function getFriedrichstr(product: string, lineName: string) {
 	}
 }
 
+export function getGesundbrunnen(product: string) {
+	switch (product) {
+		case "express":
+		case "regional":
+			return ["Bhf Gesundbrunnen", 1]
+		case "suburban":
+			return ["S Gesundbrunnen", 2]
+		case "subway":
+			return ["U Gesundbrunnen", 3]
+		default:
+			return ["S+U Gesundbrunnen", 4]
+	}
+}
+
 export function getHeinrichHeineStr() {
 	return ["U Heinrich-Heine-Str.", 1]
 }

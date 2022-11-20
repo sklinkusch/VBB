@@ -35,6 +35,7 @@ import {
 	getAlex,
 	getBernauerStr,
 	getFriedrichstr,
+	getGesundbrunnen,
 	getHeinrichHeineStr,
 	getJannowitzbrücke,
 	getLeopoldplatz,
@@ -198,6 +199,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100001":
 				;[newStopName, order] = getFriedrichstr(product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000007102":
+				;[newStopName, order] = getGesundbrunnen(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000017103":

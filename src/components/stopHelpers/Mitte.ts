@@ -187,18 +187,21 @@ export function getGesundbrunnen(
 	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
-		if (lineName === "N8" && provenance.includes("Wilhelmsruher"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		if (lineName === "N8" && provenance.includes("Osloer"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		return "S+U Gesundbrunnen [Bus H.-Sobek-Pl.]"
+		if (
+			/^([NU]{1}8)$/.test(lineName) &&
+			/(Wilhelmsruher|Wittenau|Osloer)/.test(provenance)
+		)
+			return ["S+U Gesundbrunnen [Bus Badstr.]", 6]
+		return ["S+U Gesundbrunnen [Bus H.-Sobek-Pl.]", 5]
 	} else if (mode === "dep" && direction !== null) {
-		if (lineName === "N8" && direction.includes("Hermannplatz"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		if (lineName === "N8" && direction.includes("Hermannstr"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		return "S+U Gesundbrunnen [Bus H.-Sobek-Pl.]"
+		if (
+			/^([NU]{1}8)$/.test(lineName) &&
+			/(Hermannplatz|Hermannstr)/.test(direction)
+		)
+			return ["S+U Gesundbrunnen [Bus Badstr.]", 6]
+		return ["S+U Gesundbrunnen [Bus H.-Sobek-Pl.]", 5]
 	}
+	return ["S+U Gesundbrunnen [Bus]", 7]
 }
 
 export function getHackescherMarkt(
