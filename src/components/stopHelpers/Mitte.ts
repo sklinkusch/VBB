@@ -144,12 +144,12 @@ export function getBernauerStr(
 							return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
 						case "247":
 							if (mode === "arr" && provenance?.includes("Leopoldplatz"))
-								return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+								return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
 							if (mode === "arr")
-								return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
+								return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
 							if (mode === "dep" && direction?.includes("Leopoldplatz"))
-								return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
-							return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+								return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+							return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
 						case "M10":
 							return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
 						default:
