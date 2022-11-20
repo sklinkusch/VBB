@@ -44,6 +44,9 @@ type Props = {
 
 function StopName(props: Props) {
 	const { element, stop, date, lines } = props
+	const linesWithoutExpress = lines
+		? lines.filter((line) => !/(ICE|IC|EC|D)/.test(line.name))
+		: null
 	return (
 		<React.Fragment>
 			{element === "h2" ? (
@@ -51,9 +54,11 @@ function StopName(props: Props) {
 			) : (
 				<h3>
 					{stop.name}
-					{lines &&
-						Array.isArray(lines) &&
-						lines.map((line) => <Line line={line} key={line.name} />)}
+					{linesWithoutExpress &&
+						Array.isArray(linesWithoutExpress) &&
+						linesWithoutExpress.map((line) => (
+							<Line line={line} key={line.name} />
+						))}
 				</h3>
 			)}
 			{element === "h2" && (
