@@ -42,6 +42,7 @@ import {
 	getRosenthalerPlatz,
 	getStadtmitte,
 	getUnterDenLinden,
+	getVoltastr,
 	getWedding,
 	getWeinmeisterstr,
 } from "./Mitte"
@@ -400,6 +401,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				;[newStopName, order] = getUnterDenLinden(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
+			case "900000007103":
+				;[newStopName, order] = getVoltastr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000120004":
 				;[newStopName, order] = getWarschauerStr(product)
 				newStop = { ...stop, name: newStopName }
@@ -416,13 +421,13 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 				;[newStopName, order] = getWuhletal(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
-			case "900000033101":
-				;[newStopName, order] = getZitadelle()
-				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, order }
 			case "900000057102":
 			case "900000058103":
 				;[newStopName, order] = getYorckstr(id, product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000033101":
+				;[newStopName, order] = getZitadelle()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023201":

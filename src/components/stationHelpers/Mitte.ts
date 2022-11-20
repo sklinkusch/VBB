@@ -124,6 +124,10 @@ export function getUnterDenLinden(lineName: string) {
 	}
 }
 
+export function getVoltastr() {
+	return ["U Voltastr.", 1]
+}
+
 export function getWedding(product: string) {
 	switch (product) {
 		case "suburban":

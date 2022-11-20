@@ -115,6 +115,7 @@ import {
 	getStadtmitte,
 	getTiergarten,
 	getUnterDenLinden,
+	getVoltastr,
 	getWedding,
 	getWeinmeisterstr,
 	getWesthafen,
@@ -1388,6 +1389,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getVinetastr(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000007103":
+				;[newStopName, order] = getVoltastr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000094101":
 				newStopName = getWaidmannslust(lineName)
 				newStop = { ...stop, name: newStopName }

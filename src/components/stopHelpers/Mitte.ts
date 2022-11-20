@@ -918,6 +918,18 @@ export function getUnterDenLinden(lineName: string) {
 	}
 }
 
+export function getVoltastr(lineName: string) {
+	switch (lineName) {
+		case "U8":
+		case "N8":
+			return ["U Voltastr. [Bus Brunnenstr.]", 2]
+		case "247":
+			return ["U Voltastr. [Bus Usedomer Str.]", 3]
+		default:
+			return ["U Voltastr. [Bus]", 4]
+	}
+}
+
 export function getWedding(id: string, lineName: string) {
 	switch (id) {
 		case "900000009104":
