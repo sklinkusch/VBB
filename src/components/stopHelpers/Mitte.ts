@@ -579,6 +579,35 @@ export function getOranienburgerStr() {
 	return "S Oranienburger Str. [Tram Oranienburger Str.]"
 }
 
+export function getOsloerStr(id: string, product: string, lineName: string) {
+	switch (id) {
+		case "900000009202":
+			switch (product) {
+				case "tram":
+					return ["U Osloer Str. [Tram Osloer Str.]", 4]
+				default:
+					switch (lineName) {
+						case "125":
+						case "128":
+						case "150":
+						case "255":
+						case "M13":
+						case "50":
+						case "U9":
+						case "N9":
+							return ["U Osloer Str. [Bus Osloer Str.]", 5]
+						case "U8":
+						case "N8":
+							return ["U Osloer Str. [Bus Schwedenstr.]", 6]
+						default:
+							return ["U Osloer Str. [Bus]", 7]
+					}
+			}
+		case "900000009272":
+			return ["U Osloer Str. [Tromsöer Str.]", 8]
+	}
+}
+
 export function getPankstr(
 	mode: string,
 	lineName: string,

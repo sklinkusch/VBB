@@ -93,6 +93,17 @@ export function getLeopoldplatz(lineName: string) {
 	}
 }
 
+export function getOsloerStr(lineName: string) {
+	switch (lineName) {
+		case "U9":
+			return ["U Osloer Str. ⬆️", 1]
+		case "U8":
+			return ["U Osloer Str. ⬇️", 2]
+		default:
+			return ["U Osloer Str.", 3]
+	}
+}
+
 export function getPankstr() {
 	return ["U Pankstr.", 1]
 }
