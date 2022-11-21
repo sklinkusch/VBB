@@ -106,6 +106,7 @@ import {
 	getMärkischesMuseum,
 	getNordbahnhof,
 	getOranienburgerStr,
+	getPankstr,
 	getPotsdamerPlatz,
 	getRosaLuxemburgPlatz,
 	getRosenthalerPlatz,
@@ -1071,6 +1072,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getPankowHeinersdorf(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000009203":
+				;[newStopName, order] = getPankstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000080401":
 				;[newStopName, order] = getParchimerAllee()
 				newStop = { ...stop, name: newStopName }

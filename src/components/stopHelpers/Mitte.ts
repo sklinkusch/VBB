@@ -579,6 +579,28 @@ export function getOranienburgerStr() {
 	return "S Oranienburger Str. [Tram Oranienburger Str.]"
 }
 
+export function getPankstr(
+	mode: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U8":
+		case "N8":
+			return ["U Pankstr. [Bus Badstr.]", 4]
+		case "M27":
+			if (mode === "arr" && provenance?.includes("Hadlichstr"))
+				return ["U Pankstr. [Bus Pankstr.]", 2]
+			if (mode === "arr") return ["U Pankstr. [Bus Prinzenallee]", 3]
+			if (mode === "dep" && direction?.includes("Pankow"))
+				return ["U Pankstr. [Bus Prinzenallee]", 3]
+			return ["U Pankstr. [Bus Pankstr.]", 2]
+		default:
+			return ["U Pankstr. [Bus]", 5]
+	}
+}
+
 export function getPotsdamerPlatz(
 	id: string,
 	mode: string,

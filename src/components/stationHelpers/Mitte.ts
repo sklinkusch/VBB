@@ -93,6 +93,10 @@ export function getLeopoldplatz(lineName: string) {
 	}
 }
 
+export function getPankstr() {
+	return ["U Pankstr.", 1]
+}
+
 export function getPotsdamerPlatz(id: string, product: string) {
 	switch (id) {
 		case "900000100020":
