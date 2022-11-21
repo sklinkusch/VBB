@@ -181,6 +181,7 @@ import { getGriebnitzsee, getPotsdamHbf } from "./Potsdam"
 import { getTeltowStadt } from "./Potsdam-Mittelmark"
 import {
 	getEichborndamm,
+	getFranzNeumannPlatz,
 	getFrohnau,
 	getHeiligensee,
 	getHermsdorf,
@@ -540,6 +541,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000120001":
 				;[newStopName, order] = getFrankfurterAllee(product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000085202":
+				;[newStopName, order] = getFranzNeumannPlatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000320006":
