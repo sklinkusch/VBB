@@ -67,7 +67,11 @@ import {
 	getZwickauerDamm,
 } from "./Neukölln"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
-import { getFranzNeumannPlatz, getResidenzstr } from "./Reinickendorf"
+import {
+	getFranzNeumannPlatz,
+	getParacelsusBad,
+	getResidenzstr,
+} from "./Reinickendorf"
 import {
 	getAltstadtSpandau,
 	getHaselhorst,
@@ -350,6 +354,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000009203":
 				;[newStopName, order] = getPankstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000085104":
+				;[newStopName, order] = getParacelsusBad()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000080401":

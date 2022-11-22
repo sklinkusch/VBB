@@ -187,6 +187,29 @@ export function getKarlBonhoefferNervenklinik() {
 	return "S+U Karl-Bonhoeffer-Nervenklinik [Bus Oranienburger Str.]"
 }
 
+export function getParacelsusBad(id: string, lineName: string) {
+	switch (id) {
+		case "900000085104":
+			switch (lineName) {
+				case "120":
+				case "320":
+				case "N20":
+					return ["U Paracelsus-Bad [Bus Roedernallee]", 3]
+				case "122":
+				case "322":
+				case "U8":
+				case "N8":
+					return ["U Paracelsus-Bad [Bus Lindauer Allee]", 2]
+				default:
+					return ["U Paracelsus-Bad [Bus]", 4]
+			}
+		case "900000085108":
+			return ["U Paracelsus-Bad/Aroser Allee [Bus Lindauer Allee]", 5]
+		default:
+			return ["U Paracelsus-Bad [Bus]", 6]
+	}
+}
+
 export function getResidenzstr(
 	mode: Mode,
 	lineName: string,

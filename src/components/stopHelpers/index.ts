@@ -186,6 +186,7 @@ import {
 	getHeiligensee,
 	getHermsdorf,
 	getKarlBonhoefferNervenklinik,
+	getParacelsusBad,
 	getResidenzstr,
 	getSchulzendorf,
 	getSchönholz,
@@ -1098,6 +1099,11 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 					direction,
 					provenance
 				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000085104":
+			case "900000085108":
+				;[newStopName, order] = getParacelsusBad(id, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000080401":
