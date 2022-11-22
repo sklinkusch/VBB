@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAhrensfelde() {
 	return "S Ahrensfelde [Bus Märkische Allee]"
@@ -14,7 +15,7 @@ export function getBiesdorf(id: string) {
 }
 
 export function getFriedrichsfeldeOst(
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,
@@ -71,7 +72,7 @@ export function getKaulsdorf() {
 
 export function getMahlsdorf(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -131,7 +132,7 @@ export function getMahlsdorf(
 }
 
 export function getMarzahn(
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,
@@ -200,7 +201,7 @@ export function getPoelchaustr() {
 }
 
 export function getRaoulWallenbergStr(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

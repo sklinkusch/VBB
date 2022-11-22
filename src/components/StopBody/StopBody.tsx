@@ -85,11 +85,13 @@ type Stop = {
 	type?: string
 }
 
+type Mode = "dep" | "arr"
+
 type Props = {
 	data: Data
 	date: string
 	error: string
-	mode: string
+	mode: Mode
 	stop: Stop
 }
 

@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getBayerischerPlatz(lineName: string) {
 	switch (lineName) {
@@ -31,7 +32,7 @@ export function getKleistpark() {
 }
 
 export function getNollendorfplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

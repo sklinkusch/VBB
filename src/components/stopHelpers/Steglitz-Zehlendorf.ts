@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getBotanischerGarten() {
 	return "S Botanischer Garten [Bus Gardeschützenweg]"
@@ -18,7 +19,7 @@ export function getBreitenbachplatz(lineName: string) {
 	}
 }
 
-export function getDahlemDorf(mode: string, lineName: string) {
+export function getDahlemDorf(mode: Mode, lineName: string) {
 	if (mode === "arr") {
 		switch (lineName) {
 			case "M11":
@@ -36,7 +37,7 @@ export function getFeuerbachstr() {
 }
 
 export function getFreieUniversität(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -115,7 +116,7 @@ export function getOnkelTomsHütte() {
 }
 
 export function getOsdorferStr(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -167,7 +168,7 @@ export function getOsdorferStr(
 
 export function getSteglitz(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -273,7 +274,7 @@ export function getSundgauerStr() {
 }
 
 export function getWannsee(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -329,7 +330,7 @@ export function getWannsee(
 }
 
 export function getZehlendorf(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

@@ -72,8 +72,10 @@ type Dataset = {
 	when?: string
 }
 
+type Mode = "dep" | "arr"
+
 type Props = {
-	mode: string
+	mode: Mode
 	stop: {
 		id: string
 		name: string

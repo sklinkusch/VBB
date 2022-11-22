@@ -1,8 +1,9 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAlex(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -126,7 +127,7 @@ export function getAlex(
 
 export function getBernauerStr(
 	id: string,
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,
@@ -181,7 +182,7 @@ export function getFriedrichstr(product: string) {
 }
 
 export function getGesundbrunnen(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -205,7 +206,7 @@ export function getGesundbrunnen(
 }
 
 export function getHackescherMarkt(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -254,7 +255,7 @@ export function getHackescherMarkt(
 }
 
 export function getHbf(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -363,7 +364,7 @@ export function getHumboldthain() {
 }
 
 export function getJannowitzbrücke(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -409,7 +410,7 @@ export function getJannowitzbrücke(
 	}
 }
 
-export function getLeopoldplatz(mode: string, lineName: string) {
+export function getLeopoldplatz(mode: Mode, lineName: string) {
 	if (mode === "arr") {
 		switch (lineName) {
 			case "120":
@@ -459,7 +460,7 @@ export function getMärkischesMuseum(id: string) {
 }
 
 export function getMendelssohnBartholdyPark(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -505,7 +506,7 @@ export function getMuseumsinsel() {
 
 export function getNordbahnhof(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -609,7 +610,7 @@ export function getOsloerStr(id: string, product: string, lineName: string) {
 }
 
 export function getPankstr(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -632,7 +633,7 @@ export function getPankstr(
 
 export function getPotsdamerPlatz(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -824,7 +825,7 @@ export function getRosaLuxemburgPlatz(product: string, lineName: string) {
 }
 
 export function getRosenthalerPlatz(
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,
@@ -885,7 +886,7 @@ export function getSchillingstr() {
 }
 
 export function getSpittelmarkt(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -1002,7 +1003,7 @@ export function getWedding(id: string, lineName: string) {
 
 export function getWeinmeisterstr(
 	id: string,
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,

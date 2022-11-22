@@ -67,7 +67,7 @@ import {
 	getZwickauerDamm,
 } from "./Neukölln"
 import { getPankow, getSchönhauserAllee } from "./Pankow"
-import { getFranzNeumannPlatz } from "./Reinickendorf"
+import { getFranzNeumannPlatz, getResidenzstr } from "./Reinickendorf"
 import {
 	getAltstadtSpandau,
 	getHaselhorst,
@@ -127,7 +127,9 @@ type Data = {
 	when?: string
 }
 
-export function changeStationObject(mode: string, oldStopObject: Data) {
+type Mode = "dep" | "arr"
+
+export function changeStationObject(mode: Mode, oldStopObject: Data) {
 	let newStopName, newStop, order
 	const { stop, line, direction, provenance } = oldStopObject
 	const { id } = stop
@@ -375,6 +377,10 @@ export function changeStationObject(mode: string, oldStopObject: Data) {
 			case "900000029302":
 			case "900000029371":
 				;[newStopName, order] = getRathausSpandau(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000085203":
+				;[newStopName, order] = getResidenzstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000036101":

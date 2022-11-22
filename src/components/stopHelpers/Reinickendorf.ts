@@ -1,7 +1,8 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getEichborndamm(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -40,7 +41,7 @@ export function getEichborndamm(
 }
 
 export function getFranzNeumannPlatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -100,7 +101,7 @@ export function getFranzNeumannPlatz(
 
 export function getFrohnau(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -186,6 +187,39 @@ export function getKarlBonhoefferNervenklinik() {
 	return "S+U Karl-Bonhoeffer-Nervenklinik [Bus Oranienburger Str.]"
 }
 
+export function getResidenzstr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "125":
+			return ["U Residenzstr. [Bus Emmentaler Str.]", 2]
+		case "327":
+		case "U8":
+		case "N8":
+			return ["U Residenzstr. [Bus Residenzstr.]", 3]
+		case "122":
+			if (
+				mode === "arr" &&
+				provenance !== null &&
+				/(Schumacher|Paracelsus)/.test(provenance)
+			)
+				return ["U Residenzstr. [Bus Residenzstr.]", 3]
+			if (mode === "arr") return ["U Residenzstr. [Bus Emmentaler Str.]", 2]
+			if (
+				mode === "dep" &&
+				direction !== null &&
+				/(Schumacher|Paracelsus)/.test(direction)
+			)
+				return ["U Residenzstr. [Bus Emmentaler Str.]", 2]
+			return ["U Residenzstr. [Bus Residenzstr.]", 3]
+		default:
+			return ["U Residenzstr. [Bus]", 4]
+	}
+}
+
 export function getSchönholz() {
 	return "S Schönholz [Bus Provinzstr.]"
 }
@@ -195,7 +229,7 @@ export function getSchulzendorf() {
 }
 
 export function getTegel(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

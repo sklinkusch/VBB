@@ -1,7 +1,8 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAdlershof(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -111,7 +112,7 @@ export function getFriedrichshagen(lineName: string) {
 }
 
 export function getGrünau(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -163,7 +164,7 @@ export function getGrünau(
 
 export function getKöpenick(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -323,7 +324,7 @@ export function getSpindlersfeld(product: string) {
 
 export function getTreptowerPark(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

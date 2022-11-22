@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAnhalterBahnhof(lineName: string) {
 	switch (lineName) {
@@ -53,7 +54,7 @@ export function getGörlitzerBf(lineName: string) {
 }
 
 export function getHalleschesTor(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -119,11 +120,7 @@ export function getMehringdamm(id: string, lineName: string) {
 	}
 }
 
-export function getMöckernbrücke(
-	mode: string,
-	direction: Dir,
-	provenance: Dir
-) {
+export function getMöckernbrücke(mode: Mode, direction: Dir, provenance: Dir) {
 	if (mode === "arr" && provenance !== null) {
 		if (provenance.includes("Helsingforser Platz"))
 			return ["U Möckernbrücke [Bus Hallesches Ufer]", 4]
@@ -166,7 +163,7 @@ export function getPrinzenstr(lineName: string) {
 }
 
 export function getSchlesischesTor(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -215,7 +212,7 @@ export function getSüdstern() {
 }
 
 export function getWarschauerStr(
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,
@@ -271,7 +268,7 @@ export function getWarschauerStr(
 }
 
 export function getWeberwiese(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

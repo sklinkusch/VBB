@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAttilastr(lineName: string) {
 	if (lineName === "282") return "S Attilastr. [Bus Steglitzer Damm]"
@@ -14,7 +15,7 @@ export function getBuckowerChaussee() {
 }
 
 export function getBülowstr(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -111,7 +112,7 @@ export function getMarienfelde() {
 }
 
 export function getNollendorfplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -200,7 +201,7 @@ export function getSchöneberg() {
 
 export function getSüdkreuz(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -285,7 +286,7 @@ export function getSüdkreuz(
 
 export function getTempelhof(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -332,7 +333,7 @@ export function getTempelhof(
 }
 
 export function getWittenbergplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

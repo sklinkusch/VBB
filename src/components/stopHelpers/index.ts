@@ -186,6 +186,7 @@ import {
 	getHeiligensee,
 	getHermsdorf,
 	getKarlBonhoefferNervenklinik,
+	getResidenzstr,
 	getSchulzendorf,
 	getSchönholz,
 	getTegel,
@@ -298,7 +299,9 @@ type Data = {
 	when?: string
 }
 
-export function changeStopObject(mode: string, oldStopObject: Data) {
+type Mode = "dep" | "arr"
+
+export function changeStopObject(mode: Mode, oldStopObject: Data) {
 	let newStopName, trackNo, newStop, order
 	const { stop, line, direction, provenance } = oldStopObject
 	const { id } = stop
@@ -1174,6 +1177,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getRathausSchöneberg(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000085203":
+				;[newStopName, order] = getResidenzstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000022202":
 				;[newStopName, order] = getRichardWagnerPlatz(lineName)
 				newStop = { ...stop, name: newStopName }

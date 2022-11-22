@@ -1,7 +1,8 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAdenauerplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -112,7 +113,7 @@ export function getBundesplatz() {
 
 export function getCharlottenburg(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -216,7 +217,7 @@ export function getHeerstr() {
 }
 
 export function getHeidelbergerPlatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -249,7 +250,7 @@ export function getHeidelbergerPlatz(
 }
 
 export function getHohenzollerndamm(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -303,7 +304,7 @@ export function getHohenzollernplatz(lineName: string) {
 }
 
 export function getJakobKaiserPlatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -357,7 +358,7 @@ export function getJakobKaiserPlatz(
 
 export function getJungfernheide(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -438,7 +439,7 @@ export function getKonstanzerStr() {
 }
 
 export function getKurfürstendamm(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -530,7 +531,7 @@ export function getMesseSüd() {
 }
 
 export function getMierendorffplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -585,7 +586,7 @@ export function getRüdesheimerPlatz() {
 }
 
 export function getRuhleben(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -630,7 +631,7 @@ export function getRuhleben(
 }
 
 export function getSophieCharlottePlatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -698,7 +699,7 @@ export function getWestkreuz() {
 
 export function getZooBusStops(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

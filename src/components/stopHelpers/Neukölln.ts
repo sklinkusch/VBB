@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getBlaschkoallee() {
 	return ["U Blaschkoallee [Bus Blaschkoallee]", 2]
@@ -47,7 +48,7 @@ export function getHermannplatz(id: string) {
 
 export function getHermannstr(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -159,7 +160,7 @@ export function getLipschitzallee() {
 
 export function getNeukölln(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -261,7 +262,7 @@ export function getParchimerAllee() {
 
 export function getRathausNeukölln(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -304,7 +305,7 @@ export function getRathausNeukölln(
 }
 
 export function getRudow(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

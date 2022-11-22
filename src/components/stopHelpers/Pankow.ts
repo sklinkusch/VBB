@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getBlankenburg() {
 	return "S Blankenburg [Bus Bahnhofstr.]"
@@ -9,7 +10,7 @@ export function getBornholmerStr() {
 }
 
 export function getBuch(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -90,7 +91,7 @@ export function getLandsbergerAllee(product: string, lineName: string) {
 
 export function getPankow(
 	id: string,
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,

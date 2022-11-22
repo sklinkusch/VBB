@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getGehrenseestr() {
 	return "S Gehrenseestr. [Bus Gehrenseestr.]"
@@ -21,7 +22,7 @@ export function getKarlshorst(id: string, product: string, lineName: string) {
 }
 
 export function getLichtenberg(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

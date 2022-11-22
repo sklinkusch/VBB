@@ -47,6 +47,8 @@ type LINE_B = {
 	type: string
 }
 
+type Mode = "dep" | "arr"
+
 type Props = {
 	data: {
 		cancelled: boolean | undefined
@@ -71,7 +73,7 @@ type Props = {
 		tripId: string
 		when?: string
 	}[]
-	mode: string
+	mode: Mode
 }
 
 export default function Tablebody(props: Props) {

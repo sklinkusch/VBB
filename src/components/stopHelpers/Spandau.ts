@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAltstadtSpandau() {
 	return ["U Altstadt Spandau [Bus Am Juliusturm]", 2]
@@ -60,7 +61,7 @@ export function getSiemensdamm(lineName: string) {
 
 export function getSpandau(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
