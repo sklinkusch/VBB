@@ -186,6 +186,7 @@ import {
 	getHeiligensee,
 	getHermsdorf,
 	getKarlBonhoefferNervenklinik,
+	getLindauerAllee,
 	getParacelsusBad,
 	getResidenzstr,
 	getSchulzendorf,
@@ -900,6 +901,10 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getLichterfeldeWest()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000086160":
+				;[newStopName, order] = getLindauerAllee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000082201":
 				;[newStopName, order] = getLipschitzallee()
 				newStop = { ...stop, name: newStopName }

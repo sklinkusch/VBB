@@ -187,6 +187,10 @@ export function getKarlBonhoefferNervenklinik() {
 	return "S+U Karl-Bonhoeffer-Nervenklinik [Bus Oranienburger Str.]"
 }
 
+export function getLindauerAllee() {
+	return ["U Lindauer Allee [Bus Lindauer Allee]", 2]
+}
+
 export function getParacelsusBad(id: string, lineName: string) {
 	switch (id) {
 		case "900000085104":

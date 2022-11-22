@@ -2,6 +2,10 @@ export function getFranzNeumannPlatz() {
 	return ["U Franz-Neumann-Platz (Am Schäfersee)", 1]
 }
 
+export function getLindauerAllee() {
+	return ["U Lindauer Allee", 1]
+}
+
 export function getParacelsusBad() {
 	return ["U Paracelsus-Bad", 1]
 }
