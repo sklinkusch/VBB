@@ -214,6 +214,15 @@ export function getParacelsusBad(id: string, lineName: string) {
 	}
 }
 
+export function getRathausReinickendorf(id: string) {
+	switch (id) {
+		case "900000096710":
+			return ["U Rathaus Reinickendorf [Bus Eichborndamm]", 3]
+		case "900000096711":
+			return ["U Rathaus Reinickendorf [Bus Am Nordgraben]", 2]
+	}
+}
+
 export function getResidenzstr(
 	mode: Mode,
 	lineName: string,

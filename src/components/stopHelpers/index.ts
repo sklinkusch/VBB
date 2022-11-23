@@ -188,6 +188,7 @@ import {
 	getKarlBonhoefferNervenklinik,
 	getLindauerAllee,
 	getParacelsusBad,
+	getRathausReinickendorf,
 	getResidenzstr,
 	getSchulzendorf,
 	getSchönholz,
@@ -1181,6 +1182,12 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 					direction,
 					provenance
 				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000096410":
+			case "900000096710":
+			case "900000096711":
+				;[newStopName, order] = getRathausReinickendorf(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000054101":

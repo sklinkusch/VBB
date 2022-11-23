@@ -21,6 +21,10 @@ export function getParacelsusBad() {
 	return ["U Paracelsus-Bad", 1]
 }
 
+export function getRathausReinickendorf() {
+	return ["U Rathaus Reinickendorf", 1]
+}
+
 export function getResidenzstr() {
 	return ["U Residenzstr.", 1]
 }

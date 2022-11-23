@@ -72,6 +72,7 @@ import {
 	getKarlBonhoefferNervenklinik,
 	getLindauerAllee,
 	getParacelsusBad,
+	getRathausReinickendorf,
 	getResidenzstr,
 } from "./Reinickendorf"
 import {
@@ -389,6 +390,12 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000078102":
 				;[newStopName, order] = getRathausNeukölln()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000096410":
+			case "900000096710":
+			case "900000096711":
+				;[newStopName, order] = getRathausReinickendorf()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000029101":
