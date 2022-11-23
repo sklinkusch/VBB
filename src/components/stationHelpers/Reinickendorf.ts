@@ -2,6 +2,17 @@ export function getFranzNeumannPlatz() {
 	return ["U Franz-Neumann-Platz (Am Schäfersee)", 1]
 }
 
+export function getKarlBonhoefferNervenklinik(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S Karl-Bonhoeffer-Nervenklinik", 1]
+		case "subway":
+			return ["U Karl-Bonhoeffer-Nervenklinik", 2]
+		default:
+			return ["S+U Karl-Bonhoeffer-Nervenklinik", 3]
+	}
+}
+
 export function getLindauerAllee() {
 	return ["U Lindauer Allee", 1]
 }

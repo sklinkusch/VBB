@@ -804,9 +804,9 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000096458":
-				newStopName = getKarlBonhoefferNervenklinik()
+				;[newStopName, order] = getKarlBonhoefferNervenklinik()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000078103":
 				;[newStopName, order] = getKarlMarxStr()
 				newStop = { ...stop, name: newStopName }

@@ -184,7 +184,7 @@ export function getHermsdorf() {
 }
 
 export function getKarlBonhoefferNervenklinik() {
-	return "S+U Karl-Bonhoeffer-Nervenklinik [Bus Oranienburger Str.]"
+	return ["S+U Karl-Bonhoeffer-Nervenklinik [Bus Oranienburger Str.]", 4]
 }
 
 export function getLindauerAllee() {

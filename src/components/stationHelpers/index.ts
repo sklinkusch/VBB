@@ -69,6 +69,7 @@ import {
 import { getPankow, getSchönhauserAllee } from "./Pankow"
 import {
 	getFranzNeumannPlatz,
+	getKarlBonhoefferNervenklinik,
 	getLindauerAllee,
 	getParacelsusBad,
 	getResidenzstr,
@@ -277,6 +278,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000020201":
 				;[newStopName, order] = getJungfernheide(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000096458":
+				;[newStopName, order] = getKarlBonhoefferNervenklinik(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000078103":
