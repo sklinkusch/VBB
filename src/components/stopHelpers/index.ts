@@ -1345,7 +1345,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000062282":
 			case "900000062782":
 			case "900000062784":
-				;[newStopName, trackNo] = getSteglitz(
+				;[newStopName, trackNo, order] = getSteglitz(
 					id,
 					mode,
 					lineName,
@@ -1353,7 +1353,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000110012":
 				newStopName = getStorkowerStr()
 				newStop = { ...stop, name: newStopName }
