@@ -221,6 +221,7 @@ import {
 	getNikolassee,
 	getOnkelTomsHütte,
 	getOsdorferStr,
+	getSchloßstr,
 	getSteglitz,
 	getSundgauerStr,
 	getSüdende,
@@ -1261,6 +1262,10 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getSchlesischesTor(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000062203":
+				;[newStopName, order] = getSchloßstr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000054104":
 				newStopName = getSchöneberg()
 				newStop = { ...stop, name: newStopName }

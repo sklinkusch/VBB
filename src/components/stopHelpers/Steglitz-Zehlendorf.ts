@@ -166,6 +166,15 @@ export function getOsdorferStr(
 	}
 }
 
+export function getSchloßstr(lineName: string) {
+	switch (lineName) {
+		case "282":
+			return ["U Schloßstr. [Bus Schildhornstr.]", 4]
+		default:
+			return ["U Schloßstr. [Bus Schloßstr.]", 3]
+	}
+}
+
 export function getSteglitz(
 	id: string,
 	mode: Mode,

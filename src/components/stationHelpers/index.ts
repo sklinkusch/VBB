@@ -85,7 +85,7 @@ import {
 	getSiemensdamm,
 	getZitadelle,
 } from "./Spandau"
-import { getRathausSteglitz } from "./Steglitz-Zehlendorf"
+import { getRathausSteglitz, getSchloßstr } from "./Steglitz-Zehlendorf"
 import {
 	getBayerischerPlatz,
 	getEisenacherStr,
@@ -425,6 +425,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000083201":
 				;[newStopName, order] = getRudow()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000062203":
+				;[newStopName, order] = getSchloßstr(mode, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000110001":
