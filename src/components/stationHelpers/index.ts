@@ -74,6 +74,7 @@ import {
 	getParacelsusBad,
 	getRathausReinickendorf,
 	getResidenzstr,
+	getWittenau,
 } from "./Reinickendorf"
 import {
 	getAltstadtSpandau,
@@ -466,6 +467,11 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100051":
 				;[newStopName, order] = getWeinmeisterstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000096101":
+			case "900000096197":
+				;[newStopName, order] = getWittenau(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000175001":

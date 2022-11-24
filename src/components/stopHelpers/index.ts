@@ -195,6 +195,7 @@ import {
 	getTegel,
 	getWaidmannslust,
 	getWilhelmsruh,
+	getWittenau,
 } from "./Reinickendorf"
 import {
 	getAltstadtSpandau,
@@ -1531,6 +1532,14 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getWilhelmsruh()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000096101":
+			case "900000096197":
+			case "900000096198":
+			case "900000096407":
+			case "900000096193":
+				;[newStopName, order] = getWittenau(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000056101":
 				newStopName = getWittenbergplatz(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }

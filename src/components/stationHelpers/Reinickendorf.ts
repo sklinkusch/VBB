@@ -28,3 +28,14 @@ export function getRathausReinickendorf() {
 export function getResidenzstr() {
 	return ["U Residenzstr.", 1]
 }
+
+export function getWittenau(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S Wittenau", 1]
+		case "subway":
+			return ["U Wittenau", 2]
+		default:
+			return ["S+U Wittenau", 3]
+	}
+}

@@ -312,3 +312,33 @@ export function getWaidmannslust(lineName: string) {
 export function getWilhelmsruh() {
 	return "S Wilhelmsruh [Bus Kopenhagener Str.]"
 }
+
+export function getWittenau(id: string, lineName: string) {
+	switch (id) {
+		case "900000096198":
+			return ["S+U Wittenau [Bus Wilhelmsruher Damm]", 4]
+		case "900000096407":
+			switch (lineName) {
+				case "M21":
+				case "X21":
+				case "120":
+				case "220":
+				case "N20":
+					return ["U Wittenau [Bus Oranienburger Str.]", 6]
+				case "X33":
+				case "122":
+				case "124":
+				case "221":
+				case "U8":
+				case "N8":
+				case "N24":
+					return ["U Wittenau [Bus Wilhelmsruher Damm]", 5]
+				default:
+					return ["U Wittenau [Bus]", 7]
+			}
+		case "900000096193":
+			return ["Göschenplatz/S Wittenau [Bus Oranienburger Str.]", 8]
+		default:
+			return ["S+U Wittenau [Bus]", 9]
+	}
+}
