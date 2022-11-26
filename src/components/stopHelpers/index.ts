@@ -870,9 +870,14 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000023203":
-				newStopName = getKurfürstendamm(mode, lineName, direction, provenance)
+				;[newStopName, order] = getKurfürstendamm(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000005201":
 				newStopName = getKurfürstenstr()
 				newStop = { ...stop, name: newStopName }
