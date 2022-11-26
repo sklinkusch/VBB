@@ -89,6 +89,7 @@ import { getRathausSteglitz, getSchloßstr } from "./Steglitz-Zehlendorf"
 import {
 	getBayerischerPlatz,
 	getEisenacherStr,
+	getFriedrichWilhelmPlatz,
 	getInnsbruckerPlatz,
 	getKleistpark,
 	getNollendorfplatz,
@@ -214,6 +215,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000085202":
 				;[newStopName, order] = getFranzNeumannPlatz()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000061102":
+				;[newStopName, order] = getFriedrichWilhelmPlatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100001":

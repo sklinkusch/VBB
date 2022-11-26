@@ -16,6 +16,10 @@ export function getEisenacherStr() {
 	return ["U Eisenacher Str.", 1]
 }
 
+export function getFriedrichWilhelmPlatz() {
+	return ["U Friedrich-Wilhelm-Platz", 1]
+}
+
 export function getInnsbruckerPlatz(product: string) {
 	switch (product) {
 		case "suburban":

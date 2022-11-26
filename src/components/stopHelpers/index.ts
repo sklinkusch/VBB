@@ -235,6 +235,7 @@ import {
 	getBuckowerChaussee,
 	getBülowstr,
 	getEisenacherStr,
+	getFriedrichWilhelmPlatz,
 	getInnsbruckerPlatz,
 	getJuliusLeberBrücke,
 	getKleistpark,
@@ -587,6 +588,10 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000100001":
 				;[newStopName, order] = getFriedrichstr(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000061102":
+				;[newStopName, order] = getFriedrichWilhelmPlatz(mode, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000092201":

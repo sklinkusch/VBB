@@ -81,6 +81,22 @@ export function getEisenacherStr() {
 	return ["U Eisenacher Str. [Bus Grunewaldstr.]", 2]
 }
 
+export function getFriedrichWilhelmPlatz(mode: Mode, lineName: string) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+			return ["U Friedrich-Wilhelm-Platz [Bus Bundesallee]", 2]
+		case "186":
+			return ["U Friedrich-Wilhelm-Platz [Bus Wiesbadener Str.]", 4]
+		case "246":
+			if (mode === "arr")
+				return ["U Friedrich-Wilhelm-Platz [Bus F.-Wilhelm-Pl.]", 5]
+			return ["U Friedrich-Wilhelm-Platz [Bus Schmiljanstr.]", 3]
+		default:
+			return ["U Friedrich-Wilhelm-Platz [Bus]", 6]
+	}
+}
+
 export function getInnsbruckerPlatz(lineName: string) {
 	switch (lineName) {
 		case "M48":
