@@ -146,7 +146,7 @@ export function getZoologischerGarten(product: string, lineName: string) {
 	switch (product) {
 		case "express":
 		case "regional":
-			return ["S Zoologischer Garten", 1]
+			return ["Bhf Zoologischer Garten", 1]
 		case "suburban":
 			return ["S Zoologischer Garten", 2]
 		case "subway":
