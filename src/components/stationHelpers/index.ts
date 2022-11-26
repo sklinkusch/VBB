@@ -6,6 +6,7 @@ import {
 	getBundesplatz,
 	getCharlottenburg,
 	getFehrbellinerPlatz,
+	getGüntzelstr,
 	getHalemweg,
 	getHeidelbergerPlatz,
 	getJakobKaiserPlatz,
@@ -244,6 +245,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000080202":
 				;[newStopName, order] = getGrenzallee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000043201":
+				;[newStopName, order] = getGüntzelstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000018102":

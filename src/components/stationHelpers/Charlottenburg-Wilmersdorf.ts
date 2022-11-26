@@ -68,6 +68,10 @@ export function getFehrbellinerPlatz(lineName: string) {
 	}
 }
 
+export function getGüntzelstr() {
+	return ["U Güntzelstr.", 1]
+}
+
 export function getHalemweg() {
 	return ["U Halemweg", 1]
 }

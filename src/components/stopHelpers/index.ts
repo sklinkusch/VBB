@@ -655,9 +655,9 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000043201":
-				newStopName = getGüntzelstr()
+				;[newStopName, order] = getGüntzelstr()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100002":
 				;[newStopName, trackNo] = getHackescherMarkt(
 					mode,

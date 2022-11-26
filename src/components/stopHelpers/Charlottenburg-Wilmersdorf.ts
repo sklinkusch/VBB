@@ -201,7 +201,7 @@ export function getGrunewald(lineName: string) {
 }
 
 export function getGüntzelstr() {
-	return "U Güntzelstr. [Bus Bundesallee]"
+	return ["U Güntzelstr. [Bus Bundesallee]", 2]
 }
 
 export function getHalemweg() {
