@@ -246,6 +246,7 @@ import {
 	getSchöneberg,
 	getSüdkreuz,
 	getTempelhof,
+	getWaltherSchreiberPlatz,
 	getWittenbergplatz,
 	getYorckstr,
 } from "./Tempelhof-Schöneberg"
@@ -1464,6 +1465,15 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getWaidmannslust(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000061101":
+				;[newStopName, order] = getWaltherSchreiberPlatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000053301":
 				;[newStopName, trackNo] = getWannsee(
 					mode,

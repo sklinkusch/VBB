@@ -332,6 +332,65 @@ export function getTempelhof(
 	}
 }
 
+export function getWaltherSchreiberPlatz(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "M76":
+		case "X76":
+		case "181":
+		case "N81":
+			return ["U Walther-Schreiber-Platz [Bus Bundesallee]", 4]
+		case "M48":
+			if (
+				mode === "arr" &&
+				provenance &&
+				/(Steglitz|Zehlendorf)/.test(provenance)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+			if (mode === "arr")
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			if (
+				mode === "dep" &&
+				direction &&
+				/(Steglitz|Zehlendorf)/.test(direction)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+		case "M85":
+		case "186":
+			if (
+				mode === "arr" &&
+				provenance &&
+				/(Steglitz|Lichterfelde)/.test(provenance)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+			if (mode === "arr")
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			if (
+				mode === "dep" &&
+				direction &&
+				/(Steglitz|Lichterfelde)/.test(direction)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+		case "U9":
+		case "N9":
+			if (mode === "arr" && provenance?.includes("Steglitz"))
+				return ["U Walther-Schreiber-Platz [Bus Bundesallee]", 4]
+			if (mode === "arr")
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			if (mode === "dep" && direction?.includes("Steglitz"))
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			return ["U Walther-Schreiber-Platz [Bus Bundesallee]", 4]
+		default:
+			return ["U Walther-Schreiber-Platz [Bus]", 5]
+	}
+}
+
 export function getWittenbergplatz(
 	mode: Mode,
 	lineName: string,

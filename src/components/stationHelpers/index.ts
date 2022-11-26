@@ -93,6 +93,7 @@ import {
 	getKleistpark,
 	getNollendorfplatz,
 	getTempelhof,
+	getWaltherSchreiberPlatz,
 	getYorckstr,
 } from "./Tempelhof-Schöneberg"
 
@@ -465,6 +466,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000007103":
 				;[newStopName, order] = getVoltastr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000061101":
+				;[newStopName, order] = getWaltherSchreiberPlatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000120004":
