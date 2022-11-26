@@ -3,6 +3,7 @@ import {
 	getBerlinerStr,
 	getBismarckstr,
 	getBlissestr,
+	getBundesplatz,
 	getCharlottenburg,
 	getFehrbellinerPlatz,
 	getHalemweg,
@@ -192,6 +193,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000080402":
 				;[newStopName, order] = getBritzSüd()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000044202":
+				;[newStopName, order] = getBundesplatz(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000024101":

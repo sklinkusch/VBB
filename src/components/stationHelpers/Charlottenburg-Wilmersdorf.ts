@@ -29,6 +29,17 @@ export function getBlissestr() {
 	return ["U Blissestr.", 1]
 }
 
+export function getBundesplatz(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S Bundesplatz", 1]
+		case "subway":
+			return ["U Bundesplatz", 2]
+		default:
+			return ["S+U Bundesplatz", 3]
+	}
+}
+
 export function getCharlottenburg(product: string) {
 	switch (product) {
 		case "express":

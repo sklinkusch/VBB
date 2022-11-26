@@ -108,7 +108,7 @@ export function getBlissestr(id: string, lineName: string) {
 }
 
 export function getBundesplatz() {
-	return "S+U Bundesplatz [Bus Bundesallee]"
+	return ["S+U Bundesplatz [Bus Bundesallee]", 4]
 }
 
 export function getCharlottenburg(
