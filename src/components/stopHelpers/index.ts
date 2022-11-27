@@ -91,6 +91,7 @@ import {
 	getAlex,
 	getBernauerStr,
 	getBeusselstr,
+	getBirkenstr,
 	getBrandenburgerTor,
 	getFriedrichstr,
 	getGesundbrunnen,
@@ -432,6 +433,15 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getBirkenstein()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000002201":
+				;[newStopName, order] = getBirkenstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000200008":
 				newStopName = getBirkenwerder()
 				newStop = { ...stop, name: newStopName }

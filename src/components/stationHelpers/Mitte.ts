@@ -25,6 +25,10 @@ export function getBernauerStr() {
 	return ["U Bernauer Str.", 1]
 }
 
+export function getBirkenstr() {
+	return ["U Birkenstr.", 1]
+}
+
 export function getFriedrichstr(product: string, lineName: string) {
 	switch (product) {
 		case "express":

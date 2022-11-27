@@ -166,6 +166,26 @@ export function getBeusselstr() {
 	return "S Beusselstr. [Bus Beusselstr.]"
 }
 
+export function getBirkenstr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+			if (mode === "arr" && provenance?.includes("Osloer"))
+				return ["U Birkenstr. [Bus Putlitzstr.]", 3]
+			if (mode === "arr") return ["U Birkenstr. [Bus Stromstr.]", 2]
+			if (mode === "dep" && direction?.includes("Osloer"))
+				return ["U Birkenstr. [Bus Stromstr.]", 2]
+			return ["U Birkenstr. [Bus Putlitzstr.]", 3]
+		default:
+			return ["U Birkenstr. [Bus]", 4]
+	}
+}
+
 export function getBrandenburgerTor() {
 	return "S+U Brandenburger Tor [Bus Unter den Linden]"
 }
