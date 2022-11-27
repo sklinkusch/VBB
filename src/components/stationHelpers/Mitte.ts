@@ -105,6 +105,10 @@ export function getLeopoldplatz(lineName: string) {
 	}
 }
 
+export function getNauenerPlatz() {
+	return ["U Nauener Platz", 1]
+}
+
 export function getOsloerStr(lineName: string) {
 	switch (lineName) {
 		case "U9":

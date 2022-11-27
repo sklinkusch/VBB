@@ -564,6 +564,29 @@ export function getMuseumsinsel() {
 	return "U Museumsinsel [Bus Schloßplatz]"
 }
 
+export function getNauenerPlatz(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+		case "247":
+			return ["U Nauener Platz [Bus Schulstr.]", 2]
+		case "327":
+			if (mode === "arr" && provenance?.includes("Leopoldplatz"))
+				return ["U Nauener Platz [Bus Reinickendorfer Str.]", 3]
+			if (mode === "arr") return ["U Nauener Platz [Bus Schulstr.]", 2]
+			if (mode === "dep" && direction?.includes("Leopoldplatz"))
+				return ["U Nauener Platz [Bus Schulstr.]", 2]
+			return ["U Nauener Platz [Bus Reinickendorfer Str.]", 3]
+		default:
+			return ["U Nauener Platz [Bus]", 4]
+	}
+}
+
 export function getNordbahnhof(
 	id: string,
 	mode: Mode,

@@ -107,6 +107,7 @@ import {
 	getMohrenstr,
 	getMuseumsinsel,
 	getMärkischesMuseum,
+	getNauenerPlatz,
 	getNordbahnhof,
 	getOranienburgerStr,
 	getOsloerStr,
@@ -1045,6 +1046,15 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getMühlenbeckMönchmühle()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000009201":
+				;[newStopName, order] = getNauenerPlatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000320007":
 				newStopName = getNeuenhagen()
 				newStop = { ...stop, name: newStopName }
