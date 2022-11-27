@@ -53,6 +53,7 @@ import {
 	getVoltastr,
 	getWedding,
 	getWeinmeisterstr,
+	getWesthafen,
 } from "./Mitte"
 import {
 	getBlaschkoallee,
@@ -512,6 +513,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100051":
 				;[newStopName, order] = getWeinmeisterstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000001201":
+				;[newStopName, order] = getWesthafen(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000096101":

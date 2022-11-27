@@ -1106,5 +1106,5 @@ export function getWeinmeisterstr(
 }
 
 export function getWesthafen() {
-	return "S+U Westhafen [Bus Putlitzbrücke]"
+	return ["S+U Westhafen [Bus Putlitzbrücke]", 4]
 }

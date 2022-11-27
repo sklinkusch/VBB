@@ -180,6 +180,17 @@ export function getWedding(product: string) {
 	}
 }
 
+export function getWesthafen(product: string) {
+	switch (product) {
+		case "suburban":
+			return ["S Westhafen", 1]
+		case "subway":
+			return ["U Westhafen", 2]
+		default:
+			return ["S+U Westhafen", 3]
+	}
+}
+
 export function getWeinmeisterstr() {
 	return ["U Weinmeisterstr.", 1]
 }
