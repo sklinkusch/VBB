@@ -38,6 +38,7 @@ import {
 	getBernauerStr,
 	getFriedrichstr,
 	getGesundbrunnen,
+	getHansaplatz,
 	getHeinrichHeineStr,
 	getJannowitzbrücke,
 	getLeopoldplatz,
@@ -257,6 +258,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000012103":
 				;[newStopName, order] = getHalleschesTor(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000003101":
+				;[newStopName, order] = getHansaplatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000034102":

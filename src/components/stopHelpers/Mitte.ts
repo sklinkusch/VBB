@@ -254,6 +254,17 @@ export function getHackescherMarkt(
 	}
 }
 
+export function getHansaplatz(id: string) {
+	switch (id) {
+		case "900000003101":
+			return ["U Hansaplatz [Bus Altonaer Str.]", 2]
+		case "900000003105":
+			return ["Bachstr. [Bus Bachstr.]", 3]
+		default:
+			return ["U Hansaplatz [Bus]", 4]
+	}
+}
+
 export function getHbf(
 	mode: Mode,
 	lineName: string,

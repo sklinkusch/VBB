@@ -67,6 +67,10 @@ export function getGesundbrunnen(product: string) {
 	}
 }
 
+export function getHansaplatz() {
+	return ["U Hansaplatz", 1]
+}
+
 export function getHeinrichHeineStr() {
 	return ["U Heinrich-Heine-Str.", 1]
 }

@@ -95,6 +95,7 @@ import {
 	getFriedrichstr,
 	getGesundbrunnen,
 	getHackescherMarkt,
+	getHansaplatz,
 	getHbf,
 	getHeinrichHeineStr,
 	getHumboldthain,
@@ -679,6 +680,11 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getHalleschesTor(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000003101":
+			case "900000003105":
+				;[newStopName, order] = getHansaplatz(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000034102":
 			case "900000034170":
 				;[newStopName, order] = getHaselhorst(id, lineName)
