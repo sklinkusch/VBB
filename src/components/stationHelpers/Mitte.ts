@@ -146,6 +146,10 @@ export function getStadtmitte(lineName: string) {
 	}
 }
 
+export function getTurmstr() {
+	return ["U Turmstr.", 1]
+}
+
 export function getUnterDenLinden(lineName: string) {
 	switch (lineName) {
 		case "U5":

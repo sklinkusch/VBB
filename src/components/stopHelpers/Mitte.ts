@@ -968,6 +968,19 @@ export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
 
+export function getTurmstr(id: string) {
+	switch (id) {
+		case "900000003174":
+			return ["U Turmstr. [Bus Turmstr.]", 2]
+		case "900000003175":
+			return ["U Turmstr. [Bus Stromstr.]", 4]
+		case "900000003176":
+			return ["U Turmstr. [Bus Alt-Moabit]", 3]
+		default:
+			return ["U Turmstr. [Bus]", 5]
+	}
+}
+
 export function getUnterDenLinden(lineName: string) {
 	switch (lineName) {
 		case "100":

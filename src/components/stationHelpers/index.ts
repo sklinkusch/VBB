@@ -47,6 +47,7 @@ import {
 	getPotsdamerPlatz,
 	getRosenthalerPlatz,
 	getStadtmitte,
+	getTurmstr,
 	getUnterDenLinden,
 	getVoltastr,
 	getWedding,
@@ -478,6 +479,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000068201":
 				;[newStopName, order] = getTempelhof(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000003104":
+				;[newStopName, order] = getTurmstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100513":
