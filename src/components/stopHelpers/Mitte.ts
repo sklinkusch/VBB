@@ -125,6 +125,35 @@ export function getAlex(
 	}
 }
 
+export function getAmrumerStr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+			if (mode === "arr" && provenance?.includes("Osloer"))
+				return ["U Amrumer Str. [Bus Föhrer Str.]", 5]
+			if (mode === "arr") return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			if (mode === "dep" && direction?.includes("Osloer"))
+				return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			return ["U Amrumer Str. [Bus Föhrer Str.]", 5]
+		case "142":
+			if (mode === "arr" && provenance?.includes("Leopoldplatz"))
+				return ["U Amrumer Str. [Bus Torfstr.]", 4]
+			if (mode === "arr") return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			if (mode === "dep" && direction?.includes("Leopoldplatz"))
+				return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			return ["U Amrumer Str. [Bus Torfstr.]", 4]
+		case "221":
+			return ["U Amrumer Str. [Bus Amrumer Str.]", 3]
+		default:
+			return ["U Amrumer Str. [Bus]", 6]
+	}
+}
+
 export function getBernauerStr(
 	id: string,
 	mode: Mode,

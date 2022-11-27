@@ -21,6 +21,10 @@ export function getAlex(id: string, product: string, lineName: string) {
 	}
 }
 
+export function getAmrumerStr() {
+	return ["U Amrumer Str.", 1]
+}
+
 export function getBernauerStr() {
 	return ["U Bernauer Str.", 1]
 }
