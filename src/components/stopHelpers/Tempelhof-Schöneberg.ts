@@ -462,6 +462,28 @@ export function getWaltherSchreiberPlatz(
 	}
 }
 
+export function getWestphalweg(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U6":
+		case "N6":
+			return ["U Westphalweg [Bus Mariendorfer Damm]", 2]
+		case "282":
+			if (mode === "arr" && provenance?.includes("Dillenburger"))
+				return ["U Westphalweg [Bus Mariendorfer Damm]", 2]
+			if (mode === "arr") return ["U Westphalweg [Bus Kaiserstr.]", 3]
+			if (mode === "dep" && direction?.includes("Breitenbachplatz"))
+				return ["U Westphalweg [Bus Kaiserstr.]", 3]
+			return ["U Westphalweg [Bus Mariendorfer Damm]", 2]
+		default:
+			return ["U Westphalweg [Bus]", 4]
+	}
+}
+
 export function getWittenbergplatz(
 	mode: Mode,
 	lineName: string,

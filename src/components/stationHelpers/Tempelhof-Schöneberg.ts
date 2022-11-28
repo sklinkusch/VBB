@@ -118,6 +118,10 @@ export function getWaltherSchreiberPlatz() {
 	return ["U Walther-Schreiber-Platz", 1]
 }
 
+export function getWestphalweg() {
+	return ["U Westphalweg", 1]
+}
+
 export function getYorckstr(id: string, product: string) {
 	switch (id) {
 		case "900000057102":

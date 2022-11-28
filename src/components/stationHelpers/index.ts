@@ -104,6 +104,7 @@ import {
 	getNollendorfplatz,
 	getTempelhof,
 	getWaltherSchreiberPlatz,
+	getWestphalweg,
 	getYorckstr,
 } from "./Tempelhof-Schöneberg"
 
@@ -532,6 +533,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000001201":
 				;[newStopName, order] = getWesthafen(product)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000070101":
+				;[newStopName, order] = getWestphalweg()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000096101":

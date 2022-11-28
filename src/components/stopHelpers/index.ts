@@ -254,6 +254,7 @@ import {
 	getSüdkreuz,
 	getTempelhof,
 	getWaltherSchreiberPlatz,
+	getWestphalweg,
 	getWittenbergplatz,
 	getYorckstr,
 } from "./Tempelhof-Schöneberg"
@@ -1602,6 +1603,15 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getWestkreuz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000070101":
+				;[newStopName, order] = getWestphalweg(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000260002":
 				newStopName = getWildau()
 				newStop = { ...stop, name: newStopName }
