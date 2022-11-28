@@ -1,6 +1,10 @@
 type Dir = string | null
 type Mode = "dep" | "arr"
 
+export function getAltMariendorf() {
+	return ["U Alt-Mariendorf", 1]
+}
+
 export function getBayerischerPlatz(lineName: string) {
 	switch (lineName) {
 		case "U4":

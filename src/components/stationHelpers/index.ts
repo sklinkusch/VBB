@@ -95,6 +95,7 @@ import {
 } from "./Spandau"
 import { getRathausSteglitz, getSchloßstr } from "./Steglitz-Zehlendorf"
 import {
+	getAltMariendorf,
 	getBayerischerPlatz,
 	getEisenacherStr,
 	getFriedrichWilhelmPlatz,
@@ -164,6 +165,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 			case "900000100704":
 			case "900000100705":
 				;[newStopName, order] = getAlex(id, product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000070301":
+				;[newStopName, order] = getAltMariendorf()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000029301":

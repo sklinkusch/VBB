@@ -1,6 +1,61 @@
 type Dir = string | null
 type Mode = "dep" | "arr"
 
+export function getAltMariendorf(
+	id: string,
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (id) {
+		case "900000070701":
+			return ["U Alt-Mariendorf [Bus Alt-Mariendorf]", 3]
+		case "900000070702":
+			switch (lineName) {
+				case "M76":
+					if (mode === "arr" && provenance?.includes("Lichtenrade"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("Lichtenrade"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				case "M77":
+				case "181":
+				case "277":
+				case "U6":
+				case "N6":
+				case "N77":
+					return ["U Alt-Mariendorf [Bus Reißeckstr.]", 5]
+				case "X71":
+					if (mode === "arr" && provenance?.includes("BER"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("BER"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				case "X76":
+					if (mode === "arr" && provenance?.includes("Nahariyastr"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("Nahariyastr"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				case "179":
+					if (mode === "arr" && provenance?.includes("Gerlinger"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("Gerlinger"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				default:
+					return ["U Alt-Mariendorf [Bus Frieden-/Reißeckstr.]", 6]
+			}
+		default:
+			return ["U Alt-Mariendorf [Bus]", 7]
+	}
+}
+
 export function getAttilastr(lineName: string) {
 	if (lineName === "282") return "S Attilastr. [Bus Steglitzer Damm]"
 	return "S Attilastr. [Bus Attilastr.]"

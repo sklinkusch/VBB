@@ -235,6 +235,7 @@ import {
 } from "./Steglitz-Zehlendorf"
 import { getBlankenfelde } from "./Teltow-Fläming"
 import {
+	getAltMariendorf,
 	getAttilastr,
 	getBayerischerPlatz,
 	getBuckowerChaussee,
@@ -365,6 +366,18 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getAltglienicke(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000070301":
+			case "900000070701":
+			case "900000070702":
+				;[newStopName, order] = getAltMariendorf(
+					id,
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000029301":
 				;[newStopName, order] = getAltstadtSpandau()
 				newStop = { ...stop, name: newStopName }
