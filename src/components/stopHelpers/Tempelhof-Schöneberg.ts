@@ -403,6 +403,25 @@ export function getTempelhof(
 	}
 }
 
+export function getUllsteinstr(id: string, lineName: string) {
+	switch (id) {
+		case "900000069271":
+			return ["U Ullsteinstr. [Bus Mariendorfer Damm]", 2]
+		case "900000069201":
+			switch (lineName) {
+				case "U6":
+				case "N6":
+					return ["U Ullsteinstr./Ordensmeisterstr. [Bus Tempelhofer Damm]", 3]
+				case "170":
+					return ["U Ullsteinstr./Ordensmeisterstr. [Bus Ordensmeisterstr.]", 4]
+				default:
+					return ["U Ullsteinstr./Ordensmeisterstr.", 5]
+			}
+		default:
+			return ["U Ullsteinstr. [Bus]", 6]
+	}
+}
+
 export function getWaltherSchreiberPlatz(
 	mode: Mode,
 	lineName: string,

@@ -103,6 +103,7 @@ import {
 	getKleistpark,
 	getNollendorfplatz,
 	getTempelhof,
+	getUllsteinstr,
 	getWaltherSchreiberPlatz,
 	getWestphalweg,
 	getYorckstr,
@@ -505,6 +506,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000003104":
 				;[newStopName, order] = getTurmstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000069271":
+				;[newStopName, order] = getUllsteinstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100513":

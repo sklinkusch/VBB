@@ -253,6 +253,7 @@ import {
 	getSchöneberg,
 	getSüdkreuz,
 	getTempelhof,
+	getUllsteinstr,
 	getWaltherSchreiberPlatz,
 	getWestphalweg,
 	getWittenbergplatz,
@@ -1517,6 +1518,11 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getUhlandstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000069201":
+			case "900000069271":
+				;[newStopName, order] = getUllsteinstr(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100513":
 				;[newStopName, order] = getUnterDenLinden(lineName)
 				newStop = { ...stop, name: newStopName }

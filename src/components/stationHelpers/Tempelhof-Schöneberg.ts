@@ -114,6 +114,10 @@ export function getTempelhof(product: string) {
 	}
 }
 
+export function getUllsteinstr() {
+	return ["U Ullsteinstr.", 1]
+}
+
 export function getWaltherSchreiberPlatz() {
 	return ["U Walther-Schreiber-Platz", 1]
 }
