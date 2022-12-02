@@ -35,6 +35,10 @@ export function getInnsbruckerPlatz(product: string) {
 	}
 }
 
+export function getKaiserinAugustaStr() {
+	return ["U Kaiserin-Augusta-Str.", 1]
+}
+
 export function getKleistpark() {
 	return ["U Kleistpark", 1]
 }

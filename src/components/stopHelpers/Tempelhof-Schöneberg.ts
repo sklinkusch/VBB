@@ -170,6 +170,18 @@ export function getJuliusLeberBrücke() {
 	return "S Julius-Leber-Brücke [Bus Kolonnenstr.]"
 }
 
+export function getKaiserinAugustaStr(lineName: string) {
+	switch (lineName) {
+		case "184":
+			return ["U Kaiserin-Augusta-Str. [Bus Albrechtstr.]", 3]
+		case "U6":
+		case "N6":
+			return ["U Kaiserin-Augusta-Str. [Bus Tempelhofer Damm]", 2]
+		default:
+			return ["U Kaiserin-Augusta-Str. [Bus]", 4]
+	}
+}
+
 export function getKleistpark() {
 	return ["U Kleistpark [Bus Potsdamer Str.]", 2]
 }

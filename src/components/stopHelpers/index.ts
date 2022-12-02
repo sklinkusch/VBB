@@ -244,6 +244,7 @@ import {
 	getFriedrichWilhelmPlatz,
 	getInnsbruckerPlatz,
 	getJuliusLeberBrücke,
+	getKaiserinAugustaStr,
 	getKleistpark,
 	getKurfürstenstr,
 	getMarienfelde,
@@ -855,6 +856,10 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
+			case "900000068302":
+				;[newStopName, order] = getKaiserinAugustaStr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000096458":
 				;[newStopName, order] = getKarlBonhoefferNervenklinik()
 				newStop = { ...stop, name: newStopName }
