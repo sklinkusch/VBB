@@ -1491,9 +1491,15 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000068201":
 			case "900000068272":
-				newStopName = getTempelhof(id, mode, lineName, direction, provenance)
+				;[newStopName, order] = getTempelhof(
+					id,
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000026201":
 			case "900000026203":
 			case "900000026271":
