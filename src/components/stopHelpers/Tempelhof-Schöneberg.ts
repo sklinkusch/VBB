@@ -56,6 +56,22 @@ export function getAltMariendorf(
 	}
 }
 
+export function getAltTempelhof(lineName: string) {
+	switch (lineName) {
+		case "U6":
+		case "N6":
+		case "140":
+		case "184":
+		case "N84":
+			return ["U Alt-Tempelhof [Bus Tempelhofer Damm]", 3]
+		case "M46":
+		case "246":
+			return ["U Alt-Tempelhof [Bus Alt-Tempelhof]", 2]
+		default:
+			return ["U Alt-Tempelhof [Bus]", 4]
+	}
+}
+
 export function getAttilastr(lineName: string) {
 	if (lineName === "282") return "S Attilastr. [Bus Steglitzer Damm]"
 	return "S Attilastr. [Bus Attilastr.]"

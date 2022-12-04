@@ -236,6 +236,7 @@ import {
 import { getBlankenfelde } from "./Teltow-Fläming"
 import {
 	getAltMariendorf,
+	getAltTempelhof,
 	getAttilastr,
 	getBayerischerPlatz,
 	getBuckowerChaussee,
@@ -383,6 +384,10 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000029301":
 				;[newStopName, order] = getAltstadtSpandau()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000068202":
+				;[newStopName, order] = getAltTempelhof(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000009101":

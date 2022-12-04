@@ -96,6 +96,7 @@ import {
 import { getRathausSteglitz, getSchloßstr } from "./Steglitz-Zehlendorf"
 import {
 	getAltMariendorf,
+	getAltTempelhof,
 	getBayerischerPlatz,
 	getEisenacherStr,
 	getFriedrichWilhelmPlatz,
@@ -176,6 +177,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000029301":
 				;[newStopName, order] = getAltstadtSpandau()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000068202":
+				;[newStopName, order] = getAltTempelhof()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000009101":

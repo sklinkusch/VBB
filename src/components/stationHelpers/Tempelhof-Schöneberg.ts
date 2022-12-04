@@ -5,6 +5,10 @@ export function getAltMariendorf() {
 	return ["U Alt-Mariendorf", 1]
 }
 
+export function getAltTempelhof() {
+	return ["U Alt-Tempelhof", 1]
+}
+
 export function getBayerischerPlatz(lineName: string) {
 	switch (lineName) {
 		case "U4":
