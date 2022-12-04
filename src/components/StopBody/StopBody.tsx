@@ -193,8 +193,18 @@ export default function StopBody({
 					bOrder < aOrder
 				)
 					return +1
-				if (aName.toLowerCase() < bName.toLowerCase()) return -1
-				if (bName.toLowerCase() < aName.toLowerCase()) return +1
+				if (
+					typeof aName === "string" &&
+					typeof bName === "string" &&
+					aName.toLowerCase() < bName.toLowerCase()
+				)
+					return -1
+				if (
+					typeof bName === "string" &&
+					typeof aName === "string" &&
+					bName.toLowerCase() < aName.toLowerCase()
+				)
+					return +1
 				return 0
 			})
 			const resultArray = await dataModified.reduce(
@@ -221,8 +231,10 @@ export default function StopBody({
 		return compressedData.sort((a, b) => {
 			const aOrder = a[0].order || undefined
 			const bOrder = b[0].order || undefined
-			const aStop = a[0].stop.name.toLowerCase()
-			const bStop = b[0].stop.name.toLowerCase()
+			const aStop =
+				typeof a[0].stop.name === "string" ? a[0].stop.name.toLowerCase() : ""
+			const bStop =
+				typeof b[0].stop.name === "string" ? b[0].stop.name.toLowerCase() : ""
 			if (typeof aOrder === "number" && typeof bOrder === "undefined") {
 				return -1
 			} else if (typeof aOrder === "undefined" && typeof bOrder === "number") {
