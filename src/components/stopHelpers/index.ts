@@ -57,6 +57,7 @@ import {
 	getMöckernbrücke,
 	getOstbahnhof,
 	getOstkreuz,
+	getPlatzDerLuftbrücke,
 	getPrinzenstr,
 	getSchlesischesTor,
 	getSchönleinstr,
@@ -1204,6 +1205,15 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				newStopName = getPetershagenNord()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000017102":
+				;[newStopName, order] = getPlatzDerLuftbrücke(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000170005":
 				newStopName = getPoelchaustr()
 				newStop = { ...stop, name: newStopName }

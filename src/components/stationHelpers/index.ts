@@ -27,6 +27,7 @@ import {
 	getMehringdamm,
 	getMoritzplatz,
 	getMöckernbrücke,
+	getPlatzDerLuftbrücke,
 	getSchönleinstr,
 	getSüdstern,
 	getWarschauerStr,
@@ -439,6 +440,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000034101":
 				;[newStopName, order] = getPaulsternstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000017102":
+				;[newStopName, order] = getPlatzDerLuftbrücke()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100020":

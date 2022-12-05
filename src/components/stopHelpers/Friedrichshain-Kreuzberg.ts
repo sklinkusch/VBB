@@ -152,6 +152,37 @@ export function getOstkreuz(lineName: string) {
 	}
 }
 
+export function getPlatzDerLuftbrücke(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U6":
+		case "N6":
+		case "N42":
+			return ["U Platz der Luftbrücke [Bus Mehringdamm]", 5]
+		case "M43":
+			if (mode === "arr" && provenance?.includes("Berliner"))
+				return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+			if (mode === "arr") return ["U Platz der Luftbrücke [Bus Dudenstr.]", 3]
+			if (mode === "dep" && direction?.includes("Berliner"))
+				return ["U Platz der Luftbrücke [Bus Dudenstr.]", 3]
+			return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+		case "248":
+			if (mode === "arr" && provenance?.includes("Alexanderpl"))
+				return ["U Platz der Luftbrücke [Bus M.-v.-Richthofen-Str.]", 4]
+			if (mode === "arr")
+				return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+			if (mode === "dep" && direction?.includes("Alexanderpl"))
+				return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+			return ["U Platz der Luftbrücke [Bus M.-v.-Richthofen-Str.]", 4]
+		default:
+			return ["U Platz der Luftbrücke [Bus]", 6]
+	}
+}
+
 export function getPrinzenstr(lineName: string) {
 	switch (lineName) {
 		case "U1":
