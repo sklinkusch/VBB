@@ -111,6 +111,10 @@ export function getNollendorfplatz(
 	return ["U Nollendorfplatz", null]
 }
 
+export function getParadestr() {
+	return ["U Paradestr.", 1]
+}
+
 export function getTempelhof(product: string) {
 	switch (product) {
 		case "suburban":

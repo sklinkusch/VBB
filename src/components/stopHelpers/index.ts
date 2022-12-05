@@ -250,6 +250,7 @@ import {
 	getKurfürstenstr,
 	getMarienfelde,
 	getNollendorfplatz,
+	getParadestr,
 	getPriesterweg,
 	getRathausSchöneberg,
 	getSchöneberg,
@@ -1185,6 +1186,10 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000085104":
 			case "900000085108":
 				;[newStopName, order] = getParacelsusBad(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000068101":
+				;[newStopName, order] = getParadestr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000080401":

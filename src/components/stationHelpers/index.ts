@@ -104,6 +104,7 @@ import {
 	getKaiserinAugustaStr,
 	getKleistpark,
 	getNollendorfplatz,
+	getParadestr,
 	getTempelhof,
 	getUllsteinstr,
 	getWaltherSchreiberPlatz,
@@ -426,6 +427,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000085104":
 				;[newStopName, order] = getParacelsusBad()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000068101":
+				;[newStopName, order] = getParadestr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000080401":

@@ -281,6 +281,10 @@ export function getNollendorfplatz(
 	}
 }
 
+export function getParadestr() {
+	return ["U Paradestr. [Bus Tempelhofer Damm]", 2]
+}
+
 export function getPriesterweg() {
 	return "S Priesterweg [Bus Prellerweg]"
 }
