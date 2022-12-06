@@ -102,6 +102,29 @@ export function getHalleschesTor(
 	}
 }
 
+export function getKochstr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "M29":
+			return ["U Kochstr./Checkpoint Charlie [Bus Kochstr.]", 2]
+		case "U6":
+		case "N6":
+			if (mode === "arr" && provenance && /(Tegel|Seestr)/.test(provenance))
+				return ["U Kochstr./Checkpoint Charlie [Bus Friedrichstr.]", 3]
+			if (mode === "arr")
+				return ["U Kochstr./Checkpoint Charlie [Bus Kochstr.]", 2]
+			if (mode === "dep" && direction && /(Tegel|Seestr)/.test(direction))
+				return ["U Kochstr./Checkpoint Charlie [Bus Kochstr.]", 2]
+			return ["U Kochstr./Checkpoint Charlie [Bus Friedrichstr.]", 3]
+		default:
+			return ["U Kochstr./Checkpoint Charlie [Bus]", 4]
+	}
+}
+
 export function getMehringdamm(id: string, lineName: string) {
 	switch (id) {
 		case "900000017101":

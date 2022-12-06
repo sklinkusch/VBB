@@ -23,6 +23,7 @@ import {
 	getGleisdreieck,
 	getGneisenaustr,
 	getHalleschesTor,
+	getKochstr,
 	getKottbusserTor,
 	getMehringdamm,
 	getMoritzplatz,
@@ -346,6 +347,10 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000054102":
 				;[newStopName, order] = getKleistpark()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000012102":
+				;[newStopName, order] = getKochstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041201":

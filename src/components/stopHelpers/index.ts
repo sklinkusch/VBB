@@ -52,6 +52,7 @@ import {
 	getGneisenaustr,
 	getGörlitzerBf,
 	getHalleschesTor,
+	getKochstr,
 	getMehringdamm,
 	getMoritzplatz,
 	getMöckernbrücke,
@@ -890,6 +891,15 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000054102":
 				;[newStopName, order] = getKleistpark()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000012102":
+				;[newStopName, order] = getKochstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000077155":

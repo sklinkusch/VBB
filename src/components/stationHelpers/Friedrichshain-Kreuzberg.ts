@@ -39,6 +39,10 @@ export function getHalleschesTor(lineName: string) {
 	}
 }
 
+export function getKochstr() {
+	return ["U Kochstr./Checkpoint Charlie", 1]
+}
+
 export function getKottbusserTor(lineName: string) {
 	switch (lineName) {
 		case "U8":
