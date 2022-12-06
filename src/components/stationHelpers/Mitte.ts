@@ -37,7 +37,7 @@ export function getFriedrichstr(product: string, lineName: string) {
 	switch (product) {
 		case "express":
 		case "regional":
-			return ["S Friedrichstr. ⬆️", 1]
+			return ["Bhf Friedrichstr. ⬆️", 1]
 		case "suburban":
 			switch (lineName) {
 				case "S3":
