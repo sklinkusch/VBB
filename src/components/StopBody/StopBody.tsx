@@ -267,7 +267,8 @@ export default function StopBody({
 		}
 		fetchData()
 	}, [data])
-	const text = `In the next ${getDuration(stop.type || "BLN")} minutes, no ${
+	const type = stop.name.startsWith("Berlin") ? "BLN" : "BBG"
+	const text = `In the next ${getDuration(type)} minutes, no ${
 		mode === "dep" ? "departures" : "arrivals"
 	} are planned for the station or stop you have chosen`
 	return (
