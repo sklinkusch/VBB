@@ -212,20 +212,21 @@ export default function Timetable() {
 	const noFilters = () => {
 		setViewData(data)
 	}
-	const filterStops = (filterValue: string) => {
-		const remainingStops = stops.filter(
-			(currStop) =>
-				currStop.id !== stop.id &&
-				currStop.name.toLowerCase().includes(filterValue.toLowerCase())
-		)
-		const newSelection = [stop, ...remainingStops]
-		setSelection(newSelection)
-	}
-	const doFilter = (event: { key: string; target: { value: string } }) => {
-		// if (event.key === "Enter") {
-		const filterValue = event.target.value
-		filterStops(filterValue)
-		// }
+	const getStopSelection = async (event: {
+		key: string
+		target: { value: string }
+	}) => {
+		const searchValue = event.target.value
+		if (searchValue.length > 4) {
+			const response = await fetch(
+				`https://station-api-jade.vercel.app/?inputName=${searchValue}`
+			)
+			const data = await response.json()
+			const newData = [stop, ...data]
+			setSelection(newData)
+		} else {
+			setSelection([stop])
+		}
 	}
 	const setCurrStop = (currStop: Stop) => {
 		setStop(currStop)
@@ -292,7 +293,9 @@ export default function Timetable() {
 	// }, []);
 	return (
 		<div className="timetable" sx={{ minHeight: "75vh" }}>
-			{inputField && <Input filterStops={doFilter} inputField={inputField} />}
+			{inputField && (
+				<Input filterStops={getStopSelection} inputField={inputField} />
+			)}
 			<Select
 				handleChange={handleChange}
 				selection={selection}
