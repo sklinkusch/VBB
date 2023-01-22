@@ -136,10 +136,8 @@ const getDistance = (arr: Arr) => {
 	const { currentTripPosition, stop } = arr
 	if (currentTripPosition) {
 		const { latitude: currLat, longitude: currLng } = currentTripPosition
-		console.log(currLat, currLng)
 		const { location } = stop
 		const { latitude: stopLat, longitude: stopLng } = location
-		console.log(stopLat, stopLng)
 		const rCurrLat = (pi * currLat) / 180
 		const rStopLat = (pi * stopLat) / 180
 		const theta = currLng - stopLng
