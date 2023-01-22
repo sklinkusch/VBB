@@ -1,4 +1,76 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
+
+export function getAltMariendorf(
+	id: string,
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (id) {
+		case "900000070701":
+			return ["U Alt-Mariendorf [Bus Alt-Mariendorf]", 3]
+		case "900000070702":
+			switch (lineName) {
+				case "M76":
+					if (mode === "arr" && provenance?.includes("Lichtenrade"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("Lichtenrade"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				case "M77":
+				case "181":
+				case "277":
+				case "U6":
+				case "N6":
+				case "N77":
+					return ["U Alt-Mariendorf [Bus Reißeckstr.]", 5]
+				case "X71":
+					if (mode === "arr" && provenance?.includes("BER"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("BER"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				case "X76":
+					if (mode === "arr" && provenance?.includes("Nahariyastr"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("Nahariyastr"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				case "179":
+					if (mode === "arr" && provenance?.includes("Gerlinger"))
+						return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+					if (mode === "arr") return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					if (mode === "dep" && direction?.includes("Gerlinger"))
+						return ["U Alt-Mariendorf [Bus Friedenstr.]", 4]
+					return ["U Alt-Mariendorf [Bus Mariendorfer Damm]", 2]
+				default:
+					return ["U Alt-Mariendorf [Bus Frieden-/Reißeckstr.]", 6]
+			}
+		default:
+			return ["U Alt-Mariendorf [Bus]", 7]
+	}
+}
+
+export function getAltTempelhof(lineName: string) {
+	switch (lineName) {
+		case "U6":
+		case "N6":
+		case "140":
+		case "184":
+		case "N84":
+			return ["U Alt-Tempelhof [Bus Tempelhofer Damm]", 3]
+		case "M46":
+		case "246":
+			return ["U Alt-Tempelhof [Bus Alt-Tempelhof]", 2]
+		default:
+			return ["U Alt-Tempelhof [Bus]", 4]
+	}
+}
 
 export function getAttilastr(lineName: string) {
 	if (lineName === "282") return "S Attilastr. [Bus Steglitzer Damm]"
@@ -14,7 +86,7 @@ export function getBuckowerChaussee() {
 }
 
 export function getBülowstr(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -80,6 +152,22 @@ export function getEisenacherStr() {
 	return ["U Eisenacher Str. [Bus Grunewaldstr.]", 2]
 }
 
+export function getFriedrichWilhelmPlatz(mode: Mode, lineName: string) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+			return ["U Friedrich-Wilhelm-Platz [Bus Bundesallee]", 2]
+		case "186":
+			return ["U Friedrich-Wilhelm-Platz [Bus Wiesbadener Str.]", 4]
+		case "246":
+			if (mode === "arr")
+				return ["U Friedrich-Wilhelm-Platz [Bus F.-Wilhelm-Pl.]", 5]
+			return ["U Friedrich-Wilhelm-Platz [Bus Schmiljanstr.]", 3]
+		default:
+			return ["U Friedrich-Wilhelm-Platz [Bus]", 6]
+	}
+}
+
 export function getInnsbruckerPlatz(lineName: string) {
 	switch (lineName) {
 		case "M48":
@@ -98,6 +186,22 @@ export function getJuliusLeberBrücke() {
 	return "S Julius-Leber-Brücke [Bus Kolonnenstr.]"
 }
 
+export function getKaiserinAugustaStr(lineName: string) {
+	switch (lineName) {
+		case "184":
+			return ["U Kaiserin-Augusta-Str. [Bus Albrechtstr.]", 3]
+		case "U6":
+		case "N6":
+			return ["U Kaiserin-Augusta-Str. [Bus Tempelhofer Damm]", 2]
+		default:
+			return ["U Kaiserin-Augusta-Str. [Bus]", 4]
+	}
+}
+
+export function getKleistpark() {
+	return ["U Kleistpark [Bus Potsdamer Str.]", 2]
+}
+
 export function getKurfürstenstr() {
 	return "U Kurfürstenstr. [Bus Potsdamer Str.]"
 }
@@ -107,7 +211,7 @@ export function getMarienfelde() {
 }
 
 export function getNollendorfplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -177,6 +281,10 @@ export function getNollendorfplatz(
 	}
 }
 
+export function getParadestr() {
+	return ["U Paradestr. [Bus Tempelhofer Damm]", 2]
+}
+
 export function getPriesterweg() {
 	return "S Priesterweg [Bus Prellerweg]"
 }
@@ -196,7 +304,7 @@ export function getSchöneberg() {
 
 export function getSüdkreuz(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -281,7 +389,7 @@ export function getSüdkreuz(
 
 export function getTempelhof(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -327,8 +435,108 @@ export function getTempelhof(
 	}
 }
 
+export function getUllsteinstr(id: string, lineName: string) {
+	switch (id) {
+		case "900000069271":
+			return ["U Ullsteinstr. [Bus Mariendorfer Damm]", 2]
+		case "900000069201":
+			switch (lineName) {
+				case "U6":
+				case "N6":
+					return ["U Ullsteinstr./Ordensmeisterstr. [Bus Tempelhofer Damm]", 3]
+				case "170":
+					return ["U Ullsteinstr./Ordensmeisterstr. [Bus Ordensmeisterstr.]", 4]
+				default:
+					return ["U Ullsteinstr./Ordensmeisterstr.", 5]
+			}
+		default:
+			return ["U Ullsteinstr. [Bus]", 6]
+	}
+}
+
+export function getWaltherSchreiberPlatz(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "M76":
+		case "X76":
+		case "181":
+		case "N81":
+			return ["U Walther-Schreiber-Platz [Bus Bundesallee]", 4]
+		case "M48":
+			if (
+				mode === "arr" &&
+				provenance &&
+				/(Steglitz|Zehlendorf)/.test(provenance)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+			if (mode === "arr")
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			if (
+				mode === "dep" &&
+				direction &&
+				/(Steglitz|Zehlendorf)/.test(direction)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+		case "M85":
+		case "186":
+			if (
+				mode === "arr" &&
+				provenance &&
+				/(Steglitz|Lichterfelde)/.test(provenance)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+			if (mode === "arr")
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			if (
+				mode === "dep" &&
+				direction &&
+				/(Steglitz|Lichterfelde)/.test(direction)
+			)
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			return ["U Walther-Schreiber-Platz [Bus Rheinstr.]", 2]
+		case "U9":
+		case "N9":
+			if (mode === "arr" && provenance?.includes("Steglitz"))
+				return ["U Walther-Schreiber-Platz [Bus Bundesallee]", 4]
+			if (mode === "arr")
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			if (mode === "dep" && direction?.includes("Steglitz"))
+				return ["U Walther-Schreiber-Platz [Bus Schloßstr.]", 3]
+			return ["U Walther-Schreiber-Platz [Bus Bundesallee]", 4]
+		default:
+			return ["U Walther-Schreiber-Platz [Bus]", 5]
+	}
+}
+
+export function getWestphalweg(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U6":
+		case "N6":
+			return ["U Westphalweg [Bus Mariendorfer Damm]", 2]
+		case "282":
+			if (mode === "arr" && provenance?.includes("Dillenburger"))
+				return ["U Westphalweg [Bus Mariendorfer Damm]", 2]
+			if (mode === "arr") return ["U Westphalweg [Bus Kaiserstr.]", 3]
+			if (mode === "dep" && direction?.includes("Breitenbachplatz"))
+				return ["U Westphalweg [Bus Kaiserstr.]", 3]
+			return ["U Westphalweg [Bus Mariendorfer Damm]", 2]
+		default:
+			return ["U Westphalweg [Bus]", 4]
+	}
+}
+
 export function getWittenbergplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -407,10 +615,10 @@ export function getWittenbergplatz(
 export function getYorckstr(id: string) {
 	switch (id) {
 		case "900000057102":
-			return "S+U Yorckstr. (Großgörschenstr.) [Bus Yorckstr.]"
+			return ["S+U Yorckstr. (Großgörschenstr.) [Bus Yorckstr.]", 6]
 		case "900000058103":
-			return "S+U Yorckstr. [Bus Yorckstr.]"
+			return ["S+U Yorckstr. [Bus Yorckstr.]", 5]
 		default:
-			return "S+U Yorckstr. [Bus Yorckstr.]"
+			return ["S+U Yorckstr. [Bus Yorckstr.]", 5]
 	}
 }

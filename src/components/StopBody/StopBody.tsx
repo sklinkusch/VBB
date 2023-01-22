@@ -7,6 +7,12 @@ import TableData from "../TableData/TableData"
 import { changeStopObject } from "../stopHelpers"
 /* eslint-disable react-hooks/exhaustive-deps */
 
+type Location = {
+	type: "location"
+	latitude: number
+	longitude: number
+}
+
 type Remarks = {
 	code: string | undefined
 	summary: string | null | undefined
@@ -48,6 +54,7 @@ type LINE_B = {
 
 type Dataset = {
 	cancelled: boolean | undefined
+	currentTripPosition: Location
 	delay: number | null
 	direction: string | null
 	formerScheduledWhen?: string
@@ -64,6 +71,7 @@ type Dataset = {
 	stop: {
 		id: string
 		name: string
+		location: Location
 	}
 	tripId: string
 	when?: string
@@ -77,12 +85,19 @@ type Stop = {
 	type?: string
 }
 
+type Mode = "dep" | "arr"
+
 type Props = {
 	data: Data
 	date: string
 	error: string
-	mode: string
+	mode: Mode
 	stop: Stop
+}
+
+type Intermediate = {
+	name: string
+	order: number | null | undefined
 }
 
 export default function StopBody({
@@ -148,14 +163,56 @@ export default function StopBody({
 				const newStopObject = changeStopObject(mode, e)
 				return newStopObject
 			})
-			const stopsRaw = await dataModified.map((e) => e.stop.name)
-			const stopsContracted = await stopsRaw
-				.filter((val, ind, arr) => arr.indexOf(val) === ind)
-				.sort()
+			const stopsRaw = await dataModified.map((e) => ({
+				name: e.stop.name,
+				order: e.order,
+			}))
+			const intermediateArray = await stopsRaw.reduce(
+				(acc: Intermediate[], item: Intermediate) => {
+					const arr = acc.slice()
+					const i = arr.findIndex(
+						(x) => x.name === item.name && x.order === item.order
+					)
+					if (i <= -1) arr.push(item)
+					return arr
+				},
+				[]
+			)
+			const stopsContracted = await intermediateArray.sort((a, b) => {
+				const { name: aName, order: aOrder } = a
+				const { name: bName, order: bOrder } = b
+				if (
+					typeof aOrder === "number" &&
+					typeof bOrder === "number" &&
+					aOrder < bOrder
+				)
+					return -1
+				if (
+					typeof aOrder === "number" &&
+					typeof bOrder === "number" &&
+					bOrder < aOrder
+				)
+					return +1
+				if (
+					typeof aName === "string" &&
+					typeof bName === "string" &&
+					aName.toLowerCase() < bName.toLowerCase()
+				)
+					return -1
+				if (
+					typeof bName === "string" &&
+					typeof aName === "string" &&
+					bName.toLowerCase() < aName.toLowerCase()
+				)
+					return +1
+				return 0
+			})
 			const resultArray = await dataModified.reduce(
 				(acc: Dataset[][], curr: any) => {
 					const arr = [...acc]
-					const index = stopsContracted.indexOf(curr.stop.name)
+					const index = stopsContracted.findIndex(
+						(x) => x.name === curr.stop.name && x.order === curr.order
+					)
 					if (Array.isArray(arr[index])) {
 						arr[index].push(curr)
 					} else {
@@ -174,8 +231,10 @@ export default function StopBody({
 		return compressedData.sort((a, b) => {
 			const aOrder = a[0].order || undefined
 			const bOrder = b[0].order || undefined
-			const aStop = a[0].stop.name.toLowerCase()
-			const bStop = b[0].stop.name.toLowerCase()
+			const aStop =
+				typeof a[0].stop.name === "string" ? a[0].stop.name.toLowerCase() : ""
+			const bStop =
+				typeof b[0].stop.name === "string" ? b[0].stop.name.toLowerCase() : ""
 			if (typeof aOrder === "number" && typeof bOrder === "undefined") {
 				return -1
 			} else if (typeof aOrder === "undefined" && typeof bOrder === "number") {
@@ -208,7 +267,8 @@ export default function StopBody({
 		}
 		fetchData()
 	}, [data])
-	const text = `In the next ${getDuration(stop.type || "BLN")} minutes, no ${
+	const type = stop.name.startsWith("Berlin") ? "BLN" : "BBG"
+	const text = `In the next ${getDuration(type)} minutes, no ${
 		mode === "dep" ? "departures" : "arrivals"
 	} are planned for the station or stop you have chosen`
 	return (

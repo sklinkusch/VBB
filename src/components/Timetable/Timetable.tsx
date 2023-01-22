@@ -4,7 +4,6 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useDebugState } from "use-named-state"
 import axios from "axios"
 import { getDuration } from "../helpers/helpers"
-import stops from "../../data/stops"
 import Input from "../Input/Input"
 import Select from "../Select/Select"
 import Button from "../Button/Button"
@@ -16,6 +15,12 @@ import StopBody from "../StopBody/StopBody"
 // const Filter = lazy(() => import("./Filter"))
 // const StopBody = lazy(() => import("./StopBody"))
 /* eslint-disable react-hooks/exhaustive-deps */
+
+type Location = {
+	type: "location"
+	latitude: number
+	longitude: number
+}
 
 type Remarks = {
 	code: string | undefined
@@ -58,6 +63,7 @@ type LINE_B = {
 
 type Dataset = {
 	cancelled: boolean | undefined
+	currentTripPosition: Location
 	delay: number | null
 	direction: string | null
 	formerScheduledWhen?: string
@@ -73,6 +79,7 @@ type Dataset = {
 	stop: {
 		id: string
 		name: string
+		location: Location
 	}
 	tripId: string
 	when?: string
@@ -87,7 +94,7 @@ type Stop = {
 type Data = Dataset[]
 
 export default function Timetable() {
-	const [selection, setSelection] = useDebugState<Stop[]>("selection", stops)
+	const [selection, setSelection] = useDebugState<Stop[]>("selection", [])
 	const [stop, setStop] = useDebugState<Stop>("stop", {
 		id: "",
 		name: "",
@@ -100,35 +107,43 @@ export default function Timetable() {
 	const params = useParams()
 	const navigate = useNavigate()
 	useEffect(() => {
-		if (
-			params.hasOwnProperty("id") &&
-			typeof params.id === "string" &&
-			params.id.length > 0
-		) {
-			const selectedStop = stops.filter((stop) => stop.id === params.id)[0]
-			navigate(`/departures/${params.id}`)
-			setStop(selectedStop)
-			getData(params.id)
-			const remainingStops = stops.filter(
-				(stop) => stop.name !== selectedStop.name
-			)
-			const stopSelection = [selectedStop, ...remainingStops]
-			setSelection(stopSelection)
-		} else {
-			const initialStopArray = stops.filter(
-				(stop) => stop.name === "U Stadtmitte"
-			)
-			const [initialStop] = initialStopArray
-			const { id: initialId } = initialStop
-			navigate(`/departures/${initialId}`)
-			setStop(initialStop)
-			getData(initialId)
-			const remainingStops = stops.filter(
-				(stop) => stop.name !== initialStop.name
-			)
-			const stopSelection = [initialStop, ...remainingStops]
-			setSelection(stopSelection)
+		async function findInitialStop() {
+			if (
+				params.hasOwnProperty("id") &&
+				typeof params.id === "string" &&
+				params.id.length > 0
+			) {
+				const response = await fetch(
+					`https://station-api-jade.vercel.app/?id=${params.id}`
+				)
+				const station = await response.json()
+				const { name } = await station
+				navigate(`/departures/${params.id}`)
+				setStop(station)
+				getData(params.id, name)
+				document.title = navigator.language.startsWith("de")
+					? `Abfahrten ab ${name}`
+					: `Departures from ${name}`
+				const stopSelection = [station]
+				setSelection(stopSelection)
+			} else {
+				const initialId = "900100011"
+				const response = await fetch(
+					`https://station-api-jade.vercel.app/?id=${initialId}`
+				)
+				const station = await response.json()
+				const { name: initialName } = await station
+				navigate(`/departures/${initialId}`)
+				setStop(station)
+				getData(initialId, initialName)
+				document.title = navigator.language.startsWith("de")
+					? `Abfahrten ab ${initialName}`
+					: `Departures from ${initialName}`
+				const stopSelection = [station]
+				setSelection(stopSelection)
+			}
 		}
+		findInitialStop()
 	}, [])
 	const inputField = useRef<HTMLInputElement>(null)
 	const filterField = useRef<HTMLInputElement>(null)
@@ -198,28 +213,27 @@ export default function Timetable() {
 	const noFilters = () => {
 		setViewData(data)
 	}
-	const filterStops = (filterValue: string) => {
-		const remainingStops = stops.filter(
-			(currStop) =>
-				currStop.id !== stop.id &&
-				currStop.name.toLowerCase().includes(filterValue.toLowerCase())
-		)
-		const newSelection = [stop, ...remainingStops]
-		setSelection(newSelection)
-	}
-	const doFilter = (event: { key: string; target: { value: string } }) => {
-		// if (event.key === "Enter") {
-		const filterValue = event.target.value
-		filterStops(filterValue)
-		// }
+	const getStopSelection = async (event: {
+		key: string
+		target: { value: string }
+	}) => {
+		const searchValue = event.target.value
+		if (searchValue.length > 4) {
+			const response = await fetch(
+				`https://station-api-jade.vercel.app/?station=${searchValue}`
+			)
+			const data = await response.json()
+			const newData = [stop, ...data]
+			setSelection(newData)
+		} else {
+			setSelection([stop])
+		}
 	}
 	const setCurrStop = (currStop: Stop) => {
 		setStop(currStop)
 	}
-	const getData = async (id: string) => {
-		const currentStopArray = stops.filter((stop) => stop.id === id)
-		const [currentStop] = currentStopArray
-		const { type = "BBG" } = currentStop
+	const getData = async (id: string, name: string) => {
+		const type = name.startsWith("Berlin") ? "BLN" : "BBG"
 		const duration = getDuration(type)
 		let lang = "de"
 		const browserLang = navigator.language
@@ -243,6 +257,8 @@ export default function Timetable() {
 				minute: "2-digit",
 				timeZone: "Europe/Berlin",
 			})
+			document.title =
+				lang === "de" ? `Abfahrten ab ${name}` : `Departures from ${name}`
 			setDate(myDate)
 			setData(resData)
 			setViewData(resData)
@@ -251,8 +267,8 @@ export default function Timetable() {
 	}
 	const handleChange = (currentStop: Stop) => {
 		setCurrStop(currentStop)
-		const { id: myStopId } = currentStop
-		getData(myStopId)
+		const { id: myStopId, name: currentStopName } = currentStop
+		getData(myStopId, currentStopName)
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 		const filterFieldCurrent = filterField.current as HTMLInputElement
@@ -261,7 +277,7 @@ export default function Timetable() {
 		filterSelectorCurrent.value = "OR"
 	}
 	const handleSubmit = () => {
-		getData(stop.id)
+		getData(stop.id, stop.name)
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 		const filterFieldCurrent = filterField.current as HTMLInputElement
@@ -274,7 +290,9 @@ export default function Timetable() {
 	// }, []);
 	return (
 		<div className="timetable" sx={{ minHeight: "75vh" }}>
-			{inputField && <Input filterStops={doFilter} inputField={inputField} />}
+			{inputField && (
+				<Input filterStops={getStopSelection} inputField={inputField} />
+			)}
 			<Select
 				handleChange={handleChange}
 				selection={selection}

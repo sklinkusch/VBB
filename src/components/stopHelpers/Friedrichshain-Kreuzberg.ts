@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAnhalterBahnhof(lineName: string) {
 	switch (lineName) {
@@ -29,6 +30,19 @@ export function getFrankfurterAllee(product: string, lineName: string) {
 	}
 }
 
+export function getGneisenaustr(lineName: string) {
+	switch (lineName) {
+		case "140":
+		case "U7":
+		case "N7":
+			return ["U Gneisenaustr. [Bus Gneisenaustr.]", 2]
+		case "248":
+			return ["U Gneisenaustr. [Bus Zossener Str.]", 3]
+		default:
+			return ["U Gneisenaustr. [Bus]", 4]
+	}
+}
+
 export function getGörlitzerBf(lineName: string) {
 	switch (lineName) {
 		case "U1":
@@ -40,7 +54,7 @@ export function getGörlitzerBf(lineName: string) {
 }
 
 export function getHalleschesTor(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -88,6 +102,29 @@ export function getHalleschesTor(
 	}
 }
 
+export function getKochstr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "M29":
+			return ["U Kochstr./Checkpoint Charlie [Bus Kochstr.]", 2]
+		case "U6":
+		case "N6":
+			if (mode === "arr" && provenance && /(Tegel|Seestr)/.test(provenance))
+				return ["U Kochstr./Checkpoint Charlie [Bus Friedrichstr.]", 3]
+			if (mode === "arr")
+				return ["U Kochstr./Checkpoint Charlie [Bus Kochstr.]", 2]
+			if (mode === "dep" && direction && /(Tegel|Seestr)/.test(direction))
+				return ["U Kochstr./Checkpoint Charlie [Bus Kochstr.]", 2]
+			return ["U Kochstr./Checkpoint Charlie [Bus Friedrichstr.]", 3]
+		default:
+			return ["U Kochstr./Checkpoint Charlie [Bus]", 4]
+	}
+}
+
 export function getMehringdamm(id: string, lineName: string) {
 	switch (id) {
 		case "900000017101":
@@ -106,20 +143,20 @@ export function getMehringdamm(id: string, lineName: string) {
 	}
 }
 
-export function getMöckernbrücke(
-	mode: string,
-	direction: Dir,
-	provenance: Dir
-) {
+export function getMöckernbrücke(mode: Mode, direction: Dir, provenance: Dir) {
 	if (mode === "arr" && provenance !== null) {
 		if (provenance.includes("Helsingforser Platz"))
-			return "U Möckernbrücke [Bus Hallesches Ufer]"
-		return "U Möckernbrücke [Bus Tempelhofer Ufer]"
+			return ["U Möckernbrücke [Bus Hallesches Ufer]", 4]
+		return ["U Möckernbrücke [Bus Tempelhofer Ufer]", 5]
 	} else if (mode === "dep" && direction !== null) {
 		if (direction.includes("Warschauer Str"))
-			return "U Möckernbrücke [Bus Tempelhofer Ufer]"
-		return "U Möckernbrücke [Bus Hallesches Ufer]"
+			return ["U Möckernbrücke [Bus Tempelhofer Ufer]", 5]
+		return ["U Möckernbrücke [Bus Hallesches Ufer]", 4]
 	}
+}
+
+export function getMoritzplatz() {
+	return ["U Moritzplatz [Bus Oranienstr.]", 2]
 }
 
 export function getOstbahnhof() {
@@ -138,6 +175,37 @@ export function getOstkreuz(lineName: string) {
 	}
 }
 
+export function getPlatzDerLuftbrücke(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U6":
+		case "N6":
+		case "N42":
+			return ["U Platz der Luftbrücke [Bus Mehringdamm]", 5]
+		case "M43":
+			if (mode === "arr" && provenance?.includes("Berliner"))
+				return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+			if (mode === "arr") return ["U Platz der Luftbrücke [Bus Dudenstr.]", 3]
+			if (mode === "dep" && direction?.includes("Berliner"))
+				return ["U Platz der Luftbrücke [Bus Dudenstr.]", 3]
+			return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+		case "248":
+			if (mode === "arr" && provenance?.includes("Alexanderpl"))
+				return ["U Platz der Luftbrücke [Bus M.-v.-Richthofen-Str.]", 4]
+			if (mode === "arr")
+				return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+			if (mode === "dep" && direction?.includes("Alexanderpl"))
+				return ["U Platz der Luftbrücke [Bus Pl. d. Luftbrücke]", 2]
+			return ["U Platz der Luftbrücke [Bus M.-v.-Richthofen-Str.]", 4]
+		default:
+			return ["U Platz der Luftbrücke [Bus]", 6]
+	}
+}
+
 export function getPrinzenstr(lineName: string) {
 	switch (lineName) {
 		case "U1":
@@ -149,7 +217,7 @@ export function getPrinzenstr(lineName: string) {
 }
 
 export function getSchlesischesTor(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -177,6 +245,10 @@ export function getSchlesischesTor(
 	}
 }
 
+export function getSchönleinstr() {
+	return ["U Schönleinstr. [Bus Kottbusser Damm]", 2]
+}
+
 export function getStrausbergerPlatz(lineName: string) {
 	switch (lineName) {
 		case "142":
@@ -189,8 +261,12 @@ export function getStrausbergerPlatz(lineName: string) {
 	}
 }
 
+export function getSüdstern() {
+	return ["U Südstern [Bus Hasenheide]", 2]
+}
+
 export function getWarschauerStr(
-	mode: string,
+	mode: Mode,
 	product: string,
 	lineName: string,
 	direction: Dir,
@@ -201,52 +277,52 @@ export function getWarschauerStr(
 			case "tram":
 				switch (lineName) {
 					case "M10":
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 4]
 					default:
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 4, 4]
 				}
 			case "bus":
 				switch (lineName) {
 					case "300":
-						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 8, 5]
+						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 8, 6]
 					case "347":
 						if (provenance.includes("Tunnelstr"))
-							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 4]
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 4]
+							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 5]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 5]
 					default:
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 4]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 5]
 				}
 			default:
-				return ["S+U Warschauer Str.", null, 6]
+				return ["S+U Warschauer Str.", null, 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (product) {
 			case "tram":
 				switch (lineName) {
 					case "M10":
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 4]
 					default:
-						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 3]
+						return ["S+U Warschauer Str. [Tram Warschauer Str.]", 5, 4]
 				}
 			case "bus":
 				switch (lineName) {
 					case "300":
-						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 7, 5]
+						return ["S+U Warschauer Str. [Bus T.-Danz-Str.]", 7, 6]
 					case "347":
 						if (direction.includes("Tunnelstr"))
-							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 4]
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 4]
+							return ["S+U Warschauer Str. [Bus Warschauer Str.]", 3, 5]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", 6, 5]
 					default:
-						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 4]
+						return ["S+U Warschauer Str. [Bus Warschauer Str.]", null, 5]
 				}
 			default:
-				return ["S+U Warschauer Str.", null, 6]
+				return ["S+U Warschauer Str.", null, 7]
 		}
 	}
 }
 
 export function getWeberwiese(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

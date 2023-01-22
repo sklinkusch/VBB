@@ -49,15 +49,21 @@ import {
 import {
 	getAnhalterBahnhof,
 	getFrankfurterAllee,
+	getGneisenaustr,
 	getGörlitzerBf,
 	getHalleschesTor,
+	getKochstr,
 	getMehringdamm,
+	getMoritzplatz,
 	getMöckernbrücke,
 	getOstbahnhof,
 	getOstkreuz,
+	getPlatzDerLuftbrücke,
 	getPrinzenstr,
 	getSchlesischesTor,
+	getSchönleinstr,
 	getStrausbergerPlatz,
+	getSüdstern,
 	getWarschauerStr,
 	getWeberwiese,
 } from "./Friedrichshain-Kreuzberg"
@@ -85,12 +91,17 @@ import {
 } from "./Marzahn-Hellersdorf"
 import {
 	getAlex,
+	getAmrumerStr,
+	getBernauerStr,
 	getBeusselstr,
+	getBirkenstr,
 	getBrandenburgerTor,
 	getFriedrichstr,
 	getGesundbrunnen,
 	getHackescherMarkt,
+	getHansaplatz,
 	getHbf,
+	getHeinrichHeineStr,
 	getHumboldthain,
 	getJannowitzbrücke,
 	getLeopoldplatz,
@@ -98,17 +109,24 @@ import {
 	getMohrenstr,
 	getMuseumsinsel,
 	getMärkischesMuseum,
+	getNauenerPlatz,
 	getNordbahnhof,
 	getOranienburgerStr,
+	getOsloerStr,
+	getPankstr,
 	getPotsdamerPlatz,
 	getRosaLuxemburgPlatz,
+	getRosenthalerPlatz,
 	getRotesRathaus,
 	getSchillingstr,
 	getSpittelmarkt,
 	getStadtmitte,
 	getTiergarten,
+	getTurmstr,
 	getUnterDenLinden,
+	getVoltastr,
 	getWedding,
+	getWeinmeisterstr,
 	getWesthafen,
 } from "./Mitte"
 import {
@@ -122,10 +140,23 @@ import {
 	getStrausbergStadt,
 } from "./Märkisch-Oderland"
 import {
+	getBlaschkoallee,
+	getBoddinstr,
+	getBritzSüd,
+	getGrenzallee,
+	getHermannplatz,
 	getHermannstr,
+	getJohannisthalerChaussee,
+	getKarlMarxStr,
 	getKöllnischeHeide,
+	getLeinestr,
+	getLipschitzallee,
 	getNeukölln,
+	getParchimerAllee,
+	getRathausNeukölln,
+	getRudow,
 	getSonnenallee,
+	getZwickauerDamm,
 } from "./Neukölln"
 import {
 	getBergfelde,
@@ -157,15 +188,21 @@ import { getGriebnitzsee, getPotsdamHbf } from "./Potsdam"
 import { getTeltowStadt } from "./Potsdam-Mittelmark"
 import {
 	getEichborndamm,
+	getFranzNeumannPlatz,
 	getFrohnau,
 	getHeiligensee,
 	getHermsdorf,
 	getKarlBonhoefferNervenklinik,
+	getLindauerAllee,
+	getParacelsusBad,
+	getRathausReinickendorf,
+	getResidenzstr,
 	getSchulzendorf,
 	getSchönholz,
 	getTegel,
 	getWaidmannslust,
 	getWilhelmsruh,
+	getWittenau,
 } from "./Reinickendorf"
 import {
 	getAltstadtSpandau,
@@ -191,6 +228,7 @@ import {
 	getNikolassee,
 	getOnkelTomsHütte,
 	getOsdorferStr,
+	getSchloßstr,
 	getSteglitz,
 	getSundgauerStr,
 	getSüdende,
@@ -199,21 +237,30 @@ import {
 } from "./Steglitz-Zehlendorf"
 import { getBlankenfelde } from "./Teltow-Fläming"
 import {
+	getAltMariendorf,
+	getAltTempelhof,
 	getAttilastr,
 	getBayerischerPlatz,
 	getBuckowerChaussee,
 	getBülowstr,
 	getEisenacherStr,
+	getFriedrichWilhelmPlatz,
 	getInnsbruckerPlatz,
 	getJuliusLeberBrücke,
+	getKaiserinAugustaStr,
+	getKleistpark,
 	getKurfürstenstr,
 	getMarienfelde,
 	getNollendorfplatz,
+	getParadestr,
 	getPriesterweg,
 	getRathausSchöneberg,
 	getSchöneberg,
 	getSüdkreuz,
 	getTempelhof,
+	getUllsteinstr,
+	getWaltherSchreiberPlatz,
+	getWestphalweg,
 	getWittenbergplatz,
 	getYorckstr,
 } from "./Tempelhof-Schöneberg"
@@ -272,7 +319,9 @@ type Data = {
 	when?: string
 }
 
-export function changeStopObject(mode: string, oldStopObject: Data) {
+type Mode = "dep" | "arr"
+
+export function changeStopObject(mode: Mode, oldStopObject: Data) {
 	let newStopName, trackNo, newStop, order
 	const { stop, line, direction, provenance } = oldStopObject
 	const { id } = stop
@@ -324,8 +373,33 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getAltglienicke(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000070301":
+			case "900000070701":
+			case "900000070702":
+				;[newStopName, order] = getAltMariendorf(
+					id,
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000029301":
 				;[newStopName, order] = getAltstadtSpandau()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000068202":
+				;[newStopName, order] = getAltTempelhof(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000009101":
+				;[newStopName, order] = getAmrumerStr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000012101":
@@ -369,6 +443,18 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getBernau()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000007110":
+			case "900000007170":
+				;[newStopName, order] = getBernauerStr(
+					id,
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000020202":
 				newStopName = getBeusselstr()
 				newStop = { ...stop, name: newStopName }
@@ -382,6 +468,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getBirkenstein()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000002201":
+				;[newStopName, order] = getBirkenstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000200008":
 				newStopName = getBirkenwerder()
 				newStop = { ...stop, name: newStopName }
@@ -398,9 +493,17 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getBlankenfelde(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000080201":
+				;[newStopName, order] = getBlaschkoallee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000041102":
 			case "900000043172":
 				;[newStopName, order] = getBlissestr(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000079202":
+				;[newStopName, order] = getBoddinstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000200007":
@@ -423,6 +526,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getBreitenbachplatz(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000080402":
+			case "900000080455":
+				;[newStopName, order] = getBritzSüd(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000135001":
 				newStopName = getBuch(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
@@ -436,9 +544,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000044202":
-				newStopName = getBundesplatz()
+				;[newStopName, order] = getBundesplatz()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000024101":
 			case "900000024103":
 			case "900000024202":
@@ -492,6 +600,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				;[newStopName, order] = getFrankfurterAllee(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
+			case "900000085202":
+				;[newStopName, order] = getFranzNeumannPlatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000320006":
 			case "900000320009":
 				newStopName = getFredersdorf(id)
@@ -520,6 +637,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				;[newStopName, order] = getFriedrichstr(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
+			case "900000061102":
+				;[newStopName, order] = getFriedrichWilhelmPlatz(mode, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000092201":
 			case "900000092282":
 				;[newStopName, trackNo] = getFrohnau(
@@ -536,9 +657,18 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000007102":
-				newStopName = getGesundbrunnen(mode, lineName, direction, provenance)
+				;[newStopName, order] = getGesundbrunnen(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000016101":
+				;[newStopName, order] = getGneisenaustr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000014101":
 				newStopName = getGörlitzerBf(lineName)
 				newStop = { ...stop, name: newStopName }
@@ -547,6 +677,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getGreifswalderStr(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000080202":
+			case "900000080204":
+				;[newStopName, order] = getGrenzallee(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000230003":
 				newStopName = getGriebnitzsee()
 				newStop = { ...stop, name: newStopName }
@@ -567,9 +702,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000043201":
-				newStopName = getGüntzelstr()
+				;[newStopName, order] = getGüntzelstr()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100002":
 				;[newStopName, trackNo] = getHackescherMarkt(
 					mode,
@@ -591,6 +726,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getHalleschesTor(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000003101":
+			case "900000003105":
+				;[newStopName, order] = getHansaplatz(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000034102":
 			case "900000034170":
 				;[newStopName, order] = getHaselhorst(id, lineName)
@@ -617,14 +757,27 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getHeiligensee()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000100008":
+				;[newStopName, order] = getHeinrichHeineStr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000200000":
 			case "900000203376":
 				newStopName = getHennigsdorf(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000078101":
+			case "900000078104":
+			case "900000078105":
+			case "900000078106":
+			case "900000078170":
+			case "900000078171":
+				;[newStopName, order] = getHermannplatz(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000079220":
 			case "900000079221":
-				;[newStopName, trackNo] = getHermannstr(
+				;[newStopName, trackNo, order] = getHermannstr(
 					id,
 					mode,
 					lineName,
@@ -632,7 +785,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000093201":
 				newStopName = getHermsdorf()
 				newStop = { ...stop, name: newStopName }
@@ -680,9 +833,22 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100004":
-				newStopName = getJannowitzbrücke(mode, lineName, direction, provenance)
+				;[newStopName, order] = getJannowitzbrücke(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000082202":
+				;[newStopName, order] = getJohannisthalerChaussee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000079201":
+				;[newStopName, order] = getLeinestr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000057104":
 				newStopName = getJuliusLeberBrücke()
 				newStop = { ...stop, name: newStopName }
@@ -698,10 +864,18 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
-			case "900000096458":
-				newStopName = getKarlBonhoefferNervenklinik()
+			case "900000068302":
+				;[newStopName, order] = getKaiserinAugustaStr(lineName)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000096458":
+				;[newStopName, order] = getKarlBonhoefferNervenklinik()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000078103":
+				;[newStopName, order] = getKarlMarxStr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000162001":
 			case "900000162702":
 				newStopName = getKarlshorst(id, product, lineName)
@@ -715,6 +889,19 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getKaulsdorf()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000054102":
+				;[newStopName, order] = getKleistpark()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000012102":
+				;[newStopName, order] = getKochstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000077155":
 				newStopName = getKöllnischeHeide()
 				newStop = { ...stop, name: newStopName }
@@ -748,9 +935,14 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000023203":
-				newStopName = getKurfürstendamm(mode, lineName, direction, provenance)
+				;[newStopName, order] = getKurfürstendamm(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000005201":
 				newStopName = getKurfürstenstr()
 				newStop = { ...stop, name: newStopName }
@@ -788,6 +980,14 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getLichterfeldeWest()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000086160":
+				;[newStopName, order] = getLindauerAllee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000082201":
+				;[newStopName, order] = getLipschitzallee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000176001":
 			case "900000176007":
 			case "900000176701":
@@ -864,11 +1064,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000017104":
-				newStopName = getMöckernbrücke(mode, direction, provenance)
+				;[newStopName, order] = getMöckernbrücke(mode, direction, provenance)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100010":
 				newStopName = getMohrenstr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000013101":
+				;[newStopName, order] = getMoritzplatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000100537":
@@ -879,13 +1083,22 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getMühlenbeckMönchmühle()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000009201":
+				;[newStopName, order] = getNauenerPlatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000320007":
 				newStopName = getNeuenhagen()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000078201":
 			case "900000078271":
-				;[newStopName, trackNo] = getNeukölln(
+				;[newStopName, trackNo, order] = getNeukölln(
 					id,
 					mode,
 					lineName,
@@ -893,7 +1106,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000026101":
 				newStopName = getNeuWestend()
 				newStop = { ...stop, name: newStopName }
@@ -943,6 +1156,11 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getOsdorferStr(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000009202":
+			case "900000009272":
+				;[newStopName, order] = getOsloerStr(id, product, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000120005":
 				newStopName = getOstbahnhof()
 				newStop = { ...stop, name: newStopName }
@@ -967,6 +1185,28 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getPankowHeinersdorf(product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000009203":
+				;[newStopName, order] = getPankstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000085104":
+			case "900000085108":
+				;[newStopName, order] = getParacelsusBad(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000068101":
+				;[newStopName, order] = getParadestr()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000080401":
+				;[newStopName, order] = getParchimerAllee()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000034101":
 				;[newStopName, order] = getPaulsternstr()
 				newStop = { ...stop, name: newStopName }
@@ -975,6 +1215,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getPetershagenNord()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000017102":
+				;[newStopName, order] = getPlatzDerLuftbrücke(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000170005":
 				newStopName = getPoelchaustr()
 				newStop = { ...stop, name: newStopName }
@@ -1024,11 +1273,37 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000078102":
+			case "900000078151":
+				;[newStopName, order] = getRathausNeukölln(
+					id,
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
+			case "900000096410":
+			case "900000096710":
+			case "900000096711":
+				;[newStopName, order] = getRathausReinickendorf(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000054101":
 			case "900000054106":
 				newStopName = getRathausSchöneberg(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000085203":
+				;[newStopName, order] = getResidenzstr(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000022202":
 				;[newStopName, order] = getRichardWagnerPlatz(lineName)
 				newStop = { ...stop, name: newStopName }
@@ -1041,6 +1316,16 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getRosaLuxemburgPlatz(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000100023":
+				;[newStopName, order] = getRosenthalerPlatz(
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100045":
 			case "900000100539":
 				newStopName = getRotesRathaus(id)
@@ -1050,6 +1335,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getRüdesheimerPlatz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000083201":
+				;[newStopName, trackNo, order] = getRudow(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000025202":
 				newStopName = getRuhleben(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
@@ -1066,6 +1360,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getSchlesischesTor(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000062203":
+				;[newStopName, order] = getSchloßstr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000054104":
 				newStopName = getSchöneberg()
 				newStop = { ...stop, name: newStopName }
@@ -1082,6 +1380,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000085201":
 				newStopName = getSchönholz()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop }
+			case "900000016201":
+				;[newStopName, order] = getSchönleinstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000091205":
@@ -1146,7 +1448,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 			case "900000062282":
 			case "900000062782":
 			case "900000062784":
-				;[newStopName, trackNo] = getSteglitz(
+				;[newStopName, trackNo, order] = getSteglitz(
 					id,
 					mode,
 					lineName,
@@ -1154,7 +1456,7 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 					provenance
 				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop, platform: trackNo }
+				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000110012":
 				newStopName = getStorkowerStr()
 				newStop = { ...stop, name: newStopName }
@@ -1195,6 +1497,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000016202":
+				;[newStopName, order] = getSüdstern()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000049202":
 				newStopName = getSundgauerStr()
 				newStop = { ...stop, name: newStopName }
@@ -1210,9 +1516,15 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000068201":
 			case "900000068272":
-				newStopName = getTempelhof(id, mode, lineName, direction, provenance)
+				;[newStopName, order] = getTempelhof(
+					id,
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000026201":
 			case "900000026203":
 			case "900000026271":
@@ -1236,10 +1548,22 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
+			case "900000003104":
+			case "900000003174":
+			case "900000003175":
+			case "900000003176":
+				;[newStopName, order] = getTurmstr(id)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000023301":
 				newStopName = getUhlandstr()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000069201":
+			case "900000069271":
+				;[newStopName, order] = getUllsteinstr(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000100513":
 				;[newStopName, order] = getUnterDenLinden(lineName)
 				newStop = { ...stop, name: newStopName }
@@ -1248,10 +1572,23 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getVinetastr(product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000007103":
+				;[newStopName, order] = getVoltastr(lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000094101":
 				newStopName = getWaidmannslust(lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000061101":
+				;[newStopName, order] = getWaltherSchreiberPlatz(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000053301":
 				;[newStopName, trackNo] = getWannsee(
 					mode,
@@ -1288,19 +1625,40 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				;[newStopName, order] = getWedding(id, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
+			case "900000100051":
+			case "900000100080":
+				;[newStopName, order] = getWeinmeisterstr(
+					id,
+					mode,
+					product,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000020204":
 			case "900000026207":
 				newStopName = getWestend(id)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000001201":
-				newStopName = getWesthafen()
+				;[newStopName, order] = getWesthafen()
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000024102":
 				newStopName = getWestkreuz()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000070101":
+				;[newStopName, order] = getWestphalweg(
+					mode,
+					lineName,
+					direction,
+					provenance
+				)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000260002":
 				newStopName = getWildau()
 				newStop = { ...stop, name: newStopName }
@@ -1313,6 +1671,14 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				newStopName = getWilhelmsruh()
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
+			case "900000096101":
+			case "900000096197":
+			case "900000096198":
+			case "900000096407":
+			case "900000096193":
+				;[newStopName, order] = getWittenau(id, lineName)
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000056101":
 				newStopName = getWittenbergplatz(mode, lineName, direction, provenance)
 				newStop = { ...stop, name: newStopName }
@@ -1332,9 +1698,9 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000057102":
 			case "900000058103":
-				newStopName = getYorckstr(id)
+				;[newStopName, order] = getYorckstr(id)
 				newStop = { ...stop, name: newStopName }
-				return { ...oldStopObject, stop: newStop }
+				return { ...oldStopObject, stop: newStop, order }
 			case "900000049201":
 				;[newStopName, trackNo] = getZehlendorf(
 					mode,
@@ -1368,6 +1734,10 @@ export function changeStopObject(mode: string, oldStopObject: Data) {
 				)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
+			case "900000083101":
+				;[newStopName, order] = getZwickauerDamm()
+				newStop = { ...stop, name: newStopName }
+				return { ...oldStopObject, stop: newStop, order }
 			default:
 				return oldStopObject
 		}

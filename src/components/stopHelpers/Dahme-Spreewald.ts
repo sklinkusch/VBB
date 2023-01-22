@@ -1,4 +1,5 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getBERT1(lineName: string) {
 	switch (lineName) {
@@ -22,7 +23,7 @@ export function getBERT1(lineName: string) {
 }
 
 export function getBERT5(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -101,7 +102,7 @@ export function getEichwalde() {
 }
 
 export function getKönigsWusterhausen(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir

@@ -2,7 +2,7 @@
 import getLocale from "../Locales/getLocale"
 
 type Props = {
-	mode: string
+	mode: "dep" | "arr"
 }
 
 export default function Tablehead({ mode }: Props) {

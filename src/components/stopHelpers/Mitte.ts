@@ -1,8 +1,9 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAlex(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -124,8 +125,94 @@ export function getAlex(
 	}
 }
 
+export function getAmrumerStr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+			if (mode === "arr" && provenance?.includes("Osloer"))
+				return ["U Amrumer Str. [Bus Föhrer Str.]", 5]
+			if (mode === "arr") return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			if (mode === "dep" && direction?.includes("Osloer"))
+				return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			return ["U Amrumer Str. [Bus Föhrer Str.]", 5]
+		case "142":
+			if (mode === "arr" && provenance?.includes("Leopoldplatz"))
+				return ["U Amrumer Str. [Bus Torfstr.]", 4]
+			if (mode === "arr") return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			if (mode === "dep" && direction?.includes("Leopoldplatz"))
+				return ["U Amrumer Str. [Bus Luxemburger Str.]", 2]
+			return ["U Amrumer Str. [Bus Torfstr.]", 4]
+		case "221":
+			return ["U Amrumer Str. [Bus Amrumer Str.]", 3]
+		default:
+			return ["U Amrumer Str. [Bus]", 6]
+	}
+}
+
+export function getBernauerStr(
+	id: string,
+	mode: Mode,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (id) {
+		case "900000007110":
+			switch (product) {
+				case "tram":
+					return ["U Bernauer Str. [Tram Bernauer Str.]", 2]
+				default:
+					switch (lineName) {
+						case "U8":
+						case "N8":
+							return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
+						case "247":
+							if (mode === "arr" && provenance?.includes("Leopoldplatz"))
+								return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
+							if (mode === "arr")
+								return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+							if (mode === "dep" && direction?.includes("Leopoldplatz"))
+								return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+							return ["U Bernauer Str. [Bus Brunnenstr.]", 4]
+						case "M10":
+							return ["U Bernauer Str. [Bus Bernauer Str.]", 3]
+						default:
+							return ["U Bernauer Str. [Bus]", 5]
+					}
+			}
+		case "900000007170":
+			return ["U Bernauer Str./Schönholzer Str. [Bus Schönholzer Str.]", 6]
+	}
+}
+
 export function getBeusselstr() {
 	return "S Beusselstr. [Bus Beusselstr.]"
+}
+
+export function getBirkenstr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+			if (mode === "arr" && provenance?.includes("Osloer"))
+				return ["U Birkenstr. [Bus Putlitzstr.]", 3]
+			if (mode === "arr") return ["U Birkenstr. [Bus Stromstr.]", 2]
+			if (mode === "dep" && direction?.includes("Osloer"))
+				return ["U Birkenstr. [Bus Stromstr.]", 2]
+			return ["U Birkenstr. [Bus Putlitzstr.]", 3]
+		default:
+			return ["U Birkenstr. [Bus]", 4]
+	}
 }
 
 export function getBrandenburgerTor() {
@@ -144,28 +231,31 @@ export function getFriedrichstr(product: string) {
 }
 
 export function getGesundbrunnen(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
 ) {
 	if (mode === "arr" && provenance !== null) {
-		if (lineName === "N8" && provenance.includes("Wilhelmsruher"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		if (lineName === "N8" && provenance.includes("Osloer"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		return "S+U Gesundbrunnen [Bus H.-Sobek-Pl.]"
+		if (
+			/^([NU]{1}8)$/.test(lineName) &&
+			/(Wilhelmsruher|Wittenau|Osloer)/.test(provenance)
+		)
+			return ["S+U Gesundbrunnen [Bus Badstr.]", 6]
+		return ["S+U Gesundbrunnen [Bus H.-Sobek-Pl.]", 5]
 	} else if (mode === "dep" && direction !== null) {
-		if (lineName === "N8" && direction.includes("Hermannplatz"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		if (lineName === "N8" && direction.includes("Hermannstr"))
-			return "S+U Gesundbrunnen [Bus Badstr.]"
-		return "S+U Gesundbrunnen [Bus H.-Sobek-Pl.]"
+		if (
+			/^([NU]{1}8)$/.test(lineName) &&
+			/(Hermannplatz|Hermannstr)/.test(direction)
+		)
+			return ["S+U Gesundbrunnen [Bus Badstr.]", 6]
+		return ["S+U Gesundbrunnen [Bus H.-Sobek-Pl.]", 5]
 	}
+	return ["S+U Gesundbrunnen [Bus]", 7]
 }
 
 export function getHackescherMarkt(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -213,8 +303,19 @@ export function getHackescherMarkt(
 	}
 }
 
+export function getHansaplatz(id: string) {
+	switch (id) {
+		case "900000003101":
+			return ["U Hansaplatz [Bus Altonaer Str.]", 2]
+		case "900000003105":
+			return ["Bachstr. [Bus Bachstr.]", 3]
+		default:
+			return ["U Hansaplatz [Bus]", 4]
+	}
+}
+
 export function getHbf(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -308,12 +409,22 @@ export function getHbf(
 	}
 }
 
+export function getHeinrichHeineStr(lineName: string) {
+	switch (lineName) {
+		case "U8":
+		case "N8":
+			return ["U Heinrich-Heine-Str. [Bus H.-Heine-Str.]", 3]
+		default:
+			return ["U Heinrich-Heine-Str. [Bus Köpenicker Str.]", 2]
+	}
+}
+
 export function getHumboldthain() {
 	return "S Humboldthain [Bus Hochstr.]"
 }
 
 export function getJannowitzbrücke(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -322,42 +433,44 @@ export function getJannowitzbrücke(
 		switch (lineName) {
 			case "300":
 				if (provenance.includes("Warschauer"))
-					return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
-				return "S+U Jannowitzbrücke [Bus Holzmarktstr.]"
+					return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
+				return ["S+U Jannowitzbrücke [Bus Holzmarktstr.]", 5]
+			case "U8":
 			case "N8":
-				return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+				return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
 			case "N40":
 				if (provenance.includes("Blockdammweg"))
-					return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
-				return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+					return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
+				return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
 			case "N60":
 			case "N65":
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
 			default:
-				return "S+U Jannowitzbrücke [Bus]"
+				return ["S+U Jannowitzbrücke [Bus]", 7]
 		}
 	} else if (mode === "dep" && direction !== null) {
 		switch (lineName) {
 			case "300":
 				if (direction.includes("Warschauer"))
-					return "S+U Jannowitzbrücke [Bus Holzmarktstr.]"
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+					return ["S+U Jannowitzbrücke [Bus Holzmarktstr.]", 5]
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
+			case "U8":
 			case "N8":
-				return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
+				return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
 			case "N40":
 				if (direction.includes("Blockdammweg"))
-					return "S+U Jannowitzbrücke [Bus Jannowitzbrücke]"
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+					return ["S+U Jannowitzbrücke [Bus Jannowitzbrücke]", 6]
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
 			case "N60":
 			case "N65":
-				return "S+U Jannowitzbrücke [Bus Alexanderstr.]"
+				return ["S+U Jannowitzbrücke [Bus Alexanderstr.]", 4]
 			default:
-				return "S+U Jannowitzbrücke [Bus]"
+				return ["S+U Jannowitzbrücke [Bus]", 7]
 		}
 	}
 }
 
-export function getLeopoldplatz(mode: string, lineName: string) {
+export function getLeopoldplatz(mode: Mode, lineName: string) {
 	if (mode === "arr") {
 		switch (lineName) {
 			case "120":
@@ -407,7 +520,7 @@ export function getMärkischesMuseum(id: string) {
 }
 
 export function getMendelssohnBartholdyPark(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -451,9 +564,32 @@ export function getMuseumsinsel() {
 	return "U Museumsinsel [Bus Schloßplatz]"
 }
 
+export function getNauenerPlatz(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U9":
+		case "N9":
+		case "247":
+			return ["U Nauener Platz [Bus Schulstr.]", 2]
+		case "327":
+			if (mode === "arr" && provenance?.includes("Leopoldplatz"))
+				return ["U Nauener Platz [Bus Reinickendorfer Str.]", 3]
+			if (mode === "arr") return ["U Nauener Platz [Bus Schulstr.]", 2]
+			if (mode === "dep" && direction?.includes("Leopoldplatz"))
+				return ["U Nauener Platz [Bus Schulstr.]", 2]
+			return ["U Nauener Platz [Bus Reinickendorfer Str.]", 3]
+		default:
+			return ["U Nauener Platz [Bus]", 4]
+	}
+}
+
 export function getNordbahnhof(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -527,9 +663,60 @@ export function getOranienburgerStr() {
 	return "S Oranienburger Str. [Tram Oranienburger Str.]"
 }
 
+export function getOsloerStr(id: string, product: string, lineName: string) {
+	switch (id) {
+		case "900000009202":
+			switch (product) {
+				case "tram":
+					return ["U Osloer Str. [Tram Osloer Str.]", 4]
+				default:
+					switch (lineName) {
+						case "125":
+						case "128":
+						case "150":
+						case "255":
+						case "M13":
+						case "50":
+						case "U9":
+						case "N9":
+							return ["U Osloer Str. [Bus Osloer Str.]", 5]
+						case "U8":
+						case "N8":
+							return ["U Osloer Str. [Bus Schwedenstr.]", 6]
+						default:
+							return ["U Osloer Str. [Bus]", 7]
+					}
+			}
+		case "900000009272":
+			return ["U Osloer Str. [Tromsöer Str.]", 8]
+	}
+}
+
+export function getPankstr(
+	mode: Mode,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (lineName) {
+		case "U8":
+		case "N8":
+			return ["U Pankstr. [Bus Badstr.]", 4]
+		case "M27":
+			if (mode === "arr" && provenance?.includes("Hadlichstr"))
+				return ["U Pankstr. [Bus Pankstr.]", 2]
+			if (mode === "arr") return ["U Pankstr. [Bus Prinzenallee]", 3]
+			if (mode === "dep" && direction?.includes("Pankow"))
+				return ["U Pankstr. [Bus Prinzenallee]", 3]
+			return ["U Pankstr. [Bus Pankstr.]", 2]
+		default:
+			return ["U Pankstr. [Bus]", 5]
+	}
+}
+
 export function getPotsdamerPlatz(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -720,6 +907,52 @@ export function getRosaLuxemburgPlatz(product: string, lineName: string) {
 	}
 }
 
+export function getRosenthalerPlatz(
+	mode: Mode,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (product) {
+		case "tram":
+			switch (lineName) {
+				case "M1":
+				case "12":
+					return ["U Rosenthaler Platz [Tram Weinbergsweg]", 3]
+				default:
+					return ["U Rosenthaler Platz [Tram Torstr.]", 2]
+			}
+		default:
+			switch (lineName) {
+				case "U8":
+				case "N8":
+					if (mode === "arr" && provenance !== null) {
+						if (provenance.includes("Hermannstr"))
+							return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+						return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+					} else if (mode === "dep" && direction !== null) {
+						if (direction.includes("Hermannstr"))
+							return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+						return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+					}
+					return null
+				case "N40":
+					if (mode === "arr" && provenance?.includes("Blockdammweg"))
+						return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+					if (mode === "arr")
+						return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+					if (mode === "dep" && direction?.includes("Blockdammweg"))
+						return ["U Rosenthaler Platz [Bus Brunnenstr.]", 5]
+					return ["U Rosenthaler Platz [Bus Rosenthaler Str.]", 6]
+				case "142":
+					return ["U Rosenthaler Platz [Bus Torstr.]", 4]
+				default:
+					return ["U Rosenthaler Platz [Bus]", 7]
+			}
+	}
+}
+
 export function getRotesRathaus(id: string) {
 	switch (id) {
 		case "900000100045":
@@ -736,7 +969,7 @@ export function getSchillingstr() {
 }
 
 export function getSpittelmarkt(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -807,6 +1040,19 @@ export function getTiergarten() {
 	return "S Tiergarten [Bus Bachstr.]"
 }
 
+export function getTurmstr(id: string) {
+	switch (id) {
+		case "900000003174":
+			return ["U Turmstr. [Bus Turmstr.]", 2]
+		case "900000003175":
+			return ["U Turmstr. [Bus Stromstr.]", 4]
+		case "900000003176":
+			return ["U Turmstr. [Bus Alt-Moabit]", 3]
+		default:
+			return ["U Turmstr. [Bus]", 5]
+	}
+}
+
 export function getUnterDenLinden(lineName: string) {
 	switch (lineName) {
 		case "100":
@@ -820,6 +1066,18 @@ export function getUnterDenLinden(lineName: string) {
 			return ["U Unter den Linden [Bus Friedrichstr.]", 5]
 		default:
 			return ["U Unter den Linden [Bus]", 6]
+	}
+}
+
+export function getVoltastr(lineName: string) {
+	switch (lineName) {
+		case "U8":
+		case "N8":
+			return ["U Voltastr. [Bus Brunnenstr.]", 2]
+		case "247":
+			return ["U Voltastr. [Bus Usedomer Str.]", 3]
+		default:
+			return ["U Voltastr. [Bus]", 4]
 	}
 }
 
@@ -839,6 +1097,66 @@ export function getWedding(id: string, lineName: string) {
 	}
 }
 
+export function getWeinmeisterstr(
+	id: string,
+	mode: Mode,
+	product: string,
+	lineName: string,
+	direction: Dir,
+	provenance: Dir
+) {
+	switch (id) {
+		case "900000100051":
+			switch (product) {
+				case "tram":
+					return ["U Weinmeisterstr. [Tram Alte Schönhauser Str.]", 2]
+				default:
+					return ["U Weinmeisterstr. [Bus Neue Schönhauser Str.]", 3]
+			}
+		case "900000100080":
+			switch (product) {
+				case "tram":
+					return ["U Weinmeisterstr./Gipsstr. [Tram Rosenthaler Str.]", 4]
+				default:
+					if (mode === "arr" && provenance !== null) {
+						switch (lineName) {
+							case "U8":
+							case "N8":
+								if (provenance.includes("Hermannstr"))
+									return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]", 5]
+							case "N40":
+								if (provenance.includes("Blockdammweg"))
+									return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]", 5]
+							default:
+								return ["U Weinmeisterstr./Gipsstr. [Bus]", 7]
+						}
+					} else if (mode === "dep" && direction !== null) {
+						switch (lineName) {
+							case "U8":
+							case "N8":
+								if (direction.includes("Hermannstr"))
+									return [
+										"U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]",
+										5,
+									]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+							case "N40":
+								if (direction.includes("Blockdammweg"))
+									return [
+										"U Weinmeisterstr./Gipsstr. [Bus Rosenthaler Str.]",
+										5,
+									]
+								return ["U Weinmeisterstr./Gipsstr. [Bus Weinmeisterstr.]", 6]
+							default:
+								return ["U Weinmeisterstr./Gipsstr. [Bus]", 7]
+						}
+					}
+			}
+	}
+}
+
 export function getWesthafen() {
-	return "S+U Westhafen [Bus Putlitzbrücke]"
+	return ["S+U Westhafen [Bus Putlitzbrücke]", 4]
 }

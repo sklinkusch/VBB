@@ -42,7 +42,9 @@ const Line = ({ line }: Props) => {
 			case "suburban":
 			case "subway":
 				const { color, name } = line
-				const { bg, fg } = color
+				if (name === "RE8") {
+					return { backgroundColor: "#786DAC", color: "#FFFFFF" }
+				}
 				if (name === "U12")
 					return {
 						backgroundImage:
@@ -50,6 +52,7 @@ const Line = ({ line }: Props) => {
 						color: "white",
 					}
 				if (name === "U3") return { backgroundColor: "#00694C", color: "white" }
+				const { bg, fg } = color
 				return { backgroundColor: bg, color: fg }
 			case "tram":
 				if (metro) {
@@ -75,7 +78,12 @@ const Line = ({ line }: Props) => {
 	return (
 		<div
 			className="line"
-			sx={{ textAlign: "left", gridColumn: ["2 / span 6", "8 / span 3"] }}
+			sx={{
+				textAlign: "left",
+				gridColumn: ["2 / span 6", "8 / span 3"],
+				display: "inline-block",
+				marginInline: "2px",
+			}}
 		>
 			{styles ? (
 				<span

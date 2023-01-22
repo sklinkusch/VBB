@@ -1,7 +1,8 @@
 type Dir = string | null
+type Mode = "dep" | "arr"
 
 export function getAdenauerplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -107,12 +108,12 @@ export function getBlissestr(id: string, lineName: string) {
 }
 
 export function getBundesplatz() {
-	return "S+U Bundesplatz [Bus Bundesallee]"
+	return ["S+U Bundesplatz [Bus Bundesallee]", 4]
 }
 
 export function getCharlottenburg(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -200,7 +201,7 @@ export function getGrunewald(lineName: string) {
 }
 
 export function getGüntzelstr() {
-	return "U Güntzelstr. [Bus Bundesallee]"
+	return ["U Güntzelstr. [Bus Bundesallee]", 2]
 }
 
 export function getHalemweg() {
@@ -216,7 +217,7 @@ export function getHeerstr() {
 }
 
 export function getHeidelbergerPlatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -249,7 +250,7 @@ export function getHeidelbergerPlatz(
 }
 
 export function getHohenzollerndamm(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -303,7 +304,7 @@ export function getHohenzollernplatz(lineName: string) {
 }
 
 export function getJakobKaiserPlatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -357,7 +358,7 @@ export function getJakobKaiserPlatz(
 
 export function getJungfernheide(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -438,76 +439,46 @@ export function getKonstanzerStr() {
 }
 
 export function getKurfürstendamm(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
 ) {
-	if (mode === "arr" && provenance !== null) {
-		switch (lineName) {
-			case "M19":
-			case "M29":
-			case "N3":
-				return "U Kurfürstendamm [Bus Kurfürstendamm]"
-			case "M46":
-			case "X10":
-			case "109":
-			case "110":
-			case "U1":
-			case "N1":
-			case "N10":
-			case "N26":
-				if (provenance.includes("Hertzallee"))
-					return "U Kurfürstendamm [Bus Kurfürstendamm]"
-				return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-			case "204":
-			case "249":
-			case "N7X":
-			case "U9":
-			case "N9":
-				return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-			case "N2":
-				if (provenance.includes("Ruhleben"))
-					return "U Kurfürstendamm [Bus Kurfürstendamm]"
-				if (provenance.includes("Zoologischer Garten"))
-					return "U Kurfürstendamm [Bus Kurfürstendamm]"
-				return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-			default:
-				return "U Kurfürstendamm [Bus]"
-		}
-	} else if (mode === "dep" && direction !== null) {
-		switch (lineName) {
-			case "M19":
-			case "M29":
-			case "N3":
-				return "U Kurfürstendamm [Bus Kurfürstendamm]"
-			case "M46":
-			case "X10":
-			case "109":
-			case "110":
-			case "U1":
-			case "N1":
-			case "N10":
-			case "N26":
-				if (direction.includes("Zoologischer Garten"))
-					return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-				if (direction.includes("Hertzallee"))
-					return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-				return "U Kurfürstendamm [Bus Kurfürstendamm]"
-			case "204":
-			case "249":
-			case "U9":
-			case "N9":
-				return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-			case "N2":
-				if (direction.includes("Ruhleben"))
-					return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-				if (direction.includes("Zoologischer Garten"))
-					return "U Kurfürstendamm [Bus Joachimsthaler Str.]"
-				return "U Kurfürstendamm [Bus Kurfürstendamm]"
-			default:
-				return "U Kurfürstendamm [Bus]"
-		}
+	switch (lineName) {
+		case "M19":
+		case "M29":
+			return ["U Kurfürstendamm [Bus Kurfürstendamm]", 4]
+		case "204":
+		case "249":
+		case "N7X":
+		case "U9":
+		case "N9":
+			return ["U Kurfürstendamm [Bus Joachimsthaler Str.]", 5]
+		case "M46":
+		case "X10":
+		case "109":
+		case "110":
+		case "N1":
+		case "N2":
+		case "U2":
+		case "N10":
+		case "N26":
+			if (mode === "arr" && provenance && /(Hertzallee|Zoo)/.test(provenance))
+				return ["U Kurfürstendamm [Bus Kurfürstendamm]", 4]
+			if (mode === "arr")
+				return ["U Kurfürstendamm [Bus Joachimsthaler Str.]", 5]
+			if (mode === "dep" && direction && /(Hertzallee|Zoo)/.test(direction))
+				return ["U Kurfürstendamm [Bus Joachimsthaler Str.]", 5]
+			return ["U Kurfürstendamm [Bus Kurfürstendamm]", 4]
+		case "N3":
+			if (mode === "arr" && provenance?.includes("Wittenbergplatz"))
+				return ["U Kurfürstendamm [Bus Joachimsthaler Str.]", 5]
+			if (mode === "arr") return ["U Kurfürstendamm [Bus Kurfürstendamm]", 4]
+			if (mode === "dep" && direction?.includes("Wittenbergplatz"))
+				return ["U Kurfürstendamm [Bus Kurfürstendamm]", 4]
+			return ["U Kurfürstendamm [Bus Joachimsthaler Str.]", 5]
+		default:
+			return ["U Kurfürstendamm [Bus]", 6]
 	}
 }
 
@@ -530,7 +501,7 @@ export function getMesseSüd() {
 }
 
 export function getMierendorffplatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -585,7 +556,7 @@ export function getRüdesheimerPlatz() {
 }
 
 export function getRuhleben(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -630,7 +601,7 @@ export function getRuhleben(
 }
 
 export function getSophieCharlottePlatz(
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
@@ -698,7 +669,7 @@ export function getWestkreuz() {
 
 export function getZooBusStops(
 	id: string,
-	mode: string,
+	mode: Mode,
 	lineName: string,
 	direction: Dir,
 	provenance: Dir
