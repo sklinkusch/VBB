@@ -116,7 +116,7 @@ export default function Timetable() {
 			const selectedStop = stops.filter((stop) => stop.id === params.id)[0]
 			navigate(`/departures/${params.id}`)
 			setStop(selectedStop)
-			getData(params.id)
+			getData(params.id, selectedStop.name)
 			const remainingStops = stops.filter(
 				(stop) => stop.name !== selectedStop.name
 			)
@@ -130,10 +130,10 @@ export default function Timetable() {
 				(stop) => stop.name === "U Stadtmitte"
 			)
 			const [initialStop] = initialStopArray
-			const { id: initialId } = initialStop
+			const { id: initialId, name: initialName } = initialStop
 			navigate(`/departures/${initialId}`)
 			setStop(initialStop)
-			getData(initialId)
+			getData(initialId, initialName)
 			const remainingStops = stops.filter(
 				(stop) => stop.name !== initialStop.name
 			)
@@ -231,10 +231,8 @@ export default function Timetable() {
 	const setCurrStop = (currStop: Stop) => {
 		setStop(currStop)
 	}
-	const getData = async (id: string) => {
-		const currentStopArray = stops.filter((stop) => stop.id === id)
-		const [currentStop] = currentStopArray
-		const { type = "BBG" } = currentStop
+	const getData = async (id: string, name: string) => {
+		const type = name.startsWith("Berlin") ? "BLN" : "BBG"
 		const duration = getDuration(type)
 		let lang = "de"
 		const browserLang = navigator.language
@@ -259,9 +257,7 @@ export default function Timetable() {
 				timeZone: "Europe/Berlin",
 			})
 			document.title =
-				lang === "de"
-					? `Abfahrten ab ${currentStop.name}`
-					: `Departures from ${currentStop.name}`
+				lang === "de" ? `Abfahrten ab ${name}` : `Departures from ${name}`
 			setDate(myDate)
 			setData(resData)
 			setViewData(resData)
@@ -270,8 +266,8 @@ export default function Timetable() {
 	}
 	const handleChange = (currentStop: Stop) => {
 		setCurrStop(currentStop)
-		const { id: myStopId } = currentStop
-		getData(myStopId)
+		const { id: myStopId, name: currentStopName } = currentStop
+		getData(myStopId, currentStopName)
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 		const filterFieldCurrent = filterField.current as HTMLInputElement
@@ -280,7 +276,7 @@ export default function Timetable() {
 		filterSelectorCurrent.value = "OR"
 	}
 	const handleSubmit = () => {
-		getData(stop.id)
+		getData(stop.id, stop.name)
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 		const filterFieldCurrent = filterField.current as HTMLInputElement
