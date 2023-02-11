@@ -230,7 +230,7 @@ export function getSpandau(
 						if (direction.includes("Havelpark"))
 							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5, 5]
 						if (direction.includes("Brunsbütteler Damm"))
-							return ["S+U Rathaus Spandau [Bus Altstädter Ring", 5, 5]
+							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5, 5]
 						return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null, 5]
 					case "M36":
 						if (direction.includes("Haselhorst"))
