@@ -105,7 +105,7 @@ export default function TimetableArr() {
 			if (
 				params.hasOwnProperty("id") &&
 				typeof params.id === "string" &&
-				params.id.length > 0
+				params.id.length === 9
 			) {
 				const response = await fetch(
 					`https://station-api-jade.vercel.app/?id=${params.id}`
@@ -115,6 +115,25 @@ export default function TimetableArr() {
 				navigate(`/arrivals/${params.id}`)
 				setStop(station)
 				getData(params.id, name)
+				document.title = navigator.language.startsWith("de")
+					? `Ankünfte an ${name}`
+					: `Arrivals at ${name}`
+				const stopSelection = [station]
+				setSelection(stopSelection)
+			} else if (
+				params.hasOwnProperty("id") &&
+				typeof params.id === 'string' &&
+				params.id.length === 12
+			) {
+				const modifiedId = `${params.id.slice(0,1)}${params.id.slice(-8)}`
+				const response = await fetch(
+					`https://station-api-jade.vercel.app/?id=${modifiedId}`
+				)
+				const station = await response.json()
+				const { name } = await station
+				navigate(`/arrivals/${modifiedId}`)
+				setStop(station)
+				getData(modifiedId, name)
 				document.title = navigator.language.startsWith("de")
 					? `Ankünfte an ${name}`
 					: `Arrivals at ${name}`
