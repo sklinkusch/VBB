@@ -261,13 +261,16 @@ export default function Timetable() {
 		} else {
 			lang = "en"
 		}
-		const url = `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&language=${lang}`
+		// const url =
+		// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&language=${lang}`
+		const url = `https://v6.vbb.transport.rest/stops/${id}/departures?language=${lang}&duration=${duration}`
 		const response = await axios.get(url)
 		const { data: resData, status } = await response
 		if (status === 500 || status !== 200) {
 			setError(`HTTP status code: ${status}`)
 			setData([])
 		} else {
+			const { departures } = resData
 			const myDate = new Date().toLocaleString("de-DE", {
 				year: "numeric",
 				month: "2-digit",
@@ -279,8 +282,8 @@ export default function Timetable() {
 			document.title =
 				lang === "de" ? `Abfahrten ab ${name}` : `Departures from ${name}`
 			setDate(myDate)
-			setData(resData)
-			setViewData(resData)
+			setData(departures)
+			setViewData(departures)
 			setError(null)
 		}
 	}

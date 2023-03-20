@@ -255,7 +255,9 @@ export default function TimetableArr() {
 		} else {
 			lang = "en"
 		}
-		const url = `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
+		// const url =
+		// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
+		const url = `https://v6.vbb.transport.rest/stops/${id}/arrivals?language=${lang}&duration=${duration}`
 		const response = await axios.get(url)
 		const { data: resData, status } = await response
 		if (status === 500 || status !== 200) {
@@ -270,11 +272,12 @@ export default function TimetableArr() {
 				minute: "2-digit",
 				timeZone: "Europe/Berlin",
 			})
+			const { arrivals } = resData
 			document.title =
 				lang === "de" ? `Ankünfte an ${name}` : `Arrivals at ${name}`
 			setDate(myDate)
-			setData(resData)
-			setViewData(resData)
+			setData(arrivals)
+			setViewData(arrivals)
 			setError(null)
 		}
 	}
