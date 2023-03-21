@@ -55,15 +55,15 @@ const Line = ({ line }: Props) => {
 				const { bg, fg } = color
 				return { backgroundColor: bg, color: fg }
 			case "tram":
-				if (metro) {
+				if (metro || line.name.startsWith("M")) {
 					return { backgroundColor: "#F47920", color: "white" }
 				}
 				return { backgroundColor: "#BB1E10", color: "white" }
 			case "bus":
-				if (metro) {
+				if (metro || line.name.startsWith("M")) {
 					return { backgroundColor: "#F47920", color: "white" }
 				}
-				if (night) {
+				if (night || line.name.startsWith("N")) {
 					return { backgroundColor: "#51565C", color: "white" }
 				}
 				return { backgroundColor: "#992572", color: "white" }
