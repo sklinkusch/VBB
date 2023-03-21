@@ -330,8 +330,10 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 		const stopObject = changeStationObject(mode, oldStopObject)
 		return stopObject
 	}
+	const idArray = id.split("")
+	const twelveDigitId = idArray.length === 9 ? [idArray.slice(0,1), '0', '0', '0', ...idArray.slice(1)].join("") : id
 	if (["tram", "bus", "ferry"].includes(product)) {
-		switch (id) {
+		switch (twelveDigitId) {
 			case "900000023302":
 				;[newStopName, order] = getAdenauerplatz(
 					mode,
@@ -360,7 +362,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000100711":
 			case "900000100712":
 				;[newStopName, trackNo, order] = getAlex(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -370,14 +372,14 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000195510":
 			case "900000196514":
-				newStopName = getAltglienicke(id)
+				newStopName = getAltglienicke(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000070301":
 			case "900000070701":
 			case "900000070702":
 				;[newStopName, order] = getAltMariendorf(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -446,7 +448,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000007110":
 			case "900000007170":
 				;[newStopName, order] = getBernauerStr(
-					id,
+					twelveDigitId,
 					mode,
 					product,
 					lineName,
@@ -461,7 +463,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000171001":
 			case "900000171531":
-				newStopName = getBiesdorf(id)
+				newStopName = getBiesdorf(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000320026":
@@ -499,7 +501,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000041102":
 			case "900000043172":
-				;[newStopName, order] = getBlissestr(id, lineName)
+				;[newStopName, order] = getBlissestr(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000079202":
@@ -528,7 +530,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000080402":
 			case "900000080455":
-				;[newStopName, order] = getBritzSüd(id)
+				;[newStopName, order] = getBritzSüd(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000135001":
@@ -552,7 +554,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000024202":
 			case "900000024205":
 				;[newStopName, trackNo, order] = getCharlottenburg(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -611,7 +613,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000320006":
 			case "900000320009":
-				newStopName = getFredersdorf(id)
+				newStopName = getFredersdorf(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000051201":
@@ -644,7 +646,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000092201":
 			case "900000092282":
 				;[newStopName, trackNo] = getFrohnau(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -679,7 +681,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000080202":
 			case "900000080204":
-				;[newStopName, order] = getGrenzallee(id)
+				;[newStopName, order] = getGrenzallee(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000230003":
@@ -728,12 +730,12 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000003101":
 			case "900000003105":
-				;[newStopName, order] = getHansaplatz(id)
+				;[newStopName, order] = getHansaplatz(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000034102":
 			case "900000034170":
-				;[newStopName, order] = getHaselhorst(id, lineName)
+				;[newStopName, order] = getHaselhorst(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000003201":
@@ -763,7 +765,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000200000":
 			case "900000203376":
-				newStopName = getHennigsdorf(id)
+				newStopName = getHennigsdorf(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000078101":
@@ -772,13 +774,13 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000078106":
 			case "900000078170":
 			case "900000078171":
-				;[newStopName, order] = getHermannplatz(id)
+				;[newStopName, order] = getHermannplatz(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000079220":
 			case "900000079221":
 				;[newStopName, trackNo, order] = getHermannstr(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -856,7 +858,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000020201":
 			case "900000020207":
 				;[newStopName, trackNo, order] = getJungfernheide(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -878,7 +880,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000162001":
 			case "900000162702":
-				newStopName = getKarlshorst(id, product, lineName)
+				newStopName = getKarlshorst(twelveDigitId, product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000143001":
@@ -922,7 +924,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000180001":
 			case "900000180701":
 				;[newStopName, trackNo] = getKöpenick(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -993,7 +995,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000176701":
 			case "900000176702":
 				;[newStopName, trackNo] = getMahlsdorf(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1007,7 +1009,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000100014":
 			case "900000100516":
-				newStopName = getMärkischesMuseum(id)
+				newStopName = getMärkischesMuseum(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000170001":
@@ -1024,7 +1026,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, platform: trackNo }
 			case "900000017101":
 			case "900000017171":
-				;[newStopName, order] = getMehringdamm(id, lineName)
+				;[newStopName, order] = getMehringdamm(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000170003":
@@ -1043,7 +1045,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000024106":
 			case "900000026202":
 			case "900000026204":
-				newStopName = getMesseNord(id, lineName)
+				newStopName = getMesseNord(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000025423":
@@ -1099,7 +1101,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000078201":
 			case "900000078271":
 				;[newStopName, trackNo, order] = getNeukölln(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1117,7 +1119,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000160003":
 			case "900000150534":
-				newStopName = getNöldnerplatz(id)
+				newStopName = getNöldnerplatz(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000056102":
@@ -1132,7 +1134,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000007104":
 			case "900000007108":
 				;[newStopName, trackNo] = getNordbahnhof(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1158,7 +1160,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000009202":
 			case "900000009272":
-				;[newStopName, order] = getOsloerStr(id, product, lineName)
+				;[newStopName, order] = getOsloerStr(twelveDigitId, product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000120005":
@@ -1172,7 +1174,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000130002":
 			case "900000130500":
 				;[newStopName, trackNo, order] = getPankow(
-					id,
+					twelveDigitId,
 					mode,
 					product,
 					lineName,
@@ -1196,7 +1198,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000085104":
 			case "900000085108":
-				;[newStopName, order] = getParacelsusBad(id, lineName)
+				;[newStopName, order] = getParacelsusBad(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000068101":
@@ -1239,7 +1241,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000100721":
 			case "900000100722":
 				;[newStopName, trackNo, order] = getPotsdamerPlatz(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1276,7 +1278,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000078102":
 			case "900000078151":
 				;[newStopName, order] = getRathausNeukölln(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1287,12 +1289,12 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000096410":
 			case "900000096710":
 			case "900000096711":
-				;[newStopName, order] = getRathausReinickendorf(id)
+				;[newStopName, order] = getRathausReinickendorf(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000054101":
 			case "900000054106":
-				newStopName = getRathausSchöneberg(id)
+				newStopName = getRathausSchöneberg(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000085203":
@@ -1328,7 +1330,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100045":
 			case "900000100539":
-				newStopName = getRotesRathaus(id)
+				newStopName = getRotesRathaus(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000045101":
@@ -1371,7 +1373,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000192001":
 			case "900000192701":
 			case "900000194006":
-				newStopName = getSchöneweide(id, product, lineName)
+				newStopName = getSchöneweide(twelveDigitId, product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000110001":
@@ -1400,7 +1402,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000077106":
 			case "900000077110":
-				newStopName = getSonnenallee(id, lineName)
+				newStopName = getSonnenallee(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000022101":
@@ -1415,7 +1417,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000029302":
 			case "900000029371":
 				;[newStopName, trackNo, order] = getSpandau(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1442,14 +1444,14 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000100011":
 			case "900000100018":
 			case "900000100528":
-				;[newStopName, trackNo, order] = getStadtmitte(id)
+				;[newStopName, trackNo, order] = getStadtmitte(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, platform: trackNo, order }
 			case "900000062282":
 			case "900000062782":
 			case "900000062784":
 				;[newStopName, trackNo, order] = getSteglitz(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1479,7 +1481,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000030202":
 			case "900000030272":
-				newStopName = getStresow(id)
+				newStopName = getStresow(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000063452":
@@ -1489,7 +1491,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000058100":
 			case "900000058101":
 				;[newStopName, trackNo] = getSüdkreuz(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1511,13 +1513,13 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000220114":
 			case "900000220413":
-				newStopName = getTeltowStadt(id)
+				newStopName = getTeltowStadt(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000068201":
 			case "900000068272":
 				;[newStopName, order] = getTempelhof(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1528,7 +1530,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000026201":
 			case "900000026203":
 			case "900000026271":
-				newStopName = getTheo(id)
+				newStopName = getTheo(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000003103":
@@ -1540,7 +1542,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000190701":
 			case "900000190702":
 				;[newStopName, trackNo] = getTreptowerPark(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,
@@ -1552,7 +1554,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000003174":
 			case "900000003175":
 			case "900000003176":
-				;[newStopName, order] = getTurmstr(id)
+				;[newStopName, order] = getTurmstr(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000023301":
@@ -1561,7 +1563,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000069201":
 			case "900000069271":
-				;[newStopName, order] = getUllsteinstr(id, lineName)
+				;[newStopName, order] = getUllsteinstr(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100513":
@@ -1622,13 +1624,13 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000008103":
 			case "900000009104":
-				;[newStopName, order] = getWedding(id, lineName)
+				;[newStopName, order] = getWedding(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100051":
 			case "900000100080":
 				;[newStopName, order] = getWeinmeisterstr(
-					id,
+					twelveDigitId,
 					mode,
 					product,
 					lineName,
@@ -1639,7 +1641,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000020204":
 			case "900000026207":
-				newStopName = getWestend(id)
+				newStopName = getWestend(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000001201":
@@ -1676,7 +1678,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000096198":
 			case "900000096407":
 			case "900000096193":
-				;[newStopName, order] = getWittenau(id, lineName)
+				;[newStopName, order] = getWittenau(twelveDigitId, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000056101":
@@ -1685,7 +1687,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000130003":
 			case "900000130523":
-				newStopName = getWollankstr(id)
+				newStopName = getWollankstr(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop }
 			case "900000175001":
@@ -1698,7 +1700,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop }
 			case "900000057102":
 			case "900000058103":
-				;[newStopName, order] = getYorckstr(id)
+				;[newStopName, order] = getYorckstr(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000049201":
@@ -1726,7 +1728,7 @@ export function changeStopObject(mode: Mode, oldStopObject: Data) {
 			case "900000023172":
 			case "900000023173":
 				;[newStopName, trackNo, order] = getZooBusStops(
-					id,
+					twelveDigitId,
 					mode,
 					lineName,
 					direction,

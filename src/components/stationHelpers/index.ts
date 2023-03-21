@@ -162,7 +162,9 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 	const { id } = stop
 	const { product, name: lineName } = line
 	if (["express", "regional", "suburban", "subway"].includes(product)) {
-		switch (id) {
+		const idArray = id.split("")
+		const twelveDigitId = idArray.length === 9 ? [idArray.slice(0,1), '0', '0', '0', ...idArray.slice(1)].join("") : id
+		switch (twelveDigitId) {
 			case "900000023302":
 				;[newStopName, order] = getAdenauerplatz()
 				newStop = { ...stop, name: newStopName }
@@ -171,7 +173,7 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 			case "900000100703":
 			case "900000100704":
 			case "900000100705":
-				;[newStopName, order] = getAlex(id, product, lineName)
+				;[newStopName, order] = getAlex(twelveDigitId, product, lineName)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000070301":
@@ -453,12 +455,12 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000100020":
 			case "900000100720":
-				;[newStopName, order] = getPotsdamerPlatz(id, product)
+				;[newStopName, order] = getPotsdamerPlatz(twelveDigitId, product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000062202":
 			case "900000062781":
-				;[newStopName, order] = getRathausSteglitz(id)
+				;[newStopName, order] = getRathausSteglitz(twelveDigitId)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000022202":
@@ -580,7 +582,7 @@ export function changeStationObject(mode: Mode, oldStopObject: Data) {
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000057102":
 			case "900000058103":
-				;[newStopName, order] = getYorckstr(id, product)
+				;[newStopName, order] = getYorckstr(twelveDigitId, product)
 				newStop = { ...stop, name: newStopName }
 				return { ...oldStopObject, stop: newStop, order }
 			case "900000033101":
