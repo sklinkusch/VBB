@@ -80,7 +80,7 @@ const Product = (props: Props) => {
 				</div>
 			)
 		case "tram":
-			return metro ? (
+			return metro || name.startsWith("M") ? (
 				<div
 					className="mean"
 					sx={{
@@ -104,7 +104,7 @@ const Product = (props: Props) => {
 				</div>
 			)
 		case "bus":
-			return express ? (
+			return express || name.startsWith("X") ? (
 				<div
 					className="mean"
 					sx={{
@@ -115,7 +115,7 @@ const Product = (props: Props) => {
 				>
 					<img src={expressbus} alt="express-bus" sx={{ width: "18px" }} />
 				</div>
-			) : metro ? (
+			) : metro || name.startsWith("M") ? (
 				<div
 					className="mean"
 					sx={{
@@ -126,7 +126,7 @@ const Product = (props: Props) => {
 				>
 					<img src={metrobus} alt="metro-bus" sx={{ width: "18px" }} />
 				</div>
-			) : night ? (
+			) : night || name.startsWith("N") ? (
 				<div
 					className="mean"
 					sx={{
