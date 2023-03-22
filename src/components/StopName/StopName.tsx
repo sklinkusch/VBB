@@ -42,11 +42,51 @@ type Props = {
 	lines?: (LINE_A | LINE_B)[]
 }
 
+function isRE (name: string) {
+	return name === 'FEX' || name.startsWith("RE")
+}
+
+function isMetro (name: string) {
+	return name.startsWith("M")
+}
+
+function isExpress (name: string) {
+	return name.startsWith("X")
+}
+
+function isNight (name: string) {
+	return name.startsWith("N")
+}
+
+function isNormalLine (name: string) {
+	return /^[0-9]{1,3}$/.test(name)
+}
+
 function StopName(props: Props) {
 	const { element, stop, date, lines } = props
+	const productsArray = ['express', 'regional', 'suburban', 'subway', 'tram', 'bus', 'ferry']
 	const linesWithoutExpress = lines
 		? lines.filter((line) => !/(ICE|IC|EC|D)/.test(line.name))
-		: null
+		: []
+	const sortedLines = linesWithoutExpress.sort((a, b) => {
+		const { product: aProduct, name: aName } = a
+		const { product: bProduct, name: bName } = b
+		const aIndex = productsArray.indexOf(aProduct)
+		const bIndex = productsArray.indexOf(bProduct)
+		if (aIndex < bIndex) return -1
+		if (bIndex < aIndex) return +1
+		if (isRE(aName) && !isRE(bName)) return -1
+		if (isRE(bName) && !isRE(aName)) return +1
+		if (isMetro(aName) && !isMetro(bName)) return -1
+		if (isMetro(bName) && !isMetro(aName)) return +1
+		if (isExpress(aName) && !isExpress(bName)) return -1
+		if (isExpress(bName) && !isExpress(aName)) return +1
+		if (isNormalLine(aName) && !isNormalLine(bName)) return -1
+		if (isNormalLine(bName) && !isNormalLine(aName)) return +1
+		if (isNight(aName) && !isNight(bName)) return -1
+		if (isNight(bName) && !isNight(aName)) return -1
+		return 0
+	})
 	return (
 		<React.Fragment>
 			{element === "h2" ? (
@@ -54,9 +94,9 @@ function StopName(props: Props) {
 			) : (
 				<h3>
 					{stop.name}
-					{linesWithoutExpress &&
-						Array.isArray(linesWithoutExpress) &&
-						linesWithoutExpress.map((line) => (
+					{sortedLines &&
+						Array.isArray(sortedLines) &&
+						sortedLines.map((line) => (
 							<Line line={line} key={line.name} />
 						))}
 				</h3>
