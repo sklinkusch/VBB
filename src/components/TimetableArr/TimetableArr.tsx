@@ -257,7 +257,7 @@ export default function TimetableArr() {
 		}
 		// const url =
 		// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
-		const url = `https://v6.vbb.transport.rest/stops/${id}/arrivals?language=${lang}&duration=${duration}`
+		const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}`
 		const response = await axios.get(url)
 		const { data: resData, status } = await response
 		if (status === 500 || status !== 200) {
