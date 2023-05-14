@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Fragment, lazy } from "react"
 import { Distance } from "../Distance/Distance"
+import Carrier from "../Carrier/Carrier"
 const Time = lazy(() => import("../Time/Time"))
 const Product = lazy(() => import("../Product/Product"))
 const Line = lazy(() => import("../Line/Line"))
@@ -15,6 +16,12 @@ type Location = {
 	type: "location"
 	latitude: number
 	longitude: number
+}
+
+type Operator = {
+  type: "operator",
+  id: string,
+  name: string
 }
 
 type Remarks = {
@@ -39,6 +46,7 @@ type LINE_A = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "regional" | "suburban" | "subway"
 }
 
@@ -51,6 +59,7 @@ type LINE_B = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "express" | "tram" | "bus" | "ferry"
 }
 
@@ -195,7 +204,7 @@ const Departure = (props: Props) => {
 				key={props.dep.tripId}
 				sx={{
 					display: "grid",
-					gridTemplateColumns: "repeat(24,1fr)",
+					gridTemplateColumns: ["repeat(24,1fr)","repeat(24,1fr)","repeat(26,1fr)"],
 				}}
 			>
 				<Time time={plantime} class="plantime" />
@@ -230,6 +239,7 @@ const Departure = (props: Props) => {
 				<Bike remarks={remarks} />
 				<Warning remarks={remarks} />
 				<Status remarks={remarks} />
+				<Carrier operator={line.operator} />
 			</div>
 			<div
 				className="row row-add"

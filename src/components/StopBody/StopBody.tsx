@@ -22,6 +22,12 @@ type Remarks = {
 	validUntil: string | undefined
 }[]
 
+type Operator = {
+  type: "operator",
+  id: string,
+  name: string
+}
+
 type LINE_A = {
 	color: {
 		fg: string
@@ -35,6 +41,7 @@ type LINE_A = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "regional" | "suburban" | "subway"
 	type: string
 }
@@ -48,6 +55,7 @@ type LINE_B = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "express" | "tram" | "bus" | "ferry"
 	type: string
 }

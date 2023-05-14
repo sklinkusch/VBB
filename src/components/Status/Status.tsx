@@ -19,7 +19,7 @@ const Status = (props: Props) => {
 					className="status"
 					sx={{
 						textAlign: "center",
-						gridColumn: ["19 / span 6", "24 / span 1"],
+						gridColumn: ["16 / span 5", "16 / span 5", "24 / span 1"],
 						px: 0,
 					}}
 				>
@@ -33,7 +33,7 @@ const Status = (props: Props) => {
 			className="status"
 			sx={{
 				textAlign: "center",
-				gridColumn: ["19 / span 6", "24 / span 1"],
+				gridColumn: ["16 / span 5", "16 / span 5", "24 / span 1"],
 				px: 0,
 			}}
 		/>

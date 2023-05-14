@@ -4,6 +4,8 @@ export function getDuration(type: string) {
       return getBlnDuration();
     case "BHF":
       return getBhfDuration();
+    case "BBG":
+      return getBbgDuration();
     default:
       break;
   }
@@ -81,6 +83,41 @@ function getBhfDuration() {
       duration = 10;
     } else {
       duration = 20;
+    }
+  }
+  return duration;
+}
+
+function getBbgDuration() {
+  const { isItHoliday, isItSaturday, hour } = getDate();
+  let duration = 60;
+  if (isItHoliday || isItSaturday) {
+    if (hour < 5) {
+      duration = 240;
+    } else if (hour < 6) {
+      duration = 120;
+    } else if (hour < 7) {
+      duration = 120;
+    } else if (hour < 22) {
+      duration = 120;
+    } else if (hour < 23) {
+      duration = 120;
+    } else {
+      duration = 240;
+    }
+  } else {
+    if (hour < 5) {
+      duration = 120;
+    } else if (hour < 6) {
+      duration = 60;
+    } else if (hour < 7) {
+      duration = 60;
+    } else if (hour < 22) {
+      duration = 60;
+    } else if (hour < 23) {
+      duration = 60;
+    } else {
+      duration = 120;
     }
   }
   return duration;

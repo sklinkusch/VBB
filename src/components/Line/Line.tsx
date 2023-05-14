@@ -41,7 +41,7 @@ const Line = ({ line }: Props) => {
 			case "regional":
 			case "suburban":
 			case "subway":
-				const { color, name } = line
+				const { color = { fg: null, bg: null }, name } = line
 				if (name === "RE8") {
 					return { backgroundColor: "#786DAC", color: "#FFFFFF" }
 				}
@@ -53,7 +53,11 @@ const Line = ({ line }: Props) => {
 					}
 				if (name === "U3") return { backgroundColor: "#00694C", color: "white" }
 				const { bg, fg } = color
-				return { backgroundColor: bg, color: fg }
+				if (bg && fg) {
+					return { backgroundColor: bg, color: fg }
+				} else {
+					return { backgroundColor: "#000", color: "#fff" }
+				}
 			case "tram":
 				if (metro || line.name.startsWith("M")) {
 					return { backgroundColor: "#F47920", color: "white" }

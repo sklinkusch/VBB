@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import { Fragment, lazy } from "react"
 import { Distance } from "../Distance/Distance"
+import Carrier from "../Carrier/Carrier"
 const Time = lazy(() => import("../Time/Time"))
 const Product = lazy(() => import("../Product/Product"))
 const Line = lazy(() => import("../Line/Line"))
@@ -26,6 +27,12 @@ type Remarks = {
 	validUntil: string | undefined
 }[]
 
+type Operator = {
+  type: "operator",
+  id: string,
+  name: string
+}
+
 type LINE_A = {
 	color: {
 		fg: string
@@ -39,6 +46,7 @@ type LINE_A = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "regional" | "suburban" | "subway"
 	type: string
 }
@@ -52,6 +60,7 @@ type LINE_B = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "express" | "tram" | "bus" | "ferry"
 	type: string
 }
@@ -188,7 +197,7 @@ const Arrival = (props: Props) => {
 			<div
 				className="row"
 				key={props.arr.tripId}
-				sx={{ display: "grid", gridTemplateColumns: "repeat(24,1fr)" }}
+				sx={{ display: "grid", gridTemplateColumns: ["repeat(24,1fr)", "repeat(24,1fr)", "repeat(26,1fr)"] }}
 			>
 				<Time time={plantime} class="plantime" />
 				<Time time={realtime} class="realtime" />
@@ -222,6 +231,7 @@ const Arrival = (props: Props) => {
 				<Bike remarks={remarks} />
 				<Warning remarks={remarks} />
 				<Status remarks={remarks} />
+				<Carrier operator={line.operator} />
 			</div>
 			<div
 				className="row row-add"

@@ -18,7 +18,7 @@ const Barrier = ({ remarks }: Props) => {
 					className="barrier"
 					sx={{
 						textAlign: "center",
-						gridColumn: ["1 / span 6", "21 / span 1"],
+						gridColumn: ["1 / span 5", "1 / span 5", "21 / span 1"],
 						px: 0,
 					}}
 				>
@@ -29,7 +29,7 @@ const Barrier = ({ remarks }: Props) => {
 					className="barrier"
 					sx={{
 						textAlign: "center",
-						gridColumn: ["1 / span 6", "21 / span 1"],
+						gridColumn: ["1 / span 5", "1 / span 5", "21 / span 1"],
 						px: 0,
 					}}
 				/>

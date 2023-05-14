@@ -21,7 +21,7 @@ export default function Tablehead({ mode }: Props) {
 					fontWeight: "bold",
 					display: ["none", "block"],
 					textAlign: "center",
-					gridColumn: "1 / span 2",
+					gridColumn: "1 / span 1",
 				}}
 			>
 				{getLocale("scheduled")}
@@ -32,7 +32,7 @@ export default function Tablehead({ mode }: Props) {
 					fontWeight: "bold",
 					display: ["none", "block"],
 					textAlign: "center",
-					gridColumn: "3 / span 2",
+					gridColumn: "2 / span 1",
 				}}
 			>
 				{getLocale("real")}
@@ -43,7 +43,7 @@ export default function Tablehead({ mode }: Props) {
 					fontWeight: "bold",
 					display: ["none", "block"],
 					textAlign: "right",
-					gridColumn: "5 / span 2",
+					gridColumn: "3 / span 2",
 				}}
 			>
 				{getLocale("delay")}
@@ -53,7 +53,7 @@ export default function Tablehead({ mode }: Props) {
 				sx={{
 					fontWeight: "bold",
 					display: ["none", "block"],
-					gridColumn: "7 / span 1",
+					gridColumn: "5 / span 1",
 				}}
 			/>
 			<div
@@ -62,7 +62,7 @@ export default function Tablehead({ mode }: Props) {
 					fontWeight: "bold",
 					display: ["none", "block"],
 					textAlign: "left",
-					gridColumn: "8 / span 3",
+					gridColumn: "6 / span 3",
 				}}
 			>
 				{getLocale("line")}
@@ -74,7 +74,7 @@ export default function Tablehead({ mode }: Props) {
 						fontWeight: "bold",
 						display: ["none", "block"],
 						textAlign: "left",
-						gridColumn: "11 / span 8",
+						gridColumn: "9 / span 8",
 					}}
 				>
 					{getLocale("direction")}
@@ -86,7 +86,7 @@ export default function Tablehead({ mode }: Props) {
 						fontWeight: "bold",
 						display: ["none", "block"],
 						textAlign: "left",
-						gridColumn: "11 / span 8",
+						gridColumn: "9 / span 8",
 					}}
 				>
 					{getLocale("from")}
@@ -98,7 +98,7 @@ export default function Tablehead({ mode }: Props) {
 					fontWeight: "bold",
 					display: ["none", "block"],
 					textAlign: "center",
-					gridColumn: "19 / span 2",
+					gridColumn: "17 / span 2",
 				}}
 			>
 				{getLocale("track")}
@@ -108,7 +108,7 @@ export default function Tablehead({ mode }: Props) {
 				sx={{
 					fontWeight: "bold",
 					display: ["none", "block"],
-					gridColumn: "21 / span 1 ",
+					gridColumn: "19 / span 1 ",
 				}}
 			/>
 			<div
@@ -116,7 +116,7 @@ export default function Tablehead({ mode }: Props) {
 				sx={{
 					fontWeight: "bold",
 					display: ["none", "block"],
-					gridColumn: "22 / span 1",
+					gridColumn: "20 / span 1",
 				}}
 			/>
 			<div
@@ -124,7 +124,7 @@ export default function Tablehead({ mode }: Props) {
 				sx={{
 					fontWeight: "bold",
 					display: ["none", "block"],
-					gridColumn: "23 / span 1",
+					gridColumn: "21 / span 1",
 				}}
 			/>
 			<div
@@ -132,9 +132,10 @@ export default function Tablehead({ mode }: Props) {
 				sx={{
 					fontWeight: "bold",
 					display: ["none", "block"],
-					gridColumn: "24 / span 1",
+					gridColumn: "22 / span 1",
 				}}
 			/>
+			<div className="operator thead" sx={{ fontWeight: "bold", display: ["none", "none", "block"], gridColumn: "23 / span 2" }} />
 		</div>
 	)
 }

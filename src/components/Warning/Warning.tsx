@@ -74,7 +74,7 @@ const Warning = ({ remarks }: Props) => {
 			className="warning"
 			sx={{
 				textAlign: "center",
-				gridColumn: ["13 / span 6", "23 / span 1"],
+				gridColumn: ["11 / span 5", "11 / span 5", "23 / span 1"],
 				px: 0,
 			}}
 		>

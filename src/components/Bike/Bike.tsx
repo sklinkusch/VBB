@@ -18,7 +18,7 @@ const Bike = ({ remarks }: Props) => {
 					className="bike"
 					sx={{
 						textAlign: "center",
-						gridColumn: ["7 / span 6", "22 / span 1"],
+						gridColumn: ["6 / span 5", "6 / span 5", "22 / span 1"],
 						px: 0,
 					}}
 				>
@@ -29,7 +29,7 @@ const Bike = ({ remarks }: Props) => {
 					className="bike"
 					sx={{
 						textAlign: "center",
-						gridColumn: ["7 / span 6", "22 / span 1"],
+						gridColumn: ["6 / span 5", "6 / span 5", "22 / span 1"],
 						px: 0,
 					}}
 				/>

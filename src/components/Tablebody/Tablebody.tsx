@@ -8,6 +8,12 @@ type Location = {
 	longitude: number
 }
 
+type Operator = {
+  type: "operator",
+  id: string,
+  name: string
+}
+
 type Remarks = {
 	code: string | undefined
 	summary: string | null | undefined
@@ -30,6 +36,7 @@ type LINE_A = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "regional" | "suburban" | "subway"
 	type: string
 }
@@ -43,6 +50,7 @@ type LINE_B = {
 	name: string
 	night: boolean
 	nr: number
+	operator: Operator
 	product: "express" | "tram" | "bus" | "ferry"
 	type: string
 }
