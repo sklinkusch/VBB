@@ -18,6 +18,7 @@ import Mobus from "../../images/carriers/mobus.svg"
 import MRB from "../../images/carriers/mrb.svg"
 import NEB from "../../images/carriers/neb.svg"
 import ODEG from "../../images/carriers/odeg.svg"
+import ORP from "../../images/carriers/orp.svg"
 import OVG from "../../images/carriers/ovg.svg"
 import Prignitzbus from "../../images/carriers/prignitzbus.svg"
 import RPM from "../../images/carriers/rpm.svg"
@@ -160,6 +161,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={ODEG} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "orp-ostprignitz-ruppiner-personennahverkehrsgesellschaft-mbh":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={ORP} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "prignitzbus":
