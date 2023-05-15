@@ -10,6 +10,7 @@ import DB from "../../images/carriers/db.svg"
 import FlixTrain from "../../images/carriers/flixtrain.svg"
 import FBehrendt from "../../images/carriers/fritz-behrendt.svg"
 import GSchmidt from "../../images/carriers/gerd-schmidt.png"
+import Glaser from "../../images/carriers/glaser.svg"
 import HANS from "../../images/carriers/hans.svg"
 import Havelbus from "../../images/carriers/havelbus.svg"
 import Lange from "../../images/carriers/lange.svg"
@@ -105,6 +106,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={FBehrendt} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "glaser":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={Glaser} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "hanseatische-eisenbahn":
