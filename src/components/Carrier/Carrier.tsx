@@ -7,6 +7,7 @@ import BOS from "../../images/carriers/bos.svg"
 import BVG from '../../images/carriers/bvg.svg'
 import DB from "../../images/carriers/db.svg"
 import FlixTrain from "../../images/carriers/flixtrain.svg"
+import GSchmidt from "../../images/carriers/gerd-schmidt.png"
 import Havelbus from "../../images/carriers/havelbus.svg"
 import MRB from "../../images/carriers/mrb.svg"
 import NEB from "../../images/carriers/neb.svg"
@@ -68,6 +69,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={BVG} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "busverkehr-gerd-schmidt":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={GSchmidt} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "db-regio-ag":
