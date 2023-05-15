@@ -33,6 +33,7 @@ import VBBr from "../../images/carriers/vbbr.svg"
 import VerkehrsbetriebPotsdam from "../../images/carriers/VerkehrsbetriebPotsdam.jpg"
 import VG_OSL from "../../images/carriers/vg-osl.svg"
 import VTF from "../../images/carriers/vtf.svg"
+import VMEE from "../../images/carriers/vmee.svg"
 
 type Operator = {
   type: "operator",
@@ -250,6 +251,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={VTF} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "verkehrsmanagement-elbe-elster-gmbh":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={VMEE} alt={operator.name} sx={ styles } /> 
         </div>
       )
     default:
