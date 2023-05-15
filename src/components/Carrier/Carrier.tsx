@@ -12,6 +12,7 @@ import FBehrendt from "../../images/carriers/fritz-behrendt.svg"
 import GSchmidt from "../../images/carriers/gerd-schmidt.png"
 import HANS from "../../images/carriers/hans.svg"
 import Havelbus from "../../images/carriers/havelbus.svg"
+import Lange from "../../images/carriers/lange.svg"
 import Mobus from "../../images/carriers/mobus.svg"
 import MRB from "../../images/carriers/mrb.svg"
 import NEB from "../../images/carriers/neb.svg"
@@ -122,6 +123,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={MRB} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "lange":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={Lange} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "mobus-markisch-oderland-bus-gmbh":
