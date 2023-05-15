@@ -26,6 +26,7 @@ import RVS from "../../images/carriers/rvs.svg"
 import SBahn from "../../images/carriers/sbahn.svg"
 import SRS from "../../images/carriers/srs.svg"
 import STE from "../../images/carriers/ste.svg"
+import Sabinchen from "../../images/carriers/sabinchen.png"
 import VerkehrsbetriebPotsdam from "../../images/carriers/VerkehrsbetriebPotsdam.jpg"
 import VTF from "../../images/carriers/vtf.svg"
 
@@ -191,6 +192,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={SBahn} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "sabinchen-touristik-gmbh":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={Sabinchen} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "schoneicher-rudersdorfer-strassenbahn-gmbh":
