@@ -85,6 +85,7 @@ const Carrier = ({operator}: Props) => {
         </div>
       )
     case "db-regio-ag":
+    case "db-regio-bus-ost-gmbh":
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={DB} alt={operator.name} sx={ styles } /> 
