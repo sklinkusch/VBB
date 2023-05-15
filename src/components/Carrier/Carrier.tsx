@@ -31,6 +31,7 @@ import Sabinchen from "../../images/carriers/sabinchen.png"
 import UVG from "../../images/carriers/uvg.svg"
 import VBBr from "../../images/carriers/vbbr.svg"
 import VerkehrsbetriebPotsdam from "../../images/carriers/VerkehrsbetriebPotsdam.jpg"
+import VG_OSL from "../../images/carriers/vg-osl.svg"
 import VTF from "../../images/carriers/vtf.svg"
 
 type Operator = {
@@ -237,6 +238,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={VerkehrsbetriebPotsdam} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "verkehrsgesellschaft-oberspreewald-lausitz-mbh":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={VG_OSL} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "verkehrsgesellschaft-teltow-flaming-mbh":
