@@ -5,6 +5,7 @@ import AReich from "../../images/carriers/AReich.svg"
 import BBG from "../../images/carriers/bbg.svg"
 import BOS from "../../images/carriers/bos.svg"
 import BVG from '../../images/carriers/bvg.svg'
+import Cottbusverkehr from "../../images/carriers/cottbusverkehr.svg"
 import DB from "../../images/carriers/db.svg"
 import FlixTrain from "../../images/carriers/flixtrain.svg"
 import GSchmidt from "../../images/carriers/gerd-schmidt.png"
@@ -75,6 +76,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={GSchmidt} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "cottbusverkehr-gmbh":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={Cottbusverkehr} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "db-regio-ag":
