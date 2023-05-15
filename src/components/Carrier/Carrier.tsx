@@ -29,6 +29,7 @@ import STE from "../../images/carriers/ste.svg"
 import SVF from "../../images/carriers/svf.svg"
 import Sabinchen from "../../images/carriers/sabinchen.png"
 import UVG from "../../images/carriers/uvg.svg"
+import VBBr from "../../images/carriers/vbbr.svg"
 import VerkehrsbetriebPotsdam from "../../images/carriers/VerkehrsbetriebPotsdam.jpg"
 import VTF from "../../images/carriers/vtf.svg"
 
@@ -224,6 +225,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={UVG} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "verkehrsbetriebe-brandenburg-an-der-havel-gmbh":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={VBBr} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "verkehrsbetrieb-potsdam-gmbh":
