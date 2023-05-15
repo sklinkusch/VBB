@@ -8,6 +8,7 @@ import BVG from '../../images/carriers/bvg.svg'
 import Cottbusverkehr from "../../images/carriers/cottbusverkehr.svg"
 import DB from "../../images/carriers/db.svg"
 import FlixTrain from "../../images/carriers/flixtrain.svg"
+import FBehrendt from "../../images/carriers/fritz-behrendt.svg"
 import GSchmidt from "../../images/carriers/gerd-schmidt.png"
 import Havelbus from "../../images/carriers/havelbus.svg"
 import MRB from "../../images/carriers/mrb.svg"
@@ -95,6 +96,12 @@ const Carrier = ({operator}: Props) => {
       return (
         <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
           <img src={FlixTrain} alt={operator.name} sx={ styles } /> 
+        </div>
+      )
+    case "fritz-behrendt-ohg":
+      return (
+        <div sx={{ gridColumn: ["21 / span 4", "21 / span 4","25 / span 2"] }} title={operator.name}>
+          <img src={FBehrendt} alt={operator.name} sx={ styles } /> 
         </div>
       )
     case "havelbus-verkehrsgesellschaft-mbh":
