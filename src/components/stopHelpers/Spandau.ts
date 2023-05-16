@@ -261,6 +261,8 @@ export function getSpandau(
 							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 3, 5]
 						if (direction.includes("Wilhelmsruher Damm"))
 							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 9, 5]
+						if (direction.includes("Wittenau"))
+							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 9, 5]
 						return ["S+U Rathaus Spandau [Bus Altstädter Ring]", null, 5]
 					case "X37":
 						if (direction.includes("Falkensee"))
@@ -314,6 +316,8 @@ export function getSpandau(
 						if (direction.includes("Reimerweg"))
 							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 5, 5]
 						if (direction.includes("Freudstr"))
+							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 6, 5]
+						if (direction.includes("Goldkäferweg"))
 							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 6, 5]
 						if (direction.includes("Westerwaldstr"))
 							return ["S+U Rathaus Spandau [Bus Altstädter Ring]", 6, 5]
