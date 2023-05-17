@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { Fragment, lazy } from "react"
+import { Fragment, lazy, useState } from "react"
 import { Distance } from "../Distance/Distance"
 import Carrier from "../Carrier/Carrier"
 const Time = lazy(() => import("../Time/Time"))
@@ -91,6 +91,24 @@ type Props = {
 	dep: Dep
 }
 
+type SingleStop = {
+	type: "stop"
+	id: string
+	name: string
+	location: Location
+	distance: number
+	stationDHID: string
+	products: {
+		suburban: boolean
+		subway: boolean
+		tram: boolean
+		bus: boolean
+		ferry: boolean
+		express: boolean
+		regional: boolean
+	}
+}
+
 export const getDelay = (
 	delay: number | null | undefined,
 	cancelled: boolean | null | undefined
@@ -138,11 +156,21 @@ export const getTime = (timestamp: string | undefined | null) => {
 	}
 }
 
-const getDistance = (dep: Dep) => {
+const Departure = (props: Props) => {
+	const [currPosition, setCurrPosition] = useState(null)
+	const getDistance = (dep: Dep) => {
 	const pi = 4 * Math.atan(1)
 	const { currentTripPosition, stop } = dep
 	if (currentTripPosition) {
 		const { latitude: currLat, longitude: currLng } = currentTripPosition
+		fetch(`https://vbb-rest.vercel.app/locations/nearby?latitude=${currLat}&longitude=${currLng}&results=10&language=de`)
+		.then(response => response.json())
+		.then(data => data.filter((singleStop: SingleStop) => singleStop.products[dep.line.product] === true))
+		.then(stops => {
+			if (stops.length > 0 && stops[0].name) {
+				setCurrPosition(stops[0].name)
+			}
+		})
 		const { location } = stop
 		const { latitude: stopLat, longitude: stopLng } = location
 		const rCurrLat = (pi * currLat) / 180
@@ -160,8 +188,6 @@ const getDistance = (dep: Dep) => {
 		return null
 	}
 }
-
-const Departure = (props: Props) => {
 	const distance = getDistance(props.dep)
 	let delayMin
 	if (props.dep.cancelled) {
@@ -250,7 +276,7 @@ const Departure = (props: Props) => {
 					borderBottom: ["1px solid #ccc", "1px solid #ccc", "none"],
 				}}
 			>
-				{distance && <Distance distance={distance} />}
+				{currPosition && distance && <Distance position={currPosition} distance={distance} />}
 				<Warntext remarks={remarks} />
 				<Stattext remarks={remarks} />
 			</div>
