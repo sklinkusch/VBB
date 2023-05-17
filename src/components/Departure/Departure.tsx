@@ -250,7 +250,7 @@ const Departure = (props: Props) => {
 					borderBottom: ["1px solid #ccc", "1px solid #ccc", "none"],
 				}}
 			>
-				<Distance distance={distance} />
+				{distance && <Distance distance={distance} />}
 				<Warntext remarks={remarks} />
 				<Stattext remarks={remarks} />
 			</div>
