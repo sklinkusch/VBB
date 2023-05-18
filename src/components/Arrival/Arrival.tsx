@@ -1,7 +1,8 @@
 /** @jsxImportSource theme-ui */
-import { Fragment, lazy, useState } from "react"
+import { Fragment, lazy, useState, useEffect } from "react"
 import { Distance } from "../Distance/Distance"
-import Carrier from "../Carrier/Carrier"
+const Carrier = lazy(() => import("../Carrier/Carrier"))
+const Trip = lazy(() => import("../Trip/Trip"))
 const Time = lazy(() => import("../Time/Time"))
 const Product = lazy(() => import("../Product/Product"))
 const Line = lazy(() => import("../Line/Line"))
@@ -11,6 +12,7 @@ const Warning = lazy(() => import("../Warning/Warning"))
 const Status = lazy(() => import("../Status/Status"))
 const Warntext = lazy(() => import("../Warntext/Warntext"))
 const Stattext = lazy(() => import("../Stattext/Stattext"))
+/* eslint-disable react-hooks/exhaustive-deps */
 
 type Location = {
 	type: "location"
@@ -160,6 +162,7 @@ export const getTime = (timestamp: string | undefined | null) => {
 
 const Arrival = (props: Props) => {
 	const [currPosition, setCurrPosition] = useState(null)
+	const [trip, setTrip] = useState(undefined)
 	const getDistance = (arr: Arr) => {
 	const pi = 4 * Math.atan(1)
 	const { currentTripPosition, stop } = arr
@@ -191,6 +194,11 @@ const Arrival = (props: Props) => {
 	}
 }
 	const distance = getDistance(props.arr)
+	useEffect(() => {
+		fetch(`https://vbb-rest.vercel.app/trips/${props.arr.tripId}?language=de`)
+		.then(response => response.json())
+		.then(data => setTrip(data.trip))
+	},[])
 	let delayMin
 	if (props.arr.cancelled) {
 		delayMin = getDelay(props.arr.delay, props.arr.cancelled)
@@ -269,6 +277,7 @@ const Arrival = (props: Props) => {
 				}}
 			>
 				{currPosition && distance && <Distance position={currPosition} distance={distance} />}
+				{trip && <Trip trip={trip} stopId={props.arr.stop.id} mode="arr" />}
 				<Warntext remarks={remarks} />
 				<Stattext remarks={remarks} />
 			</div>
