@@ -197,15 +197,10 @@ const Departure = (props: Props) => {
 		.then(response => response.json())
 		.then(data => setTrip(data.trip))
 	},[])
-	let delayMin
-	if (props.dep.cancelled) {
-		delayMin = getDelay(props.dep.delay, props.dep.cancelled)
-	} else {
-		delayMin = getDelay(props.dep.delay, false)
-	}
+	const delayMin = props.dep.cancelled ? getDelay(props.dep.delay, props.dep.cancelled) : getDelay(props.dep.delay, false)
 	let delay
-	if (typeof delayMin === "number") {
-		const sign = delayMin < 0 ? "–" : delayMin > 0 ? "+" : "±"
+	if (typeof props.dep.delay === "number" && typeof delayMin === "number") {
+		const sign = props.dep.delay < 0 ? "–" : props.dep.delay > 0 ? "+" : "±"
 		delay = `${sign}${delayMin}`
 	} else {
 		delay = delayMin
