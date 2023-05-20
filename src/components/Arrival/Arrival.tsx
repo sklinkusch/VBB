@@ -129,10 +129,10 @@ export const getDelay = (
 	}
 }
 
-export const getPlanTime = (realtime: string, delay: number) => {
+export const getPlanTime = (realtime: string, delay: number, sign: string) => {
 	let hours = Number(realtime.substring(0, 2))
 	let minutes = Number(realtime.substring(3, 5))
-	minutes -= delay
+	minutes = sign === "+" ? minutes - delay : sign === "–" ? minutes + delay : minutes
 	if (minutes < 0) {
 		minutes += 60
 		hours -= 1
@@ -201,16 +201,18 @@ const Arrival = (props: Props) => {
 	},[])
 	const delayMin = props.arr.cancelled ? getDelay(props.arr.delay, props.arr.cancelled) : getDelay(props.arr.delay, false)
 	let delay
+	let sign
 	if (typeof props.arr.delay === "number" && typeof delayMin === "number") {
-		const sign = props.arr.delay < 0 ? "–" : props.arr.delay > 0 ? "+" : "±"
+		sign = props.arr.delay < 0 ? "–" : props.arr.delay > 0 ? "+" : "±"
 		delay = `${sign}${delayMin}`
 	} else {
 		delay = delayMin
+		sign = "±"
 	}
 	let realtime = getTime(props.arr.when)
 	let plantime
 	if (props.arr.when != null && props.arr.delay != null) {
-		plantime = getPlanTime(realtime, Number(delayMin))
+		plantime = getPlanTime(realtime, Number(delayMin), sign)
 	} else if (props.arr.when != null && delayMin === "?") {
 		plantime = realtime
 		realtime = ""
