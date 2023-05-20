@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/VBB/static/css/main.4ad377a0.css",
-    "main.js": "/VBB/static/js/main.07497db3.js",
+    "main.js": "/VBB/static/js/main.d2dc5a94.js",
     "static/js/964.acde4eaa.chunk.js": "/VBB/static/js/964.acde4eaa.chunk.js",
     "static/js/113.66916f02.chunk.js": "/VBB/static/js/113.66916f02.chunk.js",
     "static/js/496.dcb13754.chunk.js": "/VBB/static/js/496.dcb13754.chunk.js",
-    "static/js/207.846f97d6.chunk.js": "/VBB/static/js/207.846f97d6.chunk.js",
-    "static/js/522.240de5f5.chunk.js": "/VBB/static/js/522.240de5f5.chunk.js",
+    "static/js/207.1bfb50e0.chunk.js": "/VBB/static/js/207.1bfb50e0.chunk.js",
+    "static/js/522.e06756b1.chunk.js": "/VBB/static/js/522.e06756b1.chunk.js",
     "static/js/282.2b2816a4.chunk.js": "/VBB/static/js/282.2b2816a4.chunk.js",
     "static/js/985.de9f3358.chunk.js": "/VBB/static/js/985.de9f3358.chunk.js",
     "static/js/599.33da0e3b.chunk.js": "/VBB/static/js/599.33da0e3b.chunk.js",
@@ -75,12 +75,12 @@
     "static/media/subway.svg": "/VBB/static/media/subway.e00cb078c48eaddfde2a412432846c32.svg",
     "static/media/metro-tram.svg": "/VBB/static/media/metro-tram.4777a6b064a33b4a3ea8b5002429f52e.svg",
     "main.4ad377a0.css.map": "/VBB/static/css/main.4ad377a0.css.map",
-    "main.07497db3.js.map": "/VBB/static/js/main.07497db3.js.map",
+    "main.d2dc5a94.js.map": "/VBB/static/js/main.d2dc5a94.js.map",
     "964.acde4eaa.chunk.js.map": "/VBB/static/js/964.acde4eaa.chunk.js.map",
     "113.66916f02.chunk.js.map": "/VBB/static/js/113.66916f02.chunk.js.map",
     "496.dcb13754.chunk.js.map": "/VBB/static/js/496.dcb13754.chunk.js.map",
-    "207.846f97d6.chunk.js.map": "/VBB/static/js/207.846f97d6.chunk.js.map",
-    "522.240de5f5.chunk.js.map": "/VBB/static/js/522.240de5f5.chunk.js.map",
+    "207.1bfb50e0.chunk.js.map": "/VBB/static/js/207.1bfb50e0.chunk.js.map",
+    "522.e06756b1.chunk.js.map": "/VBB/static/js/522.e06756b1.chunk.js.map",
     "282.2b2816a4.chunk.js.map": "/VBB/static/js/282.2b2816a4.chunk.js.map",
     "985.de9f3358.chunk.js.map": "/VBB/static/js/985.de9f3358.chunk.js.map",
     "599.33da0e3b.chunk.js.map": "/VBB/static/js/599.33da0e3b.chunk.js.map",
@@ -102,6 +102,6 @@
   },
   "entrypoints": [
     "static/css/main.4ad377a0.css",
-    "static/js/main.07497db3.js"
+    "static/js/main.d2dc5a94.js"
   ]
 }
