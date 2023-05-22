@@ -53,6 +53,7 @@ type Line = {
 
 type Stopover = {
   stop: OrigDest
+  cancelled?: boolean
   arrival: string | null
   plannedArrival: string | null
   arrivalDelay: number | null
@@ -132,16 +133,18 @@ function Trip({ trip, stopId, mode }: Props) {
     const remainingDepStops = trip.stopovers.slice(indexOfInterest + 1)
     return (
       <div sx={{ gridColumn: "1 / span 24", fontSize: "0.8rem", textAlign: "left", hyphens: "auto" }} lang="de">
-        {remainingDepStops && remainingDepStops.length > 0 && remainingDepStops.map((stop, idx) => (
+        {remainingDepStops && remainingDepStops.length > 0 && remainingDepStops.map((stop, idx) => {
+          const isCancelled = stop.cancelled ? { textDecorationLine: "line-through" } : {}
+          return (
           <>
-          <span>
-            {stop.stop.name}
-          </span>
-          {stop.plannedArrival ? <span sx={{ mx: "0.3em" }}>{getTime(stop.plannedArrival)}</span> : stop.plannedDeparture && <span sx={{ mx: "0.3em" }}>{getTime(stop.plannedDeparture)}</span>}
-          {typeof stop.arrivalDelay === 'number' ? <span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span> : typeof stop.departureDelay === 'number' && <span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span>}
-          {idx !== remainingDepStops.length - 1 && <span sx={{ mr: "0.3em" }}>–</span>}
+            <span sx={{ ...isCancelled }}>
+              {stop.stop.name}
+            </span>
+            {stop.plannedArrival ? <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedArrival)}</span> : stop.plannedDeparture && <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedDeparture)}</span>}
+            {typeof stop.arrivalDelay === 'number' && !stop.cancelled ? <span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span> : typeof stop.departureDelay === 'number' && !stop.cancelled && <span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span>}
+            {idx !== remainingDepStops.length - 1 && <span sx={{ mr: "0.3em" }}>–</span>}
           </>
-        ))}
+        )})}
       </div>
     )
   }
@@ -149,16 +152,18 @@ function Trip({ trip, stopId, mode }: Props) {
     const remainingArrStops = trip.stopovers.slice(0, indexOfInterest)
     return (
       <div sx={{ gridColumn: "1 / span 24", fontSize: "0.8rem", textAlign: "left", hyphens: "auto" }} lang="de">
-        {remainingArrStops && remainingArrStops.length > 0 && remainingArrStops.map((stop, idx) => (
+        {remainingArrStops && remainingArrStops.length > 0 && remainingArrStops.map((stop, idx) => {
+          const isCancelled = stop.cancelled ? { textDecorationLine: "line-through" } : {}
+          return (
           <>
-          <span>
+          <span sx={{ ...isCancelled }}>
             {stop.stop.name}
           </span>
-          {stop.plannedDeparture ? <span sx={{ mx: "0.3em" }}>{getTime(stop.plannedDeparture)}</span> : stop.plannedArrival && <span sx={{ mx: "0.3em" }}>{getTime(stop.plannedArrival)}</span>}
-          {typeof stop.departureDelay === 'number' ? <span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span> : typeof stop.arrivalDelay === 'number' && <span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span>}
+          {stop.plannedDeparture ? <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedDeparture)}</span> : stop.plannedArrival && <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedArrival)}</span>}
+          {typeof stop.departureDelay === 'number' && !stop.cancelled ? <span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span> : typeof stop.arrivalDelay === 'number' && !stop.cancelled && <span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span>}
           {idx !== remainingArrStops.length - 1 && <span sx={{ mr: "0.3em" }}>–</span>}
           </>
-        ))}
+        )})}
       </div>
     )
   }
