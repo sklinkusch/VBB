@@ -136,14 +136,14 @@ function Trip({ trip, stopId, mode }: Props) {
         {remainingDepStops && remainingDepStops.length > 0 && remainingDepStops.map((stop, idx) => {
           const isCancelled = stop.cancelled ? { textDecorationLine: "line-through" } : {}
           return (
-          <>
+          <span key={`${idx}_${stop.stop.name}`}>
             <span sx={{ ...isCancelled }}>
               {stop.stop.name}
             </span>
             {stop.plannedArrival ? <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedArrival)}</span> : stop.plannedDeparture && <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedDeparture)}</span>}
             {typeof stop.arrivalDelay === 'number' && !stop.cancelled ? <span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span> : typeof stop.departureDelay === 'number' && !stop.cancelled && <span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span>}
             {idx !== remainingDepStops.length - 1 && <span sx={{ mr: "0.3em" }}>–</span>}
-          </>
+          </span>
         )})}
       </div>
     )

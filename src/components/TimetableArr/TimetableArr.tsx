@@ -115,53 +115,65 @@ export default function TimetableArr() {
 				typeof params.id === "string" &&
 				params.id.length === 9
 			) {
-				const response = await fetch(
-					`https://station-api-jade.vercel.app/?id=${params.id}`
-				)
-				const station = await response.json()
-				const { name } = await station
-				navigate(`/arrivals/${params.id}`)
-				setStop(station)
-				getData(params.id, name)
-				document.title = navigator.language.startsWith("de")
-					? `Ankünfte an ${name}`
-					: `Arrivals at ${name}`
-				const stopSelection = [station]
-				setSelection(stopSelection)
+				try {
+					const response = await fetch(
+						`https://station-api-jade.vercel.app/?id=${params.id}`
+					)
+					const station = await response.json()
+					const { name } = await station
+					navigate(`/arrivals/${params.id}`)
+					setStop(station)
+					getData(params.id, name)
+					document.title = navigator.language.startsWith("de")
+						? `Ankünfte an ${name}`
+						: `Arrivals at ${name}`
+					const stopSelection = [station]
+					setSelection(stopSelection)
+				} catch (error) {
+					console.debug(error)
+				}
 			} else if (
 				params.hasOwnProperty("id") &&
 				typeof params.id === 'string' &&
 				params.id.length === 12
 			) {
-				const modifiedId = `${params.id.slice(0,1)}${params.id.slice(-8)}`
-				const response = await fetch(
-					`https://station-api-jade.vercel.app/?id=${modifiedId}`
-				)
-				const station = await response.json()
-				const { name } = await station
-				navigate(`/arrivals/${modifiedId}`)
-				setStop(station)
-				getData(modifiedId, name)
-				document.title = navigator.language.startsWith("de")
-					? `Ankünfte an ${name}`
-					: `Arrivals at ${name}`
-				const stopSelection = [station]
-				setSelection(stopSelection)
+				try {
+					const modifiedId = `${params.id.slice(0,1)}${params.id.slice(-8)}`
+					const response = await fetch(
+						`https://station-api-jade.vercel.app/?id=${modifiedId}`
+					)
+					const station = await response.json()
+					const { name } = await station
+					navigate(`/arrivals/${modifiedId}`)
+					setStop(station)
+					getData(modifiedId, name)
+					document.title = navigator.language.startsWith("de")
+						? `Ankünfte an ${name}`
+						: `Arrivals at ${name}`
+					const stopSelection = [station]
+					setSelection(stopSelection)
+				} catch (error) {
+					console.debug(error)
+				}
 			} else {
-				const initialId = "900100011"
-				const response = await fetch(
-					`https://station-api-jade.vercel.app/?id=${initialId}`
-				)
-				const station = await response.json()
-				const { name: initialName } = await station
-				navigate(`/arrivals/${initialId}`)
-				setStop(station)
-				getData(initialId, initialName)
-				document.title = navigator.language.startsWith("de")
-					? `Ankünfte an ${initialName}`
-					: `Arrivals at ${initialName}`
-				const stopSelection = [station]
-				setSelection(stopSelection)
+				try {
+					const initialId = "900100011"
+					const response = await fetch(
+						`https://station-api-jade.vercel.app/?id=${initialId}`
+					)
+					const station = await response.json()
+					const { name: initialName } = await station
+					navigate(`/arrivals/${initialId}`)
+					setStop(station)
+					getData(initialId, initialName)
+					document.title = navigator.language.startsWith("de")
+						? `Ankünfte an ${initialName}`
+						: `Arrivals at ${initialName}`
+					const stopSelection = [station]
+					setSelection(stopSelection)
+				} catch (error) {
+					console.debug(error)
+				}
 			}
 		}
 		findInitialStop()
@@ -239,54 +251,62 @@ export default function TimetableArr() {
 		target: { value: string }
 	}) => {
 		const searchValue = event.target.value
-		if (searchValue.length > 4) {
-			const response = await fetch(
-				`https://station-api-jade.vercel.app/?station=${searchValue}`
-			)
-			const data = await response.json()
-			const newData = [stop, ...data]
-			setSelection(newData)
-		} else {
-			setSelection([stop])
+		try {
+			if (searchValue.length > 4) {
+				const response = await fetch(
+					`https://station-api-jade.vercel.app/?station=${searchValue}`
+				)
+				const data = await response.json()
+				const newData = [stop, ...data]
+				setSelection(newData)
+			} else {
+				setSelection([stop])
+			}
+		} catch (error) {
+			console.debug(error)
 		}
 	}
 	const setCurrStop = (currStop: Stop) => {
 		setStop(currStop)
 	}
 	const getData = async (id: string, name: string) => {
-		const type = name.startsWith("Berlin") ? "BLN" : "BBG"
-		const duration = getDuration(type)
-		let lang = "de"
-		const browserLang = navigator.language
-		if (browserLang.startsWith("de")) {
-			lang = "de"
-		} else {
-			lang = "en"
-		}
-		// const url =
-		// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
-		const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}`
-		const response = await axios.get(url)
-		const { data: resData, status } = await response
-		if (status === 500 || status !== 200) {
-			setError(`HTTP status code: ${status}`)
-			setData([])
-		} else {
-			const myDate = new Date().toLocaleString("de-DE", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-				hour: "2-digit",
-				minute: "2-digit",
-				timeZone: "Europe/Berlin",
-			})
-			const { arrivals } = resData
-			document.title =
-				lang === "de" ? `Ankünfte an ${name}` : `Arrivals at ${name}`
-			setDate(myDate)
-			setData(arrivals)
-			setViewData(arrivals)
-			setError(null)
+		try {
+			const type = name.startsWith("Berlin") ? "BLN" : "BBG"
+			const duration = getDuration(type)
+			let lang = "de"
+			const browserLang = navigator.language
+			if (browserLang.startsWith("de")) {
+				lang = "de"
+			} else {
+				lang = "en"
+			}
+			// const url =
+			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
+			const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}`
+			const response = await axios.get(url)
+			const { data: resData, status } = await response
+			if (status === 500 || status !== 200) {
+				setError(`HTTP status code: ${status}`)
+				setData([])
+			} else {
+				const myDate = new Date().toLocaleString("de-DE", {
+					year: "numeric",
+					month: "2-digit",
+					day: "2-digit",
+					hour: "2-digit",
+					minute: "2-digit",
+					timeZone: "Europe/Berlin",
+				})
+				const { arrivals } = resData
+				document.title =
+					lang === "de" ? `Ankünfte an ${name}` : `Arrivals at ${name}`
+				setDate(myDate)
+				setData(arrivals)
+				setViewData(arrivals)
+				setError(null)
+			}
+		} catch (error) {
+			console.debug(error)
 		}
 	}
 	const handleChange = (currentStop: Stop) => {

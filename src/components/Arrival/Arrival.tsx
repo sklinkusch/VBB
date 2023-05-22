@@ -163,19 +163,22 @@ export const getTime = (timestamp: string | undefined | null) => {
 const Arrival = (props: Props) => {
 	const [currPosition, setCurrPosition] = useState(null)
 	const [trip, setTrip] = useState(undefined)
-	const getDistance = (arr: Arr) => {
+	const [distance, setDistance] = useState<number|null>(null)
+	useEffect(() => {
+		const getDistance = () => {
 	const pi = 4 * Math.atan(1)
-	const { currentTripPosition, stop } = arr
+	const { currentTripPosition, stop, line } = props.arr
 	if (currentTripPosition) {
 		const { latitude: currLat, longitude: currLng } = currentTripPosition
 		fetch(`https://vbb-rest.vercel.app/locations/nearby?latitude=${currLat}&longitude=${currLng}&results=10&language=de`)
 		.then(response => response.json())
-		.then(data => data.filter((singleStop: SingleStop) => singleStop.products[arr.line.product] === true))
+		.then(data => data.filter((singleStop: SingleStop) => singleStop.products[line.product] === true))
 		.then(stops => {
 			if (stops.length > 0 && stops[0].name) {
 				setCurrPosition(stops[0].name)
 			}
 		})
+		.catch(error => console.debug(error))
 		const { location } = stop
 		const { latitude: stopLat, longitude: stopLng } = location
 		const rCurrLat = (pi * currLat) / 180
@@ -188,16 +191,16 @@ const Arrival = (props: Props) => {
 		const radDist = Math.acos(cosDist)
 		const degDist = (radDist * 180) / pi
 		const dist = degDist * 60 * 1.1515
-		return dist
-	} else {
-		return null
+		setDistance(dist)
 	}
 }
-	const distance = getDistance(props.arr)
+getDistance()
+	},[])
 	useEffect(() => {
 		fetch(`https://vbb-rest.vercel.app/trips/${props.arr.tripId}?language=de`)
 		.then(response => response.json())
 		.then(data => setTrip(data.trip))
+		.catch(error => console.debug(error))
 	},[])
 	const delayMin = props.arr.cancelled ? getDelay(props.arr.delay, props.arr.cancelled) : getDelay(props.arr.delay, false)
 	let delay
@@ -262,7 +265,7 @@ const Arrival = (props: Props) => {
 				<Bike remarks={remarks} />
 				<Warning remarks={remarks} />
 				<Status remarks={remarks} />
-				<Carrier operator={line.operator} />
+				{line.operator ? <Carrier operator={line.operator} /> : <div></div>}
 			</div>
 			<div
 				className="row row-add"

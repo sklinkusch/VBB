@@ -161,41 +161,45 @@ export const getTime = (timestamp: string | undefined | null) => {
 const Departure = (props: Props) => {
 	const [currPosition, setCurrPosition] = useState(null)
 	const [trip, setTrip] = useState(undefined)
-	const getDistance = (dep: Dep) => {
-	const pi = 4 * Math.atan(1)
-	const { currentTripPosition, stop } = dep
-	if (currentTripPosition) {
-		const { latitude: currLat, longitude: currLng } = currentTripPosition
-		fetch(`https://vbb-rest.vercel.app/locations/nearby?latitude=${currLat}&longitude=${currLng}&results=10&language=de`)
-		.then(response => response.json())
-		.then(data => data.filter((singleStop: SingleStop) => singleStop.products[dep.line.product] === true))
-		.then(stops => {
-			if (stops.length > 0 && stops[0].name) {
-				setCurrPosition(stops[0].name)
+	const [distance, setDistance] = useState<number|null>(null)
+	useEffect(() => {
+		const getDistance = () => {
+			const pi = 4 * Math.atan(1)
+			const { currentTripPosition, stop, line } = props.dep
+			if (currentTripPosition) {
+				const { latitude: currLat, longitude: currLng } = currentTripPosition
+				fetch(`https://vbb-rest.vercel.app/locations/nearby?latitude=${currLat}&longitude=${currLng}&results=10&language=de`)
+				.then(response => response.json())
+				.then(data => data.filter((singleStop: SingleStop) => singleStop.products[line.product] === true))
+				.then(stops => {
+					if (stops.length > 0 && stops[0].name) {
+						setCurrPosition(stops[0].name)
+					}
+				})
+				.catch(error => console.debug(error))
+				const { location } = stop
+				const { latitude: stopLat, longitude: stopLng } = location
+				const rCurrLat = (pi * currLat) / 180
+				const rStopLat = (pi * stopLat) / 180
+				const theta = currLng - stopLng
+				const rTheta = (pi * theta) / 180
+				const cosDist =
+					Math.sin(rCurrLat) * Math.sin(rStopLat) +
+					Math.cos(rCurrLat) * Math.cos(rStopLat) * Math.cos(rTheta)
+				const radDist = Math.acos(cosDist)
+				const degDist = (radDist * 180) / pi
+				const dist = degDist * 60 * 1.1515
+				setDistance(dist)
 			}
-		})
-		const { location } = stop
-		const { latitude: stopLat, longitude: stopLng } = location
-		const rCurrLat = (pi * currLat) / 180
-		const rStopLat = (pi * stopLat) / 180
-		const theta = currLng - stopLng
-		const rTheta = (pi * theta) / 180
-		const cosDist =
-			Math.sin(rCurrLat) * Math.sin(rStopLat) +
-			Math.cos(rCurrLat) * Math.cos(rStopLat) * Math.cos(rTheta)
-		const radDist = Math.acos(cosDist)
-		const degDist = (radDist * 180) / pi
-		const dist = degDist * 60 * 1.1515
-		return dist
-	} else {
-		return null
-	}
-}
-	const distance = getDistance(props.dep)
+		}
+		getDistance()
+
+	},[])
 	useEffect(() => {
 		fetch(`https://vbb-rest.vercel.app/trips/${props.dep.tripId}?language=de`)
 		.then(response => response.json())
 		.then(data => setTrip(data.trip))
+		.catch(error => console.debug(error))
 	},[])
 	const delayMin = props.dep.cancelled ? getDelay(props.dep.delay, props.dep.cancelled) : getDelay(props.dep.delay, false)
 	let delay
@@ -270,7 +274,7 @@ const Departure = (props: Props) => {
 				<Bike remarks={remarks} />
 				<Warning remarks={remarks} />
 				<Status remarks={remarks} />
-				<Carrier operator={line.operator} />
+				{line.operator ? <Carrier operator={line.operator} /> : <div></div>}
 			</div>
 			<div
 				className="row row-add"
