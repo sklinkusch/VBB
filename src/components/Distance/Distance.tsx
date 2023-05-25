@@ -1,7 +1,9 @@
 /** @jsxImportSource theme-ui */
 
 type Props = {
-	position: string
+	position: {
+		name: string
+	}
 	distance: number
 }
 
@@ -10,7 +12,7 @@ export function Distance({ position, distance }: Props) {
 		return (
 			<div sx={{ gridColumn: "1 / 25" }}>
 				{navigator.language.startsWith("de") ? "Aktuelle Position: " : "Current Position: "}
-				<span>{position}</span>{" "}
+				<span>{position.name}</span>{" "}
 				({distance.toFixed(3)} km)
 			</div>
 		)
