@@ -93,24 +93,6 @@ type Props = {
 	dep: Dep
 }
 
-type SingleStop = {
-	type: "stop"
-	id: string
-	name: string
-	location: Location
-	distance: number
-	stationDHID: string
-	products: {
-		suburban: boolean
-		subway: boolean
-		tram: boolean
-		bus: boolean
-		ferry: boolean
-		express: boolean
-		regional: boolean
-	}
-}
-
 export const getDelay = (
 	delay: number | null | undefined,
 	cancelled: boolean | null | undefined
@@ -165,15 +147,14 @@ const Departure = (props: Props) => {
 	useEffect(() => {
 		const getDistance = () => {
 			const pi = 4 * Math.atan(1)
-			const { currentTripPosition, stop, line } = props.dep
+			const { currentTripPosition, stop } = props.dep
 			if (currentTripPosition) {
 				const { latitude: currLat, longitude: currLng } = currentTripPosition
-				fetch(`https://vbb-rest.vercel.app/locations/nearby?latitude=${currLat}&longitude=${currLng}&results=10&language=de`)
+				fetch(`https://vbb-rest.vercel.app/locations/nearby?latitude=${currLat}&longitude=${currLng}&results=1&language=de`)
 				.then(response => response.json())
-				.then(data => data.filter((singleStop: SingleStop) => singleStop.products[line.product] === true))
 				.then(stops => {
 					if (stops.length > 0 && stops[0].name) {
-						setCurrPosition(stops[0].name)
+						setCurrPosition(stops[0])
 					}
 				})
 				.catch(error => console.debug(error))
