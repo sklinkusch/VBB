@@ -164,10 +164,8 @@ function isSaturday(weekday: number) {
   return false;
 }
 const gauss = (number: number) => {
-  if (number > 0) {
-    return Number(number.toFixed(0));
-  } else if (number < 0) {
-    return Number((number - 1).toFixed(0));
+  if (number !== 0) {
+    return Math.floor(number);
   } else {
     return 0;
   }
