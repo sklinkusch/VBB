@@ -177,6 +177,7 @@ export default function TimetableArr() {
 			}
 		}
 		findInitialStop()
+		setInterval(() => getData(stop.id, stop.name), 120000)
 	}, [])
 	const inputField = useRef<HTMLInputElement>(null)
 	const filterField = useRef<HTMLInputElement>(null)
