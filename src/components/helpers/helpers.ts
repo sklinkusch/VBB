@@ -220,11 +220,11 @@ const easterDate = (year: number) => {
   }
   let pentecostMonday = [];
   if (ascension[1] === 4) {
-    pentecostMonday = [ascension[0] - 19, 5, year];
+    pentecostMonday = [ascension[0] - 18, 5, year];
   } else if (ascension[0] > 20 && ascension[1] === 5) {
-    pentecostMonday = [ascension[0] - 20, 6, year];
+    pentecostMonday = [ascension[0] - 19, 6, year];
   } else {
-    pentecostMonday = [ascension[0] + 10, ascension[1], year];
+    pentecostMonday = [ascension[0] + 11, ascension[1], year];
   }
   const holidays = [goodFridayDate, easterMonday, ascension, pentecostMonday];
   return holidays;
