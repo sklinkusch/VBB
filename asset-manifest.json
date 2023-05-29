@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/VBB/static/css/main.4ad377a0.css",
-    "main.js": "/VBB/static/js/main.005dd7a1.js",
-    "static/js/964.a9ab492f.chunk.js": "/VBB/static/js/964.a9ab492f.chunk.js",
+    "main.js": "/VBB/static/js/main.78cc67e4.js",
+    "static/js/964.3de50ab7.chunk.js": "/VBB/static/js/964.3de50ab7.chunk.js",
     "static/js/113.66916f02.chunk.js": "/VBB/static/js/113.66916f02.chunk.js",
     "static/js/496.dcb13754.chunk.js": "/VBB/static/js/496.dcb13754.chunk.js",
     "static/js/207.d598bd6e.chunk.js": "/VBB/static/js/207.d598bd6e.chunk.js",
     "static/js/522.87125023.chunk.js": "/VBB/static/js/522.87125023.chunk.js",
     "static/js/282.2b2816a4.chunk.js": "/VBB/static/js/282.2b2816a4.chunk.js",
-    "static/js/985.a82c51e7.chunk.js": "/VBB/static/js/985.a82c51e7.chunk.js",
+    "static/js/985.e48f0459.chunk.js": "/VBB/static/js/985.e48f0459.chunk.js",
     "static/js/599.33da0e3b.chunk.js": "/VBB/static/js/599.33da0e3b.chunk.js",
     "static/js/305.fcbae9ec.chunk.js": "/VBB/static/js/305.fcbae9ec.chunk.js",
     "static/js/272.a66deeeb.chunk.js": "/VBB/static/js/272.a66deeeb.chunk.js",
@@ -75,14 +75,14 @@
     "static/media/subway.svg": "/VBB/static/media/subway.e00cb078c48eaddfde2a412432846c32.svg",
     "static/media/metro-tram.svg": "/VBB/static/media/metro-tram.4777a6b064a33b4a3ea8b5002429f52e.svg",
     "main.4ad377a0.css.map": "/VBB/static/css/main.4ad377a0.css.map",
-    "main.005dd7a1.js.map": "/VBB/static/js/main.005dd7a1.js.map",
-    "964.a9ab492f.chunk.js.map": "/VBB/static/js/964.a9ab492f.chunk.js.map",
+    "main.78cc67e4.js.map": "/VBB/static/js/main.78cc67e4.js.map",
+    "964.3de50ab7.chunk.js.map": "/VBB/static/js/964.3de50ab7.chunk.js.map",
     "113.66916f02.chunk.js.map": "/VBB/static/js/113.66916f02.chunk.js.map",
     "496.dcb13754.chunk.js.map": "/VBB/static/js/496.dcb13754.chunk.js.map",
     "207.d598bd6e.chunk.js.map": "/VBB/static/js/207.d598bd6e.chunk.js.map",
     "522.87125023.chunk.js.map": "/VBB/static/js/522.87125023.chunk.js.map",
     "282.2b2816a4.chunk.js.map": "/VBB/static/js/282.2b2816a4.chunk.js.map",
-    "985.a82c51e7.chunk.js.map": "/VBB/static/js/985.a82c51e7.chunk.js.map",
+    "985.e48f0459.chunk.js.map": "/VBB/static/js/985.e48f0459.chunk.js.map",
     "599.33da0e3b.chunk.js.map": "/VBB/static/js/599.33da0e3b.chunk.js.map",
     "305.fcbae9ec.chunk.js.map": "/VBB/static/js/305.fcbae9ec.chunk.js.map",
     "272.a66deeeb.chunk.js.map": "/VBB/static/js/272.a66deeeb.chunk.js.map",
@@ -102,6 +102,6 @@
   },
   "entrypoints": [
     "static/css/main.4ad377a0.css",
-    "static/js/main.005dd7a1.js"
+    "static/js/main.78cc67e4.js"
   ]
 }
