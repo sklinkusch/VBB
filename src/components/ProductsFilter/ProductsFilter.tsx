@@ -52,11 +52,24 @@ type Props = {
 }
 
 function ProductsFilter({ products, productSetters, getData }: Props ) {
+  const handleChange = (index: number) => {
+    const oldValue = products[index]
+    const newValue = !oldValue
+    const optionsObject: { [key: string]: any } = prods.reduce((acc, curr, idx) => {
+      const key = curr.id
+      let obj: { [key: string]: any } = {}
+      obj[key] = idx === index ? newValue : products[idx]
+      const accCopy = Object.assign(acc, obj)
+      return accCopy
+    }, {})
+    productSetters[index](newValue)
+    getData(optionsObject)
+  }
   return (
     <div>
       {prods.map((el, index) => (
       <span key={el.id}>
-        <input type="checkbox" name="product" id={el.id} checked={products[index]} onChange={() => { productSetters[index](!products[index]); getData()}} />
+        <input type="checkbox" name="product" id={el.id} checked={products[index]} onChange={() => handleChange(index)} />
         <label htmlFor={el.id}>
           <img src={el.logo} alt={el.title} title={el.title} sx={{ width: "1.2rem", ml: "0.5rem", mr: "1rem" }} />
         </label>

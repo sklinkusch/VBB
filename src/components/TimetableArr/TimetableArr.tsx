@@ -94,6 +94,16 @@ type Stop = {
 	type?: string
 }
 
+type Options = {
+	express?: boolean
+	regional?: boolean
+	suburban?: boolean
+	subway?: boolean
+	tram?: boolean
+	bus?: boolean
+	ferry?: boolean
+}
+
 type Data = Dataset[]
 
 export default function TimetableArr() {
@@ -131,7 +141,7 @@ export default function TimetableArr() {
 					const { name } = await station
 					navigate(`/arrivals/${params.id}`)
 					setStop(station)
-					getData(params.id, name)
+					getData(params.id, name, {})
 					document.title = navigator.language.startsWith("de")
 						? `Ankünfte an ${name}`
 						: `Arrivals at ${name}`
@@ -154,7 +164,7 @@ export default function TimetableArr() {
 					const { name } = await station
 					navigate(`/arrivals/${modifiedId}`)
 					setStop(station)
-					getData(modifiedId, name)
+					getData(modifiedId, name, {})
 					document.title = navigator.language.startsWith("de")
 						? `Ankünfte an ${name}`
 						: `Arrivals at ${name}`
@@ -173,7 +183,7 @@ export default function TimetableArr() {
 					const { name: initialName } = await station
 					navigate(`/arrivals/${initialId}`)
 					setStop(station)
-					getData(initialId, initialName)
+					getData(initialId, initialName, {})
 					document.title = navigator.language.startsWith("de")
 						? `Ankünfte an ${initialName}`
 						: `Arrivals at ${initialName}`
@@ -277,7 +287,7 @@ export default function TimetableArr() {
 	const setCurrStop = (currStop: Stop) => {
 		setStop(currStop)
 	}
-	const getData = async (id: string, name: string) => {
+	const getData = async (id: string, name: string, options: Options) => {
 		try {
 			const type = name.startsWith("Berlin") ? "BLN" : "BBG"
 			const duration = getDuration(type)
@@ -290,7 +300,7 @@ export default function TimetableArr() {
 			}
 			// const url =
 			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
-			const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}&express=${express.toString()}&regional=${regional.toString()}&suburban=${suburban.toString()}&subway=${subway.toString()}&tram=${tram.toString()}&bus=${bus.toString()}&ferry=${ferry.toString()}`
+			const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}&express=${typeof options.express === 'boolean' ? options.express.toString() : express.toString()}&regional=${typeof options.regional === 'boolean' ? options.regional.toString() : regional.toString()}&suburban=${typeof options.suburban === 'boolean' ? options.suburban.toString() : suburban.toString()}&subway=${typeof options.subway === 'boolean' ? options.subway.toString() : subway.toString()}&tram=${typeof options.tram === 'boolean' ? options.tram.toString() : tram.toString()}&bus=${typeof options.bus === 'boolean' ? options.bus.toString() : bus.toString()}&ferry=${typeof options.ferry === 'boolean' ? options.ferry.toString() : ferry.toString()}`
 			const response = await axios.get(url)
 			const { data: resData, status } = await response
 			if (status === 500 || status !== 200) {
@@ -320,7 +330,7 @@ export default function TimetableArr() {
 	const handleChange = (currentStop: Stop) => {
 		setCurrStop(currentStop)
 		const { id: myStopId, name: currentStopName } = currentStop
-		getData(myStopId, currentStopName)
+		getData(myStopId, currentStopName, {})
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 		const filterFieldCurrent = filterField.current as HTMLInputElement
@@ -329,7 +339,7 @@ export default function TimetableArr() {
 		filterSelectorCurrent.value = "OR"
 	}
 	const handleSubmit = () => {
-		getData(stop.id, stop.name)
+		getData(stop.id, stop.name, {})
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 		const filterFieldCurrent = filterField.current as HTMLInputElement
@@ -356,7 +366,7 @@ export default function TimetableArr() {
 				filterData={filterData}
 				mode="arr"
 			/>
-			<ProductsFilter products={[ express, regional, suburban, subway, tram, bus, ferry ]} productSetters={[ setExpress, setRegional, setSuburban, setSubway, setTram, setBus, setFerry ]} getData={() => getData(stop.id, stop.name)} />
+			<ProductsFilter products={[ express, regional, suburban, subway, tram, bus, ferry ]} productSetters={[ setExpress, setRegional, setSuburban, setSubway, setTram, setBus, setFerry ]} getData={(options: Options) => getData(stop.id, stop.name, options)} />
 			<StopBody
 				stop={stop}
 				data={viewData}
