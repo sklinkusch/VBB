@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { useDebugState } from "use-named-state"
 import axios from "axios"
 import { getDuration } from "../helpers/helpers"
+import ProductsFilter from "../ProductsFilter/ProductsFilter"
 const Input = lazy(() => import("../Input/Input"))
 const Select = lazy(() => import("../Select/Select"))
 const Button = lazy(() => import("../Button/Button"))
@@ -106,6 +107,13 @@ export default function TimetableArr() {
 	const [date, setDate] = useDebugState<string>("date", "")
 	const [viewData, setViewData] = useDebugState<Data>("viewData", [])
 	const [error, setError] = useDebugState<any>("error", null)
+	const [express, setExpress] = useDebugState<boolean>("express", true)
+	const [regional, setRegional] = useDebugState<boolean>("regional", true)
+	const [suburban, setSuburban] = useDebugState<boolean>("suburban", true)
+	const [subway, setSubway] = useDebugState<boolean>("subway", true)
+	const [tram, setTram] = useDebugState<boolean>("tram", true)
+	const [bus, setBus] = useDebugState<boolean>("bus", true)
+	const [ferry, setFerry] = useDebugState<boolean>("ferry", true)
 	const params = useParams()
 	const navigate = useNavigate()
 	useEffect(() => {
@@ -282,7 +290,7 @@ export default function TimetableArr() {
 			}
 			// const url =
 			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
-			const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}`
+			const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}&express=${express.toString()}&regional=${regional.toString()}&suburban=${suburban.toString()}&subway=${subway.toString()}&tram=${tram.toString()}&bus=${bus.toString()}&ferry=${ferry.toString()}`
 			const response = await axios.get(url)
 			const { data: resData, status } = await response
 			if (status === 500 || status !== 200) {
@@ -348,6 +356,7 @@ export default function TimetableArr() {
 				filterData={filterData}
 				mode="arr"
 			/>
+			<ProductsFilter products={[ express, regional, suburban, subway, tram, bus, ferry ]} productSetters={[ setExpress, setRegional, setSuburban, setSubway, setTram, setBus, setFerry ]} getData={() => getData(stop.id, stop.name)} />
 			<StopBody
 				stop={stop}
 				data={viewData}
