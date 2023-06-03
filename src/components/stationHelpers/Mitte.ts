@@ -4,9 +4,9 @@ export function getAlex(id: string, product: string, lineName: string) {
 			switch (product) {
 				case "express":
 				case "regional":
-					return ["S Alexanderplatz", 1]
+					return ["Bhf Alexanderplatz", 1]
 				case "suburban":
-					return ["S Alexanderpöatz", 2]
+					return ["S Alexanderplatz", 2]
 				default:
 					return ["S Alexanderplatz", 3]
 			}
