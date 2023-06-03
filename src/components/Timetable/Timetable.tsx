@@ -8,6 +8,7 @@ import Input from "../Input/Input"
 import Select from "../Select/Select"
 import Button from "../Button/Button"
 import Filter from "../Filter/Filter"
+import ProductsFilter from "../ProductsFilter/ProductsFilter"
 import StopBody from "../StopBody/StopBody"
 // const Input = lazy(() => import("./Input"))
 // const Select = lazy(() => import("./Select"))
@@ -112,6 +113,13 @@ export default function Timetable() {
 	const [date, setDate] = useDebugState<string>("date", "")
 	const [viewData, setViewData] = useDebugState<Data>("viewData", [])
 	const [error, setError] = useDebugState<any>("error", null)
+	const [express, setExpress] = useDebugState<boolean>("express", true)
+	const [regional, setRegional] = useDebugState<boolean>("regional", true)
+	const [suburban, setSuburban] = useDebugState<boolean>("suburban", true)
+	const [subway, setSubway] = useDebugState<boolean>("subway", true)
+	const [tram, setTram] = useDebugState<boolean>("tram", true)
+	const [bus, setBus] = useDebugState<boolean>("bus", true)
+	const [ferry, setFerry] = useDebugState<boolean>("ferry", true)
 	const params = useParams()
 	const navigate = useNavigate()
 	useEffect(() => {
@@ -301,7 +309,7 @@ export default function Timetable() {
 			}
 			// const url =
 			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&language=${lang}`
-			const url = `https://vbb-rest.vercel.app/stops/${id}/departures?language=${lang}&duration=${duration}`
+			const url = `https://vbb-rest.vercel.app/stops/${id}/departures?language=${lang}&duration=${duration}&express=${express.toString()}&regional=${regional.toString()}&suburban=${suburban.toString()}&subway=${subway.toString()}&tram=${tram.toString()}&bus=${bus.toString()}&ferry=${ferry.toString()}`
 			const response = await axios.get(url)
 			const { data: resData, status } = await response
 			if (status === 500 || status !== 200) {
@@ -369,6 +377,7 @@ export default function Timetable() {
 				filterData={filterData}
 				mode="dep"
 			/>
+			<ProductsFilter products={[ express, regional, suburban, subway, tram, bus, ferry ]} productSetters={[ setExpress, setRegional, setSuburban, setSubway, setTram, setBus, setFerry ]} getData={() => getData(stop.id, stop.name)} />
 			<StopBody
 				stop={stop}
 				data={viewData}
