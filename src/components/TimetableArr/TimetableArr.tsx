@@ -134,8 +134,10 @@ export default function TimetableArr() {
 				params.id.length === 9
 			) {
 				try {
+					// const stationUrl = `https://station-api-jade.vercel.app/?id=${params.id}`
+					const stationUrl = `https://vbb-rest.vercel.app/stops/${params.id}?language=de`
 					const response = await fetch(
-						`https://station-api-jade.vercel.app/?id=${params.id}`
+						stationUrl
 					)
 					const station = await response.json()
 					const { name } = await station
@@ -157,8 +159,10 @@ export default function TimetableArr() {
 			) {
 				try {
 					const modifiedId = `${params.id.slice(0,1)}${params.id.slice(-8)}`
+					// const stationUrl = `https://station-api-jade.vercel.app/?id=${modifiedId}`
+					const stationUrl = `https://vbb-rest.vercel.app/stops/${modifiedId}?language=de`
 					const response = await fetch(
-						`https://station-api-jade.vercel.app/?id=${modifiedId}`
+						stationUrl
 					)
 					const station = await response.json()
 					const { name } = await station
@@ -176,8 +180,11 @@ export default function TimetableArr() {
 			} else {
 				try {
 					const initialId = "900100011"
+					// const stationUrl =
+					// `https://station-api-jade.vercel.app/?id=${initialId}`
+					const stationUrl = `https://vbb-rest.vercel.app/stops/${initialId}?language=de`
 					const response = await fetch(
-						`https://station-api-jade.vercel.app/?id=${initialId}`
+						stationUrl
 					)
 					const station = await response.json()
 					const { name: initialName } = await station
@@ -271,8 +278,10 @@ export default function TimetableArr() {
 		const searchValue = event.target.value
 		try {
 			if (searchValue.length > 4) {
+				// const getStopsUrl = `https://station-api-jade.vercel.app/?station=${searchValue}`
+				const getStopsUrl = `https://vbb-rest.vercel.app/locations?query=${searchValue}&results=15&fuzzy=true&stops=true&addresses=false&poi=false&language=de&linesOfStops=true`
 				const response = await fetch(
-					`https://station-api-jade.vercel.app/?station=${searchValue}`
+					getStopsUrl
 				)
 				const data = await response.json()
 				const newData = [stop, ...data]
