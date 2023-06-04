@@ -129,45 +129,26 @@ function Trip({ trip, stopId, mode }: Props) {
     }
     return "red"
   }
-  if (mode === "dep" && indexOfInterest !== -1) {
-    const remainingDepStops = trip.stopovers.slice(indexOfInterest + 1)
-    return (
-      <div sx={{ gridColumn: "1 / span 24", fontSize: "0.8rem", textAlign: "left", hyphens: "auto" }} lang="de">
-        {remainingDepStops && remainingDepStops.length > 0 && remainingDepStops.map((stop, idx) => {
-          const isCancelled = stop.cancelled ? { textDecorationLine: "line-through" } : {}
-          return (
+  return (
+    <div sx={{ gridColumn: "1 / span 24", fontSize: "0.8rem", textAlign: "left", hyphens: "auto" }} lang="de">
+      {trip.stopovers && trip.stopovers.length > 0 && trip.stopovers.map((stop, idx) => {
+        const isCancelled = stop.cancelled ? { textDecorationLine: "line-through" } : {}
+        const isCurrentStop = idx === indexOfInterest ? { fontWeight: 700 } : {}
+        return (
           <span key={`${idx}_${stop.stop.name}`}>
-            <span sx={{ ...isCancelled }}>
+            <span sx={{ ...isCancelled, ...isCurrentStop }}>
               {stop.stop.name}
             </span>
-            {stop.plannedArrival ? <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedArrival)}</span> : stop.plannedDeparture && <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedDeparture)}</span>}
-            {typeof stop.arrivalDelay === 'number' && !stop.cancelled ? <span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span> : typeof stop.departureDelay === 'number' && !stop.cancelled && <span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span>}
-            {idx !== remainingDepStops.length - 1 && <span sx={{ mr: "0.3em" }}>–</span>}
+            {idx <= indexOfInterest && (stop.plannedDeparture ? <span sx={{ mx: "0.3em", ...isCancelled, ...isCurrentStop }}>{getTime(stop.plannedDeparture)}</span> : stop.plannedArrival && (<span sx={{ mx: "0.3em", ...isCancelled, ...isCurrentStop }}>{getTime(stop.plannedArrival)}</span>))}
+            {idx > indexOfInterest && (stop.plannedArrival ? <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedArrival)}</span> : stop.plannedDeparture && (<span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedDeparture)}</span>))}
+            {idx <= indexOfInterest && (typeof stop.departureDelay === "number" && !stop.cancelled ? (<span sx={{ mr: "0.2em", ...isCurrentStop, color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span>) : typeof stop.arrivalDelay === 'number' && !stop.cancelled && (<span sx={{ mr: "0.2em", ...isCurrentStop, color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span>))}
+            {idx > indexOfInterest && (typeof stop.arrivalDelay === 'number' && !stop.cancelled ? (<span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span>) : typeof stop.departureDelay === 'number' && !stop.cancelled && (<span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span>))}
+            {idx !== trip.stopovers.length - 1 && <span sx={{ mr: "0.3em" }}>–</span>}
           </span>
-        )})}
-      </div>
-    )
-  }
-  if (mode === "arr" && indexOfInterest !== -1) {
-    const remainingArrStops = trip.stopovers.slice(0, indexOfInterest)
-    return (
-      <div sx={{ gridColumn: "1 / span 24", fontSize: "0.8rem", textAlign: "left", hyphens: "auto" }} lang="de">
-        {remainingArrStops && remainingArrStops.length > 0 && remainingArrStops.map((stop, idx) => {
-          const isCancelled = stop.cancelled ? { textDecorationLine: "line-through" } : {}
-          return (
-          <>
-          <span sx={{ ...isCancelled }}>
-            {stop.stop.name}
-          </span>
-          {stop.plannedDeparture ? <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedDeparture)}</span> : stop.plannedArrival && <span sx={{ mx: "0.3em", ...isCancelled }}>{getTime(stop.plannedArrival)}</span>}
-          {typeof stop.departureDelay === 'number' && !stop.cancelled ? <span sx={{ mr: "0.2em", color: getColor(stop.departureDelay) }}>{getDelay(stop.departureDelay)}</span> : typeof stop.arrivalDelay === 'number' && !stop.cancelled && <span sx={{ mr: "0.2em", color: getColor(stop.arrivalDelay) }}>{getDelay(stop.arrivalDelay)}</span>}
-          {idx !== remainingArrStops.length - 1 && <span sx={{ mr: "0.3em" }}>–</span>}
-          </>
-        )})}
-      </div>
-    )
-  }
-  return null
+        )
+      })}
+    </div>
+  )
 }
 
 export default Trip
