@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkvbb=self.webpackChunkvbb||[]).push([[90],{3090:function(n,t,a){a.r(t),a.d(t,{default:function(){return r}});var c=a(2791),e=a(9922);function r(n){var t=n.handleSubmit;return(0,e.tZ)(c.Fragment,{children:(0,e.tZ)("button",{onClick:t,sx:{padding:"5px",backgroundColor:"#ccc",opacity:1},children:(0,e.tZ)("i",{className:"fas fa-redo-alt"})})})}}}]);
-//# sourceMappingURL=90.6f8c03e7.chunk.js.map
