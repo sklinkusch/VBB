@@ -1,14 +1,15 @@
-import React, { useRef, useEffect, lazy } from "react"
+/** @jsxImportSource theme-ui */
+import React, { useRef, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useDebugState } from "use-named-state"
 import axios from "axios"
 import { getDuration } from "../helpers/helpers"
+import Input from "../Input/Input"
+import Select from "../Select/Select"
+import Button from "../Button/Button"
+import Filter from "../Filter/Filter"
 import ProductsFilter from "../ProductsFilter/ProductsFilter"
-const Input = lazy(() => import("../Input/Input"))
-const Select = lazy(() => import("../Select/Select"))
-const Button = lazy(() => import("../Button/Button"))
-const Filter = lazy(() => import("../Filter/Filter"))
-const StopBody = lazy(() => import("../StopBody/StopBody"))
+import StopBody from "../StopBody/StopBody"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 type Location = {
@@ -102,20 +103,22 @@ type Options = {
 	tram?: boolean
 	bus?: boolean
 	ferry?: boolean
+	direction?: string
 }
 
 type Data = Dataset[]
 
 export default function TimetableArr() {
 	const [selection, setSelection] = useDebugState<Stop[]>("selection", [])
+	const [filterSelection, setFilterSelection] = useDebugState<Stop[]>("filterSelection", [])
 	const [stop, setStop] = useDebugState<Stop>("stop", {
 		id: "",
 		name: "",
 		type: "",
 	})
+	const [filterStop, setFilterStop] = useDebugState<Stop>("filterStop", { id: "0", name: "⸺", type: "" })
 	const [data, setData] = useDebugState<Data>("data", [])
 	const [date, setDate] = useDebugState<string>("date", "")
-	const [viewData, setViewData] = useDebugState<Data>("viewData", [])
 	const [error, setError] = useDebugState<any>("error", null)
 	const [express, setExpress] = useDebugState<boolean>("express", true)
 	const [regional, setRegional] = useDebugState<boolean>("regional", true)
@@ -204,73 +207,7 @@ export default function TimetableArr() {
 		findInitialStop()
 	}, [])
 	const inputField = useRef<HTMLInputElement>(null)
-	const filterField = useRef<HTMLInputElement>(null)
-	const filterSelector = useRef<HTMLSelectElement>(null)
-	const filterData = () => {
-		const fieldCurrent = filterField.current as HTMLInputElement
-		const { value: fieldValue } = fieldCurrent
-		const filterValues = fieldValue.split(" ")
-		const selectorCurrent = filterSelector.current as HTMLSelectElement
-		const { value: filterMode } = selectorCurrent
-		if (filterValues.length > 0) {
-			if (filterMode === "OR") {
-				filterOr(filterValues)
-			} else {
-				filterAnd(filterValues)
-			}
-		} else {
-			noFilters()
-		}
-	}
-	const filterOr = (filterValues: string[]) => {
-		const filteredData = data.filter((arrival) => {
-			let decider = false
-			if (arrival.hasOwnProperty("provenance") && arrival.provenance) {
-				for (let i = 0; i < filterValues.length; i++) {
-					if (
-						arrival.line.name
-							.toLowerCase()
-							.includes(filterValues[i].toLowerCase()) ||
-						arrival.provenance
-							.toLowerCase()
-							.includes(filterValues[i].toLowerCase())
-					) {
-						decider = true
-						break
-					}
-				}
-			}
-			return decider
-		})
-		setViewData(filteredData)
-	}
-	const filterAnd = (filterValues: string[]) => {
-		const filteredData = data.filter((arrival) => {
-			let decider = true
-			if (arrival.hasOwnProperty("provenance") && arrival.provenance) {
-				for (let i = 0; i < filterValues.length; i++) {
-					if (
-						arrival.line.name
-							.toLowerCase()
-							.includes(filterValues[i].toLowerCase()) ||
-						arrival.provenance
-							.toLowerCase()
-							.includes(filterValues[i].toLowerCase())
-					) {
-						continue
-					} else {
-						decider = false
-						break
-					}
-				}
-			}
-			return decider
-		})
-		setViewData(filteredData)
-	}
-	const noFilters = () => {
-		setViewData(data)
-	}
+	const viaInputField = useRef<HTMLInputElement>(null)
 	const getStopSelection = async (event: {
 		key: string
 		target: { value: string }
@@ -293,6 +230,34 @@ export default function TimetableArr() {
 			console.debug(error)
 		}
 	}
+	const getFilterStopSelection = async (event: {
+		key: string
+		target: { value: string }
+	}) => {
+		const searchValue = event.target.value
+		try {
+			const nullElement = { id: "0", name: "⸺", type: "" }
+			if (searchValue.length >= 3) {
+				// const getStopsUrl = `https://station-api-jade.vercel.app/?station=${searchValue}`
+				const getStopsUrl = `https://vbb-rest.vercel.app/locations?query=${searchValue}&results=15&fuzzy=true&stops=true&addresses=false&poi=false&language=de&linesOfStops=true`
+				const response = await fetch(
+					getStopsUrl
+				)
+				const fdata = await response.json()
+				const newData = filterStop.id !== "0"
+					? [ nullElement, filterStop, ...fdata ]
+					: [ nullElement, ...fdata ]
+				setFilterSelection(newData)
+			} else if (filterStop.id !== "0") {
+				const newData = [ nullElement, filterStop ]
+				setFilterSelection(newData)
+			} else {
+				setFilterSelection([nullElement])
+			}
+		} catch (error) {
+			console.debug(error)
+		}
+	}
 	const setCurrStop = (currStop: Stop) => {
 		setStop(currStop)
 	}
@@ -307,9 +272,19 @@ export default function TimetableArr() {
 			} else {
 				lang = "en"
 			}
+			const direction = options.direction
+				? options.direction !== "0"
+					? parseInt(options.direction,10)
+					: null
+				: filterStop.id !== "0"
+						? parseInt(filterStop.id, 10)
+						: null
+			const directionSnippet = typeof direction === 'number'
+				? `&direction=${direction}`
+				: ''
 			// const url =
 			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&mode=arr&language=${lang}`
-			const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}&express=${typeof options.express === 'boolean' ? options.express.toString() : express.toString()}&regional=${typeof options.regional === 'boolean' ? options.regional.toString() : regional.toString()}&suburban=${typeof options.suburban === 'boolean' ? options.suburban.toString() : suburban.toString()}&subway=${typeof options.subway === 'boolean' ? options.subway.toString() : subway.toString()}&tram=${typeof options.tram === 'boolean' ? options.tram.toString() : tram.toString()}&bus=${typeof options.bus === 'boolean' ? options.bus.toString() : bus.toString()}&ferry=${typeof options.ferry === 'boolean' ? options.ferry.toString() : ferry.toString()}`
+			const url = `https://vbb-rest.vercel.app/stops/${id}/arrivals?language=${lang}&duration=${duration}&express=${typeof options.express === 'boolean' ? options.express.toString() : express.toString()}&regional=${typeof options.regional === 'boolean' ? options.regional.toString() : regional.toString()}&suburban=${typeof options.suburban === 'boolean' ? options.suburban.toString() : suburban.toString()}&subway=${typeof options.subway === 'boolean' ? options.subway.toString() : subway.toString()}&tram=${typeof options.tram === 'boolean' ? options.tram.toString() : tram.toString()}&bus=${typeof options.bus === 'boolean' ? options.bus.toString() : bus.toString()}&ferry=${typeof options.ferry === 'boolean' ? options.ferry.toString() : ferry.toString()}${directionSnippet}`
 			const response = await axios.get(url)
 			const { data: resData, status } = await response
 			if (status === 500 || status !== 200) {
@@ -329,7 +304,6 @@ export default function TimetableArr() {
 					lang === "de" ? `Ankünfte an ${name}` : `Arrivals at ${name}`
 				setDate(myDate)
 				setData(arrivals)
-				setViewData(arrivals)
 				setError(null)
 			}
 		} catch (error) {
@@ -342,23 +316,22 @@ export default function TimetableArr() {
 		getData(myStopId, currentStopName, {})
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
-		const filterFieldCurrent = filterField.current as HTMLInputElement
-		filterFieldCurrent.value = ""
-		const filterSelectorCurrent = filterSelector.current as HTMLSelectElement
-		filterSelectorCurrent.value = "OR"
+	}
+	const handleFilterChange = (currentStop: Stop) => {
+		setFilterStop(currentStop)
+		if (currentStop.id !== "0") {
+			getData(stop.id, stop.name, { direction: currentStop.id })
+		} else {
+			getData(stop.id, stop.name, {})
+		}
+		const viaInputCurrent = viaInputField.current as HTMLInputElement
+		viaInputCurrent.value = ""
 	}
 	const handleSubmit = () => {
 		getData(stop.id, stop.name, {})
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
-		const filterFieldCurrent = filterField.current as HTMLInputElement
-		filterFieldCurrent.value = ""
-		const filterSelectorCurrent = filterSelector.current as HTMLSelectElement
-		filterSelectorCurrent.value = "OR"
 	}
-	// useEffect(() => {
-	//   getData(stop);
-	// }, []);
 	return (
 		<div className="timetable">
 			<Input filterStops={getStopSelection} inputField={inputField} />
@@ -369,16 +342,19 @@ export default function TimetableArr() {
 				mode="arr"
 			/>
 			<Button handleSubmit={handleSubmit} />
-			<Filter
-				filterField={filterField}
-				filterSelector={filterSelector}
-				filterData={filterData}
-				mode="arr"
-			/>
+			<div>
+				<span sx={{ display: "inline-block", mr: "0.2rem", fontStyle: "italic", fontWeight: 700 }}>via</span>
+				<Input filterStops={getFilterStopSelection} inputField={viaInputField} />
+				<Filter
+					handleChange={handleFilterChange}
+					selection={filterSelection}
+					stop={filterStop}
+				/>
+			</div>
 			<ProductsFilter products={[ express, regional, suburban, subway, tram, bus, ferry ]} productSetters={[ setExpress, setRegional, setSuburban, setSubway, setTram, setBus, setFerry ]} getData={(options: Options) => getData(stop.id, stop.name, options)} />
 			<StopBody
 				stop={stop}
-				data={viewData}
+				data={data}
 				error={error}
 				date={date}
 				mode="arr"
