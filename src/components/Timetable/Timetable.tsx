@@ -2,7 +2,7 @@
 import { useRef, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useDebugState } from "use-named-state"
-import axios from "axios"
+// import axios from "axios"
 import { getDuration } from "../helpers/helpers"
 import Input from "../Input/Input"
 import Select from "../Select/Select"
@@ -298,8 +298,9 @@ export default function Timetable() {
 			// const url =
 			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&language=${lang}`
 			const url = `https://vbb-rest.vercel.app/stops/${id}/departures?language=${lang}&duration=${duration}&express=${typeof options.express === 'boolean' ? options.express.toString() : express.toString()}&regional=${typeof options.regional === 'boolean' ? options.regional.toString() : regional.toString()}&suburban=${typeof options.suburban === 'boolean' ? options.suburban.toString() : suburban.toString()}&subway=${typeof options.subway === 'boolean' ? options.subway.toString() : subway.toString()}&tram=${typeof options.tram === 'boolean' ? options.tram.toString() : tram.toString()}&bus=${typeof options.bus === 'boolean' ? options.bus.toString() : bus.toString()}&ferry=${typeof options.ferry === 'boolean' ? options.ferry.toString() : ferry.toString()}${directionSnippet}`
-			const response = await axios.get(url)
-			const { data: resData, status } = await response
+			const response = await fetch(url)
+			const {status } = await response
+			const resData = await response.json()
 			if (status === 500 || status !== 200) {
 				setError(`HTTP status code: ${status}`)
 				setData([])
