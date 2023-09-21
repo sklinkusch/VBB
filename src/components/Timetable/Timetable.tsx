@@ -147,7 +147,7 @@ export default function Timetable() {
 					const { name } = await station
 					navigate(`/departures/${params.id}`)
 					setStop(station)
-					getData(params.id, name, {})
+					getData(params.id, name, { direction: "0" })
 					document.title = navigator.language.startsWith("de")
 					? `Abfahrten ab ${name}`
 					: `Departures from ${name}`
@@ -173,7 +173,7 @@ export default function Timetable() {
 					const { name } = await station
 					navigate(`/departures/${modifiedId}`)
 					setStop(station)
-					getData(modifiedId, name, {})
+					getData(modifiedId, name, { direction: "0" })
 					document.title = navigator.language.startsWith("de")
 						? `Abfahrten ab ${name}`
 						: `Departures from ${name}`
@@ -194,7 +194,7 @@ export default function Timetable() {
 					const { name: initialName } = await station
 					navigate(`/departures/${initialId}`)
 					setStop(station)
-					getData(initialId, initialName, {})
+					getData(initialId, initialName, { direction: "0" })
 					document.title = navigator.language.startsWith("de")
 						? `Abfahrten ab ${initialName}`
 						: `Departures from ${initialName}`
@@ -328,16 +328,17 @@ export default function Timetable() {
 	const handleChange = (currentStop: Stop) => {
 		setCurrStop(currentStop)
 		const { id: myStopId, name: currentStopName } = currentStop
-		getData(myStopId, currentStopName, {})
+		getData(myStopId, currentStopName, { direction: "0" })
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 	}
 	const handleFilterChange = (currentStop: Stop) => {
-		setFilterStop(currentStop)
 		if (currentStop.id !== "0") {
+			setFilterStop(currentStop)
 			getData(stop.id, stop.name, { direction: currentStop.id })
 		} else {
-			getData(stop.id, stop.name, {})
+			setFilterStop({ id: "0", name: "⸺", type: "" })
+			getData(stop.id, stop.name, { direction: "0" })
 		}
 		const viaInputCurrent = viaInputField.current as HTMLInputElement
 		viaInputCurrent.value = ""
