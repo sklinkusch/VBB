@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkvbb=self.webpackChunkvbb||[]).push([[525],{1525:(t,s,e)=>{e.r(s),e.d(s,{default:()=>n});var a=e(9922);function n(t){const s=t.remarks.filter((t=>"status"===t.type));return s.length>0?(0,a.tZ)("div",{className:"stattext",sx:{textAlign:"justify",gridColumn:"2 / span 22"},children:s.map(((t,s)=>(0,a.BX)("p",{children:[(0,a.tZ)("span",{className:"fas fa-times"}),t.text]},s)))}):null}}}]);
+//# sourceMappingURL=525.228eb33c.chunk.js.map
