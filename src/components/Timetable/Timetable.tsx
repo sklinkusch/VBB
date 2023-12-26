@@ -10,6 +10,7 @@ import Button from "../Button/Button"
 import Filter from "../Filter/Filter"
 import ProductsFilter from "../ProductsFilter/ProductsFilter"
 import StopBody from "../StopBody/StopBody"
+import TimeSelect from "../TimeSelect/TimeSelect"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 type Location = {
@@ -104,6 +105,7 @@ type Options = {
 	bus?: boolean
 	ferry?: boolean
 	direction?: string
+	time?: string
 }
 
 type Data = Dataset[]
@@ -127,6 +129,7 @@ export default function Timetable() {
 	const [tram, setTram] = useDebugState<boolean>("tram", true)
 	const [bus, setBus] = useDebugState<boolean>("bus", true)
 	const [ferry, setFerry] = useDebugState<boolean>("ferry", true)
+	const [time, setTime] = useDebugState<string>("time", new Date().toLocaleString('sv', { timeZone: 'Europe/Berlin', minute: '2-digit', hour: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }).replace(" ", "T"))
 	const params = useParams()
 	const navigate = useNavigate()
 	useEffect(() => {
@@ -295,17 +298,7 @@ export default function Timetable() {
 			const directionSnippet = typeof direction === 'number'
 				? `&direction=${direction}`
 				: ''
-			// const url =
-			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&language=${lang}`
-			const url = `https://vbb-rest.vercel.app/stops/${id}/departures?language=${lang}&duration=${duration}&express=${typeof options.express === 'boolean' ? options.express.toString() : express.toString()}&regional=${typeof options.regional === 'boolean' ? options.regional.toString() : regional.toString()}&suburban=${typeof options.suburban === 'boolean' ? options.suburban.toString() : suburban.toString()}&subway=${typeof options.subway === 'boolean' ? options.subway.toString() : subway.toString()}&tram=${typeof options.tram === 'boolean' ? options.tram.toString() : tram.toString()}&bus=${typeof options.bus === 'boolean' ? options.bus.toString() : bus.toString()}&ferry=${typeof options.ferry === 'boolean' ? options.ferry.toString() : ferry.toString()}${directionSnippet}`
-			const response = await fetch(url)
-			const {status } = await response
-			const resData = await response.json()
-			if (status === 500 || status !== 200) {
-				setError(`HTTP status code: ${status}`)
-				setData([])
-			} else {
-				const { departures } = resData
+			if ((id === stop.id || date === '') && !options.time) {
 				const myDate = new Date().toLocaleString("de-DE", {
 					year: "numeric",
 					month: "2-digit",
@@ -314,9 +307,30 @@ export default function Timetable() {
 					minute: "2-digit",
 					timeZone: "Europe/Berlin",
 				})
-				document.title =
-					lang === "de" ? `Abfahrten ab ${name}` : `Departures from ${name}`
+				const myTime = new Date().toLocaleString('sv', {
+					year: "numeric",
+					month: "2-digit",
+					day: "2-digit",
+					hour: "2-digit",
+					minute: "2-digit",
+					timeZone: "Europe/Berlin",
+				}).replace(' ', 'T')
 				setDate(myDate)
+				setTime(myTime)
+			}
+			// const url =
+			// `https://sklinkusch-vbbmicro.vercel.app/?station=${id}&duration=${duration}&language=${lang}`
+			const url = `https://vbb-rest.vercel.app/stops/${id}/departures?language=${lang}&duration=${duration}&express=${typeof options.express === 'boolean' ? options.express.toString() : express.toString()}&regional=${typeof options.regional === 'boolean' ? options.regional.toString() : regional.toString()}&suburban=${typeof options.suburban === 'boolean' ? options.suburban.toString() : suburban.toString()}&subway=${typeof options.subway === 'boolean' ? options.subway.toString() : subway.toString()}&tram=${typeof options.tram === 'boolean' ? options.tram.toString() : tram.toString()}&bus=${typeof options.bus === 'boolean' ? options.bus.toString() : bus.toString()}&ferry=${typeof options.ferry === 'boolean' ? options.ferry.toString() : ferry.toString()}${directionSnippet}&when=${typeof options.time === 'string' ? new Date(options.time).toISOString() : new Date(time).toISOString()}`
+			const response = await fetch(url)
+			const {status } = await response
+			const resData = await response.json()
+			if (status === 500 || status !== 200) {
+				setError(`HTTP status code: ${status}`)
+				setData([])
+			} else {
+				const { departures } = resData
+				document.title =
+				lang === "de" ? `Abfahrten ab ${name}` : `Departures from ${name}`
 				setData(departures)
 				// setViewData(departures)
 				setError(null)
@@ -344,9 +358,23 @@ export default function Timetable() {
 		viaInputCurrent.value = ""
 	}
 	const handleSubmit = () => {
-		getData(stop.id, stop.name, {})
+		getData(stop.id, stop.name, { time: (new Date().toLocaleString('sv', {
+			year: "numeric",
+					month: "2-digit",
+					day: "2-digit",
+					hour: "2-digit",
+					minute: "2-digit",
+					timeZone: "Europe/Berlin",
+		}).replace(' ', 'T'))})
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
+	}
+	const handleTimeChange = (value: string) => {
+		const newDateTime = new Date(value).toLocaleString('sv', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Berlin' }).replace(' ', 'T')
+		const formattedDateTime = new Date(value).toLocaleString('de-DE', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Berlin' })
+		setTime(newDateTime)
+		setDate(formattedDateTime)
+		getData(stop.id, stop.name, { time: newDateTime })
 	}
 	return (
 		<div className="timetable" sx={{ minHeight: "75vh" }}>
@@ -390,6 +418,7 @@ export default function Timetable() {
 				} 
 				getData={(options: Options) => getData(stop.id, stop.name, options)} 
 			/>
+			<TimeSelect time={time} setTime={handleTimeChange} />
 			<StopBody
 				stop={stop}
 				data={data}
