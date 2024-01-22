@@ -8,7 +8,7 @@ type Prop = {
 const TimeSelect = ({ time, setTime }: Prop) => {
   return (
     <div>
-      <input type="datetime-local" defaultValue={time} onChange={(e) => setTime(e.target.value)} />
+      <input type="datetime-local" value={time} onChange={(e) => setTime(e.target.value)} />
     </div>
   )
 }
