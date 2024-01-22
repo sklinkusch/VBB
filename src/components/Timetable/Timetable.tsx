@@ -358,14 +358,25 @@ export default function Timetable() {
 		viaInputCurrent.value = ""
 	}
 	const handleSubmit = () => {
-		getData(stop.id, stop.name, { time: (new Date().toLocaleString('sv', {
-			year: "numeric",
-					month: "2-digit",
-					day: "2-digit",
-					hour: "2-digit",
-					minute: "2-digit",
-					timeZone: "Europe/Berlin",
-		}).replace(' ', 'T'))})
+		const currentTime = new Date().toLocaleString('de-DE', {
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit',
+			hour: '2-digit',
+			minute: '2-digit',
+			timeZone: 'Europe/Berlin',
+		});
+		const currentTimeISO = new Date().toLocaleString('sv', {
+			year: 'numeric',
+			month: '2-digit',
+			day: '2-digit',
+			hour: '2-digit',
+			minute: '2-digit',
+			timeZone: 'Europe/Berlin',
+		}).replace(' ', 'T');
+		setDate(currentTime);
+		setTime(currentTimeISO);
+		getData(stop.id, stop.name, { time: currentTimeISO});
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 	}
