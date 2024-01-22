@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/VBB/static/css/main.ab71c121.css",
-    "main.js": "/VBB/static/js/main.bdb8b04a.js",
-    "static/js/964.46ab263b.chunk.js": "/VBB/static/js/964.46ab263b.chunk.js",
+    "main.js": "/VBB/static/js/main.8dad1802.js",
+    "static/js/964.212e6fb5.chunk.js": "/VBB/static/js/964.212e6fb5.chunk.js",
     "static/js/113.c42d8bbd.chunk.js": "/VBB/static/js/113.c42d8bbd.chunk.js",
     "static/js/496.ecb53a19.chunk.js": "/VBB/static/js/496.ecb53a19.chunk.js",
     "static/js/207.983c8451.chunk.js": "/VBB/static/js/207.983c8451.chunk.js",
     "static/js/522.2940dec1.chunk.js": "/VBB/static/js/522.2940dec1.chunk.js",
     "static/js/282.ff85aad0.chunk.js": "/VBB/static/js/282.ff85aad0.chunk.js",
-    "static/js/985.1677c547.chunk.js": "/VBB/static/js/985.1677c547.chunk.js",
+    "static/js/985.58be2833.chunk.js": "/VBB/static/js/985.58be2833.chunk.js",
     "static/js/599.0150f800.chunk.js": "/VBB/static/js/599.0150f800.chunk.js",
     "static/js/305.f5681c1b.chunk.js": "/VBB/static/js/305.f5681c1b.chunk.js",
     "static/js/272.129b77d2.chunk.js": "/VBB/static/js/272.129b77d2.chunk.js",
@@ -19,7 +19,7 @@
     "static/js/776.b7f23600.chunk.js": "/VBB/static/js/776.b7f23600.chunk.js",
     "static/js/558.34e9c2c0.chunk.js": "/VBB/static/js/558.34e9c2c0.chunk.js",
     "static/js/525.228eb33c.chunk.js": "/VBB/static/js/525.228eb33c.chunk.js",
-    "static/js/169.1ecb01e8.chunk.js": "/VBB/static/js/169.1ecb01e8.chunk.js",
+    "static/js/169.de32d2ea.chunk.js": "/VBB/static/js/169.de32d2ea.chunk.js",
     "static/media/soroush-karimi-192112-unsplash.min.jpg": "/VBB/static/media/soroush-karimi-192112-unsplash.min.aa96651cf4239c279504.jpg",
     "static/media/VerkehrsbetriebPotsdam.jpg": "/VBB/static/media/VerkehrsbetriebPotsdam.ca2a5175d99b53a570c6.jpg",
     "static/media/glaser.svg": "/VBB/static/media/glaser.2611b331d9b7429c52cb7d034c0626f6.svg",
@@ -70,14 +70,14 @@
     "static/media/subway.svg": "/VBB/static/media/subway.e00cb078c48eaddfde2a412432846c32.svg",
     "static/media/metro-tram.svg": "/VBB/static/media/metro-tram.4777a6b064a33b4a3ea8b5002429f52e.svg",
     "main.ab71c121.css.map": "/VBB/static/css/main.ab71c121.css.map",
-    "main.bdb8b04a.js.map": "/VBB/static/js/main.bdb8b04a.js.map",
-    "964.46ab263b.chunk.js.map": "/VBB/static/js/964.46ab263b.chunk.js.map",
+    "main.8dad1802.js.map": "/VBB/static/js/main.8dad1802.js.map",
+    "964.212e6fb5.chunk.js.map": "/VBB/static/js/964.212e6fb5.chunk.js.map",
     "113.c42d8bbd.chunk.js.map": "/VBB/static/js/113.c42d8bbd.chunk.js.map",
     "496.ecb53a19.chunk.js.map": "/VBB/static/js/496.ecb53a19.chunk.js.map",
     "207.983c8451.chunk.js.map": "/VBB/static/js/207.983c8451.chunk.js.map",
     "522.2940dec1.chunk.js.map": "/VBB/static/js/522.2940dec1.chunk.js.map",
     "282.ff85aad0.chunk.js.map": "/VBB/static/js/282.ff85aad0.chunk.js.map",
-    "985.1677c547.chunk.js.map": "/VBB/static/js/985.1677c547.chunk.js.map",
+    "985.58be2833.chunk.js.map": "/VBB/static/js/985.58be2833.chunk.js.map",
     "599.0150f800.chunk.js.map": "/VBB/static/js/599.0150f800.chunk.js.map",
     "305.f5681c1b.chunk.js.map": "/VBB/static/js/305.f5681c1b.chunk.js.map",
     "272.129b77d2.chunk.js.map": "/VBB/static/js/272.129b77d2.chunk.js.map",
@@ -88,10 +88,10 @@
     "776.b7f23600.chunk.js.map": "/VBB/static/js/776.b7f23600.chunk.js.map",
     "558.34e9c2c0.chunk.js.map": "/VBB/static/js/558.34e9c2c0.chunk.js.map",
     "525.228eb33c.chunk.js.map": "/VBB/static/js/525.228eb33c.chunk.js.map",
-    "169.1ecb01e8.chunk.js.map": "/VBB/static/js/169.1ecb01e8.chunk.js.map"
+    "169.de32d2ea.chunk.js.map": "/VBB/static/js/169.de32d2ea.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ab71c121.css",
-    "static/js/main.bdb8b04a.js"
+    "static/js/main.8dad1802.js"
   ]
 }
