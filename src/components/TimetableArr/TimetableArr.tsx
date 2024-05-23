@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useRef, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useSearchParams } from "react-router-dom"
 import { useDebugState } from "use-named-state"
 // import axios from "axios"
 import { getDuration } from "../helpers/helpers"
@@ -104,7 +104,7 @@ type Options = {
 	tram?: boolean
 	bus?: boolean
 	ferry?: boolean
-	direction?: string
+	direction: string | null
 	time?: string
 }
 
@@ -131,6 +131,7 @@ export default function TimetableArr() {
 	const [ferry, setFerry] = useDebugState<boolean>("ferry", true)
 	const [time, setTime] = useDebugState<string>("time", new Date().toLocaleString('sv', { timeZone: 'Europe/Berlin', minute: '2-digit', hour: '2-digit', day: '2-digit', month: '2-digit', year: 'numeric' }).replace(" ", "T"))
 	const params = useParams()
+	const [searchParams, setSearchParams] = useSearchParams()
 	const navigate = useNavigate()
 	useEffect(() => {
 		async function findInitialStop() {
@@ -149,7 +150,17 @@ export default function TimetableArr() {
 					const { name } = await station
 					navigate(`/arrivals/${params.id}`)
 					setStop(station)
-					getData(params.id, name, { direction: "0" })
+					const filterId = searchParams.has('direction') && searchParams.get('direction') ? searchParams.get('direction')  : "0";
+					if (typeof filterId === 'string' && filterId !== "0") {
+						const filterUrl = `https://vbb-rest.vercel.app/stops/${filterId}?language=de`
+						const filterResponse = await fetch(filterUrl)
+						const filterStation = await filterResponse.json()
+						const { name: filterName } = await filterStation
+						setFilterStop({ id: filterId, name: filterName, type: '' })
+					} else {
+						setFilterStop({ id: '0', name: '⸺', type: '' });
+					}
+					getData(params.id, name, { direction: filterId })
 					document.title = navigator.language.startsWith("de")
 						? `Ankünfte an ${name}`
 						: `Arrivals at ${name}`
@@ -335,9 +346,11 @@ export default function TimetableArr() {
 	const handleFilterChange = (currentStop: Stop) => {
 		if (currentStop.id !== "0") {
 			setFilterStop(currentStop)
+			setSearchParams({ direction: currentStop.id })
 			getData(stop.id, stop.name, { direction: currentStop.id })
 		} else {
 			setFilterStop({ id: "0", name: "⸺", type: "" })
+			setSearchParams({ direction: '0' })
 			getData(stop.id, stop.name, { direction: "0" })
 		}
 		const viaInputCurrent = viaInputField.current as HTMLInputElement
@@ -362,7 +375,7 @@ export default function TimetableArr() {
 		}).replace(' ', 'T');
 		setDate(currentTime);
 		setTime(currentTimeISO);
-		getData(stop.id, stop.name, { time: currentTimeISO});
+		getData(stop.id, stop.name, { direction: filterStop.id, time: currentTimeISO});
 		const inputCurrent = inputField.current as HTMLInputElement
 		inputCurrent.value = ""
 	}
@@ -371,7 +384,7 @@ export default function TimetableArr() {
 		const formattedDateTime = new Date(value).toLocaleString('de-DE', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Berlin' })
 		setTime(newDateTime)
 		setDate(formattedDateTime)
-		getData(stop.id, stop.name, { time: newDateTime })
+		getData(stop.id, stop.name, { direction: filterStop.id, time: newDateTime })
 	}
 	return (
 		<div className="timetable">
