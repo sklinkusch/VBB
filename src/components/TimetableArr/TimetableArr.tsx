@@ -160,7 +160,10 @@ export default function TimetableArr() {
 					} else {
 						setFilterStop({ id: '0', name: '⸺', type: '' });
 					}
-					getData(params.id, name, { direction: filterId })
+					const expressString = searchParams.has('express') && searchParams.get('express') ? searchParams.get('express') : 'false';
+					const expressBool = expressString === 'true' ? true : false;
+					setExpress(expressBool);
+					getData(params.id, name, { direction: filterId, express: express });
 					document.title = navigator.language.startsWith("de")
 						? `Ankünfte an ${name}`
 						: `Arrivals at ${name}`
@@ -405,7 +408,7 @@ export default function TimetableArr() {
 					stop={filterStop}
 				/>
 			</div>
-			<ProductsFilter products={[ express, regional, suburban, subway, tram, bus, ferry ]} productSetters={[ setExpress, setRegional, setSuburban, setSubway, setTram, setBus, setFerry ]} getData={(options: Options) => getData(stop.id, stop.name, options)} />
+			<ProductsFilter products={[ express, regional, suburban, subway, tram, bus, ferry ]} productSetters={[ setExpress, setRegional, setSuburban, setSubway, setTram, setBus, setFerry ]} getData={(options: Options) => getData(stop.id, stop.name, options)} searchParams={searchParams} setSearchParams={setSearchParams} />
 			<TimeSelect time={time} setTime={handleTimeChange} />
 			<StopBody
 				stop={stop}
