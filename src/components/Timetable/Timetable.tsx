@@ -441,6 +441,8 @@ export default function Timetable() {
 					]
 				} 
 				getData={(options: Options) => getData(stop.id, stop.name, options)} 
+				searchParams={searchParams}
+				setSearchParams={setSearchParams}
 			/>
 			<TimeSelect time={time} setTime={handleTimeChange} />
 			<StopBody
