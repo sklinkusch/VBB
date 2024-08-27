@@ -103,10 +103,10 @@ type Props = {
 	stop: Stop
 }
 
-/*type Intermediate = {
-	name: string
-	order: number | null | undefined
-}*/
+type Intermediate = {
+	name: string | number | null
+	order: string | number | null | undefined
+}
 
 export default function StopBody({
 	data,
@@ -171,12 +171,12 @@ export default function StopBody({
 				const newStopObject = changeStationObject(mode, e)
 				return newStopObject
 			})
-			const stopsRaw = await dataModified.map((e) => ({
+			const stopsRaw = dataModified.map((e) => ({
 				name: e.stop.name,
 				order: e.order,
 			}))
-			const intermediateArray = await stopsRaw.reduce(
-				(acc: any[], item: any) => {
+			const intermediateArray = stopsRaw.reduce(
+				(acc: Intermediate[], item: Intermediate) => {
 					const arr = acc.slice()
 					const i = arr.findIndex(
 						(x) => x.name === item.name && x.order === item.order
@@ -186,7 +186,7 @@ export default function StopBody({
 				},
 				[]
 			)
-			const stopsContracted = await intermediateArray.sort((a, b) => {
+			const stopsContracted = intermediateArray.sort((a, b) => {
 				const { name: aName, order: aOrder } = a
 				const { name: bName, order: bOrder } = b
 				if (
@@ -215,7 +215,7 @@ export default function StopBody({
 					return +1
 				return 0
 			})
-			const resultArray = await dataModified.reduce(
+			const resultArray = dataModified.reduce(
 				(acc: Dataset[][], curr: any) => {
 					const arr = [...acc]
 					const index = stopsContracted.findIndex(
@@ -230,8 +230,8 @@ export default function StopBody({
 				},
 				[]
 			)
-			if ((await resultArray.length) > 0) {
-				return await resultArray
+			if ((resultArray.length) > 0) {
+				return resultArray
 			}
 		}
 	}
@@ -268,10 +268,10 @@ export default function StopBody({
 			const sortedCompressedData =
 				typeof compressedData === "object" &&
 				Array.isArray(compressedData) &&
-				(await compressedData.length) >= 1
-					? await sortCompressedArray(await compressedData)
+				(compressedData.length) >= 1
+					? sortCompressedArray(compressedData)
 					: []
-			await setNewData(await sortedCompressedData)
+			setNewData(sortedCompressedData)
 		}
 		fetchData()
 	}, [data])
