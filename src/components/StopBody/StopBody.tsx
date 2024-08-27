@@ -4,7 +4,7 @@ import { getDuration } from "../helpers/helpers"
 import StopName from "../StopName/StopName"
 import Error from "../Error/Error"
 import TableData from "../TableData/TableData"
-import { changeStopObject } from "../stopHelpers"
+import { changeStationObject } from "../stationHelpers"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 type Location = {
@@ -103,10 +103,10 @@ type Props = {
 	stop: Stop
 }
 
-type Intermediate = {
+/*type Intermediate = {
 	name: string
 	order: number | null | undefined
-}
+}*/
 
 export default function StopBody({
 	data,
@@ -168,7 +168,7 @@ export default function StopBody({
 	const splitArray = async (data: Data) => {
 		if (data !== undefined && data.length > 0) {
 			const dataModified = data.map((e) => {
-				const newStopObject = changeStopObject(mode, e)
+				const newStopObject = changeStationObject(mode, e)
 				return newStopObject
 			})
 			const stopsRaw = await dataModified.map((e) => ({
@@ -176,7 +176,7 @@ export default function StopBody({
 				order: e.order,
 			}))
 			const intermediateArray = await stopsRaw.reduce(
-				(acc: Intermediate[], item: Intermediate) => {
+				(acc: any[], item: any) => {
 					const arr = acc.slice()
 					const i = arr.findIndex(
 						(x) => x.name === item.name && x.order === item.order
