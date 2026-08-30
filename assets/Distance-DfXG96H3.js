@@ -1,0 +1,1 @@
+import{n as e,t}from"./index-BhEwKShU.js";function n({position:n,distance:r}){return n&&r?e(`div`,{sx:{gridColumn:`1 / 25`},children:[navigator.language.startsWith(`de`)?`Aktuelle Position: `:`Current Position: `,t(`span`,{children:n.name}),` `,`(`,r.toFixed(3),` km)`]}):t(`div`,{})}export{n as t};

@@ -1,0 +1,1 @@
+import{n as e,t}from"./index-BhEwKShU.js";function n(n){let r=n.remarks.filter(e=>e.type===`status`);return r.length>0?t(`div`,{className:`stattext`,sx:{textAlign:`justify`,gridColumn:`2 / span 22`},children:r.map((n,r)=>e(`p`,{children:[t(`span`,{className:`fas fa-times`}),n.text]},r))}):null}export{n as default};

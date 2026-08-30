@@ -1,0 +1,1 @@
+import{n as e,s as t}from"./jsx-runtime-C4-3CIjg.js";import{n,t as r}from"./index-BhEwKShU.js";var i=t(e());function a({left:e,right:t}){return n(i.Fragment,{children:[r(`div`,{className:`legendleft`,sx:{gridColumn:`1 / span 4`},children:e}),r(`div`,{className:`legendright`,sx:{textAlign:`left`,gridColumn:`5 / span 20`},children:t})]})}export{a as t};
