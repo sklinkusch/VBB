@@ -1,6 +1,4 @@
 /** @jsxImportSource theme-ui */
-import React from "react"
-
 type Stop = {
 	id: string
 	name: string

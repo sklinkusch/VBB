@@ -104,7 +104,7 @@ type Props = {
   mode: "dep" | "arr"
 }
 
-function Trip({ trip, stopId, mode }: Props) {
+function Trip({ trip, stopId }: Props) {
   const stopOfInterest = trip.stopovers.find(stopover => stopover.stop.id === stopId)
   const indexOfInterest = stopOfInterest ? trip.stopovers.indexOf(stopOfInterest) : -1
   const getTime = (timestamp: string) => {

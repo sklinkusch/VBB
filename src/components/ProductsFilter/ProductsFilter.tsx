@@ -53,7 +53,7 @@ type Props = {
   setSearchParams: Function
 }
 
-function ProductsFilter({ products, productSetters, getData, searchParams, setSearchParams }: Props ) {
+function ProductsFilter({ products, productSetters, getData }: Props ) {
   const handleChange = (index: number) => {
     const oldValue = products[index]
     const newValue = !oldValue

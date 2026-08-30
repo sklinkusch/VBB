@@ -1,4 +1,3 @@
-import React from "react"
 import StopName from "../StopName/StopName"
 import Tablehead from "../Tablehead/Tablehead"
 import Tablebody from "../Tablebody/Tablebody"

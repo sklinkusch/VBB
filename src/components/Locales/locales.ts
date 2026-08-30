@@ -1,0 +1,81 @@
+const locales = {
+  de: {
+    VBBInfo: "VBB Fahrplaninformationen",
+    VBBDep: "VBB Abfahrten",
+    VBBArr: "VBB Ankünfte",
+    Depart: "Abfahrten",
+    Arrive: "Ankünfte",
+    legend: "Legende",
+    scheduled: "planm.",
+    scheduledDesc: "planmäßige Abfahrt/Ankunft (laut Fahrplan)",
+    real: "real",
+    realDesc: "Abfahrt/Ankunft in Echtzeit (mit Verspätung)",
+    delay: "Versp.",
+    delayDesc: "Verspätung in Minuten",
+    line: "Linie",
+    lineDesc: "Linuen- oder Zugnummer",
+    direction: "Richtung",
+    directionDesc: "Endhaltestelle des Busses, Zuges oder Schiffes",
+    from: "von",
+    fromDesc: "Starthaltestelle des Busses, Zuges oder Schiffes",
+    track: "Gleis",
+    barrierfree: "barrierefrei",
+    bike: "Fahrradmitnahme möglich",
+    attention: "Zusatzinformationen vorhanden (Umleitung, Gründe für Verspätung usw.)",
+    cancelled: "Ausfall/zusätzliche Fahrten",
+    filterStops: "Haltestellen filtern",
+    filterDepartures: "Abfahrten filtern",
+    filterArrivals: "Ankünfte filtern",
+    filterOr: "Oder (mindestens ein Wort enthalten)",
+    filterAnd: "Und (alle Wörter enthalten)",
+    footerCreated: "erstellt von",
+    footerBgImage: "Hintergrundbild von",
+    footerData: "Daten von",
+    since: "ab",
+  },
+  en: {
+    VBBInfo: "VBB Timetable Information",
+    VBBDep: "VBB Departures",
+    VBBArr: "VBB Arrivals",
+    Depart: "Departures",
+    Arrive: "Arrivals",
+    legend: "legend",
+    scheduled: "sched.",
+    scheduledDesc: "time for the departure as stated in the timetable",
+    real: "real",
+    realDesc: "currently planned time for the departure (with delays)",
+    delay: "delay",
+    delayDesc: "delay in minutes",
+    line: "line",
+    lineDesc: "line or train number",
+    direction: "direction",
+    directionDesc: "terminus of the line or train",
+    from: "from",
+    fromDesc: "starting point of a line or train",
+    track: "track",
+    barrierfree: "the bus, train, or ship is barrier-free",
+    bike: "bike transport is permitted",
+    attention: "there is additional information for this line (detour, reasons for delays etc.)",
+    cancelled: "cancellation/additional service",
+    filterStops: "Insert string to filter stops",
+    filterDepartures: "Enter string to filter departures",
+    filterArrivals: "Enter string to filter arrivals",
+    filterOr: "OR (at least one word included)",
+    filterAnd: "AND (all words included)",
+    footerCreated: "created by",
+    footerBgImage: "background image from",
+    footerData: "data from",
+    since: "from",
+  },
+} as const;
+
+type LangType = "de" | "en";
+
+type LocaleKey = keyof typeof locales.de;
+type validEn = Record<LocaleKey, string>;
+// @ts-expect-error
+const enCheck: validEn = locales.en;
+
+
+export default locales;
+export type { LangType, LocaleKey }

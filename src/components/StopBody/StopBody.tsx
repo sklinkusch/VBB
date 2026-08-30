@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect } from "react"
+import { Fragment, useEffect } from "react"
 import { useDebugState } from "use-named-state"
 import { getDuration } from "../helpers/helpers"
 import StopName from "../StopName/StopName"
 import Error from "../Error/Error"
 import TableData from "../TableData/TableData"
-import { changeStationObject } from "../stationHelpers"
 /* eslint-disable react-hooks/exhaustive-deps */
 
 type Location = {
@@ -167,11 +166,7 @@ export default function StopBody({
 	}
 	const splitArray = async (data: Data) => {
 		if (data !== undefined && data.length > 0) {
-			const dataModified = data.map((e) => {
-				const newStopObject = changeStationObject(mode, e)
-				return newStopObject
-			})
-			const stopsRaw = dataModified.map((e) => ({
+			const stopsRaw = data.map((e) => ({
 				name: e.stop.name,
 				order: e.order,
 			}))
@@ -215,7 +210,7 @@ export default function StopBody({
 					return +1
 				return 0
 			})
-			const resultArray = dataModified.reduce(
+			const resultArray = data.reduce(
 				(acc: Dataset[][], curr: any) => {
 					const arr = [...acc]
 					const index = stopsContracted.findIndex(

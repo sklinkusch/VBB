@@ -16,7 +16,7 @@ function App() {
   //   </div>
   // )
   return (
-    <Router basename={`/${process.env.PUBLIC_URL}`}>
+    <Router basename="/VBB">
       <div
         className="App container"
         sx={{

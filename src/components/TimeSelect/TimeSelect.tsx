@@ -1,5 +1,3 @@
-import React from 'react'
-
 type Prop = {
   time: string
   setTime: Function
